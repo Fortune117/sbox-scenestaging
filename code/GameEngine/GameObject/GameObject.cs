@@ -118,6 +118,9 @@ public partial class GameObject
 	/// </summary>
 	public bool Active => Enabled && Scene is not null && (Parent?.Active ?? true);
 
+	public ModelComponent Renderer => GetComponent<ModelComponent>( false );
+	public PhysicsComponent Physics => GetComponent<PhysicsComponent>( false );
+
 	internal void OnCreate()
 	{
 		foreach ( var component in Components )
