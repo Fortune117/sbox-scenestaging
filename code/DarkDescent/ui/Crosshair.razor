@@ -1,0 +1,10 @@
+﻿@using Sandbox.UI
+
+@namespace DarkDescent.UI
+@attribute [StyleSheet]
+@inherits Panel
+
+<root>
+	<div class="body" >@Action</div>
+	<div @ref=InteractFailureOverlay class="interact-failure" /> 
+</root>

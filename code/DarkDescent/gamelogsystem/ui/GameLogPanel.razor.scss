@@ -1,0 +1,48 @@
+﻿@import "ui/variables.scss";
+
+GameLogPanel
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+  width: 600px;
+  height: 150px;
+  
+  flex-direction: column;
+
+  background: linear-gradient(to right, rgba(#000, 1), rgba(#000, 0));
+
+  padding: 13px;
+  
+  .entries
+  {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+
+    flex-direction: column;
+
+    mask-image: linear-gradient(to top, white, rgba(#FFF, 0.05) 75%, rgba(#FFF, 0) 100%);
+    mask-mode: alpha;
+    
+    .entry
+    {
+      color: white;
+      font-size: 24px;
+      font-family: $font-messages;
+      flex-shrink: 0;
+      flex-grow: 1;
+      text-stroke: 2px black;
+      transition: all 2s ease-out;
+      opacity: 0.8;
+
+      &:intro {
+        opacity: 1;
+        color: palegoldenrod;
+        text-stroke: 1px palegoldenrod;
+      }
+    }
+  }
+}

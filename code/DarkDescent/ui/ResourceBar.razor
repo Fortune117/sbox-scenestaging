@@ -1,0 +1,45 @@
+﻿@using System
+@using Sandbox
+@using Sandbox.UI
+
+@namespace DarkDescent.UI
+@attribute [StyleSheet]
+@inherits Panel
+
+<root>
+	<div class="fill" style="mask-size: @Length.Fraction( DisplayFraction ) 100%"/> 
+	<div class="overlay"/>
+	<label class="current">@CurrentString</label>
+	<label class="middle">@MiddleString</label>
+	<label class="max">@MaxString</label>
+</root>
+
+@code
+{
+	public float Maximum { get; set; }
+	public float Minimum { get; set; }
+	public float Current { get; set; }
+	
+	private float DisplayFraction { get; set; }
+	
+	private float Fraction => (Current/(Maximum - Minimum)).Clamp( 0, 1 );
+	
+	private string CurrentString =>  $"{Current:#0.}";
+	private string MiddleString =>  "/";
+	private string MaxString => $"{Maximum:#0.}";
+
+	public ResourceBar()
+	{
+		SetClass( "resource-bar", true );
+	}
+	
+	public override void Tick()
+	{
+		DisplayFraction = DisplayFraction.LerpTo( Fraction, Time.Delta * 12.5f );
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( DisplayFraction );
+	}
+}

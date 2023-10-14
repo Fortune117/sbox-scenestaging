@@ -1,0 +1,39 @@
+﻿@using System
+@using DarkDescent.Actor.Damage
+@using Sandbox
+@using Sandbox.UI
+
+@namespace DarkDescent.Actor.UI
+@attribute [StyleSheet]
+@inherits WorldNumberPanel
+
+<root class="world-number-panel damage-number">
+	<label class="main-number">@($"{DamageEventData.DamageResult:#0.}")</label>
+</root>
+
+@code 
+{
+	private DamageEventData DamageEventData { get; set; }
+
+	public static DamageNumberPanel Create( DamageEventData damageEventData )
+	{
+		return new DamageNumberPanel( damageEventData );
+	}
+
+	private DamageNumberPanel(DamageEventData damageEventData)
+	{
+		DamageEventData = damageEventData;
+
+		Position = damageEventData.Position;
+
+		CalculateVelocity();
+	}
+
+	protected sealed override void CalculateVelocity()
+	{
+		var pos = DamageEventData.Target != null ? DamageEventData.Target.WorldSpaceBounds.Center : Position;
+		var dir = (DamageEventData.Position - pos).Normal;
+		
+		Velocity = dir * Game.Random.Float( 100, 200 );
+	}
+}

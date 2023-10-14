@@ -1,0 +1,37 @@
+﻿@import "ui/variables.scss";
+
+.world-number-panel
+{
+  position: absolute;
+  flex-shrink: 1;
+  opacity: 1;
+  
+  //background-color: rgba(#000, 1);
+  
+  justify-content: center;
+  align-items: center;
+  
+  transition: all 2s ease-in;
+  
+  .main-number
+  {
+    color: white;
+    align-items: center;
+    text-align: center;
+    
+    font-family: $font-world-text;
+    font-size: 100px;
+    text-stroke: 16px black;
+  }
+  
+  .hidden
+  {
+    transition: all 0.1s linear;
+    opacity: 0;
+  }
+
+  &:outro {
+    transform: scale( 0.25 );
+    opacity: 0;
+  }
+}

@@ -1,0 +1,43 @@
+@import "variables.scss";
+
+HUD
+{ 
+  .resource-bar
+  {
+    width: 400px;
+    height: 70px;
+    
+    .label
+    {
+      font-size: 32px;
+    }
+  }
+  
+  .health
+  {
+    bottom: 120px;
+  }
+
+  .stamina
+  {
+    bottom: 50px;
+  }
+  
+  .exp
+  {
+    bottom: 200px;
+    //left: 125px;
+    width: 400px;
+    height: 40px;
+    
+    .label
+    {
+      opacity: 0;
+    }
+  }
+}
+
+.chat-box
+{
+  z-index: 0;
+}

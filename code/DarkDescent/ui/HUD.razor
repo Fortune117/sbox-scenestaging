@@ -1,0 +1,43 @@
+﻿@using System
+@using Sandbox
+@using Sandbox.UI
+@using DarkDescent.GameLog.UI
+@using Player = DarkDescent.Player
+
+@attribute [StyleSheet]
+
+@namespace DarkDescent.UI
+@inherits RootPanel
+
+<root>
+    <Crosshair/>
+    <ChatBox class="chat-box"/>
+    <GameLogPanel/>
+    
+    @if ( LocalPlayer?.ActorComponent is not null )
+    {
+	    <ResourceBar class="exp-bar exp" Maximum=@LocalPlayer.ActorComponent.ExperienceRequirement Minimum=@(0) Current=@LocalPlayer.ActorComponent.Experience />
+	    <ResourceBar class="gothic-style health-bar health" Maximum=@LocalPlayer.ActorComponent.Stats.MaxHealth Minimum=@(0) Current=@LocalPlayer.ActorComponent.Health />
+	    <ResourceBar class="gothic-style stamina-bar stamina" Maximum=@LocalPlayer.ActorComponent.Stats.MaxStamina Minimum=@(0) Current=@LocalPlayer.ActorComponent.Stamina />
+    }
+</root>
+
+@code
+{
+	public Player LocalPlayer => Game.LocalPawn as Player;
+	
+    public HUD()
+    {
+        Game.RootPanel = this;
+    }
+
+	//not amazed by this prospect.
+	//full rebuild of the HUD every time a stat changes is :s
+	protected override int BuildHash()
+	{
+		if ( LocalPlayer?.ActorComponent is null )
+			return base.BuildHash();
+		
+		return HashCode.Combine( LocalPlayer.ActorComponent.Stats.MaxHealth, LocalPlayer.ActorComponent.Health, LocalPlayer.ActorComponent.Stats.MaxStamina, LocalPlayer.ActorComponent.Stamina, LocalPlayer.ActorComponent.Experience, LocalPlayer.ActorComponent.ExperienceRequirement);
+	}
+}

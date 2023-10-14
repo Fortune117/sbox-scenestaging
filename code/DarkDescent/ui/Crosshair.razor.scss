@@ -1,0 +1,72 @@
+﻿Crosshair
+{
+	position: absolute;
+	z-index: 10;
+	align-items: flex-end;
+	width: 16px;
+	height: 16px;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50% -50% );
+	opacity: 1;
+	transition: all 0.05s linear;
+	
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: url("textures/ui/crosshair_icons/crosshair.png");
+	image-rendering: pixelated;
+
+	.body
+	{
+		position: absolute;
+		left: 100%;
+		width: 300px;
+		height: 25px;
+		flex-direction: row;
+		padding-left: 5px;
+		justify-content: flex-start;
+		align-items: center;
+
+		//background-color: #1b2023;
+		
+		font-size: 22px;
+		font-family: QAZ;
+		color: lightgray;
+		text-stroke: 1px black;
+		text-align: left;
+	}
+	
+	.interact-failure
+	{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transition: all 0.1s linear;
+		
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url("textures/ui/crosshair_icons/interact_impossible.png");
+		image-rendering: pixelated;
+		
+		&.visible
+		{
+
+			opacity: 1;
+		}
+	}
+	
+	&.interact
+	{
+		background-image: url("textures/ui/crosshair_icons/hand_interact.png");
+		width: 72px;
+		height: 72px;
+	}
+	
+	&.holding
+	{
+		background-image: url("textures/ui/crosshair_icons/crosshair.png");
+	}
+}

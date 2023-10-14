@@ -1,0 +1,83 @@
+﻿@import "ui/variables.scss";
+
+ActorInfoPanel
+{
+  opacity: 1;
+  
+  color: white;
+  
+  flex-direction: column;
+  gap: 5px;
+  
+  transition: all 0.25s ease-out;
+  
+  .actor-name
+  {
+    justify-content: center;
+    gap: 15px;
+    
+    .level
+    {
+      left: -5px;
+      width: 110px;
+      height: 110px;
+      image-rendering: pixelated;
+      background-size: 100% 100%;
+      background-position: 10px center;
+      background-repeat: no-repeat;
+      background-image: url("textures/ui/backgrounds/background_slash.png");
+      background-image-tint: lightgreen;
+      
+      font-size: 60px;
+      font-family: $font-world-text;
+      text-align: center;
+      text-stroke: 18px black;
+      
+      .overlay
+      {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+      }
+    }
+    
+    .name
+    {
+      flex-shrink: 1;
+
+      align-items: center;
+      font-size: 60px;
+      font-family: $font-world-text;
+      text-align: center;
+      text-stroke: 13px black;
+    }
+  }
+  
+  .resource-bar
+  {
+    position: relative;
+    width: 400px;
+    height: 60px;
+    
+    .label
+    {
+      opacity: 1;
+      font-size: 48px;
+      text-stroke: 13px black;
+      font-family: $font-world-text;
+      
+      padding-top: 0;
+    }
+  }
+  
+  &.hidden
+  {
+    opacity: 0;
+    transform: translate(0 -25%);
+  }
+
+  &:outro {
+    transform: scale( 0.25 );
+    opacity: 0;
+  }
+}

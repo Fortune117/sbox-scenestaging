@@ -1,0 +1,18 @@
+﻿$gap-default: 10px;
+$screen-edge-border: 100px;
+
+$health-color: #ff2121;
+$stamina-color: #6cad49;
+$experience-color: #f7a4ff;
+$experience-subtext-color: #baee90;
+
+$font-messages: Alagard;
+$font-hud: Alagard;
+$font-world-text: Gothica-Book;
+
+.border-regal
+{
+  border-image: url("textures/ui/borders/ui_border_08.png") 24 24 24 24;
+  border: 32px;
+  image-rendering: pixelated;
+}

@@ -1,0 +1,55 @@
+﻿@using System
+@using DarkDescent.Components
+@using Sandbox.UI
+@using DarkDescent.UI
+@using Sandbox
+
+@namespace DarkDescent.Actor.UI
+@attribute [StyleSheet]
+@inherits WorldPanel
+
+<root>
+	<div class="actor-name">
+		<div class="level">
+			<label class="overlay">
+				32
+			</label>
+		</div>
+		<label class="name">@Name</label>
+	</div>
+	<ResourceBar class="gothic-style health-bar" Maximum=@ActorComponent.Stats.MaxHealth Minimum=@(0) Current=@ActorComponent.Health/>
+	@*<ResourceBar class="resource-bar stamina-bar" Maximum=@ActorComponent.Stats.MaxStamina Minimum=@(0) Current=@ActorComponent.Stamina />*@
+</root>
+
+@code
+{
+	private ActorComponent ActorComponent { get; set; }
+	
+	private string Name { get; set; }
+	
+	public ActorInfoPanel(ActorComponent actorComponent)
+	{
+		ActorComponent = actorComponent;
+		PanelBounds = new Rect { Width = 1200f, Height = 600, Position = new Vector2( -600, -300 )};
+		WorldScale = 1.5f;
+
+		if ( actorComponent.Entity.Components.TryGet< ObjectClassifierComponent>( out var classifier ) )
+		{
+			Name = classifier.DisplayName;
+		}
+		else
+		{
+			Name = actorComponent.Entity.Name;
+		}
+	}
+	
+	//not amazed by this prospect.
+	//full rebuild of the HUD every time a stat changes is :s
+	protected override int BuildHash()
+	{
+		if ( ActorComponent is null )
+			return base.BuildHash();
+
+		return HashCode.Combine( ActorComponent.Stats.MaxHealth, ActorComponent.Health, ActorComponent.Stats.MaxStamina, ActorComponent.Stamina );
+	}
+}
