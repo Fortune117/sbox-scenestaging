@@ -55,52 +55,49 @@ public partial class PhysicsPickupComponent : BaseComponent
 	{
 		return GameObject.GetComponent<ActorComponent>().Stats.Strength > targetComponent.StrengthThreshold - targetComponent.StrengthLeeway;
 	}
-	
+
 	/// <summary>
 	/// Return true when we're holding an item.
 	/// </summary>
 	/// <returns></returns>
-	public void Simulate()
+	public override void Update()
 	{
-		using ( Prediction.Off() )
+		var wasHolding = HoldingItem;
+		if ( !HoldingItem )
 		{
-			var wasHolding = HoldingItem;
-			if ( !HoldingItem )
-			{
-				TryPickup();
-			}
-
-			if ( !HoldingItem )
-				return;
-			
-			if (Game.IsClient)
-				Crosshair.Instance?.SetClass( "interact", false );
-
-			var player = GameObject.GetComponent<PlayerController>();
-			
-			PickupMove( player.AimRay.Position, player.AimRay.Forward, player.EyeAngles.ToRotation() );
-
-			if ( !wasHolding )
-				return;
-			
-			if ( HoldingItem && Input.Pressed( GameTags.Input.AttackPrimary ) )
-			{
-				Throw();
-				return;
-			}
-
-			if ( HoldingItem )
-			{
-				if (Input.Pressed( GameTags.Input.AttackSecondary ) || Input.Pressed( GameTags.Input.Interact ))
-					PickupEnd();
-			}
+			TryPickup();
 		}
+
+		if ( !HoldingItem )
+			return;
+		
+		//Crosshair.Instance?.SetClass( "interact", false );
+
+		var player = GameObject.GetComponent<PlayerController>();
+			
+		PickupMove( player.AimRay.Position, player.AimRay.Forward, player.EyeAngles.ToRotation() );
+
+		if ( !wasHolding )
+			return;
+			
+		if ( HoldingItem && Input.Pressed( GameTags.Input.AttackPrimary ) )
+		{
+			Throw();
+			return;
+		}
+
+		if ( HoldingItem )
+		{
+			if (Input.Pressed( GameTags.Input.AttackSecondary ) || Input.Pressed( GameTags.Input.Interact ))
+				PickupEnd();
+		}
+
+		OnPrePhysicsStep();
 	}
 
 	private bool TryPickup()
 	{
-		if (Game.IsClient)
-			Crosshair.Instance?.SetClass( "interact", false );
+		//Crosshair.Instance?.SetClass( "interact", false );
 		
 		var player = GameObject.GetComponent<PlayerController>();
 		
@@ -110,21 +107,22 @@ public partial class PhysicsPickupComponent : BaseComponent
 
 		if ( !tr.Hit )
 			return false;
+		
+		if ( tr.Body?.GameObject is not GameObject gameObject )
+			return false;
 
-		var pickupTarget = ((GameObject)tr.Body.GameObject).GetComponent<PickupTargetComponent>();
+		var pickupTarget = gameObject.GetComponent<PickupTargetComponent>();
 		if ( pickupTarget is null )
 			return false;
 		
 		var passedStrengthTest = GameObject.GetComponent<ActorComponent>().Stats.Strength >
 		                         pickupTarget.StrengthThreshold - pickupTarget.StrengthLeeway;
 
-		if ( Game.IsClient )
-		{
-			Crosshair.Instance?.SetClass( "interact", true );
-			Crosshair.InteractPossible = passedStrengthTest;
-		}
-			
-		if ( !Input.Pressed( GameTags.Input.Interact ) )
+
+		//Crosshair.Instance?.SetClass( "interact", true );
+		//Crosshair.InteractPossible = passedStrengthTest;
+		
+		if ( !Input.Pressed( "use" ) )
 			return false;
 		
 		/*if ( pickupTarget.Entity.Tags.Has( "grabbed" ) )
@@ -132,9 +130,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 
 		if ( !passedStrengthTest )
 		{
-			if (Game.IsClient)
-				GameLogSystem.PlayerFailToPickup( pickupTarget );
-			
+			GameLogSystem.PlayerFailToPickup( pickupTarget );
 			return false;
 		}
 		
@@ -145,13 +141,9 @@ public partial class PhysicsPickupComponent : BaseComponent
 		
 		return true;
 	}
-	
-	[GameEvent.Physics.PreStep]
+
 	public void OnPrePhysicsStep()
 	{
-		if ( !Game.IsServer )
-			return;
-
 		if ( !HeldBody.IsValid() )
 			return;
 
@@ -174,22 +166,13 @@ public partial class PhysicsPickupComponent : BaseComponent
 
 		if ( HoldPos.Distance( HeldBody.Position ) > 60f )
 		{
-			if ( Game.IsServer )
-			{
-				GameLogSystem.PlayerLoseGrip(PickupTarget.GameObject);
-			}
+			GameLogSystem.PlayerLoseGrip(PickupTarget.GameObject);
 			PickupEnd();
 		}
 	}
 
 	private void PickupStart( PickupTargetComponent target, PhysicsBody body, Vector3 grabPos, Rotation grabRot )
 	{
-		if ( !body.IsValid() )
-			return;
-
-		if ( body.PhysicsGroup == null )
-			return;
-
 		PickupEnd();
 
 		HeldBody = body;
@@ -207,11 +190,8 @@ public partial class PhysicsPickupComponent : BaseComponent
 
 		HoldingItem = true;
 		
-		if ( Game.IsClient )
-		{
-			Crosshair.Instance.SetClass( "interact", false );
-			GameLogSystem.PlayerPickupObject( target, EffectiveStrength < 0 );
-		}
+		//Crosshair.Instance.SetClass( "interact", false );
+		GameLogSystem.PlayerPickupObject( target, EffectiveStrength < 0 );
 	}
 
 	private void PickupEnd(bool dampenForces = true, bool useLog = true)
@@ -234,7 +214,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		{
 			//PickupTarget.GameObject.Tags.Remove( "grabbed" );
 			
-			if (Game.IsClient && useLog)
+			if (useLog)
 				GameLogSystem.PlayerDropObject( PickupTarget );
 		}
 
@@ -267,10 +247,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		
 		if ( !GameObject.GetComponent<ActorComponent>().CanAffordStaminaCost( staminaCost ) )
 		{
-			if ( Game.IsClient )
-			{
-				GameLogSystem.PlayerStrengthFailPickup(PickupTarget.GameObject);
-			}
+			GameLogSystem.PlayerStrengthFailPickup(PickupTarget.GameObject);
 			PickupEnd();
 		}
 		else
@@ -280,19 +257,13 @@ public partial class PhysicsPickupComponent : BaseComponent
 		
 		if ( !CanCarryTarget( PickupTarget ) )
 		{
-			if ( Game.IsServer )
-			{
-				GameLogSystem.PlayerStrengthFailPickup(PickupTarget.GameObject);
-			}
+			GameLogSystem.PlayerStrengthFailPickup(PickupTarget.GameObject);
 			PickupEnd();
 		}
 		
 		if ( attachPos.Distance( player.AimRay.Position ) > PickupRange )
 		{
-			if ( Game.IsServer )
-			{
-				GameLogSystem.PlayerLoseGrip(PickupTarget.GameObject);
-			}
+			GameLogSystem.PlayerLoseGrip(PickupTarget.GameObject);
 			PickupEnd();
 		}
 	}
@@ -310,7 +281,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 
 		//always add a little bit if we can actually throw something
 		var force = ThrowForceBase + EffectiveStrength * ThrowForcePerStrength;
-		if ( HeldBody.PhysicsGroup.BodyCount > 1 )
+		if ( HeldBody.PhysicsGroup?.BodyCount > 1 )
 		{
 			// Don't throw ragdolls as hard
 			HeldBody.PhysicsGroup.ApplyImpulse( player.AimRay.Forward * (force * 0.5f), true );
@@ -322,15 +293,8 @@ public partial class PhysicsPickupComponent : BaseComponent
 			HeldBody.ApplyAngularImpulse( Vector3.Random * (HeldBody.Mass * force) );
 		}
 
-		using ( Prediction.Off() )
-		{
-			if (Game.IsServer)
-				Sound.FromWorld( "interact.throw", player.AimRay.Position );
-		}
-			
-		
-		if (Game.IsClient)
-			GameLogSystem.PlayerThrowObject( PickupTarget );
+		Sound.FromWorld( "interact.throw", player.AimRay.Position );
+		GameLogSystem.PlayerThrowObject( PickupTarget );
 		
 		PickupEnd(false, false);
 	}

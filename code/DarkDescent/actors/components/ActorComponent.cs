@@ -27,8 +27,8 @@ public partial class ActorComponent : BaseComponent
 
 		//TODO: networking
 
-			BaseStats.OnReload += ReloadBaseStats;
-			InitializeStats();
+		BaseStats.OnReload += ReloadBaseStats;
+		InitializeStats();
 		
 		//TODO: world panels
 		//CreateInfoPanel();

@@ -27,8 +27,8 @@ public partial class GameLogPanel
 
 	public static void AddEntry( string message )
 	{
-		Instance.Entries.AddItem( message );
+		/*Instance.Entries.AddItem( message );
 		Instance.Entries.TryScrollToBottom();
-		Instance.Entries.StateHasChanged();
+		Instance.Entries.StateHasChanged();*/
 	}
 }

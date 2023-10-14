@@ -125,8 +125,6 @@ public partial class Player : AnimatedEntity
 			return;
 
 		var wasHolding = PhysicsPickupComponent.HoldingItem;
-		
-		PhysicsPickupComponent.Simulate();
 
 		if ( wasHolding )
 			return;

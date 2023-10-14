@@ -1,25 +1,6 @@
 {
   "GameObjects": [
     {
-      "Id": "e4c460aa-c998-43f5-b4ff-b946848d6aa5",
-      "Name": "Camera",
-      "Enabled": true,
-      "Position": "-171.4408,-9.277085,56.75103",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Components": [
-        {
-          "__type": "CameraComponent",
-          "__enabled": true,
-          "BackgroundColor": "0.33333,0.46275,0.52157,1",
-          "ClearFlags": "Color, Depth, Stencil",
-          "FieldOfView": 60,
-          "ZFar": 10000,
-          "ZNear": 10
-        }
-      ]
-    },
-    {
       "Id": "606cc48e-eefe-46ce-a85d-bbbeb9bcf2f6",
       "Name": "Point Light",
       "Enabled": true,
@@ -47,6 +28,152 @@
           "__type": "MapComponent",
           "__enabled": true,
           "MapName": "fdd.dungeon"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "Id": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
+      "Name": "Player",
+      "Enabled": true,
+      "Position": "-156.3337,191.9337,-0.00002231975",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "CharacterController",
+          "__enabled": true,
+          "Acceleration": 10,
+          "GroundAngle": 45,
+          "Height": 64,
+          "Radius": 16,
+          "StepHeight": 18
+        },
+        {
+          "__type": "PlayerController",
+          "__enabled": true,
+          "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
+          "CameraDistance": 200,
+          "Eye": "68a91c3a-993c-4b69-aa4c-2c9151b8e314",
+          "FirstPerson": true,
+          "Gravity": "0,0,800"
+        },
+        {
+          "__type": "PhysicsPickupComponent",
+          "__enabled": true,
+          "HoldRange": 80,
+          "PickupRange": 125,
+          "StaminaDrainBase": 1,
+          "StaminaDrainPerMissingStrength": 1,
+          "StaminaThrowCost": 5,
+          "ThrowForceBase": 500,
+          "ThrowForcePerStrength": 150
+        },
+        {
+          "__type": "ActorComponent",
+          "__enabled": true,
+          "BaseStats": "data/prefabs/player.stats",
+          "DamageEffectInfos": null,
+          "PanelDrawDistance": 300,
+          "PrimaryAttribute": "Strength",
+          "ShowInfoPanel": true,
+          "SpellCastingAttribute": "Intelligence",
+          "StaminaJumpCost": 0,
+          "StaminaSprintCost": 0
+        }
+      ],
+      "Children": [
+        {
+          "Id": "e4c460aa-c998-43f5-b4ff-b946848d6aa5",
+          "Name": "Camera",
+          "Enabled": true,
+          "Position": "0,0,68.53114",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Components": [
+            {
+              "__type": "CameraComponent",
+              "__enabled": true,
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "Color, Depth, Stencil",
+              "FieldOfView": 100,
+              "ZFar": 10000,
+              "ZNear": 10
+            }
+          ]
+        },
+        {
+          "Id": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
+          "Name": "Body",
+          "Enabled": true,
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Components": [
+            {
+              "__type": "ModelComponent",
+              "__enabled": true,
+              "MaterialOverride": null,
+              "Model": "models/actors/player/player_skeleton.vmdl",
+              "ShouldCastShadows": false,
+              "Tint": "1,1,1,1"
+            }
+          ],
+          "Children": [
+            {
+              "Id": "68a91c3a-993c-4b69-aa4c-2c9151b8e314",
+              "Name": "Eyes",
+              "Enabled": true,
+              "Position": "0.4493071,0,67.63921",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Components": [
+                {
+                  "__type": "PointLightComponent",
+                  "__enabled": true,
+                  "LightColor": "0.91373,0.98039,1,1",
+                  "Radius": 400
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "7bddcd66-c6b3-4548-81e1-9e7ac129eb8a",
+      "Name": "Object",
+      "Enabled": true,
+      "Position": "-35.6702,207.1244,45.08727",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "ModelComponent",
+          "__enabled": true,
+          "MaterialOverride": null,
+          "Model": "models/props/storage/crate_01.vmdl",
+          "ShouldCastShadows": true,
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PhysicsComponent",
+          "__enabled": true,
+          "Gravity": true,
+          "Static": false
+        },
+        {
+          "__type": "ColliderBoxComponent",
+          "__enabled": true,
+          "IsTrigger": false,
+          "Scale": "36.35,35.6,32.15",
+          "Surface": null
+        },
+        {
+          "__type": "PickupTargetComponent",
+          "__enabled": true,
+          "StrengthLeeway": 5,
+          "StrengthThreshold": 10
         }
       ]
     }

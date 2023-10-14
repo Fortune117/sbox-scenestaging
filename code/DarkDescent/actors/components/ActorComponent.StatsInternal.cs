@@ -98,16 +98,12 @@ public partial class ActorComponent
 	/// <param name="value"></param>
 	private void InitializeStat( StatType type, float value )
 	{
-		Game.AssertServer();
-		
 		StatsDictionary[type] = value;
 		internalStatsDictionary[type] = new StatValue( value );
 	}
 
 	private void SetBaseStat( StatType type, float value )
 	{
-		Game.AssertServer();
-		
 		var oldValue = internalStatsDictionary[type].Effective;
 		
 		internalStatsDictionary[type].Base = value;
