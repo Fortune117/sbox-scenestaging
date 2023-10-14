@@ -1,0 +1,55 @@
+{
+  "GameObjects": [
+    {
+      "Id": "e4c460aa-c998-43f5-b4ff-b946848d6aa5",
+      "Name": "Camera",
+      "Enabled": true,
+      "Position": "-171.4408,-9.277085,56.75103",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "CameraComponent",
+          "__enabled": true,
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "Color, Depth, Stencil",
+          "FieldOfView": 60,
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "Id": "606cc48e-eefe-46ce-a85d-bbbeb9bcf2f6",
+      "Name": "Point Light",
+      "Enabled": true,
+      "Position": "0,0,98.11312",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "PointLightComponent",
+          "__enabled": true,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 400
+        }
+      ]
+    },
+    {
+      "Id": "0d9865d8-7476-4c6a-8347-91de5c0ab4d6",
+      "Name": "Object",
+      "Enabled": true,
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "MapComponent",
+          "__enabled": true,
+          "MapName": "fdd.dungeon"
+        }
+      ]
+    }
+  ],
+  "__references": []
+}
