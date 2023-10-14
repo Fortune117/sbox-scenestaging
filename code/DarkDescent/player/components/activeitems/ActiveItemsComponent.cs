@@ -7,8 +7,7 @@ namespace DarkDescent;
 /// This is the component in charge of the items the player is carrying.
 /// Can have an item in your left hand, right hand, both or neither.
 /// </summary>
-[Prefab]
-public partial class ActiveItemsComponent : EntityComponent<Player>, ISingletonComponent
+public partial class ActiveItemsComponent : BaseComponent
 {
 	public enum Handedness
 	{
@@ -22,24 +21,22 @@ public partial class ActiveItemsComponent : EntityComponent<Player>, ISingletonC
 	/// Prefab for what we start with in our right hand.
 	/// Mostly just here as a placeholder.
 	/// </summary>
-	[Net, Prefab]
-	public Prefab RightHandPrefab { get; set; }
+	[Property]
+	public GameObject RightHandPrefab { get; set; }
 	
 	/// <summary>
 	/// Prefab for what we start with in our right hand.
 	/// Mostly just here as a placeholder.
 	/// </summary>
-	[Net, Prefab]
-	public Prefab LeftHandPrefab { get; set; }
+	[Property]
+	public GameObject LeftHandPrefab { get; set; }
 	
-	[Net]
-	public CarriableItem RightHandItem { get; set; }
+	public GameObject RightHandItem { get; set; }
 	
-	[Net]
-	public CarriableItem LeftHandItem { get; set; }
+	public GameObject LeftHandItem { get; set; }
 	
-	private CarriableItem LastRightHand { get; set; }
-	private CarriableItem LastLeftHand { get; set; }
+	private GameObject LastRightHand { get; set; }
+	private GameObject LastLeftHand { get; set; }
 	
 	/// <summary>
 	/// True if the item in our right hand is two handed.
@@ -47,23 +44,18 @@ public partial class ActiveItemsComponent : EntityComponent<Player>, ISingletonC
 	/// </summary>
 	public bool IsTwoHanding { get; set; }
 
-	protected override void OnActivate()
+	public override void OnEnabled()
 	{
-		base.OnActivate();
-
-		if ( Game.IsServer )
-		{
-			if (RightHandPrefab is not null)
-				CreateActiveItem( Handedness.Right, RightHandPrefab );
+		if (RightHandPrefab is not null)
+			CreateActiveItem( Handedness.Right, RightHandPrefab );
 			
-			if (LeftHandPrefab is not null)
-				CreateActiveItem( Handedness.Left, LeftHandPrefab );
-		}
+		if (LeftHandPrefab is not null)
+			CreateActiveItem( Handedness.Left, LeftHandPrefab );
 	}
 
-	private void CreateActiveItem( Handedness handedness, Prefab prefab )
+	private void CreateActiveItem( Handedness handedness, GameObject gameObject )
 	{
-		switch ( handedness )
+		/*switch ( handedness )
 		{
 			case Handedness.Both:
 			{
@@ -71,8 +63,8 @@ public partial class ActiveItemsComponent : EntityComponent<Player>, ISingletonC
 				LeftHandItem?.Delete();
 				RightHandItem?.Delete();
 				RightHandItem = PrefabLibrary.Spawn<CarriableItem>( prefab );
-				RightHandItem.SetParent( Entity, true );
-				RightHandItem.Carrier = Entity;
+				RightHandItem.SetParent( GameObject );
+				RightHandItem.Carrier = GameObject;
 				break;
 			}
 			case Handedness.Right:
@@ -95,7 +87,7 @@ public partial class ActiveItemsComponent : EntityComponent<Player>, ISingletonC
 			}
 			case Handedness.None:
 				break;
-		}
+		}*/
 	}
 
 	public void Simulate(IClient client)
@@ -104,7 +96,7 @@ public partial class ActiveItemsComponent : EntityComponent<Player>, ISingletonC
 		SimulateLeftHand( client, LeftHandItem );
 	}
 
-	private void SimulateRightHand( IClient client, CarriableItem child )
+	private void SimulateRightHand( IClient client, GameObject child )
 	{
 		if ( Prediction.FirstTime && LastRightHand != child )
 		{
@@ -112,16 +104,16 @@ public partial class ActiveItemsComponent : EntityComponent<Player>, ISingletonC
 			LastRightHand = child;
 		}
 		
-		if ( !LastRightHand.IsValid() )
+		if ( LastRightHand is null )
 			return;
 
-		if ( LastRightHand.IsAuthority )
+		/*if ( LastRightHand.IsAuthority )
 		{
 			LastRightHand.Simulate( client );
-		}
+		}*/
 	}
 
-	private void SimulateLeftHand( IClient client, CarriableItem child )
+	private void SimulateLeftHand( IClient client, GameObject child )
 	{
 		if ( Prediction.FirstTime && LastLeftHand != child )
 		{
@@ -129,21 +121,21 @@ public partial class ActiveItemsComponent : EntityComponent<Player>, ISingletonC
 			LastLeftHand = child;
 		}
 		
-		if ( !LastLeftHand.IsValid() )
+		if ( LastLeftHand is null )
 			return;
 
-		if ( LastLeftHand.IsAuthority )
+		/*if ( LastLeftHand.IsAuthority )
 		{
 			LastLeftHand.Simulate( client );
-		}
+		}*/
 	}
 
 	/// <summary>
 	/// Called when the Active child is detected to have changed
 	/// </summary>
-	private void OnHeldItemChanged( CarriableItem previous, CarriableItem next )
+	private void OnHeldItemChanged( GameObject previous, GameObject next )
 	{
-		previous?.CarriableItemComponent.ActiveEnd( Entity, previous.Owner != Entity );
-		next?.CarriableItemComponent.ActiveStart( Entity );
+		//previous?.CarriableItemComponent.ActiveEnd( Entity, previous.Owner != Entity );
+		//next?.CarriableItemComponent.ActiveStart( Entity );
 	}
 }

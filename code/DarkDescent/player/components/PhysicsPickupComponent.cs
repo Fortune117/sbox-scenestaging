@@ -1,4 +1,5 @@
 ﻿using System;
+using DarkDescent.Actor;
 using DarkDescent.Components;
 using DarkDescent.GameLog;
 using DarkDescent.UI;
@@ -6,33 +7,31 @@ using Sandbox;
 
 namespace DarkDescent;
 
-[Prefab]
-public partial class PhysicsPickupComponent : EntityComponent<Player>
+public partial class PhysicsPickupComponent : BaseComponent
 {
 	public bool HoldingItem { get; set; }
 	
-	[Prefab, Net, Predicted, Range(10, 300)]
+	[Property, Range(10, 300)]
 	private float PickupRange { get; set; }
 	
-	[Prefab, Net, Predicted, Range(10, 300)]
+	[Property, Range(10, 300)]
 	private float HoldRange { get; set; }
 
-	[Prefab, Net, Range( 0, 5 )] 
+	[Property, Range( 0, 5 )] 
 	private float StaminaDrainBase { get; set; } = 1;
 
-	[Prefab, Net, Range( 0, 5 )] 
+	[Property, Range( 0, 5 )] 
 	private float StaminaDrainPerMissingStrength { get; set; } = 1;
 	
-	[Prefab, Net, Range( 0, 15 )] 
+	[Property, Range( 0, 15 )] 
 	private float StaminaThrowCost { get; set; } = 5;
 	
-	[Prefab, Net, Range(0, 100)]
+	[Property, Range(0, 100)]
 	private float ThrowForcePerStrength { get; set; }
 	
-	[Prefab, Net, Range(0, 300)]
+	[Property, Range(0, 300)]
 	private float ThrowForceBase { get; set; }
 	
-	[Net, Predicted]
 	private PickupTargetComponent PickupTarget { get; set; }
 	
 	private PhysicsBody HeldBody { get; set; }
@@ -48,13 +47,13 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 			if ( PickupTarget is null )
 				return 0;
 
-			return Entity.ActorComponent.Stats.Strength - PickupTarget.StrengthThreshold;
+			return GameObject.GetComponent<ActorComponent>().Stats.Strength - PickupTarget.StrengthThreshold;
 		}
 	}
 
 	private bool CanCarryTarget( PickupTargetComponent targetComponent )
 	{
-		return 	Entity.ActorComponent.Stats.Strength > targetComponent.StrengthThreshold - targetComponent.StrengthLeeway;
+		return GameObject.GetComponent<ActorComponent>().Stats.Strength > targetComponent.StrengthThreshold - targetComponent.StrengthLeeway;
 	}
 	
 	/// <summary>
@@ -76,8 +75,10 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 			
 			if (Game.IsClient)
 				Crosshair.Instance?.SetClass( "interact", false );
+
+			var player = GameObject.GetComponent<PlayerController>();
 			
-			PickupMove( Entity.AimRay.Position, Entity.AimRay.Forward, Entity.ViewAngles.ToRotation() );
+			PickupMove( player.AimRay.Position, player.AimRay.Forward, player.EyeAngles.ToRotation() );
 
 			if ( !wasHolding )
 				return;
@@ -101,19 +102,20 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 		if (Game.IsClient)
 			Crosshair.Instance?.SetClass( "interact", false );
 		
-		var tr = Trace.Ray( Entity.AimRay, PickupRange )
+		var player = GameObject.GetComponent<PlayerController>();
+		
+		var tr = Physics.Trace.Ray( player.AimRay, PickupRange )
 			.Radius( 3 )
-			.Ignore( Entity )
-			.DynamicOnly()
 			.Run();
 
 		if ( !tr.Hit )
 			return false;
 
-		if ( !tr.Entity.Components.TryGet<PickupTargetComponent>( out var pickupTarget ) )
+		var pickupTarget = ((GameObject)tr.Body.GameObject).GetComponent<PickupTargetComponent>();
+		if ( pickupTarget is null )
 			return false;
 		
-		var passedStrengthTest = Entity.ActorComponent.Stats.Strength >
+		var passedStrengthTest = GameObject.GetComponent<ActorComponent>().Stats.Strength >
 		                         pickupTarget.StrengthThreshold - pickupTarget.StrengthLeeway;
 
 		if ( Game.IsClient )
@@ -125,8 +127,8 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 		if ( !Input.Pressed( GameTags.Input.Interact ) )
 			return false;
 		
-		if ( pickupTarget.Entity.Tags.Has( "grabbed" ) )
-			return false;
+		/*if ( pickupTarget.Entity.Tags.Has( "grabbed" ) )
+			return false;*/
 
 		if ( !passedStrengthTest )
 		{
@@ -136,10 +138,10 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 			return false;
 		}
 		
-		var attachPos = tr.Body.FindClosestPoint( Entity.AimRay.Position );
+		var attachPos = tr.Body.FindClosestPoint( player.AimRay.Position );
 
 		var holdDistance = HoldRange + attachPos.Distance( tr.Body.MassCenter );
-		PickupStart( pickupTarget, tr.Body, tr.StartPosition + tr.Direction * holdDistance, Entity.ViewAngles.ToRotation() );
+		PickupStart( pickupTarget, tr.Body, tr.StartPosition + tr.Direction * holdDistance, player.EyeAngles.ToRotation() );
 		
 		return true;
 	}
@@ -167,14 +169,14 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 		HeldBody.Velocity = velocity;
 
 		var angularVelocity = HeldBody.AngularVelocity;
-		Entity.Rotation.SmoothDamp( HeldBody.Rotation, HoldRot, ref angularVelocity, smoothTime, Time.Delta );
+		GameObject.Transform.Rotation.SmoothDamp( HeldBody.Rotation, HoldRot, ref angularVelocity, smoothTime, Time.Delta );
 		HeldBody.AngularVelocity = angularVelocity;
 
 		if ( HoldPos.Distance( HeldBody.Position ) > 60f )
 		{
 			if ( Game.IsServer )
 			{
-				GameLogSystem.PlayerLoseGrip( To.Single(Entity), PickupTarget.Entity);
+				GameLogSystem.PlayerLoseGrip(PickupTarget.GameObject);
 			}
 			PickupEnd();
 		}
@@ -201,7 +203,7 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 		HeldBody.AutoSleep = false;
 
 		PickupTarget = target;
-		PickupTarget.Entity.Tags.Add( "grabbed" );
+		//PickupTarget.Entity.Tags.Add( "grabbed" );
 
 		HoldingItem = true;
 		
@@ -228,9 +230,9 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 		HeldBody = null;
 		HeldRot = Rotation.Identity;
 
-		if ( PickupTarget is not null && PickupTarget.Entity.IsValid() )
+		if ( PickupTarget is not null && PickupTarget.GameObject is not null )
 		{
-			PickupTarget.Entity.Tags.Remove( "grabbed" );
+			//PickupTarget.GameObject.Tags.Remove( "grabbed" );
 			
 			if (Game.IsClient && useLog)
 				GameLogSystem.PlayerDropObject( PickupTarget );
@@ -244,6 +246,8 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 	{
 		if ( !HeldBody.IsValid() )
 			return;
+		
+		var player = GameObject.GetComponent<PlayerController>();
 
 		var attachPos = HeldBody.FindClosestPoint( startPos );
 		var holdDistance = HoldRange + attachPos.Distance( HeldBody.MassCenter );
@@ -261,33 +265,33 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 		                  (EffectiveStrength < 0 ? MathF.Abs( EffectiveStrength ) * StaminaDrainPerMissingStrength : 0);
 		staminaCost *= Time.Delta;
 		
-		if ( !Entity.ActorComponent.CanAffordStaminaCost( staminaCost ) )
+		if ( !GameObject.GetComponent<ActorComponent>().CanAffordStaminaCost( staminaCost ) )
 		{
 			if ( Game.IsClient )
 			{
-				GameLogSystem.PlayerStrengthFailPickup( To.Single(Entity), PickupTarget.Entity );
+				GameLogSystem.PlayerStrengthFailPickup(PickupTarget.GameObject);
 			}
 			PickupEnd();
 		}
 		else
 		{
-			Entity.ActorComponent.PayStamina( staminaCost );
+			GameObject.GetComponent<ActorComponent>().PayStamina( staminaCost );
 		}
 		
 		if ( !CanCarryTarget( PickupTarget ) )
 		{
 			if ( Game.IsServer )
 			{
-				GameLogSystem.PlayerStrengthFailPickup( To.Single(Entity), PickupTarget.Entity );
+				GameLogSystem.PlayerStrengthFailPickup(PickupTarget.GameObject);
 			}
 			PickupEnd();
 		}
 		
-		if ( attachPos.Distance( Entity.AimRay.Position ) > PickupRange )
+		if ( attachPos.Distance( player.AimRay.Position ) > PickupRange )
 		{
 			if ( Game.IsServer )
 			{
-				GameLogSystem.PlayerLoseGrip( To.Single(Entity), PickupTarget.Entity );
+				GameLogSystem.PlayerLoseGrip(PickupTarget.GameObject);
 			}
 			PickupEnd();
 		}
@@ -295,32 +299,33 @@ public partial class PhysicsPickupComponent : EntityComponent<Player>
 
 	private void Throw()
 	{
-		if ( EffectiveStrength < 0 || !Entity.ActorComponent.CanAffordStaminaCost( StaminaThrowCost ))
+		if ( EffectiveStrength < 0 || !GameObject.GetComponent<ActorComponent>().CanAffordStaminaCost( StaminaThrowCost ))
 		{
 			PickupEnd();
 			return;
 		}
-		
-		Entity.ActorComponent.PayStamina( StaminaThrowCost );
+
+		var player = GameObject.GetComponent<PlayerController>();
+		GameObject.GetComponent<ActorComponent>().PayStamina( StaminaThrowCost );
 
 		//always add a little bit if we can actually throw something
 		var force = ThrowForceBase + EffectiveStrength * ThrowForcePerStrength;
 		if ( HeldBody.PhysicsGroup.BodyCount > 1 )
 		{
 			// Don't throw ragdolls as hard
-			HeldBody.PhysicsGroup.ApplyImpulse( Entity.AimRay.Forward * (force * 0.5f), true );
+			HeldBody.PhysicsGroup.ApplyImpulse( player.AimRay.Forward * (force * 0.5f), true );
 			HeldBody.PhysicsGroup.ApplyAngularImpulse( Vector3.Random * force, true );
 		}
 		else
 		{
-			HeldBody.ApplyImpulse( Entity.AimRay.Forward * (HeldBody.Mass * force) );
+			HeldBody.ApplyImpulse( player.AimRay.Forward * (HeldBody.Mass * force) );
 			HeldBody.ApplyAngularImpulse( Vector3.Random * (HeldBody.Mass * force) );
 		}
 
 		using ( Prediction.Off() )
 		{
 			if (Game.IsServer)
-				Sound.FromWorld( "interact.throw", Entity.AimRay.Position );
+				Sound.FromWorld( "interact.throw", player.AimRay.Position );
 		}
 			
 		

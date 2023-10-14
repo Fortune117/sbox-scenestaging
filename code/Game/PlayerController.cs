@@ -14,6 +14,9 @@ public class PlayerController : BaseComponent
 	[Property] bool FirstPerson { get; set; }
 
 	public Angles EyeAngles;
+	public Vector3 EyePosition => Eye.Transform.Position;
+
+	public Ray AimRay => new Ray( EyePosition, EyeAngles.Forward );
 
 	public override void Update()
 	{

@@ -12,7 +12,7 @@ public partial class Player : AnimatedEntity
 {
 	public static readonly Prefab Prefab = ResourceLibrary.Get<Prefab>( "data/prefabs/player.prefab" );
 	
-	[BindComponent]
+	
 	public PawnController Controller { get; }
 
 	/// <summary>
@@ -22,22 +22,18 @@ public partial class Player : AnimatedEntity
 	public Entity ActiveChild { get; set; }
 	
 	
-	[BindComponent]
+	
 	public FirstPersonCamera FirstPersonCamera { get; }
 	
-	[BindComponent]
+	
 	public ThirdPersonCamera ThirdPersonCamera { get; }
 	
 	
 	public ActorComponent ActorComponent { get; }
 
-	[BindComponent]
+	
 	public ActiveItemsComponent ActiveItemsComponent { get; }
 	
-	[BindComponent]
-	public PlayerLightComponent PlayerLightComponent { get; }
-	
-	[BindComponent]
 	public PhysicsPickupComponent PhysicsPickupComponent { get; }
 	
 	[ClientInput] public Vector3 InputDirection { get; private set; }

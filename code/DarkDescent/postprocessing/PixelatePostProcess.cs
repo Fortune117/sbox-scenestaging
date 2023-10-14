@@ -41,6 +41,8 @@ public class PixelatePostProcess : RenderHook
 			renderAttributes.Set("render.target", texture);
 
 			Graphics.Blit( Material.FromShader( "shaders/postprocessing/dd_low_res.shader" ), renderAttributes);
+			
+			Log.Info( "test" );
 		}
 	}
 }

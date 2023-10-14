@@ -15,7 +15,8 @@ public static partial class GameLogSystem
 
 		var name = target.Name;
 
-		if ( target.Entity.Components.TryGet<ObjectClassifierComponent>( out var classifier ) )
+		var classifier = target.GetComponent<ObjectClassifierComponent>();
+		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
 		}
@@ -31,7 +32,8 @@ public static partial class GameLogSystem
 
 		var name = target.Name;
 
-		if ( target.Entity.Components.TryGet<ObjectClassifierComponent>( out var classifier ) )
+		var classifier = target.GetComponent<ObjectClassifierComponent>();
+		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
 		}
@@ -47,7 +49,8 @@ public static partial class GameLogSystem
 
 		var name = target.Name;
 
-		if ( target.Entity.Components.TryGet<ObjectClassifierComponent>( out var classifier ) )
+		var classifier = target.GetComponent<ObjectClassifierComponent>();
+		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
 		}
@@ -63,7 +66,8 @@ public static partial class GameLogSystem
 
 		var name = target.Name;
 
-		if ( target.Entity.Components.TryGet<ObjectClassifierComponent>( out var classifier ) )
+		var classifier = target.GetComponent<ObjectClassifierComponent>();
+		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
 		}
@@ -73,17 +77,19 @@ public static partial class GameLogSystem
 		GameLogPanel.AddEntry( actionString );
 	}
 
-	[ClientRpc]
-	public static void PlayerStrengthFailPickup( Entity entity )
+
+	public static void PlayerStrengthFailPickup( GameObject gameObject )
 	{
-		if ( !entity.Components.TryGet<PickupTargetComponent>( out var target ) )
+		var target = gameObject.GetComponent<PickupTargetComponent>();
+		if ( target is null )
 			return;
 		
 		var actionString = Language.GetPhrase( GameLogEvents.Interactions.Pickup.StrengthFail );
 
 		var name = target.Name;
 
-		if ( target.Entity.Components.TryGet<ObjectClassifierComponent>( out var classifier ) )
+		var classifier = gameObject.GetComponent<ObjectClassifierComponent>();
+		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
 		}
@@ -93,17 +99,19 @@ public static partial class GameLogSystem
 		GameLogPanel.AddEntry( actionString );
 	}
 	
-	[ClientRpc]
-	public static void PlayerLoseGrip( Entity entity )
+
+	public static void PlayerLoseGrip( GameObject gameObject )
 	{
-		if ( !entity.Components.TryGet<PickupTargetComponent>( out var target ) )
+		var target = gameObject.GetComponent<PickupTargetComponent>();
+		if ( target is null )
 			return;
 		
 		var actionString = Language.GetPhrase( GameLogEvents.Interactions.Pickup.LoseGrip );
 
 		var name = target.Name;
 
-		if ( target.Entity.Components.TryGet<ObjectClassifierComponent>( out var classifier ) )
+		var classifier = gameObject.GetComponent<ObjectClassifierComponent>();
+		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
 		}
