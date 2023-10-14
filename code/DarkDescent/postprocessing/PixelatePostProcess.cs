@@ -19,7 +19,7 @@ public class PixelatePostProcess : RenderHook
 	public override void OnStage( SceneCamera target, Stage renderStage )
 	{
 		base.OnStage( target, renderStage );
-
+		
 		if ( renderStage == Stage.BeforePostProcess )
 		{
 			var ratio = target.Size.y / target.Size.x;
