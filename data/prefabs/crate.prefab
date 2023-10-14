@@ -1,0 +1,89 @@
+{
+  "SchemaVersion": 1,
+  "Name": null,
+  "Description": null,
+  "Root": {
+    "Guid": "bae650bf-c780-4dbc-838f-9952a4782deb",
+    "Class": "model_entity",
+    "Entities": [],
+    "Components": [
+      {
+        "Guid": "469d0a99-0bcc-4915-a02e-5d313434cfd8",
+        "Class": "PickupTargetComponent",
+        "Keys": {
+          "_name": {
+            "JsonValue": "New PickupTargetComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          },
+          "StrengthThreshold": {
+            "Type": "Single",
+            "Value": "10",
+            "JsonValue": 10
+          }
+        }
+      },
+      {
+        "Guid": "455332de-9711-4ac3-aef7-b40eca1c9444",
+        "Class": "ModelPhysicsComponent",
+        "Keys": {
+          "_name": {
+            "JsonValue": "New ModelPhysicsComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      },
+      {
+        "Guid": "2361a159-f043-4121-9395-68afd638139e",
+        "Class": "ObjectClassifierComponent",
+        "Keys": {
+          "BreakVerb": {
+            "Type": "String",
+            "Value": "\u0022verb.break\u0022",
+            "JsonValue": "verb.break"
+          },
+          "Title": {
+            "Type": "String",
+            "Value": "\u0022#object.crate.name\u0022",
+            "JsonValue": "#object.crate.name"
+          },
+          "ObjectName": {
+            "Type": "String",
+            "Value": "\u0022object.crate.name\u0022",
+            "JsonValue": "object.crate.name"
+          },
+          "_name": {
+            "JsonValue": "New ObjectClassifierComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      }
+    ],
+    "Keys": {
+      "Model": {
+        "Type": "Model",
+        "Value": "\u0022models/props/storage/crate_01.vmdl\u0022"
+      },
+      "_name": {
+        "JsonValue": "Root Entity"
+      },
+      "_localposition": {
+        "JsonValue": "0,0,0"
+      },
+      "_localrotation": {
+        "JsonValue": "0,0,0"
+      },
+      "_scale": {
+        "JsonValue": 1
+      },
+      "_tags": {
+        "JsonValue": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,523 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "bonebase.vmat"
+								to = "materials/actors/skeleton/skeleton.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = "materials/actors/skeleton/skeleton.vmat"
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "body"
+						children = 
+						[
+							{
+								_class = "RemoveBoneAndChildren"
+								bone_names = 
+								[
+									"Foot_ik_Controller_L",
+									"Foot_ik_Controller_R",
+									"Arm_FIK_L",
+									"Arm_FIK_R",
+									"Camera_Control",
+								]
+							},
+						]
+						filename = "models/actors/skeleton/skeleton_player.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Skull",
+								"Jaw",
+								"Spine",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "head"
+						children = 
+						[
+							{
+								_class = "RemoveBoneAndChildren"
+								bone_names = 
+								[
+									"Foot_ik_Controller_L",
+									"Foot_ik_Controller_R",
+									"Arm_FIK_L",
+									"Arm_FIK_R",
+									"Camera_Control",
+								]
+							},
+						]
+						filename = "models/actors/skeleton/skeleton_player.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 1.0
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = true
+							exception_list = 
+							[
+								"Skull",
+								"Jaw",
+								"Spine",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 0.3937
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "camera"
+						parent_bone = "Camera"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "head"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								meshes = 
+								[
+									"head",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								meshes = [  ]
+							},
+						]
+						hidden_in_tools = false
+					},
+					{
+						_class = "BodyGroup"
+						name = "body"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								meshes = 
+								[
+									"body",
+								]
+							},
+						]
+						hidden_in_tools = false
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "Standing"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "walk_forward"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = 17
+								framerate = -1.0
+								take = 1
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "stand_idle"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 2
+								reverse = false
+							},
+						]
+					},
+					{
+						_class = "Folder"
+						name = "Crouching"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "crouch_walk_forward"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 4
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "crouch_idle"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 3
+								reverse = false
+							},
+						]
+					},
+					{
+						_class = "Folder"
+						name = "Blending"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "bind_pose"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "pelvis_angle"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = "pelvis_up"
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = true
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = true
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 6
+								reverse = false
+							},
+						]
+					},
+					{
+						_class = "Folder"
+						name = "Punching"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "punch_test"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 5
+								reverse = false
+							},
+						]
+					},
+					{
+						_class = "Folder"
+						name = "Longsword"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "longsword_idle"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 7
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "longsword_attack_1"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = 16
+								framerate = -1.0
+								take = 8
+								reverse = false
+							},
+						]
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "WeightListList"
+				children = 
+				[
+					{
+						_class = "WeightList"
+						name = "pelvis_up"
+						default_weight = 0.0
+						weights = 
+						[
+							{
+								bone = "Pelvis"
+								weight = 0.0
+							},
+							{
+								bone = "Root"
+								weight = 0.0
+							},
+							{
+								bone = "SpineHigh"
+								weight = 1.0
+							},
+							{
+								bone = "SpineMid"
+								weight = 1.0
+							},
+							{
+								bone = "UpperArm_L"
+								weight = 1.0
+							},
+							{
+								bone = "UpperArm_R"
+								weight = 1.0
+							},
+							{
+								bone = "UpperLeg_L"
+								weight = 0.0
+							},
+							{
+								bone = "UpperLeg_R"
+								weight = 0.0
+							},
+							{
+								bone = "legsocket_L"
+								weight = 0.0
+							},
+							{
+								bone = "legsocket_R"
+								weight = 0.0
+							},
+						]
+						master_morph_weight = -1.0
+						morph_weights = [  ]
+					},
+					{
+						_class = "WeightList"
+						name = "legs_only"
+						default_weight = 0.0
+						weights = 
+						[
+							{
+								bone = "Pelvis"
+								weight = 1.0
+							},
+							{
+								bone = "SpineMid"
+								weight = 0.0
+							},
+							{
+								bone = "UpperLeg_L"
+								weight = 1.0
+							},
+							{
+								bone = "UpperLeg_R"
+								weight = 1.0
+							},
+						]
+						master_morph_weight = -1.0
+						morph_weights = [  ]
+					},
+				]
+			},
+			{
+				_class = "BoneMarkupList"
+				children = 
+				[
+					{
+						_class = "BoneMarkup"
+						target_bone = "Hold_R"
+						ignore_Translation = false
+						ignore_rotation = false
+						do_not_discard = true
+					},
+					{
+						_class = "BoneMarkup"
+						target_bone = "Hold_L"
+						ignore_Translation = false
+						ignore_rotation = false
+						do_not_discard = true
+					},
+				]
+				bone_cull_type = "None"
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = "models/actors/player/player_skeleton.vanmgrph"
+		base_model_name = ""
+	}
+}

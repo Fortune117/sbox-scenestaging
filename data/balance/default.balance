@@ -1,0 +1,470 @@
+{
+  "PlayerDamageMultiplier": 1,
+  "EnemyDamageMultiplier": 1,
+  "FriendlyFire": true,
+  "FriendlyFireDamageMultiplier": 0.5,
+  "ExperienceMultiplier": 1,
+  "ResistanceScalingCurve": {
+    "rangex": "-300,300",
+    "rangey": "-2,0.85",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 0.5,
+        "y": 0.70175433,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.66666675,
+        "y": 0.84210527,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.83333325,
+        "y": 0.9473684,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "in": 0.21739142,
+        "out": -0.21739142
+      }
+    ]
+  },
+  "StrengthToStaminaCostMultiplierCurve": {
+    "rangex": "0,100",
+    "rangey": "-1,1",
+    "frames": [
+      {
+        "y": 1,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.5,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.35,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.16999997,
+        "mode": "Linear"
+      },
+      {
+        "x": 1
+      }
+    ]
+  },
+  "StrengthToCarryWeightCurve": {
+    "rangex": "0,100",
+    "rangey": "-20,400",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.047619086,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.52380955,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.7619048,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1
+      }
+    ]
+  },
+  "StrengthToJumpHeightCurve": {
+    "rangex": "0,100",
+    "rangey": "-0.25,0.5",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.3333333,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.6,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.8,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "mode": "Linear"
+      }
+    ]
+  },
+  "StrengthToKnockBackCurve": {
+    "rangex": "0,100",
+    "rangey": "0,100",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1
+      }
+    ]
+  },
+  "DexterityToStaminaRegenCurve": {
+    "rangex": "0,100",
+    "rangey": "-2,6",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.25,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.5,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.8000001,
+        "y": 0.9375,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1
+      }
+    ]
+  },
+  "DexterityToActionSpeedCurve": {
+    "rangex": "0,100",
+    "rangey": "-0.5,1",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.3333333,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.30246305,
+        "y": 0.6666666,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.8333333,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "mode": "Linear"
+      }
+    ]
+  },
+  "DexterityToMoveSpeedCurve": {
+    "rangex": "0,100",
+    "frames": [
+      {
+        "mode": "Flat"
+      },
+      {
+        "x": 0.10000001,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.5,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.8,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "mode": "Linear"
+      }
+    ]
+  },
+  "DexterityToStaminaRegenDelayCurve": {
+    "rangex": "0,100",
+    "rangey": "-1.5,1",
+    "frames": [
+      {
+        "y": 1,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.6,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.4,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.2,
+        "mode": "Linear"
+      },
+      {
+        "x": 1
+      }
+    ]
+  },
+  "ConstitutionToMaxHealthCurve": {
+    "rangex": "0,100",
+    "rangey": "-20,100",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.16666669,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.5416666,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.7916667,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "mode": "Linear"
+      }
+    ]
+  },
+  "ConstitutionToHealthRegenCurve": {
+    "rangex": "0,100",
+    "frames": [
+      {
+        "x": 0.0012315271,
+        "mode": "Stepped"
+      },
+      {
+        "x": 0.3,
+        "y": 0.1,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.75,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1
+      }
+    ]
+  },
+  "ConstitutionToHealMultiplierCurve": {
+    "rangex": "0,100",
+    "rangey": "-0.9,3",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.48717952,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.74358976,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.8717949,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1
+      }
+    ]
+  },
+  "ConstitutionToMaxStaminaCurve": {
+    "rangex": "0,100",
+    "rangey": "-20,100",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.16666669,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.5416666,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.7916667,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "mode": "Linear"
+      }
+    ]
+  },
+  "ConstitutionToHealthRegenDelayCurve": {
+    "rangex": "0,100",
+    "rangey": "-1.5,1",
+    "frames": [
+      {
+        "y": 1,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.6,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.4,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.2,
+        "mode": "Linear"
+      },
+      {
+        "x": 1
+      }
+    ]
+  },
+  "PrimaryAttributeToPhysicalPowerCurve": {
+    "rangex": "0,100",
+    "rangey": "-10,100",
+    "frames": [
+      {
+        "x": 0.0012315271,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.090909086,
+        "in": 0.08626416,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.5454545,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.77272725,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1
+      }
+    ]
+  },
+  "SpellCastingAttributeToSpellPowerCurve": {
+    "rangex": "0,100",
+    "rangey": "-10,100",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.090909086,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.5454545,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.6,
+        "y": 0.77272725,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1
+      }
+    ]
+  },
+  "SpellCastingAttributeToSpellCastingSpeedCurve": {
+    "rangex": "0,100",
+    "rangey": "-0.5,1",
+    "frames": [
+      {
+        "mode": "Linear"
+      },
+      {
+        "x": 0.10000001,
+        "y": 0.3333333,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.3,
+        "y": 0.5666666,
+        "mode": "Linear"
+      },
+      {
+        "x": 0.60246307,
+        "y": 0.8333333,
+        "mode": "Linear"
+      },
+      {
+        "x": 1,
+        "y": 1
+      }
+    ]
+  }
+}

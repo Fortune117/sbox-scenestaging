@@ -1,0 +1,27 @@
+{
+  "publish": {
+    "Allowed": true,
+    "Enabled": false,
+    "ProjectConfig": {
+      "Title": "cave_medium_02",
+      "Type": "map",
+      "Org": "local",
+      "Ident": "cave_medium_02",
+      "Tags": null,
+      "Schema": 0,
+      "HasAssets": false,
+      "AssetsPath": null,
+      "Resources": null,
+      "MenuResources": null,
+      "HasCode": false,
+      "CodePath": null,
+      "PackageReferences": [],
+      "EditorReferences": [
+        "apetavern.concrete_01a#27929"
+      ],
+      "Metadata": {
+        "SingleAssetSource": "maps/prefabs/modules/caves/cave_medium_02.vmap"
+      }
+    }
+  }
+}

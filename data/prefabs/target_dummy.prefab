@@ -1,0 +1,144 @@
+{
+  "SchemaVersion": 1,
+  "Name": null,
+  "Description": null,
+  "Root": {
+    "Guid": "0740d253-d62a-4b9b-a810-988045c89dc2",
+    "Class": "ActorEntity",
+    "Entities": [],
+    "Components": [
+      {
+        "Guid": "a8c6ac41-f762-48b4-b61c-0cb7436dc30b",
+        "Class": "ModelPhysicsComponent",
+        "Keys": {
+          "_name": {
+            "JsonValue": "New ModelPhysicsComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      },
+      {
+        "Guid": "a0afa68a-b9a3-4bab-b078-330679303232",
+        "Class": "ObjectClassifierComponent",
+        "Keys": {
+          "BreakVerb": {
+            "Type": "String",
+            "Value": "\u0022\u0022",
+            "JsonValue": ""
+          },
+          "ObjectName": {
+            "Type": "String",
+            "Value": "\u0022actor.target_dummy.name\u0022",
+            "JsonValue": "actor.target_dummy.name"
+          },
+          "_name": {
+            "JsonValue": "New ObjectClassifierComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      },
+      {
+        "Guid": "f2739de1-5c08-468e-b21c-f1ffc33dcdb1",
+        "Class": "PickupTargetComponent",
+        "Keys": {
+          "StrengthThreshold": {
+            "Type": "Single",
+            "Value": "35",
+            "JsonValue": 35
+          },
+          "_name": {
+            "JsonValue": "New PickupTargetComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      },
+      {
+        "Guid": "25b74c42-e795-4dd1-ae6d-531c435e026e",
+        "Class": "ActorComponent",
+        "Keys": {
+          "StaminaJumpCost": {
+            "Type": "Single",
+            "Value": "0",
+            "JsonValue": 0
+          },
+          "StaminaSprintCost": {
+            "Type": "Single",
+            "Value": "0",
+            "JsonValue": 0
+          },
+          "BaseStats": {
+            "Type": "StatsResource",
+            "Value": "\u0022data/prefabs/target_dummy_stats.stats\u0022",
+            "JsonValue": "data/prefabs/target_dummy_stats.stats"
+          },
+          "DamageEffectInfos": {
+            "Type": "List\u00601",
+            "Value": "[\r\n  {\r\n    \u0022HitboxTag\u0022: \u0022dummy\u0022,\r\n    \u0022ParticleEffect\u0022: \u0022particles/damage_effect/damage_training_dummy.vpcf\u0022,\r\n    \u0022ImpactSound\u0022: \u0022data/sounds/impact/dummy/impact.target_dummy.sound\u0022\r\n  },\r\n  {\r\n    \u0022HitboxTag\u0022: \u0022wood\u0022,\r\n    \u0022ParticleEffect\u0022: \u0022particles/impact.wood.vpcf\u0022,\r\n    \u0022ImpactSound\u0022: \u0022data/sounds/impact/wood/impact.wood.sound\u0022\r\n  }\r\n]",
+            "JsonValue": [
+              {
+                "HitboxTag": "dummy",
+                "ParticleEffect": "particles/damage_effect/damage_training_dummy.vpcf",
+                "ImpactSound": "data/sounds/impact/dummy/impact.target_dummy.sound"
+              },
+              {
+                "HitboxTag": "wood",
+                "ParticleEffect": "particles/impact.wood.vpcf",
+                "ImpactSound": "data/sounds/impact/wood/impact.wood.sound"
+              }
+            ]
+          },
+          "_name": {
+            "JsonValue": "New ActorComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      },
+      {
+        "Guid": "0908fe1f-0309-43b3-9cbd-556940a5569c",
+        "Class": "AutoStandComponent",
+        "Keys": {
+          "SettleSpeed": {
+            "Type": "Single",
+            "Value": "50",
+            "JsonValue": 50
+          },
+          "_name": {
+            "JsonValue": "New AutoStandComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      }
+    ],
+    "Keys": {
+      "Model": {
+        "Type": "Model",
+        "Value": "\u0022models/actors/target_dummy/target_dummy.vmdl\u0022"
+      },
+      "_name": {
+        "JsonValue": "Root Entity"
+      },
+      "_localposition": {
+        "JsonValue": "0,0,0"
+      },
+      "_localrotation": {
+        "JsonValue": "0,0,0"
+      },
+      "_scale": {
+        "JsonValue": 1
+      },
+      "_tags": {
+        "JsonValue": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "UI": false,
+  "Volume": "0.62,0.62,0",
+  "Pitch": "1.08,1.08,0",
+  "Decibels": 180,
+  "SelectionMode": "Random",
+  "Sounds": [
+    "sound/interactions/throw.vsnd"
+  ],
+  "MaximumDistance": 7384.377,
+  "MinimumDistance": 369.21884
+}

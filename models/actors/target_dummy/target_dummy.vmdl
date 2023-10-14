@@ -1,0 +1,196 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 0.43
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "dummy.vmat"
+								to = "materials/actors/target_dummy/target_dummy.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "PhysicsShapeList"
+				children = 
+				[
+					{
+						_class = "PhysicsShapeCylinder"
+						parent_bone = ""
+						surface_prop = "chair_foam"
+						collision_tags = "solid"
+						radius = 8.5
+						point0 = [ 0.0, 0.0, 16.242512 ]
+						point1 = [ 0.0, 0.0, 20.936661 ]
+					},
+					{
+						_class = "PhysicsShapeCylinder"
+						parent_bone = ""
+						surface_prop = "chair_foam"
+						collision_tags = "solid"
+						radius = 4.0
+						point0 = [ 0.0, 0.0, 21.365242 ]
+						point1 = [ 0.0, 0.0, 60.961281 ]
+					},
+					{
+						_class = "PhysicsShapeCylinder"
+						parent_bone = ""
+						surface_prop = "chair_foam"
+						collision_tags = "solid"
+						radius = 20.601835
+						point0 = [ 0.0, 0.0, 63.546127 ]
+						point1 = [ 0.0, 0.0, 124.099091 ]
+					},
+					{
+						_class = "PhysicsShapeCylinder"
+						parent_bone = ""
+						surface_prop = "chair_foam"
+						collision_tags = "solid"
+						radius = 5.0
+						point0 = [ 0.136076, 44.112965, 114.16758 ]
+						point1 = [ 0.140393, -44.095901, 114.18119 ]
+					},
+					{
+						_class = "PhysicsShapeCylinder"
+						parent_bone = ""
+						surface_prop = "chair_foam"
+						collision_tags = "solid"
+						radius = 10.0
+						point0 = [ 0.0, 0.0, 132.40416 ]
+						point1 = [ 0.0, 0.0, 162.696503 ]
+					},
+					{
+						_class = "PhysicsShapeSphere"
+						parent_bone = ""
+						surface_prop = "wood"
+						collision_tags = "solid wood"
+						radius = 16.742138
+						center = [ 0.0, 0.0, 7.464665 ]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/actors/target_dummy/target_dummy.fbx"
+						import_translation = [ 0.0, 0.0, 0.0 ]
+						import_rotation = [ 0.0, 0.0, 0.0 ]
+						import_scale = 0.3937
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "None"
+						parent_bone = ""
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "HitboxCapsule"
+								name = "torso"
+								parent_bone = "root"
+								surface_property = "chair_foam"
+								translation_only = false
+								tags = "dummy"
+								radius = 20.0
+								point0 = [ 0.0, 0.0, 70.255798 ]
+								point1 = [ 0.0, 0.0, 110.004997 ]
+							},
+							{
+								_class = "HitboxCapsule"
+								name = "arms"
+								parent_bone = "root"
+								surface_property = "brick"
+								translation_only = false
+								tags = "dummy"
+								radius = 7.0
+								point0 = [ 0.036335, -38.385704, 114.221748 ]
+								point1 = [ -0.243306, 38.472549, 114.378944 ]
+							},
+							{
+								_class = "HitboxCapsule"
+								name = "head"
+								parent_bone = "root"
+								surface_property = "brick"
+								translation_only = false
+								tags = "head dummy"
+								radius = 12.0
+								point0 = [ 0.0, 0.0, 143.336609 ]
+								point1 = [ 0.0, 0.0, 151.877686 ]
+							},
+							{
+								_class = "HitboxSphere"
+								parent_bone = "root"
+								surface_property = ""
+								translation_only = false
+								tags = "wood"
+								center = [ 0.0, 0.0, 7.46466 ]
+								radius = 26.924314
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "Skeleton"
+				children = 
+				[
+					{
+						_class = "Bone"
+						name = "root"
+						origin = [ 0.0, 0.0, 0.0 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						do_not_discard = true
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}

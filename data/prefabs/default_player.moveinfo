@@ -1,0 +1,60 @@
+{
+  "SprintSpeed": 250,
+  "SprintForwardProportionality": 1,
+  "RunSpeed": 150,
+  "WalkSpeed": 70,
+  "SpeedForwardProportionality": 1,
+  "Acceleration": 7,
+  "AccelerationForwardProportionality": 1,
+  "GroundFriction": 3,
+  "StopSpeed": 100,
+  "GroundAngle": 46,
+  "StepSize": 18,
+  "MaxNonJumpVelocity": 140,
+  "AirAcceleration": 10,
+  "Gravity": 800,
+  "AirControl": 30,
+  "EyeHeight": 66,
+  "BodyGirth": 32,
+  "BodyHeight": 72,
+  "JumpPower": 295,
+  "JumpCooldown": 0.35,
+  "JumpWithDelay": false,
+  "JumpDelayIdle": 0.28,
+  "JumpDelayMoving": 0.1,
+  "JumpOffsetCurve": {
+    "rangey": "-1,1",
+    "frames": [
+      {
+        "y": 0.5
+      },
+      {
+        "x": 0.652709
+      },
+      {
+        "x": 1,
+        "y": 0.5
+      }
+    ]
+  },
+  "JumpLandingOffsetCurve": {
+    "rangey": "-1,0",
+    "frames": [
+      {
+        "y": 1
+      },
+      {
+        "x": 0.353448
+      },
+      {
+        "x": 1,
+        "y": 1
+      }
+    ]
+  },
+  "AutoJump": false,
+  "CrouchWalkSpeed": 70,
+  "CrouchHeightMultiplier": 0.45,
+  "CrouchMovingHeightOffset": 0.12,
+  "CrouchEnterSpeed": 7
+}
