@@ -36,16 +36,16 @@
 
 	protected sealed override void CalculateVelocity()
 	{
-		var pos = DamageEventData.Target != null ? DamageEventData.Target.WorldSpaceBounds.Center : Position;
+		/*var pos = DamageEventData.Target != null ? DamageEventData.Target.WorldSpaceBounds.Center : Position;
 		pos = pos.RotateAround( DamageEventData.Position, Rotation.FromPitch( Game.Random.Float( -90, 90 ) ));
 		
 		var dir = (DamageEventData.Position - pos).Normal;
 		
-		Velocity = dir * Game.Random.Float( 250, 350 );
+		Velocity = dir * Game.Random.Float( 250, 350 );*/
 	}
 	
 		
-	[ClientRpc]
+	
 	public static void CreateExperienceNumber(float experience, DamageEventData damageEventData)
 	{
 		var experienceNumber = new ExperienceNumberPanel( experience, damageEventData );

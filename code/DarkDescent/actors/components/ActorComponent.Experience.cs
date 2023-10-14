@@ -6,13 +6,10 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent
 {
-	[Net,  Range(0, 50)] 
 	public int Level { get; set; } = 1;
 	
-	[Net, Predicted] 
 	public float Experience { get; set; } = 0;
-
-	[Net] 
+	
 	public float ExperienceRequirement { get; set; } = 100;
 	
 	/// <summary>

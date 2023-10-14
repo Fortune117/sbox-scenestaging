@@ -4,7 +4,6 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent
 {
-	[Net, Predicted]
 	public float Health { get; private set; }
 	
 	public TimeSince TimeSinceTookDamage { get; set; }
@@ -31,10 +30,10 @@ public partial class ActorComponent
 
 	public void Kill()
 	{
-		if ( Entity is Player player )
+		/*if ( Ga is Player player )
 			player.Respawn();
 		else
-			Entity.Delete();
+			Entity.Delete();*/
 	}
 
 	private void OnConstitutionChanged( float oldCon, float newCon )

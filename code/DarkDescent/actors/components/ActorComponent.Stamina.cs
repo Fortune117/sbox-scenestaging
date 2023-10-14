@@ -7,22 +7,19 @@ public partial class ActorComponent
 	/// <summary>
 	/// Cost of sprinting in stamina per second.
 	/// </summary>
-	[Prefab, Net, Range(0, 20), Category("Stamina")]
+	[Property, Range(0, 20), Category("Stamina")]
 	public float StaminaSprintCost { get; set; }
 	
 	/// <summary>
 	/// Stamina cost to jump.
 	/// </summary>
-	[Prefab, Net, Range(0, 30), Category("Stamina")]
+	[Property, Range(0, 30), Category("Stamina")]
 	public float StaminaJumpCost { get; set; }
 	
-	[Net, Predicted]
 	public float Stamina { get; private set; }
 	
-	[Net, Predicted]
 	public bool IsSprinting { get; set; }
 	
-	[Net, Predicted]
 	private TimeSince TimeSinceLastStaminaCost { get; set; }
 
 	public float StaminaFraction => (Stamina / Stats.MaxStamina).Clamp( 0, 1f );
@@ -30,7 +27,7 @@ public partial class ActorComponent
 	public bool CanStartRun => StaminaFraction > 0.1f;
 	public bool CanRun => StaminaFraction > 0f;
 	
-	private void SimulateStamina()
+	private void UpdateStamina()
 	{
 		if ( IsSprinting )
 		{

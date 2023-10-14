@@ -8,15 +8,16 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent
 {
-	[Prefab, Category("Damage")]
+	[Property, Category("Damage")]
 	private List<DamageEffectInfo> DamageEffectInfos { get; set; }
+	
 	public void TakeDamage( DamageInfo damageInfo )
 	{
 		Game.AssertServer();
 		
 		var damageEventData = DamageMaster.GenerateDamageEventData( this, damageInfo );
 
-		PhysicsBody closestBody = null;
+		/*PhysicsBody closestBody = null;
 		var closestDistance = float.PositiveInfinity;
 		foreach ( var body in Entity.PhysicsGroup.Bodies )
 		{
@@ -29,7 +30,7 @@ public partial class ActorComponent
 		}
 		
 		if (closestBody is not null)
-			ApplyKnockBack( closestBody, damageEventData );
+			ApplyKnockBack( closestBody, damageEventData );*/
 		
 		CreateDamageEffects(damageEventData, damageInfo);
 		CreateDamageNumber(damageEventData);
@@ -49,7 +50,7 @@ public partial class ActorComponent
 			damageEventData.OriginatorActor.AddExperience( exp );
 		}
 
-		Entity.Delete();
+		GameObject.Destroy();
 	}
 
 	private void CreateDamageEffects( DamageEventData damageEventData, DamageInfo damageInfo )
@@ -75,14 +76,13 @@ public partial class ActorComponent
 
 	private void ApplyKnockBack(PhysicsBody body, DamageEventData damageEventData)
 	{
-		if ( !body.IsValid() )
+		/*if ( !body.IsValid() )
 			return;
 		
 		body.ApplyForceAt( body.FindClosestPoint( damageEventData.Position ),
-			damageEventData.Direction * damageEventData.KnockBack * Entity.PhysicsGroup.Mass * 100 );
+			damageEventData.Direction * damageEventData.KnockBack * Entity.PhysicsGroup.Mass * 100 );*/
 	}
 	
-	[ClientRpc]
 	public void CreateDamageNumber(DamageEventData damageEventData)
 	{
 		var damageNumber = DamageNumberPanel.Create( damageEventData );

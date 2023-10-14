@@ -6,7 +6,7 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent
 {
-	[ConVar.Replicated] public static bool dd_debug_stats { get; set; } = false;
+	[ConVar.Replicated] public static bool dd_debug_stats { get; set; } = false; 
 	
 	/// <summary>
 	/// We only want to network the computed stats of the actor, that way we dont have to do anything
@@ -14,7 +14,6 @@ public partial class ActorComponent
 	///
 	/// These are our dynamically changing stats. Some stats will actually use a combination of these.
 	/// </summary>
-	[Net]
 	private IDictionary<StatType, float> StatsDictionary { get; set; } = new Dictionary<StatType, float>(); 
 	
 	/// <summary>
@@ -262,7 +261,7 @@ public partial class ActorComponent
 		Stamina = Stats.MaxStamina;
 	}
 	
-	private void SimulateStats()
+	private void UpdateStats()
 	{
 		if ( dd_debug_stats && Game.IsServer )
 		{
@@ -352,15 +351,5 @@ public partial class ActorComponent
 
 		if (TimeSinceLastStaminaCost > Stats.StaminaRegenDelay)
 			AddStamina( Stats.StaminaRegen * Time.Delta );
-	}
-
-	//TODO: nasty hack while there's no easy way to handle this.
-	[GameEvent.Tick.Server]
-	private void OnTickNonPlayer()
-	{
-		if ( Entity is Player )
-			return;
-
-		TickStats();
 	}
 }

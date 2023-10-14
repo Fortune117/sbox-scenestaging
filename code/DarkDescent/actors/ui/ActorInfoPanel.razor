@@ -33,13 +33,14 @@
 		PanelBounds = new Rect { Width = 1200f, Height = 600, Position = new Vector2( -600, -300 )};
 		WorldScale = 1.5f;
 
-		if ( actorComponent.Entity.Components.TryGet< ObjectClassifierComponent>( out var classifier ) )
+		var classifier = actorComponent.GameObject.GetComponent<ObjectClassifierComponent>();
+		if (classifier is not null)
 		{
 			Name = classifier.DisplayName;
 		}
 		else
 		{
-			Name = actorComponent.Entity.Name;
+			Name = actorComponent.GameObject.Name;
 		}
 	}
 	

@@ -27,7 +27,7 @@ public class Stats
 				return ActorComponent.GetStat( StatType.Charisma );
 		}
 
-		Log.Error( $"Somehow don't have a primary attribute assigned to Actor {ActorComponent.Entity}" );
+		Log.Error( $"Somehow don't have a primary attribute assigned to Actor {ActorComponent.GameObject}" );
 		return 0f;
 	}
 
@@ -49,7 +49,7 @@ public class Stats
 				return ActorComponent.GetStat( StatType.Charisma );
 		}
 		
-		Log.Error( $"Somehow don't have a spell casting attribute assigned to Actor {ActorComponent.Entity}" );
+		Log.Error( $"Somehow don't have a spell casting attribute assigned to Actor {ActorComponent.GameObject}" );
 		return 0f;
 	}
 

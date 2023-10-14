@@ -7,7 +7,7 @@ namespace DarkDescent.GameLog;
 
 public partial class GameLogSystem
 {
-	[ClientRpc]
+	
 	public static void DamageEventReceived( DamageEventData damageEventData)
 	{
 		/*var localPlayer = DarkDescentGameManager.LocalPlayer;

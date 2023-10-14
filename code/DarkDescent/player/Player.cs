@@ -28,7 +28,7 @@ public partial class Player : AnimatedEntity
 	[BindComponent]
 	public ThirdPersonCamera ThirdPersonCamera { get; }
 	
-	[BindComponent]
+	
 	public ActorComponent ActorComponent { get; }
 
 	[BindComponent]
@@ -124,8 +124,6 @@ public partial class Player : AnimatedEntity
 		if (groundEntityWasValid && !GroundEntity.IsValid())
 			TimeSinceGroundEntityWasNull = 0;
 		
-
-		ActorComponent.Simulate();
 		
 		if ( LifeState != LifeState.Alive )
 			return;

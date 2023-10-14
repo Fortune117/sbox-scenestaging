@@ -53,50 +53,44 @@ public struct DamageEventData
 	/// The various flags this damage has assigned to it.
 	/// </summary>
 	public DamageFlags DamageFlags { get; set; }
-
-	/// <summary>
-	/// Who this damage event is targeting.
-	/// </summary>
-	public int TargetID { get; set; }
-
-	public int OriginatorID { get; set; }
+	
 
 	/// <summary>
 	/// Who this damage event was originated by.
 	/// </summary>
-	public Entity Originator => Entity.FindByIndex( OriginatorID );
+	public GameObject Originator { get; set; }
 
 	/// <summary>
 	/// Target
 	/// </summary>
-	public Entity Target => Entity.FindByIndex( TargetID );
+	public GameObject Target { get; set; }
 
 	/// <summary>
 	/// Get the ActorComponent of the Target.
 	/// Can be null.
 	/// </summary>
-	public ActorComponent TargetActor => Target?.Components.Get<ActorComponent>();
+	public ActorComponent TargetActor => Target?.GetComponent<ActorComponent>();
 	
 	/// <summary>
 	/// Get the ActorComponent of the Originator.
 	/// Can be null.
 	/// </summary>
-	public ActorComponent OriginatorActor => Originator?.Components.Get<ActorComponent>();
+	public ActorComponent OriginatorActor => Originator?.GetComponent<ActorComponent>();
 
 	public bool HasDamageType( DamageType damageType )
 	{
 		return DamageTypes.HasFlag( damageType );
 	}
 
-	public DamageEventData WithTarget( Entity target )
+	public DamageEventData WithTarget( GameObject target )
 	{
-		TargetID = target.NetworkIdent;
+		Target = target;
 		return this;
 	}
 
-	public DamageEventData WithOriginator( Entity originator )
+	public DamageEventData WithOriginator( GameObject originator )
 	{
-		OriginatorID = originator.NetworkIdent;
+		Originator = originator;
 		return this;
 	}
 

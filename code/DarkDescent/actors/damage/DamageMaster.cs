@@ -10,8 +10,8 @@ public static class DamageMaster
 		var damageEventData = new DamageEventData();
 		var typeAndFlags = ConvertTagsToTypeAndFlags( damageInfo.Tags );
 
-		damageEventData = damageEventData.WithTarget( targetActor.Entity );
-		damageEventData = damageEventData.WithOriginator( damageInfo.Attacker );
+		damageEventData = damageEventData.WithTarget( targetActor.GameObject );
+		//damageEventData = damageEventData.WithOriginator( damageInfo.Damage );
 		
 		damageEventData.DamageOriginal = damageInfo.Damage;
 		

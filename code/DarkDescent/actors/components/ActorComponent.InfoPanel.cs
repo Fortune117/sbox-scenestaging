@@ -5,10 +5,10 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent
 {
-	[Prefab, Net, Category("Info Panel")] 
+	[Property, Category("Info Panel")] 
 	public bool ShowInfoPanel { get; set; } = true;
 
-	[Prefab, Net, Range( 0, 600 ), Category("Info Panel")] 
+	[Property, Range( 0, 600 ), Category("Info Panel")] 
 	public float PanelDrawDistance { get; set; } = 300;
 
 	private ActorInfoPanel InfoPanel { get; set; }
@@ -22,14 +22,13 @@ public partial class ActorComponent
 	{
 		InfoPanel?.Delete();
 	}
-
-	[GameEvent.Client.Frame]
+	
 	private void UpdateInfoPanel()
 	{
 		if ( !InfoPanel.IsValid() )
 			return;
 		
-		var height = Entity.WorldSpaceBounds.Maxs.z;
+		/*var height = Entity.WorldSpaceBounds.Maxs.z;
 		var angles = Rotation.LookAt( -Camera.Rotation.Forward ).Angles();
 		InfoPanel.Rotation = angles.WithPitch( 0 ).ToRotation();
 		
@@ -42,6 +41,6 @@ public partial class ActorComponent
 
 		var distanceCheck = Camera.Position.Distance( InfoPanel.Position ) > PanelDrawDistance;
 		
-		InfoPanel.SetClass( "hidden", !ShowInfoPanel || distanceCheck );
+		InfoPanel.SetClass( "hidden", !ShowInfoPanel || distanceCheck );*/
 	}
 }

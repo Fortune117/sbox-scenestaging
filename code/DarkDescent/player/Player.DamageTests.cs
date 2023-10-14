@@ -13,16 +13,16 @@ public partial class Player
 		if ( !Input.Pressed( GameTags.Input.AttackPrimary ) )
 			return;
 
-		var tr = Trace.Ray( AimRay, 200 )
-			.Ignore( this )
+		var tr = Physics.Trace.Ray( AimRay, 200 )
 			.UseHitboxes()
 			.Radius( 3f )
 			.Run();
 
-		if ( !tr.Hit )
+		/*if ( !tr.Hit )
 			return;
 
-		if ( !tr.Entity.Components.TryGet<ActorComponent>( out var actorComponent ) )
+		var actor = tr.Body.GameObject;
+		if ( ! )
 			return;
 
 		foreach ( var tag in tr.Tags )
@@ -38,6 +38,6 @@ public partial class Player
 			.WithDamage( 15f )
 			.WithTag( GameTags.Damage.Physical );
 
-		actorComponent.TakeDamage( damage ); 
+		actorComponent.TakeDamage( damage ); */
 	}
 }
