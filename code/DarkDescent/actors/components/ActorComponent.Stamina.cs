@@ -31,7 +31,7 @@ public partial class ActorComponent
 	{
 		if ( IsSprinting )
 		{
-			PayStamina (StaminaSprintCost * Time.Delta );
+			PayStamina(StaminaSprintCost * Time.Delta );
 		}
 	}
 
