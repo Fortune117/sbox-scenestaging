@@ -19,6 +19,12 @@ public partial class SceneEditorSession
 		undoSystem.OnRedo = ( x ) => EditorUtility.PlayRawSound( "sounds/editor/success.wav" );
 	}
 
+	// the amount of frames no mouse button has been pressed for
+	int mouseUpFrames;
+
+	// whether we should defer undos or not
+	bool ShouldDeferUndo => mouseUpFrames < 2;
+
 	/// <summary>
 	/// Take a full scene snapshot for the undo system. This is usually a last resort, if you can't do anything more incremental.
 	/// </summary>
@@ -26,20 +32,28 @@ public partial class SceneEditorSession
 	{
 		// if they have the mouse down (dragging into position etc)
 		// then we wait until they're not before we take a snapshot
-		if ( Editor.Application.MouseButtons != 0 )
+		if ( ShouldDeferUndo )
 		{
-			pendingUndoSnapshot = () => FullUndoSnapshot( title );
+			pendingUndoSnapshot = () => FullUndoSnapshot( title + " (deferred)" );
 			return;
 		}
 
+		//Log.Info( $"Add Undo [{title}] [{Editor.Application.MouseButtons}] [{ShouldDeferUndo}]" );
 		undoSystem.Snapshot( title );
 		pendingUndoSnapshot = null;
 	}
 
 	private void TickPendingUndoSnapshot()
 	{
+		mouseUpFrames++;
+
+		if ( Editor.Application.MouseButtons != 0 )
+		{
+			mouseUpFrames = 0;
+		}
+
 		if ( pendingUndoSnapshot is null ) return;
-		if ( Editor.Application.MouseButtons != 0 ) return;
+		if ( ShouldDeferUndo ) return;
 
 		pendingUndoSnapshot();
 	}
@@ -57,6 +71,7 @@ public partial class SceneEditorSession
 	private Action snapshotForUndo( )
 	{
 		var state = Scene.Serialize().ToJsonString();
+		var selection = Selection.OfType<GameObject>().Select( x => x.Id ).ToArray();
 
 		return () =>
 		{
@@ -66,6 +81,17 @@ public partial class SceneEditorSession
 			using var activeScope = SceneUtility.DeferInitializationScope( "Undo" );
 			var js = JsonObject.Parse( state ) as JsonObject;
 			Scene.Deserialize( js );
+
+			Selection.Clear();
+
+			foreach( var o in selection )
+			{
+				if ( Scene.FindObjectByGuid( o ) is GameObject go )
+				{
+					Selection.Add( go );
+				}
+			}
+			
 		};
 	}
 }

@@ -63,8 +63,8 @@ public partial class SceneViewWidget : Widget
 		session.RestoreCamera( Camera );
 
 		EditorScene.GizmoInstance.Selection = session.Selection;
-		
 
+		Camera.World = session.Scene.SceneWorld;
 		Camera.Worlds.Add( EditorScene.GizmoInstance.World );
 		Camera.ClearFlags = ClearFlags.Color | ClearFlags.Depth | ClearFlags.Stencil;
 		Camera.ZNear = EditorScene.GizmoInstance.Settings.CameraZNear;
@@ -91,11 +91,6 @@ public partial class SceneViewWidget : Widget
 
 		EditorScene.GizmoInstance.UpdateInputs( Camera, Renderer );
 
-		if ( session is null )
-			return;
-
-		session.Scene.SceneWorld.AmbientLightColor = Color.Black;
-
 		using ( EditorScene.GizmoInstance.Push() )
 		{
 			Cursor = Gizmo.HasHovered ? CursorShape.Finger : CursorShape.Arrow;
@@ -115,35 +110,6 @@ public partial class SceneViewWidget : Widget
 
 		session.UpdateState( Camera );
 	}
-
-	[Event( "scene.open" )]
-	public void SceneOpened()
-	{
-		var activeScene = SceneEditorSession.Active;
-		if ( activeScene is null )
-			return;
-
-		// ideally we should allow multiple scene windows
-		// and we should be saving the last camera setup per scene, per camera
-		// and then we could restore them here.
-
-		var cam = activeScene.Scene.FindAllComponents<CameraComponent>().FirstOrDefault();
-		if ( cam is not null )
-		{
-			Camera.Position = cam.Transform.Position;
-			Camera.Rotation = cam.Transform.Rotation;
-		}
-		else
-		{
-			Camera.Position = Vector3.Backward * 2000 + Vector3.Up * 2000 + Vector3.Left * 2000;
-			Camera.Rotation = Rotation.LookAt( -Camera.Position );
-
-			var bbox = activeScene.Scene.GetBounds();
-
-			FrameOn( bbox );
-		}
-	}
-
 
 	[Event( "scene.frame" )]
 	public void FrameOn( BBox target )
@@ -258,7 +224,7 @@ public partial class SceneViewWidget : Widget
 		//
 		if ( asset.LoadResource<PrefabFile>() is PrefabFile prefabFile )
 		{
-			DragObject = SceneUtility.Instantiate( prefabFile.PrefabScene, Vector3.Zero, Rotation.Identity );
+			DragObject = SceneUtility.Instantiate( prefabFile.Scene, Vector3.Zero, Rotation.Identity );
 			return;
 		}
 

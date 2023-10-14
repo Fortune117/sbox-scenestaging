@@ -75,7 +75,7 @@ public class GameObjectInspector : Widget
 	void PropertyEdited( SerializedProperty property, GameObject go )
 	{
 		var value = property.GetValue<object>();
-		go.EditLog( $"{go.Name}.{property.Name}", go, () => property.SetValue( value ) );
+		go.EditLog( $"{go.Name}.{property.Name}", go );
 	}
 
 	/// <summary>
@@ -122,7 +122,7 @@ public class ComponentList : Widget
 	void PropertyEdited( SerializedProperty property, BaseComponent component )
 	{
 		var value = property.GetValue<object>();
-		component.EditLog( $"{component.Name}.{property.Name}", component, () => property.SetValue( value ) );
+		component.EditLog( $"{component.Name}.{property.Name}", component );
 	}
 
 	void OpenContextMenu( BaseComponent component )
@@ -132,10 +132,10 @@ public class ComponentList : Widget
 		menu.AddOption( "Reset", action: () => component.Reset() );
 		menu.AddSeparator();
 		menu.AddOption( "Remove Component", action: () => component.Destroy() );
-		menu.AddOption( "Copy To Clipboard" );
-		menu.AddOption( "Paste As New" );
-		menu.AddOption( "Paste Values" );
-		menu.AddOption( "Open In Window.." );
+		//menu.AddOption( "Copy To Clipboard" );
+		//menu.AddOption( "Paste As New" );
+		//menu.AddOption( "Paste Values" );
+		//menu.AddOption( "Open In Window.." );
 		menu.AddSeparator();
 
 		var t = EditorTypeLibrary.GetType( component.GetType() );

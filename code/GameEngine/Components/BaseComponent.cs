@@ -39,7 +39,7 @@ public abstract partial class BaseComponent
 	}
 
 	public string Name { get; set; }
-	private bool ShouldExecute => !Scene.IsEditor || this is ExecuteInEditor;
+	private bool ShouldExecute => Scene is not null && ( !Scene.IsEditor || this is ExecuteInEditor );
 
 	public virtual void DrawGizmos() { }
 
@@ -109,8 +109,19 @@ public abstract partial class BaseComponent
 
 	public void Destroy()
 	{
-		Enabled = false;
-		GameObject.Components.Remove( this );
+		if ( _enabledState )
+		{
+			if ( ShouldExecute )
+			{
+				ExceptionWrap( "OnDisabled", OnDisabled );
+			}
+
+			_enabledState = false;
+			_enabled = false;
+		}
+
+		var i = GameObject.Components.IndexOf( this );
+		if ( i >= 0 ) GameObject.Components[i] = null;
 	}
 
 	public virtual void Reset()
@@ -148,9 +159,9 @@ public abstract partial class BaseComponent
 	/// <summary>
 	/// Called when something on the component has been edited
 	/// </summary>
-	public void EditLog( string name, object source, Action undo )
+	public void EditLog( string name, object source )
 	{
-		GameObject.EditLog( name, source, undo );
+		GameObject.EditLog( name, source );
 	}
 	
 	/// <inheritdoc cref="GameObject.GetComponent{T}(bool, bool)"/>

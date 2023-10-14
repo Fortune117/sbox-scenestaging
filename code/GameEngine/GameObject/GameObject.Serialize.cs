@@ -17,12 +17,7 @@ public partial class GameObject
 	/// </summary>
 	public void Clear()
 	{
-		ForEachComponent( "DestroyComponents", true, c => c.Destroy() );
-
-		foreach ( var child in Children.ToArray() )
-		{
-			child.DestroyRecursive();
-		}
+		OnDestroy();
 	}
 
 	//
@@ -77,6 +72,9 @@ public partial class GameObject
 
 			foreach( var child in Children )
 			{
+				if ( child is null )
+					continue;
+
 				try
 				{
 					var result = child.Serialize( options );

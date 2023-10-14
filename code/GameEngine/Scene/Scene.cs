@@ -30,9 +30,14 @@ public class Scene : GameObject
 		PhysicsWorld.SetCollisionRules( settings );
 	}
 
+	protected Scene( bool isEditor ) : this()
+	{
+		IsEditor = isEditor;
+	}
+
 	public static Scene CreateEditorScene()
 	{
-		return new Scene() { IsEditor = true };
+		return new Scene( true );
 	}
 
 	public void Register( GameObject o )
@@ -143,6 +148,7 @@ public class Scene : GameObject
 		Assert.NotNull( resource );
 
 		Clear();
+		ProcessDeletes();
 
 		if ( resource is SceneFile sceneFile )
 		{
@@ -177,18 +183,12 @@ public class Scene : GameObject
 
 		foreach ( var go in Children )
 		{
+			if ( go is null ) continue;
+
 			found.AddRange( go.GetComponents<T>( includeDisabled, true ) );
 		}
 
 		return found;
-	}
-
-	internal void Remove( GameObject gameObject )
-	{
-		if ( !Children.Remove( gameObject ) )
-		{
-			Log.Warning( "Scene.Remove - gameobject wasn't in All!" );
-		}
 	}
 
 	/// <summary>
@@ -219,7 +219,7 @@ public class Scene : GameObject
 		Load( file );
 	}
 
-	public override void EditLog( string name, object source, Action undo )
+	public override void EditLog( string name, object source )
 	{
 		HasUnsavedChanges = true;
 		OnEdited?.Invoke( name );
