@@ -41,13 +41,24 @@
       "Scale": "1,1,1",
       "Components": [
         {
-          "__type": "DarkDescentPlayerController",
+          "__type": "CharacterController",
           "__enabled": true,
-          "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
-          "CameraDistance": 200,
-          "Eye": "68a91c3a-993c-4b69-aa4c-2c9151b8e314",
-          "FirstPerson": true,
-          "Gravity": "0,0,800"
+          "Acceleration": 10,
+          "GroundAngle": 45,
+          "Height": 64,
+          "Radius": 16,
+          "StepHeight": 18
+        },
+        {
+          "__type": "PhysicsPickupComponent",
+          "__enabled": true,
+          "HoldRange": 80,
+          "PickupRange": 125,
+          "StaminaDrainBase": 1,
+          "StaminaDrainPerMissingStrength": 1,
+          "StaminaThrowCost": 5,
+          "ThrowForceBase": 500,
+          "ThrowForcePerStrength": 150
         },
         {
           "__type": "ActorComponent",
@@ -62,24 +73,13 @@
           "StaminaSprintCost": 0
         },
         {
-          "__type": "PhysicsPickupComponent",
+          "__type": "DarkDescentPlayerController",
           "__enabled": true,
-          "HoldRange": 80,
-          "PickupRange": 125,
-          "StaminaDrainBase": 1,
-          "StaminaDrainPerMissingStrength": 1,
-          "StaminaThrowCost": 5,
-          "ThrowForceBase": 500,
-          "ThrowForcePerStrength": 150
-        },
-        {
-          "__type": "CharacterController",
-          "__enabled": true,
-          "Acceleration": 10,
-          "GroundAngle": 45,
-          "Height": 64,
-          "Radius": 16,
-          "StepHeight": 18
+          "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
+          "CameraDistance": 200,
+          "Eye": "68a91c3a-993c-4b69-aa4c-2c9151b8e314",
+          "FirstPerson": false,
+          "Gravity": "0,0,800"
         }
       ],
       "Children": [
@@ -92,12 +92,13 @@
           "Scale": "1,1,1",
           "Components": [
             {
-              "__type": "CameraShake",
-              "__enabled": true
-            },
-            {
-              "__type": "ViewPunch",
-              "__enabled": true
+              "__type": "CameraComponent",
+              "__enabled": true,
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "Color, Depth, Stencil",
+              "FieldOfView": 100,
+              "ZFar": 10000,
+              "ZNear": 10
             },
             {
               "__type": "ViewBob",
@@ -108,13 +109,12 @@
               "ViewBobSpeedThreshold": 150
             },
             {
-              "__type": "CameraComponent",
-              "__enabled": true,
-              "BackgroundColor": "0.33333,0.46275,0.52157,1",
-              "ClearFlags": "Color, Depth, Stencil",
-              "FieldOfView": 100,
-              "ZFar": 10000,
-              "ZNear": 10
+              "__type": "ViewPunch",
+              "__enabled": true
+            },
+            {
+              "__type": "CameraShake",
+              "__enabled": true
             }
           ]
         },
@@ -127,11 +127,11 @@
           "Scale": "1,1,1",
           "Components": [
             {
-              "__type": "ModelComponent",
+              "__type": "AnimatedModelComponent",
               "__enabled": true,
               "MaterialOverride": null,
               "Model": "models/actors/player/player_skeleton.vmdl",
-              "ShouldCastShadows": false,
+              "ShouldCastShadows": true,
               "Tint": "1,1,1,1"
             }
           ],
@@ -165,10 +165,18 @@
       "Scale": "1,1,1",
       "Components": [
         {
-          "__type": "PickupTargetComponent",
+          "__type": "ModelComponent",
           "__enabled": true,
-          "StrengthLeeway": 5,
-          "StrengthThreshold": 10
+          "MaterialOverride": null,
+          "Model": "models/props/storage/crate_01.vmdl",
+          "ShouldCastShadows": true,
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PhysicsComponent",
+          "__enabled": true,
+          "Gravity": true,
+          "Static": false
         },
         {
           "__type": "ColliderBoxComponent",
@@ -178,18 +186,10 @@
           "Surface": null
         },
         {
-          "__type": "PhysicsComponent",
+          "__type": "PickupTargetComponent",
           "__enabled": true,
-          "Gravity": true,
-          "Static": false
-        },
-        {
-          "__type": "ModelComponent",
-          "__enabled": true,
-          "MaterialOverride": null,
-          "Model": "models/props/storage/crate_01.vmdl",
-          "ShouldCastShadows": true,
-          "Tint": "1,1,1,1"
+          "StrengthLeeway": 5,
+          "StrengthThreshold": 10
         }
       ]
     }

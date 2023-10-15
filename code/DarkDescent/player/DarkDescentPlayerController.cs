@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace DarkDescent;
 
-public class DarkDescentPlayerController : BaseComponent
+public partial class DarkDescentPlayerController : BaseComponent
 {
 	[Property] public Vector3 Gravity { get; set; } = new Vector3( 0, 0, 800 );
 	[Property] public float CameraDistance { get; set; } = 200.0f;
@@ -18,6 +18,13 @@ public class DarkDescentPlayerController : BaseComponent
 	public Vector3 EyePosition => Eye.Transform.Position;
 
 	public Ray AimRay => new Ray( EyePosition, EyeAngles.Forward );
+	
+	private CharacterController CharacterController { get; set; }
+
+	public override void OnStart()
+	{
+		CharacterController = GetComponent<CharacterController>();
+	}
 
 	public override void Update()
 	{
@@ -47,42 +54,42 @@ public class DarkDescentPlayerController : BaseComponent
 		// read inputs
 		BuildWishVelocity();
 
-		var cc = GameObject.GetComponent<CharacterController>();
-
-		if ( cc.IsOnGround && Input.Down( "Jump" ) )
+		if ( CharacterController.IsOnGround && Input.Down( "Jump" ) )
 		{
 			float flGroundFactor = 1.0f;
 			float flMul = 268.3281572999747f * 1.2f;
 			//if ( Duck.IsActive )
 			//	flMul *= 0.8f;
 
-			cc.Punch( Vector3.Up * flMul * flGroundFactor );
+			CharacterController.Punch( Vector3.Up * flMul * flGroundFactor );
 		//	cc.IsOnGround = false;
 		}
 
-		if ( cc.IsOnGround )
+		if ( CharacterController.IsOnGround )
 		{
-			cc.Velocity = cc.Velocity.WithZ( 0 );
-			cc.Accelerate( WishVelocity );
-			cc.ApplyFriction( 4.0f );
+			CharacterController.Velocity = CharacterController.Velocity.WithZ( 0 );
+			CharacterController.Accelerate( WishVelocity );
+			CharacterController.ApplyFriction( 4.0f );
 		}
 		else
 		{
-			cc.Velocity -= Gravity * Time.Delta * 0.5f;
-			cc.Accelerate( WishVelocity.ClampLength( 50 ) );
-			cc.ApplyFriction( 0.1f );
+			CharacterController.Velocity -= Gravity * Time.Delta * 0.5f;
+			CharacterController.Accelerate( WishVelocity.ClampLength( 50 ) );
+			CharacterController.ApplyFriction( 0.1f );
 		}
 
-		cc.Move();
+		CharacterController.Move();
 
-		if ( !cc.IsOnGround )
+		if ( !CharacterController.IsOnGround )
 		{
-			cc.Velocity -= Gravity * Time.Delta * 0.5f;
+			CharacterController.Velocity -= Gravity * Time.Delta * 0.5f;
 		}
 		else
 		{
-			cc.Velocity = cc.Velocity.WithZ( 0 );
+			CharacterController.Velocity = CharacterController.Velocity.WithZ( 0 );
 		}
+		
+		UpdateAnimations();
 	}
 
 	public void BuildWishVelocity()
