@@ -4,7 +4,10 @@ using Sandbox.Utility;
 
 namespace DarkDescent.Cameras;
 
-public class ViewPunch
+[Title( "View Punch" )]
+[Category( "Camera" )]
+[Icon( "cameraswitch" )]
+public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup
 {
     private Rotation targetRotation = Rotation.Identity;
     private Rotation currentRotation = Rotation.Identity;
@@ -31,16 +34,15 @@ public class ViewPunch
         targetRotation *= new Angles(rise, sway, 0).ToRotation();
     }
     
-    
-    public Rotation UpdateRotation()
+    public void SetupCamera( CameraComponent camera, SceneCamera sceneCamera )
     {
+	    
 	    //we are always spherically interpolated our target rotation back to zero, and then also interpolated our 
 	    //current rotation back to zero.
 	    //seems a bit wanky but it feels good in game.
-	    
-        targetRotation = Rotation.Slerp(targetRotation, Rotation.Identity, Time.Delta * 10f);
-        currentRotation = Rotation.Slerp(currentRotation, targetRotation, Time.Delta * 10f);
-        
-        return currentRotation;
+	    targetRotation = Rotation.Slerp(targetRotation, Rotation.Identity, Time.Delta * 10f);
+	    currentRotation = Rotation.Slerp(currentRotation, targetRotation, Time.Delta * 10f);
+
+	    sceneCamera.Rotation *= targetRotation;
     }
 }

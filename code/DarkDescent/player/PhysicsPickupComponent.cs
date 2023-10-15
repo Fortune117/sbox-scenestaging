@@ -73,7 +73,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		
 		//Crosshair.Instance?.SetClass( "interact", false );
 
-		var player = GameObject.GetComponent<PlayerController>();
+		var player = GameObject.GetComponent<DarkDescentPlayerController>();
 			
 		PickupMove( player.AimRay.Position, player.AimRay.Forward, player.EyeAngles.ToRotation() );
 
@@ -99,7 +99,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 	{
 		//Crosshair.Instance?.SetClass( "interact", false );
 		
-		var player = GameObject.GetComponent<PlayerController>();
+		var player = GameObject.GetComponent<DarkDescentPlayerController>();
 		
 		var tr = Physics.Trace.Ray( player.AimRay, PickupRange )
 			.Radius( 3 )
@@ -226,7 +226,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		if ( !HeldBody.IsValid() )
 			return;
 		
-		var player = GameObject.GetComponent<PlayerController>();
+		var player = GameObject.GetComponent<DarkDescentPlayerController>();
 
 		var attachPos = HeldBody.FindClosestPoint( startPos );
 		var holdDistance = HoldRange + attachPos.Distance( HeldBody.MassCenter );
@@ -275,7 +275,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 			return;
 		}
 
-		var player = GameObject.GetComponent<PlayerController>();
+		var player = GameObject.GetComponent<DarkDescentPlayerController>();
 		GameObject.GetComponent<ActorComponent>().PayStamina( StaminaThrowCost );
 
 		//always add a little bit if we can actually throw something

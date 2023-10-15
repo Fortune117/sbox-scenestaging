@@ -34,9 +34,6 @@ public class StaminaPostProcessHook : ScreenEffects
 
 	private float GetLocalPlayerStaminaFraction()
 	{
-		if ( Game.LocalPawn is Player player )
-			return player.ActorComponent.StaminaFraction;
-
 		return 1f;
 	}
 

@@ -1,8 +1,8 @@
 ﻿@using System
+@using DarkDescent.Actor
 @using Sandbox
 @using Sandbox.UI
 @using DarkDescent.GameLog.UI
-@using Player = DarkDescent.Player
 
 @attribute [StyleSheet]
 
@@ -14,17 +14,17 @@
     <ChatBox class="chat-box"/>
     <GameLogPanel/>
     
-    @if ( LocalPlayer?.ActorComponent is not null )
+    @if ( LocalActor is not null )
     {
-	    <ResourceBar class="exp-bar exp" Maximum=@LocalPlayer.ActorComponent.ExperienceRequirement Minimum=@(0) Current=@LocalPlayer.ActorComponent.Experience />
-	    <ResourceBar class="gothic-style health-bar health" Maximum=@LocalPlayer.ActorComponent.Stats.MaxHealth Minimum=@(0) Current=@LocalPlayer.ActorComponent.Health />
-	    <ResourceBar class="gothic-style stamina-bar stamina" Maximum=@LocalPlayer.ActorComponent.Stats.MaxStamina Minimum=@(0) Current=@LocalPlayer.ActorComponent.Stamina />
+	    <ResourceBar class="exp-bar exp" Maximum=@LocalActor.ExperienceRequirement Minimum=@(0) Current=@LocalActor.Experience />
+	    <ResourceBar class="gothic-style health-bar health" Maximum=@LocalActor.Stats.MaxHealth Minimum=@(0) Current=@LocalActor.Health />
+	    <ResourceBar class="gothic-style stamina-bar stamina" Maximum=@LocalActor.Stats.MaxStamina Minimum=@(0) Current=@LocalActor.Stamina />
     }
 </root>
 
 @code
 {
-	public Player LocalPlayer => Game.LocalPawn as Player;
+	public ActorComponent LocalActor => null;
 	
     public HUD()
     {
@@ -35,9 +35,9 @@
 	//full rebuild of the HUD every time a stat changes is :s
 	protected override int BuildHash()
 	{
-		if ( LocalPlayer?.ActorComponent is null )
+		if ( LocalActor is null )
 			return base.BuildHash();
 		
-		return HashCode.Combine( LocalPlayer.ActorComponent.Stats.MaxHealth, LocalPlayer.ActorComponent.Health, LocalPlayer.ActorComponent.Stats.MaxStamina, LocalPlayer.ActorComponent.Stamina, LocalPlayer.ActorComponent.Experience, LocalPlayer.ActorComponent.ExperienceRequirement);
+		return HashCode.Combine( LocalActor.Stats.MaxHealth, LocalActor.Health, LocalActor.Stats.MaxStamina, LocalActor.Stamina, LocalActor.Experience, LocalActor.ExperienceRequirement);
 	}
 }
