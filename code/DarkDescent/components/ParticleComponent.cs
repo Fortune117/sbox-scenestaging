@@ -39,8 +39,7 @@ public class ParticleComponent : BaseComponent, BaseComponent.ExecuteInEditor
 		if ( !RunOnStart )
 			return;
 		
-		_sceneParticles.Delete();
-		
+		_sceneParticles?.Delete();
 	}
 
 	public override void OnEnabled()

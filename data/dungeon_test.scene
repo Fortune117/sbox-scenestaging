@@ -29,8 +29,7 @@
           "__enabled": true,
           "MapName": "fdd.dungeon"
         }
-      ],
-      "Children": []
+      ]
     },
     {
       "Id": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
@@ -129,6 +128,10 @@
             {
               "__type": "AnimatedModelComponent",
               "__enabled": true,
+              "Bounds": {
+                "Mins": "-148.65,-193.5,-38.69998",
+                "Maxs": "149.55,214.2,120.15"
+              },
               "MaterialOverride": null,
               "Model": "models/actors/player/player_skeleton.vmdl",
               "ShouldCastShadows": true,
@@ -224,6 +227,26 @@
               "Radius": 300
             }
           ]
+        }
+      ]
+    },
+    {
+      "Id": "d55a8b83-0513-40ac-abb7-3534f2506f52",
+      "Name": "Object",
+      "Enabled": true,
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "VolumetricFogVolume",
+          "__enabled": true,
+          "Bounds": {
+            "Mins": "-567.3,-578.85,-150",
+            "Maxs": "374.85,481.8,150"
+          },
+          "FalloffExponent": 2,
+          "Strength": 0.5
         }
       ]
     }

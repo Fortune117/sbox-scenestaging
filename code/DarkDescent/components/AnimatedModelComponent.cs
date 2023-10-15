@@ -9,16 +9,19 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 {
 	Model _model;
 
-	public BBox Bounds
+	private BBox _bounds;
+	[Property] public BBox Bounds
 	{
 		get
 		{
-			if ( _sceneModel is not null )
-			{
-				return _sceneModel.Bounds;
-			}
-
-			return new BBox( Transform.Position, 16 );
+			return _bounds;
+		}
+		set
+		{
+			_bounds = value;
+			
+			if (_sceneModel.IsValid())
+				_sceneModel.Bounds = value;
 		}
 	}
 
@@ -100,11 +103,14 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 			return;
 
 		Gizmo.Hitbox.Model( Model );
-
+		
 		Gizmo.Draw.Color = Color.White.WithAlpha( 0.1f );
 
 		if ( Gizmo.IsSelected )
 		{
+			Gizmo.Draw.Color = Color.Green.WithAlpha( 0.1f );
+			Gizmo.Draw.LineBBox( Bounds );
+			
 			Gizmo.Draw.Color = Color.White.WithAlpha( 0.9f );
 			Gizmo.Draw.LineBBox( Model.Bounds );
 		}
@@ -147,6 +153,7 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 			return;
 
 		_sceneModel.Transform = Transform.World;
+		_sceneModel.Bounds = _bounds;
 	}
 
 	public void SetAnimParameter( string name, float value )
