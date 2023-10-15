@@ -40,36 +40,6 @@ public partial class DarkDescentPlayerController : BaseComponent
 		EyeAngles.roll = 0;
 		EyeAngles = EyeAngles.Normal;
 
-		// Update camera position
-		var camera = GameObject.GetComponent<CameraComponent>( true, true );
-		if ( camera is not null )
-		{
-			var camPos = Eye.Transform.Position - EyeAngles.ToRotation().Forward * CameraDistance;
-
-			if ( FirstPerson ) camPos = Eye.Transform.Position + EyeAngles.ToRotation().Forward * 8;
-
-			if ( Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
-			{
-				var pos = modelComponent.GetAttachment( "camera" );
-
-				if ( pos is not null )
-				{
-					camera.Transform.Position = pos.Value.Position;
-					camera.Transform.Rotation = pos.Value.Rotation;
-				}
-				else
-				{
-					camera.Transform.Position = camPos;
-					camera.Transform.Rotation = EyeAngles.ToRotation();
-				}
-			}
-			else
-			{
-				camera.Transform.Position = camPos;
-				camera.Transform.Rotation = EyeAngles.ToRotation();
-			}
-		}
-
 		// rotate body to look angles
 		if ( Body is not null )
 		{
@@ -115,6 +85,41 @@ public partial class DarkDescentPlayerController : BaseComponent
 		}
 		
 		UpdateAnimations();
+
+		UpdateCamera();
+	}
+
+	private void UpdateCamera()
+	{
+		// Update camera position
+		var camera = GameObject.GetComponent<CameraComponent>( true, true );
+		if ( camera is not null )
+		{
+			var camPos = Eye.Transform.Position - EyeAngles.ToRotation().Forward * CameraDistance;
+
+			if ( FirstPerson ) camPos = Eye.Transform.Position + EyeAngles.ToRotation().Forward * 8;
+
+			if ( Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
+			{
+				var pos = modelComponent.GetAttachment( "camera" );
+
+				if ( pos is not null )
+				{
+					camera.Transform.Position = pos.Value.Position;
+					camera.Transform.Rotation = pos.Value.Rotation;
+				}
+				else
+				{
+					camera.Transform.Position = camPos;
+					camera.Transform.Rotation = EyeAngles.ToRotation();
+				}
+			}
+			else
+			{
+				camera.Transform.Position = camPos;
+				camera.Transform.Rotation = EyeAngles.ToRotation();
+			}
+		}
 	}
 
 	public void BuildWishVelocity()
