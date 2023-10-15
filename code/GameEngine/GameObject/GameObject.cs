@@ -97,11 +97,7 @@ public partial class GameObject
 			}
 
 			var oldParent = _parent;
-
-			if ( oldParent is not null )
-			{
-				oldParent.Children.Remove( this );
-			}
+			oldParent?.RemoveChild( this );
 
 			_parent = value;
 
@@ -123,11 +119,13 @@ public partial class GameObject
 
 	internal void OnDestroy()
 	{
-		ForEachComponent( "OnDestroy", true, c => c.Destroy() );
+		ForEachComponent( "OnDestroy", false, c => c.Destroy() );
 		ForEachChild( "Children", true, c => c.OnDestroy() );
 
-		Children.Clear();
+		Children.RemoveAll( x => x is null );
+
 		isDestroyed = true;
+		Enabled = false;
 	}
 
 	internal void PostPhysics()
@@ -146,14 +144,13 @@ public partial class GameObject
 
 	internal void ForEachComponent( string name, bool activeOnly, Action<BaseComponent> action )
 	{
-		for ( int i = 0; i < Components.Count; i++ )
+		for ( int i = Components.Count-1; i >= 0; i-- )
 		{
 			var c = Components[i];
 
 			if ( c is null )
 			{
 				Components.RemoveAt( i );
-				i--;
 				continue;
 			}
 
@@ -173,14 +170,13 @@ public partial class GameObject
 
 	internal void ForEachChild( string name, bool activeOnly, Action<GameObject> action )
 	{
-		for ( int i = 0; i < Children.Count; i++ )
+		for ( int i = Children.Count-1; i >= 0; i-- )
 		{
 			var c = Children[i];
 
 			if ( c is null )
 			{
 				Children.RemoveAt( i );
-				i--;
 				continue;
 			}
 
@@ -205,6 +201,7 @@ public partial class GameObject
 		t.GameObject = this;
 		Components.Add( t );
 
+		t.InitializeComponent();
 		t.Enabled = enabled;
 		return t;
 	}
@@ -252,6 +249,13 @@ public partial class GameObject
 		}
 	}
 
+	public bool TryGetComponent<T>( out T component, bool enabledOnly = true, bool deep = false )
+	{
+		component = GetComponent<T>( enabledOnly, deep );
+
+		return component is not null;
+	}
+	
 	public BaseComponent AddComponent( TypeDescription type, bool enabled = true )
 	{
 		if ( !type.TargetType.IsAssignableTo( typeof( BaseComponent ) ) )
@@ -272,12 +276,8 @@ public partial class GameObject
 		if ( !Enabled )
 			return;
 
-		OnUpdate();
-
-		for ( int i=0; i < Children.Count; i++ )
-		{
-			Children[i].Tick();
-		}
+		ForEachComponent( "Update", true, c => c.InternalUpdate() );
+		ForEachChild( "Tick", true, x => x.Tick() );
 	}
 
 	bool isDestroying;
@@ -313,11 +313,13 @@ public partial class GameObject
 	{
 		OnDestroy();
 
-		if ( Parent is not null )
-		{
-			var i = Parent.Children.IndexOf( this );
-			if ( i >= 0 ) Parent.Children[i] = null;
-		}
+		Parent = null;
+		DestroyRecursive();
+	}
+
+	private void RemoveChild( GameObject child )
+	{
+		Children.Remove( child );
 	}
 
 	/// <summary>
@@ -330,6 +332,7 @@ public partial class GameObject
 		isDestroying = true;
 		Parent = null;
 		Enabled = false;
+		_scene = null;
 		isDestroyed = true;
 
 		foreach ( var child in Children.ToArray() )
@@ -439,11 +442,6 @@ public partial class GameObject
 				return;
 			}
 		}
-	}
-
-	void OnUpdate()
-	{
-		ForEachComponent( "Update", true, c => c.InternalUpdate() );
 	}
 
 	/// <summary>

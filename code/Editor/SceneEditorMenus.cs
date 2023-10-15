@@ -33,8 +33,8 @@ public static class SceneEditorMenus
 		var json = go.Serialize( options );
 
 		EditorUtility.Clipboard.Copy( json.ToString() );
+		go.Destroy();
 
-		
 	}
 
 
@@ -94,6 +94,8 @@ public static class SceneEditorMenus
 		var text = EditorUtility.Clipboard.Paste();
 		if ( JsonNode.Parse( text ) is JsonObject jso )
 		{
+			SceneUtility.MakeGameObjectsUnique( jso );
+
 			var go = SceneEditorSession.Active.Scene.CreateObject();
 			go.Deserialize( jso );
 			go.SetParent( selected );
@@ -120,6 +122,7 @@ public static class SceneEditorMenus
 		if ( source is Scene ) return;
 
 		var json = source.Serialize( options );
+		SceneUtility.MakeGameObjectsUnique( json );
 
 		var go = GameObject.Create();
 		go.Deserialize( json );
