@@ -110,9 +110,8 @@ public partial class PhysicsPickupComponent : BaseComponent
 		
 		if ( tr.Body?.GameObject is not GameObject gameObject )
 			return false;
-
-		var pickupTarget = gameObject.GetComponent<PickupTargetComponent>();
-		if ( pickupTarget is null )
+		
+		if ( !gameObject.TryGetComponent<PickupTargetComponent>(out var pickupTarget ))
 			return false;
 		
 		var passedStrengthTest = GameObject.GetComponent<ActorComponent>().Stats.Strength >
