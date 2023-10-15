@@ -2,22 +2,17 @@
 
 namespace DarkDescent.Actor;
 
-[Prefab]
-public class AutoStandComponent : EntityComponent<ModelEntity>
+public class AutoStandComponent : BaseComponent
 {
-	[Prefab, Range(0, 50)]
+	[Property, Range(0, 50)]
 	private float SettleSpeed { get; set; }
 	
 	private TimeSince TimeSinceBeenOnGround { get; set; }
-	
-	
-	[GameEvent.Physics.PreStep]
-	private void OnTick()
-	{
-		if ( Game.IsClient )
-			return;
 
-		if ( !Entity.IsValid() || Entity.PhysicsGroup is null )
+
+	public override void Update()
+	{
+		if ( !GameObject.TryGetComponent<PhysicsComponent>( out var physicsComponent ) )
 			return;
 		
 		if ( !IsOnGround() )
@@ -26,26 +21,24 @@ public class AutoStandComponent : EntityComponent<ModelEntity>
 			return;
 		}
 
-
 		if ( TimeSinceBeenOnGround < 0.1f )
 			return;
 
-		Entity.PhysicsGroup.AngularDamping = 5f;
+		physicsComponent.GetBody().AngularDamping = 5f;
 
-		var mult = Entity.Rotation.Up.Dot( Vector3.Up );
+		var mult = GameObject.Transform.Rotation.Up.Dot( Vector3.Up );
 
 		if ( mult.AlmostEqual( 1 ) )
 			return;
 		
 		mult = mult.Remap( 0, 1, 0.25f, 3f );
 		
-		Entity.PhysicsGroup.AddAngularVelocity(Vector3.Up.Cross( Entity.Rotation.Up ) * -SettleSpeed * mult * Time.Delta);
+		physicsComponent.GetBody().AngularVelocity += Vector3.Up.Cross( Transform.Rotation.Up ) * -SettleSpeed * mult * Time.Delta;
 	}
 
 	private bool IsOnGround()
 	{
-		var tr = Trace.Ray( Entity.Position, Entity.Position + Vector3.Down * 17f )
-			.Ignore( Entity )
+		var tr = Physics.Trace.Ray( Transform.Position, Transform.Position + Vector3.Down * 17f )
 			.Run();
 
 		return tr.Hit && tr.Normal.Dot( Vector3.Up ).AlmostEqual( 1, 0.2f );
