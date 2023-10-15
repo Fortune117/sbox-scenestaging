@@ -158,4 +158,9 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 	{
 		SceneModel?.SetAnimParameter( name, value );
 	}
+
+	public Transform? GetAttachment( string name, bool worldSpace = true )
+	{
+		return SceneModel.GetAttachment( name, worldSpace );
+	}
 }

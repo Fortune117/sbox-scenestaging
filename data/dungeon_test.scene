@@ -12,7 +12,7 @@
           "__type": "PointLightComponent",
           "__enabled": true,
           "LightColor": "0.91373,0.98039,1,1",
-          "Radius": 400
+          "Radius": 1269.3999
         }
       ]
     },
@@ -78,7 +78,7 @@
           "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
           "CameraDistance": 200,
           "Eye": "68a91c3a-993c-4b69-aa4c-2c9151b8e314",
-          "FirstPerson": false,
+          "FirstPerson": true,
           "Gravity": "0,0,800"
         }
       ],
@@ -142,15 +142,7 @@
               "Enabled": true,
               "Position": "0.4493071,0,67.63921",
               "Rotation": "0,0,0,1",
-              "Scale": "1,1,1",
-              "Components": [
-                {
-                  "__type": "PointLightComponent",
-                  "__enabled": true,
-                  "LightColor": "0.91373,0.98039,1,1",
-                  "Radius": 400
-                }
-              ]
+              "Scale": "1,1,1"
             }
           ]
         }

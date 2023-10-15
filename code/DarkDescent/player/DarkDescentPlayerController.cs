@@ -31,7 +31,9 @@ public partial class DarkDescentPlayerController : BaseComponent
 		// Eye input
 		EyeAngles.pitch += Input.MouseDelta.y * 0.1f;
 		EyeAngles.yaw -= Input.MouseDelta.x * 0.1f;
+		EyeAngles.pitch = EyeAngles.pitch.Clamp( -89f, 89f );
 		EyeAngles.roll = 0;
+		EyeAngles = EyeAngles.Normal;
 
 		// Update camera position
 		var camera = GameObject.GetComponent<CameraComponent>( true, true );
@@ -41,8 +43,26 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 			if ( FirstPerson ) camPos = Eye.Transform.Position + EyeAngles.ToRotation().Forward * 8;
 
-			camera.Transform.Position = camPos;
-			camera.Transform.Rotation = EyeAngles.ToRotation();
+			if ( Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
+			{
+				var pos = modelComponent.GetAttachment( "camera" );
+
+				if ( pos is not null )
+				{
+					camera.Transform.Position = pos.Value.Position;
+					camera.Transform.Rotation = pos.Value.Rotation;
+				}
+				else
+				{
+					camera.Transform.Position = camPos;
+					camera.Transform.Rotation = EyeAngles.ToRotation();
+				}
+			}
+			else
+			{
+				camera.Transform.Position = camPos;
+				camera.Transform.Rotation = EyeAngles.ToRotation();
+			}
 		}
 
 		// rotate body to look angles
@@ -94,7 +114,7 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 	public void BuildWishVelocity()
 	{
-		var rot = EyeAngles.ToRotation();
+		var rot = Body.Transform.Rotation;
 
 		WishVelocity = 0;
 
