@@ -24,6 +24,11 @@ public partial class DarkDescentPlayerController : BaseComponent
 	public override void OnStart()
 	{
 		CharacterController = GetComponent<CharacterController>();
+
+		if ( Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
+		{
+			modelComponent.SetBodyGroup( "head", 1 );
+		}
 	}
 
 	public override void Update()

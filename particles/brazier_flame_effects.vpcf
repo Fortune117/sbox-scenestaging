@@ -70,7 +70,6 @@
 	[
 		{
 			_class = "C_OP_RenderStandardLight"
-			m_nLightType = 2
 			m_vecColorScale = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL_COLOR"

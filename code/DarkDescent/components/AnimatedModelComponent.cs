@@ -163,4 +163,9 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 	{
 		return SceneModel.GetAttachment( name, worldSpace );
 	}
+
+	public void SetBodyGroup( string name, int value )
+	{
+		SceneModel?.SetBodyGroup( name, value );
+	}
 }
