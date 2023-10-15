@@ -166,7 +166,7 @@
           "__type": "ColliderBoxComponent",
           "__enabled": true,
           "IsTrigger": false,
-          "Scale": "36.35,35.6,32.15",
+          "Scale": "34.4,32.6,32.15",
           "Surface": null
         },
         {
