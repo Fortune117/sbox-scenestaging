@@ -1,48 +1,71 @@
-﻿using Sandbox;
+﻿using System;
+using Sandbox;
 
 namespace DarkDescent.PostProcessing;
 
-[SceneCamera.AutomaticRenderHook]
-public class PixelatePostProcess : RenderHook
+[Title( "Dark Descent Downscaler" )]
+[Category( "Post Processing" )]
+[Icon( "apps" )]
+public class PixelatePostProcess : BaseComponent, BaseComponent.ExecuteInEditor
 {
-	public static PixelatePostProcess Instance { get; set; }
+	[Property] 
+	private float Resolution { get; set; } = 850;
 	
 	private readonly SceneCamera SceneCamera = new();
 	private readonly RenderAttributes renderAttributes = new();
 	private Texture texture;
 
-	public PixelatePostProcess()
+	IDisposable renderHook;
+
+	public override void OnEnabled()
 	{
-		Instance = this;
+		renderHook?.Dispose();
+
+		var cc = GetComponent<CameraComponent>( false, false );
+		renderHook = cc.AddHookBeforeOverlay( "DDDownscaler", 500, RenderEffect );
 	}
 
-	public override void OnStage( SceneCamera target, Stage renderStage )
+	public override void OnDisabled()
 	{
-		base.OnStage( target, renderStage );
+		renderHook?.Dispose();
+		renderHook = null;
+	}
+
+	RenderAttributes attributes = new RenderAttributes();
+
+	public void RenderEffect( SceneCamera camera )
+	{
+		if ( !camera.EnablePostProcessing )
+			return;
 		
-		if ( renderStage == Stage.BeforePostProcess )
-		{
-			var ratio = target.Size.y / target.Size.x;
-			var res = 850;
+		var ratio = camera.Size.y / camera.Size.x;
 			
-			texture = Texture.CreateRenderTarget( "pixel_test", ImageFormat.RGBA8888, new Vector2( res, res * ratio ), texture );
+		texture = Texture.CreateRenderTarget( "pixel_test", ImageFormat.RGBA8888, new Vector2( Resolution, Resolution * ratio ), texture );
 
-			SceneCamera.Position = target.Position;
-			SceneCamera.Angles = target.Angles;
-			SceneCamera.AntiAliasing = false;
-			SceneCamera.World = target.World;
-			SceneCamera.FieldOfView = target.FieldOfView;
-			SceneCamera.ZNear = target.ZNear;
-			SceneCamera.ZFar = target.ZFar;
-			SceneCamera.Size = target.Size;
+		SceneCamera.Position = camera.Position;
+		SceneCamera.Angles = camera.Angles;
+		SceneCamera.AntiAliasing = false;
+		SceneCamera.World = camera.World;
+		SceneCamera.FieldOfView = camera.FieldOfView;
+		SceneCamera.ZNear = camera.ZNear;
+		SceneCamera.ZFar = camera.ZFar;
+		SceneCamera.Size = camera.Size;
+		SceneCamera.BackgroundColor = camera.BackgroundColor;
+		SceneCamera.VolumetricFog.Enabled = true;
+		SceneCamera.VolumetricFog.ContinuousMode = camera.VolumetricFog.ContinuousMode;
+		SceneCamera.VolumetricFog.DrawDistance = camera.VolumetricFog.DrawDistance;
+		SceneCamera.VolumetricFog.FadeInStart = camera.VolumetricFog.FadeInStart;
+		SceneCamera.VolumetricFog.FadeInEnd = camera.VolumetricFog.FadeInEnd;
+		SceneCamera.VolumetricFog.IndirectStrength = camera.VolumetricFog.IndirectStrength;
+		SceneCamera.VolumetricFog.Anisotropy = camera.VolumetricFog.Anisotropy;
+		SceneCamera.VolumetricFog.Scattering = camera.VolumetricFog.Scattering;
 			
-			Graphics.RenderToTexture( SceneCamera, texture );
+		Graphics.RenderToTexture( SceneCamera, texture );
+		
+		//Graphics.GrabFrameTexture( "render.target", renderAttributes, false );
 			
-			renderAttributes.Set("render.target", texture);
+		renderAttributes.Set("render.target", texture);
 
-			Graphics.Blit( Material.FromShader( "shaders/postprocessing/dd_low_res.shader" ), renderAttributes);
-			
-			Log.Info( "test" );
-		}
+		Graphics.Blit( Material.FromShader( "shaders/postprocessing/dd_low_res.shader" ), renderAttributes);
 	}
 }

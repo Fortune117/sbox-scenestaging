@@ -133,6 +133,16 @@
               "FieldOfView": 115,
               "ZFar": 10000,
               "ZNear": 1
+            },
+            {
+              "__type": "PixelatePostProcess",
+              "__enabled": false,
+              "Resolution": 850
+            },
+            {
+              "__type": "Pixelate",
+              "__enabled": true,
+              "Scale": 0.025
             }
           ]
         },

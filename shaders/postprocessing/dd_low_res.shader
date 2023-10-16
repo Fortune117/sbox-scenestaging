@@ -55,22 +55,26 @@ PS
 {
     #include "postprocess/common.hlsl"
 
-    RenderState( DepthWriteEnable, false );
-    RenderState( DepthEnable, false );
-
-    CreateTexture2D( g_tColorBuffer ) < Attribute( "ColorBuffer" );  	SrgbRead( true ); Filter( MIN_MAG_LINEAR_MIP_POINT ); AddressU( MIRROR ); AddressV( MIRROR ); >;
-    CreateTexture2D( g_tDepthBuffer ) < Attribute( "DepthBuffer" ); 	SrgbRead( false ); Filter( MIN_MAG_MIP_POINT ); AddressU( CLAMP ); AddressV( CLAMP ); >;
-
 	CreateTexture2D( tRenderTarget ) < Attribute( "render.target" );  	SrgbRead( true ); Filter( MIN_MAG_MIP_POINT ); AddressU( WRAP ); AddressV( WRAP ); >;
 
     float4 MainPs( PixelInput i ) : SV_Target0
     {
-        // Get the current screen texture coordinates
         float2 vScreenUv = i.vPositionSs.xy / g_vRenderTargetSize;
+
+/*         float pixelation = 0.05f;
+        float aspect = g_vRenderTargetSize.y / g_vRenderTargetSize.x;
+
+        if ( pixelation > 0 )
+        {
+            float resolution = RemapValClamped( pow( pixelation, 0.1 ), 0, 1, g_vRenderTargetSize.x, 32 );
+            float2 vPixelCount = float2( resolution, resolution * aspect );
+            float2 pixelSize = 1.0f / vPixelCount;
+            vScreenUv = floor(vScreenUv * vPixelCount) / vPixelCount;
+            vScreenUv += pixelSize * 0.5f; // use center of pixel for sample
+        } */
 
 		float3 vColor = Tex2D(tRenderTarget, vScreenUv.xy).rgb;
         
-        // Invert the color and write it to our output
         return float4( vColor, 1.0f );  
     }
 }
