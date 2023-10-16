@@ -1,4 +1,5 @@
-﻿using Sandbox.UI;
+﻿using Sandbox.Razor;
+using Sandbox.UI;
 using Sandbox.UI.Tests;
 
 namespace DarkDescent.GameLog.UI;
@@ -11,11 +12,16 @@ public partial class GameLogPanel
 	public GameLogPanel()
 	{
 		Instance = this;
+	}
+	
+	protected override void OnAfterTreeRender( bool firstTime )
+	{
+		base.OnAfterTreeRender( firstTime );
+
+		if ( !firstTime )
+			return;
 		
-		Entries = AddChild<VirtualScrollPanel>();
-		Entries.AddClass( "entries" );
 		Entries.Layout.ItemHeight = 25;
-		Entries.PreferScrollToBottom = true;
 		Entries.OnCreateCell = ( cell, data ) =>
 		{
 			var entry = new Label();
@@ -27,8 +33,8 @@ public partial class GameLogPanel
 
 	public static void AddEntry( string message )
 	{
-		/*Instance.Entries.AddItem( message );
+		Instance.Entries.AddItem( message );
 		Instance.Entries.TryScrollToBottom();
-		Instance.Entries.StateHasChanged();*/
+		Instance.Entries.StateHasChanged();
 	}
 }

@@ -153,6 +153,29 @@
               "Scale": "1,1,1"
             }
           ]
+        },
+        {
+          "Id": "a9631cf8-fcab-4650-8cb1-f088f51ca77a",
+          "Name": "Screen UI",
+          "Enabled": true,
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Components": [
+            {
+              "__type": "ScreenPanel",
+              "__enabled": true,
+              "AutoScreenScale": true,
+              "Opacity": 1,
+              "Scale": 1,
+              "ZIndex": 100
+            },
+            {
+              "__type": "HUD",
+              "__enabled": true,
+              "Actor": "3e6b5d88-8683-4dbc-832a-9598263ddf6d"
+            }
+          ]
         }
       ]
     },
@@ -172,7 +195,7 @@
         },
         {
           "__type": "ColliderBoxComponent",
-          "__enabled": true,
+          "__enabled": false,
           "IsTrigger": false,
           "Scale": "34.4,32.6,32.15",
           "Surface": null
@@ -287,7 +310,7 @@
           "Components": [
             {
               "__type": "ColliderSphereComponent",
-              "__enabled": true,
+              "__enabled": false,
               "IsTrigger": false,
               "Radius": 10,
               "Surface": null

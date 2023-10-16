@@ -1,9 +1,11 @@
 ﻿@using Sandbox.UI
+@using Sandbox.UI.Tests
 
 @namespace DarkDescent.GameLog.UI
+
 @attribute [StyleSheet]
 @inherits Panel
 
 <root>
-	
+	<VirtualScrollPanel @ref=Entries class="entries" PreferScrollToBottom=@true />
 </root>

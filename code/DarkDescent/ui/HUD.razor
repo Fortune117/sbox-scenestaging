@@ -7,7 +7,7 @@
 @attribute [StyleSheet]
 
 @namespace DarkDescent.UI
-@inherits RootPanel
+@inherits PanelComponent
 
 <root>
     <Crosshair/>
@@ -24,13 +24,10 @@
 
 @code
 {
-	public ActorComponent LocalActor => null;
+	[Property] public GameObject Actor { get; set; }
 	
-    public HUD()
-    {
-        Game.RootPanel = this;
-    }
-
+	public ActorComponent LocalActor => Actor.GetComponent<ActorComponent>();
+	
 	//not amazed by this prospect.
 	//full rebuild of the HUD every time a stat changes is :s
 	protected override int BuildHash()
