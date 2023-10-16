@@ -18,8 +18,8 @@
     },
     {
       "Id": "0d9865d8-7476-4c6a-8347-91de5c0ab4d6",
-      "Name": "Object",
-      "Enabled": true,
+      "Name": "Map",
+      "Enabled": false,
       "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
@@ -29,8 +29,7 @@
           "__enabled": true,
           "MapName": "fdd.dungeon"
         }
-      ],
-      "Children": []
+      ]
     },
     {
       "Id": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
@@ -195,7 +194,7 @@
         },
         {
           "__type": "ColliderBoxComponent",
-          "__enabled": false,
+          "__enabled": true,
           "IsTrigger": false,
           "Scale": "34.4,32.6,32.15",
           "Surface": null
@@ -310,7 +309,7 @@
           "Components": [
             {
               "__type": "ColliderSphereComponent",
-              "__enabled": false,
+              "__enabled": true,
               "IsTrigger": false,
               "Radius": 10,
               "Surface": null
@@ -348,6 +347,31 @@
               "StrengthThreshold": 10
             }
           ]
+        }
+      ]
+    },
+    {
+      "Id": "bf8c894f-39b7-4233-bab1-577eb15ca30a",
+      "Name": "Surface",
+      "Enabled": true,
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "20,20,20",
+      "Components": [
+        {
+          "__type": "ModelComponent",
+          "__enabled": true,
+          "MaterialOverride": null,
+          "Model": "models/dev/plane.vmdl",
+          "ShouldCastShadows": true,
+          "Tint": "0.05882,0.13725,0.49412,1"
+        },
+        {
+          "__type": "ColliderBoxComponent",
+          "__enabled": true,
+          "IsTrigger": false,
+          "Scale": "100,100,0.01",
+          "Surface": null
         }
       ]
     }
