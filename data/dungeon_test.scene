@@ -1,6 +1,21 @@
 {
   "GameObjects": [
     {
+      "Id": "0d9865d8-7476-4c6a-8347-91de5c0ab4d6",
+      "Name": "Map",
+      "Enabled": false,
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "MapComponent",
+          "__enabled": true,
+          "MapName": "fdd.dungeon"
+        }
+      ]
+    },
+    {
       "Id": "606cc48e-eefe-46ce-a85d-bbbeb9bcf2f6",
       "Name": "Point Light",
       "Enabled": true,
@@ -17,7 +32,7 @@
       ]
     },
     {
-      "Id": "0d9865d8-7476-4c6a-8347-91de5c0ab4d6",
+      "Id": "fa82dd64-9c71-4cfa-8329-44de60a79242",
       "Name": "Map",
       "Enabled": false,
       "Position": "0,0,0",
@@ -372,6 +387,23 @@
           "IsTrigger": false,
           "Scale": "100,100,0.01",
           "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "6d82af09-7400-496e-8c1a-d82936282abb",
+      "Name": "Object",
+      "Enabled": true,
+      "Position": "0,0,637.7422",
+      "Rotation": "-0.00000004456984,0.7477577,-0.000000000000002235644,0.6639711",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "DirectionalLightComponent",
+          "__enabled": true,
+          "LightColor": "0.01485,0.01485,0.01485,1",
+          "Shadows": true,
+          "SkyColor": "0,0,0,1"
         }
       ]
     }
