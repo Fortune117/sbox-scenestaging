@@ -71,7 +71,7 @@
           "InfoPanelPrefab": "data/actor_info_panel.object",
           "PanelDrawDistance": 300,
           "PrimaryAttribute": "Strength",
-          "ShowInfoPanel": true,
+          "ShowInfoPanel": false,
           "SpellCastingAttribute": "Intelligence",
           "StaminaJumpCost": 0,
           "StaminaSprintCost": 0
