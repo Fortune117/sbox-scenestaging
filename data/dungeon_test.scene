@@ -16,21 +16,6 @@
       ]
     },
     {
-      "Id": "4544da87-7b51-46e3-87dc-8b38d5bb3212",
-      "Name": "Map",
-      "Enabled": false,
-      "Position": "0,0,0",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Components": [
-        {
-          "__type": "MapComponent",
-          "__enabled": true,
-          "MapName": "fdd.dungeon"
-        }
-      ]
-    },
-    {
       "Id": "606cc48e-eefe-46ce-a85d-bbbeb9bcf2f6",
       "Name": "Point Light",
       "Enabled": true,
@@ -208,7 +193,7 @@
       "Id": "7bddcd66-c6b3-4548-81e1-9e7ac129eb8a",
       "Name": "Object",
       "Enabled": true,
-      "Position": "-46.91289,214.2192,62.16881",
+      "Position": "-3.303916,117.4875,62.16875",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Components": [

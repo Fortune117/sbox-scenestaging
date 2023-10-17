@@ -25,7 +25,8 @@ public class DamageTestComponent : BaseComponent
 		if ( actor is not GameObject hitGameObject )
 			return;
 
-		if ( !hitGameObject.TryGetComponent<ActorComponent>( out var hitActor ) )
+		var hitActor = hitGameObject.GetComponentInParent<ActorComponent>( true, true );
+		if ( hitActor is null )
 			return;
 
 		foreach ( var tag in tr.Tags )

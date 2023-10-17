@@ -13,10 +13,14 @@ public partial class ActorComponent
 	
 	public void TakeDamage( DamageInfo damageInfo )
 	{
-		Game.AssertServer();
-		
 		var damageEventData = DamageMaster.GenerateDamageEventData( this, damageInfo );
 
+		var physics = GetComponent<PhysicsComponent>( true, true );
+		if ( physics is not null && physics.GetBody() is not null )
+		{
+			ApplyKnockBack( physics.GetBody(), damageEventData );
+		}
+		
 		/*PhysicsBody closestBody = null;
 		var closestDistance = float.PositiveInfinity;
 		foreach ( var body in Entity.PhysicsGroup.Bodies )
@@ -32,8 +36,8 @@ public partial class ActorComponent
 		if (closestBody is not null)
 			ApplyKnockBack( closestBody, damageEventData );*/
 		
-		CreateDamageEffects(damageEventData, damageInfo);
-		CreateDamageNumber(damageEventData);
+		//CreateDamageEffects(damageEventData, damageInfo);
+		//CreateDamageNumber(damageEventData);
 		
 		DamageHealth( damageEventData.DamageResult );
 

@@ -46,6 +46,11 @@ public partial class ActorComponent : BaseComponent
 		DestroyInfoPanel();
 	}
 
+	public override void OnDestroy()
+	{
+		DestroyInfoPanel();
+	}
+
 	public override void Update()
 	{
 		UpdateStats();

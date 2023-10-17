@@ -17,7 +17,10 @@
 		</div>
 		<label class="name">@DisplayName</label>
 	</div>
-	<ResourceBar class="gothic-style health-bar" Maximum=@ActorComponent.Stats.MaxHealth Minimum=@(0) Current=@ActorComponent.Health/>
+	@if (ActorComponent is not null)
+	{
+		<ResourceBar class="gothic-style health-bar" Maximum=@ActorComponent.Stats.MaxHealth Minimum=@(0) Current=@ActorComponent.Health/>
+	}
 	@*<ResourceBar class="resource-bar stamina-bar" Maximum=@ActorComponent.Stats.MaxStamina Minimum=@(0) Current=@ActorComponent.Stamina />*@
 </root>
 
@@ -32,6 +35,9 @@
 	{
 		get
 		{
+			if (Actor is null || ActorComponent is null)
+				return "";
+			
 			if (Actor.TryGetComponent<ObjectClassifierComponent>(out var classifier))
 			{
 				return classifier.DisplayName;
@@ -46,7 +52,7 @@
 	protected override int BuildHash()
 	{
 		if ( ActorComponent is null )
-			return base.BuildHash();
+			return 0;
 
 		return HashCode.Combine( ActorComponent.Stats.MaxHealth, ActorComponent.Health, ActorComponent.Stats.MaxStamina, ActorComponent.Stamina );
 	}

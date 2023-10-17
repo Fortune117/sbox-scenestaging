@@ -28,7 +28,8 @@ public partial class ActorComponent
 
 	private void DestroyInfoPanel()
 	{
-		InfoPanel?.Destroy();
+		InfoPanel.GameObject.SetParent( null );
+		InfoPanel.GameObject.Destroy();
 	}
 	
 	private void UpdateInfoPanel()
@@ -36,12 +37,12 @@ public partial class ActorComponent
 		if ( InfoPanel is null )
 			return;
 		
-		var body = GetComponent<PhysicsComponent>( false, true );
+		var modelComponent = GetComponent<ModelComponent>( false, true );
 
 		var height = 0f;
-		if ( body is not null )
+		if ( modelComponent is not null )
 		{
-			height = body.GetBody().GetBounds().Maxs.z;
+			height = modelComponent.Bounds.Maxs.z;
 		}
 		
 		var angles = Rotation.LookAt( -Camera.Rotation.Forward ).Angles();
@@ -51,7 +52,7 @@ public partial class ActorComponent
 			.Radius( 30f )
 			.Run();
 		
-		InfoPanel.Transform.Position = tr.StartPosition;
+		InfoPanel.Transform.Position = Transform.Position + Vector3.Up * height;
 
 		var distanceCheck = Camera.Position.Distance( InfoPanel.Transform.Position ) > PanelDrawDistance;
 		
