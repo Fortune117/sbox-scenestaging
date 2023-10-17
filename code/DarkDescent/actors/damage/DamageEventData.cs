@@ -82,6 +82,54 @@ public struct DamageEventData
 		return DamageTypes.HasFlag( damageType );
 	}
 
+	public DamageEventData WithPosition( Vector3 position )
+	{
+		Position = position;
+		return this;
+	}
+
+	public DamageEventData WithDirection( Vector3 direction )
+	{
+		Direction = direction;
+		return this;
+	}
+
+	public DamageEventData WithDamage( float damage )
+	{
+		DamageOriginal = damage;
+		return this;
+	}
+
+	public DamageEventData WithFlag( DamageFlags flags )
+	{
+		DamageFlags |= flags;
+		return this;
+	}
+
+	public DamageEventData WithKnockBack( float knockback )
+	{
+		KnockBack = knockback;
+		return this;
+	}
+
+	public DamageEventData WithResistancePenetration( float resistancePenetration )
+	{
+		ResistancePenetration = resistancePenetration;
+		return this;
+	}
+
+	public DamageEventData AsCritical( bool isCrit )
+	{
+		IsCritical = isCrit;
+		return this;
+	}
+	
+	public DamageEventData WithType( DamageType damageType )
+	{
+		DamageTypes |= damageType;
+		return this;
+	}
+	
 	public DamageEventData WithTarget( GameObject target )
 	{
 		Target = target;

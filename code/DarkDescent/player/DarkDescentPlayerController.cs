@@ -27,7 +27,7 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 		if ( Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
 		{
-			modelComponent.SetBodyGroup( "head", 1 );
+			//modelComponent.SetBodyGroup( "head", 1 );
 		}
 	}
 

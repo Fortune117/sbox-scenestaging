@@ -24,6 +24,7 @@ public partial class ActorComponent
 		var obj = SceneUtility.Instantiate( InfoPanelPrefab, Transform.Position, Transform.Rotation );
 		obj.SetParent( GameObject );
 		InfoPanel = obj.GetComponent<ActorInfoPanel>();
+		InfoPanel.Actor = GameObject;
 	}
 
 	private void DestroyInfoPanel()

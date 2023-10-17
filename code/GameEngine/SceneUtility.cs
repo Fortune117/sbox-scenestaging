@@ -46,7 +46,12 @@ public static class SceneUtility
 		} );
 	}
 
-
+	public static GameObject SpawnPrefabFromPath( string path, Vector3 position, Rotation rotation )
+	{
+		var prefab = ResourceLibrary.Get<PrefabFile>( path );
+		return SceneUtility.Instantiate( prefab.Scene, position, rotation );
+	}
+	
 	/// <summary>
 	/// Create a unique copy of the passed in GameObject
 	/// </summary>

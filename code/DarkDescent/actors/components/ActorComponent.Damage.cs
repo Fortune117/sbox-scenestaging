@@ -11,10 +11,15 @@ public partial class ActorComponent
 	[Property, Category("Damage")]
 	private List<DamageEffectInfo> DamageEffectInfos { get; set; }
 	
-	public void TakeDamage( DamageInfo damageInfo )
+	/// <summary>
+	/// When we take damage, we assume it's going to be mostly unprocessed damage.
+	/// </summary>
+	/// <param name="damageEventData"></param>
+	public void TakeDamage( DamageEventData damageEventData )
 	{
-		var damageEventData = DamageMaster.GenerateDamageEventData( this, damageInfo );
-
+		//apply our resistances as we take damage
+		DamageMaster.ApplyResistances( this, ref damageEventData );
+		
 		var physics = GetComponent<PhysicsComponent>( true, true );
 		if ( physics is not null && physics.GetBody() is not null )
 		{
@@ -37,7 +42,7 @@ public partial class ActorComponent
 			ApplyKnockBack( closestBody, damageEventData );*/
 		
 		//CreateDamageEffects(damageEventData, damageInfo);
-		//CreateDamageNumber(damageEventData);
+		CreateDamageNumber(damageEventData);
 		
 		DamageHealth( damageEventData.DamageResult );
 
@@ -50,7 +55,7 @@ public partial class ActorComponent
 		if ( damageEventData.OriginatorActor is not null )
 		{
 			var exp = Game.Random.Float( 1, 100 );
-			ExperienceNumberPanel.CreateExperienceNumber( exp, damageEventData );
+			ExperienceNumberComponent.Create( exp, damageEventData );
 			damageEventData.OriginatorActor.AddExperience( exp );
 		}
 
@@ -89,7 +94,7 @@ public partial class ActorComponent
 	
 	public void CreateDamageNumber(DamageEventData damageEventData)
 	{
-		var damageNumber = DamageNumberPanel.Create( damageEventData );
+		var damageNumber = DamageNumberComponent.Create( damageEventData );
 	}
 }
 

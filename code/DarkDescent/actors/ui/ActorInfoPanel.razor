@@ -26,10 +26,9 @@
 
 @code
 {
-	[Property]
-	private GameObject Actor { get; set; }
+	public GameObject Actor { get; set; }
 
-	private ActorComponent ActorComponent => Actor.GetComponent<ActorComponent>();
+	private ActorComponent ActorComponent => Actor.GetComponent<ActorComponent>(); 
 
 	private string DisplayName
 	{

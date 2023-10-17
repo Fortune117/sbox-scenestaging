@@ -1,4 +1,5 @@
 ﻿using DarkDescent.Actor;
+using DarkDescent.Actor.Damage;
 using Sandbox;
 
 namespace DarkDescent;
@@ -21,8 +22,8 @@ public class DamageTestComponent : BaseComponent
 		if ( !tr.Hit )
 			return;
 
-		var actor = tr.Body.GameObject;
-		if ( actor is not GameObject hitGameObject )
+		var gameObject = tr.Body.GameObject;
+		if ( gameObject is not GameObject hitGameObject )
 			return;
 
 		var hitActor = hitGameObject.GetComponentInParent<ActorComponent>( true, true );
@@ -34,11 +35,19 @@ public class DamageTestComponent : BaseComponent
 			Log.Info( tag );
 		}
 
-		var damage = new DamageInfo()
+		var actor = GetComponent<ActorComponent>();
+		var knockback = actor is not null ? actor.Stats.KnockBack : 0;
+
+		var damage = new DamageEventData()
+			.WithOriginator( GameObject )
+			.WithTarget( hitGameObject )
 			.WithPosition( tr.HitPosition + tr.Normal * 5f )
-			.WithForce( tr.Direction )
+			.WithDirection( tr.Direction )
 			.WithDamage( 15f )
-			.WithTag( GameTags.Damage.Physical );
+			.WithKnockBack( knockback )
+			.WithResistancePenetration( 0 )
+			.WithType( DamageType.Physical )
+			.AsCritical( false );
 
 		hitActor.TakeDamage( damage );
 	}
