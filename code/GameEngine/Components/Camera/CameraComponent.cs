@@ -19,7 +19,7 @@ public class CameraComponent : BaseComponent
 	[Property]
 	public Color BackgroundColor { get; set; } = "#557685";
 
-	[Property]
+	[Property, Range( 1, 179 )]
 	public float FieldOfView { get; set; } = 60;
 
 	[Property]
@@ -98,6 +98,7 @@ public class CameraComponent : BaseComponent
 		// defaults - let components override
 		camera.Tonemap.Enabled = false;
 		camera.CubemapFog.Enabled = false;
+		camera.Bloom.Enabled = false;
 
 		camera.OnRenderOverlay = () => OnCameraRenderOverlay( camera );
 		camera.OnRenderTransparent = () => RenderHooks( afterTransparentHooks, camera );
