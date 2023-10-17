@@ -15,18 +15,16 @@ public partial class ActorComponent
 	
 	private void CreateInfoPanel()
 	{
-		InfoPanel = new ActorInfoPanel(this);
+		//InfoPanel = new ActorInfoPanel(this);
 	}
 
 	private void DestroyInfoPanel()
 	{
-		InfoPanel?.Delete();
+		//InfoPanel?.Delete();
 	}
 	
 	private void UpdateInfoPanel()
 	{
-		if ( !InfoPanel.IsValid() )
-			return;
 		
 		/*var height = Entity.WorldSpaceBounds.Maxs.z;
 		var angles = Rotation.LookAt( -Camera.Rotation.Forward ).Angles();

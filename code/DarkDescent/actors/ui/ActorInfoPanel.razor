@@ -6,7 +6,7 @@
 
 @namespace DarkDescent.Actor.UI
 @attribute [StyleSheet]
-@inherits WorldPanel
+@inherits PanelComponent
 
 <root>
 	<div class="actor-name">
@@ -15,7 +15,7 @@
 				32
 			</label>
 		</div>
-		<label class="name">@Name</label>
+		<label class="name">@DisplayName</label>
 	</div>
 	<ResourceBar class="gothic-style health-bar" Maximum=@ActorComponent.Stats.MaxHealth Minimum=@(0) Current=@ActorComponent.Health/>
 	@*<ResourceBar class="resource-bar stamina-bar" Maximum=@ActorComponent.Stats.MaxStamina Minimum=@(0) Current=@ActorComponent.Stamina />*@
@@ -23,24 +23,21 @@
 
 @code
 {
-	private ActorComponent ActorComponent { get; set; }
-	
-	private string Name { get; set; }
-	
-	public ActorInfoPanel(ActorComponent actorComponent)
-	{
-		ActorComponent = actorComponent;
-		PanelBounds = new Rect { Width = 1200f, Height = 600, Position = new Vector2( -600, -300 )};
-		WorldScale = 1.5f;
+	[Property]
+	private GameObject Actor { get; set; }
 
-		var classifier = actorComponent.GameObject.GetComponent<ObjectClassifierComponent>();
-		if (classifier is not null)
+	private ActorComponent ActorComponent => Actor.GetComponent<ActorComponent>();
+
+	private string DisplayName
+	{
+		get
 		{
-			Name = classifier.DisplayName;
-		}
-		else
-		{
-			Name = actorComponent.GameObject.Name;
+			if (Actor.TryGetComponent<ObjectClassifierComponent>(out var classifier))
+			{
+				return classifier.DisplayName;
+			}
+			
+			return ActorComponent.GameObject.Name;
 		}
 	}
 	
