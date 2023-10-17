@@ -31,25 +31,25 @@ public partial class ActorComponent : BaseComponent
 		InitializeStats();
 		
 		//TODO: world panels
-		//CreateInfoPanel();
+		CreateInfoPanel();
 	}
-
+	
 
 	public override void OnDisabled()
 	{
 		base.OnDisabled();
 		
-		
 		//TODO: networking
 		BaseStats.OnReload -= ReloadBaseStats;
 		
 		//TODO: world panels
-		//DestroyInfoPanel();
+		DestroyInfoPanel();
 	}
 
 	public override void Update()
 	{
 		UpdateStats();
 		UpdateStamina();
+		UpdateInfoPanel();
 	}
 }

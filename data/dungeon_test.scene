@@ -16,6 +16,21 @@
       ]
     },
     {
+      "Id": "4544da87-7b51-46e3-87dc-8b38d5bb3212",
+      "Name": "Map",
+      "Enabled": false,
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "MapComponent",
+          "__enabled": true,
+          "MapName": "fdd.dungeon"
+        }
+      ]
+    },
+    {
       "Id": "606cc48e-eefe-46ce-a85d-bbbeb9bcf2f6",
       "Name": "Point Light",
       "Enabled": true,
@@ -126,7 +141,7 @@
             },
             {
               "__type": "Pixelate",
-              "__enabled": false,
+              "__enabled": true,
               "Scale": 0.025
             }
           ]
@@ -300,12 +315,18 @@
           "__enabled": true,
           "BaseStats": "data/prefabs/target_dummy_stats.stats",
           "DamageEffectInfos": null,
+          "InfoPanelPrefab": "data/actor_info_panel.object",
           "PanelDrawDistance": 300,
           "PrimaryAttribute": "Strength",
           "ShowInfoPanel": true,
           "SpellCastingAttribute": "Intelligence",
           "StaminaJumpCost": 0,
           "StaminaSprintCost": 0
+        },
+        {
+          "__type": "CopyTransforms",
+          "__enabled": true,
+          "Child": "117b522c-648c-4914-9999-e1a7012f24bc"
         }
       ],
       "Children": [
@@ -355,30 +376,6 @@
               "__enabled": true,
               "StrengthLeeway": 5,
               "StrengthThreshold": 10
-            }
-          ]
-        },
-        {
-          "Id": "700e1a8e-1e11-4cc2-a414-03fd8a48d3b3",
-          "Name": "World UI",
-          "Enabled": true,
-          "Position": "0,0,91.14796",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Components": [
-            {
-              "__type": "WorldPanel",
-              "__enabled": true,
-              "HorizontalAlign": "Center",
-              "LookAtCamera": false,
-              "PanelSize": "1200,600",
-              "RenderScale": 1,
-              "VerticalAlign": "Center"
-            },
-            {
-              "__type": "ActorInfoPanel",
-              "__enabled": true,
-              "Actor": "415c8181-5a05-4e4a-a67e-439d25f8628f"
             }
           ]
         }

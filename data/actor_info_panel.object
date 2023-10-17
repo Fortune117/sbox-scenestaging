@@ -1,0 +1,27 @@
+{
+  "RootObject": {
+    "Id": "700e1a8e-1e11-4cc2-a414-03fd8a48d3b3",
+    "Name": "Actor Info Panel",
+    "Enabled": true,
+    "Position": "0,0,91.14796",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Components": [
+      {
+        "__type": "WorldPanel",
+        "__enabled": true,
+        "HorizontalAlign": "Center",
+        "LookAtCamera": false,
+        "PanelSize": "1200,600",
+        "RenderScale": 1,
+        "VerticalAlign": "Center"
+      },
+      {
+        "__type": "ActorInfoPanel",
+        "__enabled": true,
+        "Actor": "415c8181-5a05-4e4a-a67e-439d25f8628f"
+      }
+    ]
+  },
+  "__references": []
+}

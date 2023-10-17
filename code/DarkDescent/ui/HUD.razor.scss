@@ -7,6 +7,7 @@ HUD
   
   .resource-bar
   {
+    left: $screen-edge-border;
     width: 400px;
     height: 70px;
     
@@ -28,6 +29,7 @@ HUD
   
   .exp
   {
+    left: $screen-edge-border;
     bottom: 200px;
     //left: 125px;
     width: 400px;

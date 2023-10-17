@@ -62,7 +62,6 @@ ResourceBar
 .gothic-style
 {
   position: absolute;
-  left: $screen-edge-border;
 
   image-rendering: pixelated;
   background-size: 100% 100%;
@@ -111,7 +110,6 @@ ResourceBar
 .exp-bar
 {
   position: absolute;
-  left: $screen-edge-border;
 
   image-rendering: pixelated;
   background-size: 100% 100%;

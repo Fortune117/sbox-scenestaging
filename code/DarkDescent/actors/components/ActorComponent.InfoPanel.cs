@@ -11,34 +11,50 @@ public partial class ActorComponent
 	[Property, Range( 0, 600 ), Category("Info Panel")] 
 	public float PanelDrawDistance { get; set; } = 300;
 
+	[Property]
+	private GameObject InfoPanelPrefab { get; set; }
+	
 	private ActorInfoPanel InfoPanel { get; set; }
 	
 	private void CreateInfoPanel()
 	{
-		//InfoPanel = new ActorInfoPanel(this);
+		if ( InfoPanelPrefab is null )
+			return;
+		
+		var obj = SceneUtility.Instantiate( InfoPanelPrefab, Transform.Position, Transform.Rotation );
+		obj.SetParent( GameObject );
+		InfoPanel = obj.GetComponent<ActorInfoPanel>();
 	}
 
 	private void DestroyInfoPanel()
 	{
-		//InfoPanel?.Delete();
+		InfoPanel?.Destroy();
 	}
 	
 	private void UpdateInfoPanel()
 	{
+		if ( InfoPanel is null )
+			return;
 		
-		/*var height = Entity.WorldSpaceBounds.Maxs.z;
+		var body = GetComponent<PhysicsComponent>( false, true );
+
+		var height = 0f;
+		if ( body is not null )
+		{
+			height = body.GetBody().GetBounds().Maxs.z;
+		}
+		
 		var angles = Rotation.LookAt( -Camera.Rotation.Forward ).Angles();
-		InfoPanel.Rotation = angles.WithPitch( 0 ).ToRotation();
+		InfoPanel.Transform.Rotation = angles.WithPitch( 0 ).ToRotation();
 		
-		var tr = Trace.Ray( Entity.Position + Vector3.Up * 30f, Entity.Position + Vector3.Up * height )
+		var tr = Physics.Trace.Ray( Transform.Position + Vector3.Up * 30f, Transform.Position + Vector3.Up * height )
 			.Radius( 30f )
-			.StaticOnly()
 			.Run();
 		
-		InfoPanel.Position = tr.EndPosition;
+		InfoPanel.Transform.Position = tr.StartPosition;
 
-		var distanceCheck = Camera.Position.Distance( InfoPanel.Position ) > PanelDrawDistance;
+		var distanceCheck = Camera.Position.Distance( InfoPanel.Transform.Position ) > PanelDrawDistance;
 		
-		InfoPanel.SetClass( "hidden", !ShowInfoPanel || distanceCheck );*/
+		InfoPanel.Panel.SetClass( "hidden", !ShowInfoPanel || distanceCheck );
 	}
 }
