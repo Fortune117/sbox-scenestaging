@@ -68,6 +68,7 @@
           "__enabled": true,
           "BaseStats": "data/prefabs/player.stats",
           "DamageEffectInfos": null,
+          "InfoPanelPrefab": "data/actor_info_panel.object",
           "PanelDrawDistance": 300,
           "PrimaryAttribute": "Strength",
           "ShowInfoPanel": true,
