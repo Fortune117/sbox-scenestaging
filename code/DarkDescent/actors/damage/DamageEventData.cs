@@ -22,11 +22,6 @@ public struct DamageEventData
 	/// The strength of the knockback this damage stat should have.
 	/// </summary>
 	public float KnockBack { get; set; }
-
-	/// <summary>
-	/// How much resistance we are penetrating with this damage.
-	/// </summary>
-	public float ResistancePenetration { get; set; }
 	
 	/// <summary>
 	/// Whether or not this damage was from a critical hit.

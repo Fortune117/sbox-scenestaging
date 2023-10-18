@@ -113,10 +113,10 @@ public partial class ActorComponent
 	{
 		var resist = float.PositiveInfinity;
 		var validOriginator = damageEventData.Originator is not null;
-
+		
         if (damageEventData.HasDamageType(DamageType.Physical))
         {
-            resist = Stats.Armor;
+            resist = Stats.Armor - (validOriginator ? damageEventData.Originator.Stats.ArmorPenetration : 0);;
         }
 
         var warding = Stats.Warding - (validOriginator ? damageEventData.Originator.Stats.WardingPenetration : 0);
@@ -181,7 +181,7 @@ public partial class ActorComponent
         
         var resistMult = damageEventData.HasFlag(DamageFlags.IgnoreResistance)
             ? 1
-            : GameBalanceResource.ActiveBalance.ResistanceScalingCurve.Evaluate(resist - damageEventData.ResistancePenetration);
+            : GameBalanceResource.ActiveBalance.ResistanceScalingCurve.Evaluate(resist);
         
         damageEventData.DamageResult = damageEventData.DamageOriginal - damageEventData.DamageOriginal*resistMult;
 	}

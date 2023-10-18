@@ -264,18 +264,6 @@ public class StatsResource : GameResource
 	/// </summary>
 	[Range(-300, 300, 1f), Category("Defense")]
 	public float Warding { get; set; } = 0f;
-
-	/// <summary>
-	/// How much we reduce the critical multiplier when we take critical damage.
-	/// </summary>
-	[Range(-300, 300, 1f), Category( "Defense" )]
-	public float CriticalNegation { get; set; } = 0;
-	
-	/// <summary>
-	/// How much we reduce the critical multiplier when we take critical damage.
-	/// </summary>
-	[Range(-300, 300, 1f), Category( "Defense" )]
-	public float KnockBackResistance { get; set; } = 0;
 	
 	/// <summary>
 	/// Flat fire resistance score.
@@ -324,6 +312,19 @@ public class StatsResource : GameResource
 	/// </summary>
 	[Range(-300, 300, 1f), Category("Defense")]
 	public float OccultResistance { get; set; } = 0f;
+	
+	/// <summary>
+	/// How much we reduce the critical multiplier when we take critical damage.
+	/// </summary>
+	[Range(0, 1f, 1f), Category( "Defense" )]
+	public float CriticalNegation { get; set; } = 0;
+	
+	/// <summary>
+	/// How much we reduce knockback by when struck.
+	/// Can be negative, leading to increased knockback.
+	/// </summary>
+	[Range(-300, 300, 1f), Category( "Defense" )]
+	public float KnockBackResistance { get; set; } = 0;
 	
 	/// <summary>
 	/// How much weight we can carry.
