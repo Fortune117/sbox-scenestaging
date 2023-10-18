@@ -93,8 +93,8 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 		}
 	}
 
-	private Vector3 oldPosition;
-	private Rotation oldRotation;
+	private Vector3 oldPosition = Vector3.Zero;
+	private Rotation oldRotation = Rotation.Identity;
 	
 	bool _boneMerge = false;
 	[Property]
