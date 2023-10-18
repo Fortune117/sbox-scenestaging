@@ -171,6 +171,7 @@
             {
               "__type": "AnimatedModelComponent",
               "__enabled": true,
+              "BoneMerge": false,
               "Bounds": {
                 "Mins": "-148.65,-193.5,-38.69998",
                 "Maxs": "149.55,214.2,120.15"
@@ -189,6 +190,29 @@
               "Position": "0.4493071,0,67.63921",
               "Rotation": "0,0,0,1",
               "Scale": "1,1,1"
+            },
+            {
+              "Id": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
+              "Name": "Sword",
+              "Enabled": true,
+              "Position": "24.97895,0,11.96238",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Components": [
+                {
+                  "__type": "AnimatedModelComponent",
+                  "__enabled": true,
+                  "BoneMerge": true,
+                  "Bounds": {
+                    "Mins": "-205.8,-179.9,-192.4002",
+                    "Maxs": "179.7999,127.1,160.2"
+                  },
+                  "MaterialOverride": null,
+                  "Model": "models/weapons/longsword/longsword.vmdl",
+                  "ShouldCastShadows": true,
+                  "Tint": "1,1,1,1"
+                }
+              ]
             }
           ]
         },

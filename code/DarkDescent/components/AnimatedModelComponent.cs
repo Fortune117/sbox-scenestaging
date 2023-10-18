@@ -9,7 +9,7 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 {
 	Model _model;
 
-	private BBox _bounds;
+	private BBox _bounds = new BBox( Vector3.Zero, 300f );
 	[Property] public BBox Bounds
 	{
 		get
@@ -92,6 +92,23 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 			}
 		}
 	}
+	
+	bool _boneMerge = false;
+	[Property]
+	public bool BoneMerge
+	{
+		get => _boneMerge;
+		set
+		{
+			if ( _boneMerge == value ) return;
+			_boneMerge = value;
+
+			if ( _sceneModel is not null )
+			{
+				SetBoneMergeStatus();
+			}
+		}
+	}
 
 	SceneModel _sceneModel;
 	public SceneModel SceneModel => _sceneModel;
@@ -122,6 +139,18 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 		}
 	}
 
+	private void SetBoneMergeStatus()
+	{
+		var parent = GetComponentInParent<AnimatedModelComponent>();
+		if ( parent is not null )
+		{
+			if (BoneMerge)
+				parent.SceneModel.AddChild( "", SceneModel );
+			else
+				parent.SceneModel.RemoveChild( SceneModel );
+		}
+	}
+	
 	public override void OnEnabled()
 	{
 		Assert.True( _sceneModel == null );
@@ -132,6 +161,11 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 		_sceneModel.SetMaterialOverride( MaterialOverride );
 		_sceneModel.ColorTint = Tint;
 		_sceneModel.Flags.CastShadows = _castShadows;
+	}
+
+	public override void OnStart()
+	{
+		SetBoneMergeStatus();
 	}
 
 	public override void OnDisabled()
@@ -153,7 +187,7 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 			return;
 
 		_sceneModel.Transform = Transform.World;
-		_sceneModel.Bounds = _bounds;
+		_sceneModel.Bounds = new BBox(_bounds.Mins + Transform.Position, _bounds.Maxs + Transform.Position);
 	}
 
 	public void SetAnimParameter( string name, float value )
