@@ -25,21 +25,29 @@ public partial class ActorComponent
 		{
 			ApplyKnockBack( physics.GetBody(), damageEventData );
 		}
-		
-		/*PhysicsBody closestBody = null;
-		var closestDistance = float.PositiveInfinity;
-		foreach ( var body in Entity.PhysicsGroup.Bodies )
+
+		if ( TryGetComponent<PhysicsComponent>( out var physicsComponent ) )
 		{
-			var distance = body.Position.Distance( damageInfo.Position );
-			if (  distance < closestDistance )
+			/*PhysicsBody closestBody = null;
+			var closestDistance = float.PositiveInfinity;
+			foreach ( var body in physicsComponent.PhysicsGroup.Bodies )
 			{
-				closestBody = body;
-				closestDistance = distance;
-			}
+				var distance = body.Position.Distance( damageInfo.Position );
+				if (  distance < closestDistance )
+				{
+					closestBody = body;
+					closestDistance = distance;
+				}
+			}*/
+
+			var body = physicsComponent.GetBody();
+
+			if (body is not null)
+				ApplyKnockBack( body, damageEventData );
 		}
 		
-		if (closestBody is not null)
-			ApplyKnockBack( closestBody, damageEventData );*/
+		
+
 		
 		//CreateDamageEffects(damageEventData, damageInfo);
 		CreateDamageNumber(damageEventData);
@@ -85,11 +93,11 @@ public partial class ActorComponent
 
 	private void ApplyKnockBack(PhysicsBody body, DamageEventData damageEventData)
 	{
-		/*if ( !body.IsValid() )
+		if ( !body.IsValid() )
 			return;
 		
 		body.ApplyForceAt( body.FindClosestPoint( damageEventData.Position ),
-			damageEventData.Direction * damageEventData.KnockBack * Entity.PhysicsGroup.Mass * 100 );*/
+			damageEventData.Direction * damageEventData.KnockBack * body.Mass * 300 );
 	}
 	
 	public void CreateDamageNumber(DamageEventData damageEventData)

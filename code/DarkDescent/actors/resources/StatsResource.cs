@@ -232,10 +232,6 @@ public class StatsResource : GameResource
 	protected override void PostReload()
 	{
 		base.PostReload();
-
-		if ( Game.IsServer )
-		{
-			OnReload?.Invoke();
-		}
+		OnReload?.Invoke();
 	}
 }

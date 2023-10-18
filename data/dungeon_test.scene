@@ -394,6 +394,160 @@
       ]
     },
     {
+      "Id": "8ec31e01-bec6-45bd-bb24-91dce8ee911b",
+      "Name": "Target Dummy",
+      "Enabled": true,
+      "Position": "-167.4597,-253.0109,-0.000009496122",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "ActorComponent",
+          "__enabled": true,
+          "BaseStats": "data/prefabs/target_dummy_stats.stats",
+          "DamageEffectInfos": null,
+          "InfoPanelPrefab": "data/actor_info_panel.object",
+          "PanelDrawDistance": 300,
+          "PrimaryAttribute": "Strength",
+          "ShowInfoPanel": true,
+          "SpellCastingAttribute": "Intelligence",
+          "StaminaJumpCost": 0,
+          "StaminaSprintCost": 0
+        },
+        {
+          "__type": "CopyTransforms",
+          "__enabled": true,
+          "Child": "c876eebc-28b3-4ac6-97c7-d6b1961a14e4"
+        }
+      ],
+      "Children": [
+        {
+          "Id": "c876eebc-28b3-4ac6-97c7-d6b1961a14e4",
+          "Name": "Body",
+          "Enabled": true,
+          "Position": "0,0,3.322987",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Components": [
+            {
+              "__type": "ModelCollider",
+              "__enabled": true,
+              "IsTrigger": false,
+              "Model": "models/actors/target_dummy/target_dummy.vmdl",
+              "Surface": null
+            },
+            {
+              "__type": "PhysicsComponent",
+              "__enabled": true,
+              "Gravity": true,
+              "Static": false
+            },
+            {
+              "__type": "AutoStandComponent",
+              "__enabled": true,
+              "SettleSpeed": 150
+            },
+            {
+              "__type": "ModelComponent",
+              "__enabled": true,
+              "MaterialOverride": null,
+              "Model": "models/actors/target_dummy/target_dummy.vmdl",
+              "ShouldCastShadows": true,
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "PickupTargetComponent",
+              "__enabled": true,
+              "StrengthLeeway": 5,
+              "StrengthThreshold": 10
+            },
+            {
+              "__type": "PhysicsTagger",
+              "__enabled": true,
+              "Tags": "dummy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "e4b1816e-ab04-4630-8581-d869915a0ea3",
+      "Name": "Target Dummy",
+      "Enabled": true,
+      "Position": "-167.4597,-353.2773,-0.000009496122",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "ActorComponent",
+          "__enabled": true,
+          "BaseStats": "data/prefabs/target_dummy_stats.stats",
+          "DamageEffectInfos": null,
+          "InfoPanelPrefab": "data/actor_info_panel.object",
+          "PanelDrawDistance": 300,
+          "PrimaryAttribute": "Strength",
+          "ShowInfoPanel": true,
+          "SpellCastingAttribute": "Intelligence",
+          "StaminaJumpCost": 0,
+          "StaminaSprintCost": 0
+        },
+        {
+          "__type": "CopyTransforms",
+          "__enabled": true,
+          "Child": "6e32bf22-45aa-40f8-a4b2-ccb1facac433"
+        }
+      ],
+      "Children": [
+        {
+          "Id": "6e32bf22-45aa-40f8-a4b2-ccb1facac433",
+          "Name": "Body",
+          "Enabled": true,
+          "Position": "0,0,3.322987",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Components": [
+            {
+              "__type": "ModelCollider",
+              "__enabled": true,
+              "IsTrigger": false,
+              "Model": "models/actors/target_dummy/target_dummy.vmdl",
+              "Surface": null
+            },
+            {
+              "__type": "PhysicsComponent",
+              "__enabled": true,
+              "Gravity": true,
+              "Static": false
+            },
+            {
+              "__type": "AutoStandComponent",
+              "__enabled": true,
+              "SettleSpeed": 150
+            },
+            {
+              "__type": "ModelComponent",
+              "__enabled": true,
+              "MaterialOverride": null,
+              "Model": "models/actors/target_dummy/target_dummy.vmdl",
+              "ShouldCastShadows": true,
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "PickupTargetComponent",
+              "__enabled": true,
+              "StrengthLeeway": 5,
+              "StrengthThreshold": 10
+            },
+            {
+              "__type": "PhysicsTagger",
+              "__enabled": true,
+              "Tags": "dummy"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "Id": "bf8c894f-39b7-4233-bab1-577eb15ca30a",
       "Name": "Surface",
       "Enabled": true,

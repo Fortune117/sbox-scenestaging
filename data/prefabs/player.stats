@@ -35,5 +35,6 @@
   "ArcaneResistance": 0,
   "DivineResistance": 0,
   "OccultResistance": 0,
-  "CarryWeight": 30
+  "CarryWeight": 30,
+  "__references": []
 }
