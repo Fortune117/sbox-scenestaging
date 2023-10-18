@@ -255,6 +255,43 @@
       ]
     },
     {
+      "Id": "a8b55460-1f98-4f3f-86de-573941eb5a41",
+      "Name": "Object",
+      "Enabled": true,
+      "Position": "-3.303916,24.53076,62.16875",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "PickupTargetComponent",
+          "__enabled": true,
+          "StrengthLeeway": 15,
+          "StrengthThreshold": 60
+        },
+        {
+          "__type": "PhysicsComponent",
+          "__enabled": true,
+          "Gravity": true,
+          "Static": false
+        },
+        {
+          "__type": "ModelComponent",
+          "__enabled": true,
+          "MaterialOverride": null,
+          "Model": "models/props/tools/anvil_01.vmdl",
+          "ShouldCastShadows": true,
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__enabled": true,
+          "IsTrigger": false,
+          "Model": "models/props/tools/anvil_01.vmdl",
+          "Surface": null
+        }
+      ]
+    },
+    {
       "Id": "a3b6490f-3756-4db8-8b35-f6aea1a6afc1",
       "Name": "brazier_01",
       "Enabled": true,

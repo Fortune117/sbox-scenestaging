@@ -26,11 +26,7 @@ public partial class Crosshair : Panel
 	public override void Tick()
 	{
 		base.Tick();
-	}
-
-	[GameEvent.Tick.Client]
-	private void ClientTick()
-	{
+		
 		InteractFailureOverlay.SetClass( "visible", !InteractPossible );
 
 		InteractPossible = true;
