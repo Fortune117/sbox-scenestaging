@@ -16,6 +16,21 @@
       ]
     },
     {
+      "Id": "8f429e12-8dde-494b-b843-7fe2b22790a2",
+      "Name": "Map",
+      "Enabled": false,
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Components": [
+        {
+          "__type": "MapComponent",
+          "__enabled": true,
+          "MapName": "fdd.dungeon"
+        }
+      ]
+    },
+    {
       "Id": "606cc48e-eefe-46ce-a85d-bbbeb9bcf2f6",
       "Name": "Point Light",
       "Enabled": true,
@@ -195,8 +210,8 @@
               "Id": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
               "Name": "Sword",
               "Enabled": true,
-              "Position": "15.10802,-5.817108,55.9087",
-              "Rotation": "-0.5766906,0.6220319,-0.3883312,-0.3601433",
+              "Position": "15.10675,-5.817139,55.90998",
+              "Rotation": "-0.5766751,0.6220463,-0.3883541,-0.3601186",
               "Scale": "1,1,1",
               "Components": [
                 {
@@ -346,16 +361,11 @@
           "Scale": "1,1,1",
           "Components": [
             {
-              "__type": "ParticleComponent",
+              "__type": "ParticleSystem",
               "__enabled": true,
+              "Looped": true,
               "Particles": "particles/brazier_flame.vpcf",
-              "RunOnStart": false
-            },
-            {
-              "__type": "PointLightComponent",
-              "__enabled": true,
-              "LightColor": "0.99608,0.54118,0.19216,1",
-              "Radius": 300
+              "PlaybackSpeed": 1
             }
           ]
         }

@@ -15,16 +15,26 @@
   
   .fire
   {
-    mask-size: 100% 100%;
-    mask-image: radial-gradient(black 0%, white 100%);
-    mask-position: center;
-    mask-repeat: no-repeat;
-    mask-mode: luminance;
-    mask-scope: filter;
-
-    filter: saturate(3px);
+    filter: contrast(115%) brightness(450%) sepia(15%);
     
     color: $damage-fire-color;
+    text-stroke: 26px black;
+  }
+
+  .frost
+  {
+    filter: contrast(110%) brightness(450%) sepia(35%);
+
+    color: $damage-frost-color;
+    text-stroke: 26px black;
+  }
+
+  .electric
+  {
+    filter: contrast(300%) brightness(450%);
+
+    color: $damage-electric-color;
+    text-stroke: 26px black;
   }
 }
 
