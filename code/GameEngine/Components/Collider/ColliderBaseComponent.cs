@@ -25,6 +25,8 @@ public abstract class ColliderBaseComponent : BaseComponent, BaseComponent.Execu
 		}
 	}
 
+	public List<PhysicsShape> Shapes => shapes;
+
 	public override void OnEnabled()
 	{
 		Assert.IsNull( ownBody );
@@ -58,7 +60,7 @@ public abstract class ColliderBaseComponent : BaseComponent, BaseComponent.Execu
 			physicsBody.GravityEnabled = false;
 			ownBody = physicsBody;
 		}
-
+		
 		shapes.AddRange( CreatePhysicsShapes( physicsBody ) );
 
 		foreach ( var shape in shapes )

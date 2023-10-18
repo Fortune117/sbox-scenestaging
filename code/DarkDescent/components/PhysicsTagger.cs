@@ -18,6 +18,9 @@ public class PhysicsTagger : BaseComponent
 		}
 
 	}
+	
+	[Property]
+	public bool DiscardOriginalTags { get; set; }
 
 	private readonly HashSet<string> TagSet = new();
 
@@ -33,15 +36,13 @@ public class PhysicsTagger : BaseComponent
 
 	private void AddTags()
 	{
-		foreach ( var collider in GetComponents<PhysicsComponent>() )
+		foreach ( var collider in GetComponents<ColliderBaseComponent>() )
 		{
-			var body = collider.GetBody();
-			
-			if (body is null)
-				continue;
-			
-			foreach (var physicsShape in body.Shapes)
+			foreach (var physicsShape in collider.Shapes)
 			{
+				if (DiscardOriginalTags)
+					physicsShape.ClearTags();
+				
 				foreach ( var tag in TagSet )
 				{
 					physicsShape.AddTag( tag );
@@ -52,13 +53,9 @@ public class PhysicsTagger : BaseComponent
 
 	private void RemoveTags()
 	{
-		foreach ( var collider in GetComponents<PhysicsComponent>() )
+		foreach ( var collider in GetComponents<ColliderBaseComponent>() )
 		{
-			var body = collider.GetBody();
-			if (body is null)
-				continue;
-			
-			foreach (var physicsShape in body.Shapes)
+			foreach (var physicsShape in collider.Shapes)
 			{
 				foreach ( var tag in TagSet )
 				{

@@ -195,22 +195,51 @@
               "Id": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
               "Name": "Sword",
               "Enabled": true,
-              "Position": "0,0,0",
-              "Rotation": "0,0,0,1",
+              "Position": "15.10802,-5.817108,55.9087",
+              "Rotation": "-0.5766906,0.6220319,-0.3883312,-0.3601433",
               "Scale": "1,1,1",
               "Components": [
                 {
                   "__type": "AnimatedModelComponent",
                   "__enabled": true,
-                  "BoneMerge": false,
+                  "BoneMerge": true,
                   "Bounds": {
-                    "Mins": "-205.8,-179.9,-192.4002",
-                    "Maxs": "179.7999,127.1,160.2"
+                    "Mins": "-300,-300,-300",
+                    "Maxs": "300,300,300"
                   },
                   "MaterialOverride": null,
                   "Model": "models/weapons/longsword/longsword.vmdl",
                   "ShouldCastShadows": true,
                   "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "WeaponItemComponent",
+                  "__enabled": true
+                }
+              ],
+              "Children": [
+                {
+                  "Id": "e6c53932-dcfa-4e22-9fc0-9a45294b8096",
+                  "Name": "Object",
+                  "Enabled": true,
+                  "Position": "18.89999,0,0",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Components": [
+                    {
+                      "__type": "ColliderBoxComponent",
+                      "__enabled": true,
+                      "IsTrigger": true,
+                      "Scale": "28.59996,3.6,-1.099989",
+                      "Surface": null
+                    },
+                    {
+                      "__type": "PhysicsTagger",
+                      "__enabled": true,
+                      "DiscardOriginalTags": true,
+                      "Tags": "trigger"
+                    }
+                  ]
                 }
               ]
             }
@@ -448,6 +477,7 @@
             {
               "__type": "PhysicsTagger",
               "__enabled": true,
+              "DiscardOriginalTags": false,
               "Tags": "dummy"
             }
           ]
@@ -525,6 +555,7 @@
             {
               "__type": "PhysicsTagger",
               "__enabled": true,
+              "DiscardOriginalTags": false,
               "Tags": "dummy"
             }
           ]
@@ -602,6 +633,7 @@
             {
               "__type": "PhysicsTagger",
               "__enabled": true,
+              "DiscardOriginalTags": false,
               "Tags": "dummy"
             }
           ]
