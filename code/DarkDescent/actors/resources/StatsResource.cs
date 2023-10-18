@@ -189,6 +189,54 @@ public class StatsResource : GameResource
 	/// </summary>
 	[Range( 0, 300, 1f ), Category( "Combat" )]
 	public float WardingPenetration { get; set; } = 0;
+	
+	/// <summary>
+	/// How much fire resistance we ignore when attacking.
+	/// </summary>
+	[Range( 0, 300, 1f ), Category( "Combat" )]
+	public float FirePenetration { get; set; } = 0;
+	
+	/// <summary>
+	/// How much frost resistance we ignore when attacking.
+	/// </summary>
+	[Range( 0, 300, 1f ), Category( "Combat" )]
+	public float FrostPenetration { get; set; } = 0;
+	
+	/// <summary>
+	/// How much electric resistance we ignore when attacking.
+	/// </summary>
+	[Range( 0, 300, 1f ), Category( "Combat" )]
+	public float ElectricPenetration { get; set; } = 0;
+	
+	/// <summary>
+	/// How much poison resistance we ignore when attacking.
+	/// </summary>
+	[Range( 0, 300, 1f ), Category( "Combat" )]
+	public float PoisonPenetration { get; set; } = 0;
+	
+	/// <summary>
+	/// How much necrotic resistance we ignore when attacking.
+	/// </summary>
+	[Range( 0, 300, 1f ), Category( "Combat" )]
+	public float NecroticPenetration { get; set; } = 0;
+	
+	/// <summary>
+	/// How much arcane resistance we ignore when attacking.
+	/// </summary>
+	[Range( 0, 300, 1f ), Category( "Combat" )]
+	public float ArcanePenetration { get; set; } = 0;
+	
+	/// <summary>
+	/// How much divine resistance we ignore when attacking.
+	/// </summary>
+	[Range( 0, 300, 1f ), Category( "Combat" )]
+	public float DivinePenetration { get; set; } = 0;
+	
+	/// <summary>
+	/// How much occult resistance we ignore when attacking.
+	/// </summary>
+	[Range( 0, 300, 1f ), Category( "Combat" )]
+	public float OccultPenetration { get; set; } = 0;
 
 	/// <summary>
 	/// How much our damage is multiplied when we crit.

@@ -240,6 +240,17 @@ public class Stats
 	public float DivinePower => ActorComponent.GetStat( StatType.DivinePower );
 	public float OccultPower => ActorComponent.GetStat( StatType.OccultPower );
 
+	public float ArmorPenetration => ActorComponent.GetStat( StatType.ArmorPenetration );
+	public float WardingPenetration => ActorComponent.GetStat( StatType.WardingPenetration );
+	public float FirePenetration => ActorComponent.GetStat( StatType.FirePenetration );
+	public float FrostPenetration => ActorComponent.GetStat( StatType.FrostPenetration );
+	public float ElectricPenetration => ActorComponent.GetStat( StatType.ElectricPenetration );
+	public float PoisonPenetration => ActorComponent.GetStat( StatType.PoisonPenetration );
+	
+	public float ArcanePenetration => ActorComponent.GetStat( StatType.ArcanePenetration );
+	public float DivinePenetration => ActorComponent.GetStat( StatType.DivinePenetration );
+	public float OccultPenetration => ActorComponent.GetStat( StatType.OccultPenetration );
+
 	public float CriticalMultiplier => ActorComponent.GetStat( StatType.CriticalMultiplier );
 
 	public float KnockBack

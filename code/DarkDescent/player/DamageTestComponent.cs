@@ -43,9 +43,9 @@ public class DamageTestComponent : BaseComponent
 			.WithTarget( hitGameObject )
 			.WithPosition( tr.HitPosition + tr.Normal * 5f )
 			.WithDirection( tr.Direction )
-			.WithDamage( 15f )
 			.WithKnockBack( knockback )
 			.WithResistancePenetration( 0 )
+			.WithDamage( 15f )
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
 

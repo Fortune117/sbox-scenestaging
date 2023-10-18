@@ -175,6 +175,17 @@ public partial class ActorComponent
 		
 		SetBaseStat( StatType.ArmorPenetration, BaseStats.ArmorPenetration );
 		SetBaseStat( StatType.WardingPenetration, BaseStats.WardingPenetration );
+		
+		SetBaseStat( StatType.FirePenetration, BaseStats.FirePenetration );
+		SetBaseStat( StatType.FrostPenetration, BaseStats.FrostPenetration );
+		SetBaseStat( StatType.ElectricPenetration, BaseStats.ElectricPenetration );
+		SetBaseStat( StatType.PoisonPenetration, BaseStats.PoisonPenetration );
+		SetBaseStat( StatType.NecroticPenetration, BaseStats.NecroticPenetration );
+		
+		SetBaseStat( StatType.ArcanePenetration, BaseStats.ArcanePenetration );
+		SetBaseStat( StatType.DivinePenetration, BaseStats.DivinePenetration );
+		SetBaseStat( StatType.OccultPenetration, BaseStats.OccultPenetration );
+		
 		SetBaseStat( StatType.CriticalMultiplier, BaseStats.CriticalMultiplier );
 		SetBaseStat( StatType.KnockBack, BaseStats.KnockBack );
 		
@@ -251,6 +262,17 @@ public partial class ActorComponent
 		
 		InitializeStat( StatType.ArmorPenetration, BaseStats.ArmorPenetration );
 		InitializeStat( StatType.WardingPenetration, BaseStats.WardingPenetration );
+		
+		InitializeStat( StatType.FirePenetration, BaseStats.FirePenetration );
+		InitializeStat( StatType.FrostPenetration, BaseStats.FrostPenetration );
+		InitializeStat( StatType.ElectricPenetration, BaseStats.ElectricPenetration );
+		InitializeStat( StatType.PoisonPenetration, BaseStats.PoisonPenetration );
+		InitializeStat( StatType.NecroticPenetration, BaseStats.NecroticPenetration );
+		
+		InitializeStat( StatType.ArcanePenetration, BaseStats.ArcanePenetration );
+		InitializeStat( StatType.DivinePenetration, BaseStats.DivinePenetration );
+		InitializeStat( StatType.OccultPenetration, BaseStats.OccultPenetration );
+		
 		InitializeStat( StatType.CriticalMultiplier, BaseStats.CriticalMultiplier );
 		InitializeStat( StatType.KnockBack, BaseStats.KnockBack );
 		

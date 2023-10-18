@@ -45,6 +45,17 @@ public enum StatType
 	
 	ArmorPenetration,
 	WardingPenetration,
+	
+	FirePenetration,
+	FrostPenetration,
+	ElectricPenetration,
+	PoisonPenetration,
+	NecroticPenetration,
+	
+	ArcanePenetration,
+	DivinePenetration,
+	OccultPenetration,
+	
 	CriticalMultiplier,
 	KnockBack,
 	
