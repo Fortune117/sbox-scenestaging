@@ -5,7 +5,7 @@ namespace DarkDescent.Actor;
 
 public class AutoStandComponent : BaseComponent
 {
-	[Property, Range(0, 50)]
+	[Property, Range(0, 150)]
 	private float SettleSpeed { get; set; }
 	
 	private TimeSince TimeSinceBeenOnGround { get; set; }
@@ -24,7 +24,7 @@ public class AutoStandComponent : BaseComponent
 
 		if ( TimeSinceBeenOnGround < 0.1f )
 			return;
-
+		
 		var body = physicsComponent.GetBody();
 		
 		body.AngularDamping = 5f;
@@ -34,7 +34,7 @@ public class AutoStandComponent : BaseComponent
 		if ( mult.AlmostEqual( 1 ) )
 			return;
 		
-		mult = mult.Remap( 0, 1, 0.25f, 3f );
+		mult = mult.Remap( 0, 1, 0.75f, 1.5f );
 		
 		body.AngularVelocity += Vector3.Up.Cross( Transform.Rotation.Up ) * -SettleSpeed * mult * Time.Delta;
 	}

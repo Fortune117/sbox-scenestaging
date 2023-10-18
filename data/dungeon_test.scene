@@ -368,7 +368,7 @@
             {
               "__type": "AutoStandComponent",
               "__enabled": true,
-              "SettleSpeed": 50
+              "SettleSpeed": 150
             },
             {
               "__type": "ModelComponent",
@@ -383,6 +383,11 @@
               "__enabled": true,
               "StrengthLeeway": 5,
               "StrengthThreshold": 10
+            },
+            {
+              "__type": "PhysicsTagger",
+              "__enabled": true,
+              "Tags": "dummy"
             }
           ]
         }
