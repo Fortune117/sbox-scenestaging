@@ -28,8 +28,6 @@ public class AutoStandComponent : BaseComponent
 		var body = physicsComponent.GetBody();
 		
 		body.AngularDamping = 5f;
-
-		body.Shapes.FirstOrDefault()?.AddTag( "dummy" );
 ;
 		var mult = GameObject.Transform.Rotation.Up.Dot( Vector3.Up );
 

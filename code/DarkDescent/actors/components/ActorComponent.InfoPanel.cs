@@ -29,6 +29,9 @@ public partial class ActorComponent
 
 	private void DestroyInfoPanel()
 	{
+		if ( InfoPanel is null )
+			return;
+		
 		InfoPanel.GameObject.SetParent( null );
 		InfoPanel.GameObject.Destroy();
 	}
