@@ -232,13 +232,6 @@
           "StrengthThreshold": 10
         },
         {
-          "__type": "ColliderBoxComponent",
-          "__enabled": true,
-          "IsTrigger": false,
-          "Scale": "34.4,32.6,32.15",
-          "Surface": null
-        },
-        {
           "__type": "PhysicsComponent",
           "__enabled": true,
           "Gravity": true,
@@ -251,6 +244,13 @@
           "Model": "models/props/storage/crate_01.vmdl",
           "ShouldCastShadows": true,
           "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelCollider",
+          "__enabled": true,
+          "IsTrigger": false,
+          "Model": "models/props/storage/crate_01.vmdl",
+          "Surface": null
         }
       ]
     },

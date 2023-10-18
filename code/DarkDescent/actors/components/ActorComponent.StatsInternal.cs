@@ -279,7 +279,7 @@ public partial class ActorComponent
 	
 	private void UpdateStats()
 	{
-		if ( dd_debug_stats && Game.IsServer )
+		if ( dd_debug_stats )
 		{
 			var offset = 5;
 			

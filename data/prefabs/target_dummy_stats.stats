@@ -7,6 +7,7 @@
   "Charisma": 10,
   "MaxHealth": 100,
   "HealthRegen": 5,
+  "HealthRegenDelay": 1.5,
   "HealMultiplier": 5,
   "MaxStamina": 30,
   "StaminaRegen": 3,
@@ -18,6 +19,14 @@
   "JumpHeightMultiplier": 1,
   "PhysicalPower": 0,
   "SpellPower": 0,
+  "FirePower": 0,
+  "FrostPower": 0,
+  "ElectricPower": 0,
+  "PoisonPower": 0,
+  "NecroticPower": 0,
+  "ArcanePower": 0,
+  "DivinePower": 0,
+  "OccultPower": 0,
   "ArmorPenetration": 0,
   "WardingPenetration": 0,
   "CriticalMultiplier": 1.5,
@@ -34,5 +43,6 @@
   "ArcaneResistance": 0,
   "DivineResistance": 0,
   "OccultResistance": 0,
-  "CarryWeight": 0
+  "CarryWeight": 0,
+  "__references": []
 }

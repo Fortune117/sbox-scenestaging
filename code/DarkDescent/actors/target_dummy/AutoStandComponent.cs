@@ -45,9 +45,9 @@ public class AutoStandComponent : BaseComponent
 			.WithoutTags( "dummy" )
 			.Run();
 		
-		Gizmo.Draw.Color = Color.Red;
+		/*Gizmo.Draw.Color = Color.Red;
 		Gizmo.Draw.IgnoreDepth = true;
-		Gizmo.Draw.Line( tr.StartPosition, tr.EndPosition );
+		Gizmo.Draw.Line( tr.StartPosition, tr.EndPosition );*/
 
 		return tr.Hit && tr.Normal.Dot( Vector3.Up ).AlmostEqual( 1, 0.2f );
 	}
