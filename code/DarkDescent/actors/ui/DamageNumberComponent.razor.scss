@@ -4,13 +4,27 @@
 {
   .main-number
   {
-    animation-name: damageNumberAnimation;
+/*    animation-name: damageNumberAnimation;
     animation-timing-function: ease;
     animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-
-    font-size: 72px;
+    animation-fill-mode: forwards;*/
+    
+    font-size: 250px;
     text-stroke: 16px black;
+  }
+  
+  .fire
+  {
+    mask-size: 100% 100%;
+    mask-image: radial-gradient(black 0%, white 100%);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-mode: luminance;
+    mask-scope: filter;
+
+    filter: saturate(3px);
+    
+    color: $damage-fire-color;
   }
 }
 
