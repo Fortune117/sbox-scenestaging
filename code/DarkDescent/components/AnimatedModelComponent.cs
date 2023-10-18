@@ -92,6 +92,9 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 			}
 		}
 	}
+
+	private Vector3 oldPosition;
+	private Rotation oldRotation;
 	
 	bool _boneMerge = false;
 	[Property]
@@ -144,10 +147,18 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 		var parent = GetComponentInParent<AnimatedModelComponent>();
 		if ( parent is not null )
 		{
-			if (BoneMerge)
+			if ( BoneMerge )
+			{
+				oldPosition = Transform.LocalPosition;
+				oldRotation = Transform.LocalRotation;
 				parent.SceneModel.AddChild( "", SceneModel );
+			}
 			else
+			{
 				parent.SceneModel.RemoveChild( SceneModel );
+				Transform.LocalPosition = oldPosition;
+				Transform.LocalRotation = oldRotation;
+			}
 		}
 	}
 	
@@ -179,6 +190,13 @@ public class AnimatedModelComponent : BaseComponent, BaseComponent.ExecuteInEdit
 		base.Update();
 
 		SceneModel.Update( Time.Delta );
+
+		if ( BoneMerge )
+		{
+			var transform = SceneModel.GetBoneWorldTransform( 0 );
+			GameObject.Transform.Position = transform.Position;
+			GameObject.Transform.Rotation = transform.Rotation;
+		}
 	}
 
 	protected override void OnPreRender()
