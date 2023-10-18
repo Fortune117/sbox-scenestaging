@@ -246,6 +246,7 @@ public class Stats
 	public float FrostPenetration => ActorComponent.GetStat( StatType.FrostPenetration );
 	public float ElectricPenetration => ActorComponent.GetStat( StatType.ElectricPenetration );
 	public float PoisonPenetration => ActorComponent.GetStat( StatType.PoisonPenetration );
+	public float NecroticPenetration => ActorComponent.GetStat( StatType.NecroticPenetration );
 	
 	public float ArcanePenetration => ActorComponent.GetStat( StatType.ArcanePenetration );
 	public float DivinePenetration => ActorComponent.GetStat( StatType.DivinePenetration );

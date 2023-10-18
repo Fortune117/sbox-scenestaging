@@ -39,12 +39,11 @@ public class DamageTestComponent : BaseComponent
 		var knockback = actor is not null ? actor.Stats.KnockBack : 0;
 
 		var damage = new DamageEventData()
-			.WithOriginator( GameObject )
-			.WithTarget( hitGameObject )
+			.WithOriginator( actor )
+			.WithTarget( hitActor )
 			.WithPosition( tr.HitPosition + tr.Normal * 5f )
 			.WithDirection( tr.Direction )
 			.WithKnockBack( knockback )
-			.WithResistancePenetration( 0 )
 			.WithDamage( 15f )
 			.WithType( DamageType.Physical )
 			.AsCritical( false );

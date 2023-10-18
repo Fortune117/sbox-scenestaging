@@ -58,24 +58,12 @@ public struct DamageEventData
 	/// <summary>
 	/// Who this damage event was originated by.
 	/// </summary>
-	public GameObject Originator { get; set; }
+	public ActorComponent Originator { get; set; }
 
 	/// <summary>
 	/// Target
 	/// </summary>
-	public GameObject Target { get; set; }
-
-	/// <summary>
-	/// Get the ActorComponent of the Target.
-	/// Can be null.
-	/// </summary>
-	public ActorComponent TargetActor => Target?.GetComponent<ActorComponent>();
-	
-	/// <summary>
-	/// Get the ActorComponent of the Originator.
-	/// Can be null.
-	/// </summary>
-	public ActorComponent OriginatorActor => Originator?.GetComponent<ActorComponent>();
+	public ActorComponent Target { get; set; }
 
 	public bool HasDamageType( DamageType damageType )
 	{
@@ -112,12 +100,6 @@ public struct DamageEventData
 		return this;
 	}
 
-	public DamageEventData WithResistancePenetration( float resistancePenetration )
-	{
-		ResistancePenetration = resistancePenetration;
-		return this;
-	}
-
 	public DamageEventData AsCritical( bool isCrit )
 	{
 		IsCritical = isCrit;
@@ -130,13 +112,13 @@ public struct DamageEventData
 		return this;
 	}
 	
-	public DamageEventData WithTarget( GameObject target )
+	public DamageEventData WithTarget( ActorComponent target )
 	{
 		Target = target;
 		return this;
 	}
 
-	public DamageEventData WithOriginator( GameObject originator )
+	public DamageEventData WithOriginator( ActorComponent originator )
 	{
 		Originator = originator;
 		return this;
