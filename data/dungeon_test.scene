@@ -216,31 +216,6 @@
                   "__type": "WeaponItemComponent",
                   "__enabled": true
                 }
-              ],
-              "Children": [
-                {
-                  "Id": "e6c53932-dcfa-4e22-9fc0-9a45294b8096",
-                  "Name": "Object",
-                  "Enabled": true,
-                  "Position": "18.89999,0,0",
-                  "Rotation": "0,0,0,1",
-                  "Scale": "1,1,1",
-                  "Components": [
-                    {
-                      "__type": "ColliderBoxComponent",
-                      "__enabled": true,
-                      "IsTrigger": true,
-                      "Scale": "28.59996,3.6,-1.099989",
-                      "Surface": null
-                    },
-                    {
-                      "__type": "PhysicsTagger",
-                      "__enabled": true,
-                      "DiscardOriginalTags": true,
-                      "Tags": "trigger"
-                    }
-                  ]
-                }
               ]
             }
           ]
