@@ -46,17 +46,19 @@ public partial class ActorComponent
 		var height = 0f;
 		if ( modelComponent is not null )
 		{
-			height = modelComponent.Bounds.Maxs.z;
+			height = modelComponent.Bounds.Maxs.z - Transform.Position.z;
+			height *= 1.15f;
 		}
 		
 		var angles = Rotation.LookAt( -Camera.Rotation.Forward ).Angles();
 		InfoPanel.Transform.Rotation = angles.WithPitch( 0 ).ToRotation();
 		
 		var tr = Physics.Trace.Ray( Transform.Position + Vector3.Up * 30f, Transform.Position + Vector3.Up * height )
-			.Radius( 30f )
+			.WithTag( "solid" )
+			.Radius( 3f )
 			.Run();
 		
-		InfoPanel.Transform.Position = Transform.Position + Vector3.Up * height;
+		InfoPanel.Transform.LocalPosition = Vector3.Up * height;
 
 		var distanceCheck = Camera.Position.Distance( InfoPanel.Transform.Position ) > PanelDrawDistance;
 		
