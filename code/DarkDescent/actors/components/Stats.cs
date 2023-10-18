@@ -229,6 +229,16 @@ public class Stats
 				       SpellCastingAttribute );
 		}
 	}
+	
+	public float FirePower => ActorComponent.GetStat( StatType.FirePower );
+	public float FrostPower => ActorComponent.GetStat( StatType.FrostPower );
+	public float ElectricPower => ActorComponent.GetStat( StatType.ElectricPower );
+	public float PoisonPower => ActorComponent.GetStat( StatType.PoisonPower );
+	public float NecroticPower => ActorComponent.GetStat( StatType.NecroticPower );
+	
+	public float ArcanePower => ActorComponent.GetStat( StatType.ArcanePower );
+	public float DivinePower => ActorComponent.GetStat( StatType.DivinePower );
+	public float OccultPower => ActorComponent.GetStat( StatType.OccultPower );
 
 	public float CriticalMultiplier => ActorComponent.GetStat( StatType.CriticalMultiplier );
 

@@ -120,6 +120,63 @@ public class StatsResource : GameResource
 	/// </summary>
 	[Range( 0, 300f, 1f ), Category("Combat")]
 	public float SpellPower { get; set; } = 0f;
+	
+		
+	/// <summary>
+	/// Improves the effectiveness of abilities that scale off FirePower.
+	/// Doesn't scale with anything.
+	/// </summary>
+	[Range( 0, 300f, 1f ), Category("Combat")]
+	public float FirePower { get; set; } = 0f;
+	
+	/// <summary>
+	/// Improves the effectiveness of abilities that scale off FrostPower.
+	/// Doesn't scale with anything.
+	/// </summary>
+	[Range( 0, 300f, 1f ), Category("Combat")]
+	public float FrostPower { get; set; } = 0f;
+	
+	/// <summary>
+	/// Improves the effectiveness of abilities that scale off ElectricPower.
+	/// Doesn't scale with anything.
+	/// </summary>
+	[Range( 0, 300f, 1f ), Category("Combat")]
+	public float ElectricPower { get; set; } = 0f;
+	
+	/// <summary>
+	/// Improves the effectiveness of abilities that scale off PoisonPower.
+	/// Doesn't scale with anything.
+	/// </summary>
+	[Range( 0, 300f, 1f ), Category("Combat")]
+	public float PoisonPower { get; set; } = 0f;
+	
+	/// <summary>
+	/// Improves the effectiveness of abilities that scale off NecroticPower.
+	/// Doesn't scale with anything.
+	/// </summary>
+	[Range( 0, 300f, 1f ), Category("Combat")]
+	public float NecroticPower { get; set; } = 0f;
+	
+	/// <summary>
+	/// Improves the effectiveness of abilities that scale off ArcanePower.
+	/// Doesn't scale with anything.
+	/// </summary>
+	[Range( 0, 300f, 1f ), Category("Combat")]
+	public float ArcanePower { get; set; } = 0f;
+	
+	/// <summary>
+	/// Improves the effectiveness of abilities that scale off DivinePower.
+	/// Doesn't scale with anything.
+	/// </summary>
+	[Range( 0, 300f, 1f ), Category("Combat")]
+	public float DivinePower { get; set; } = 0f;
+	
+	/// <summary>
+	/// Improves the effectiveness of abilities that scale off OccultPower.
+	/// Doesn't scale with anything.
+	/// </summary>
+	[Range( 0, 300f, 1f ), Category("Combat")]
+	public float OccultPower { get; set; } = 0f;
 
 	/// <summary>
 	/// How much armor we ignore when attacking.

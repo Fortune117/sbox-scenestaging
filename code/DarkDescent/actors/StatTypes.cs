@@ -32,6 +32,17 @@ public enum StatType
 	//Combat
 	PhysicalPower,
 	SpellPower,
+	
+	FirePower,
+	FrostPower,
+	ElectricPower,
+	PoisonPower,
+	NecroticPower,
+	
+	ArcanePower,
+	DivinePower,
+	OccultPower,
+	
 	ArmorPenetration,
 	WardingPenetration,
 	CriticalMultiplier,

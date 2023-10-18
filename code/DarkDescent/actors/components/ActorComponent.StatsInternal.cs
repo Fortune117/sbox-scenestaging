@@ -163,6 +163,16 @@ public partial class ActorComponent
 		SetBaseStat( StatType.PhysicalPower, BaseStats.PhysicalPower );
 		SetBaseStat( StatType.SpellPower, BaseStats.SpellPower );
 		
+		SetBaseStat( StatType.FirePower, BaseStats.FirePower );
+		SetBaseStat( StatType.FrostPower, BaseStats.FrostPower );
+		SetBaseStat( StatType.ElectricPower, BaseStats.ElectricPower );
+		SetBaseStat( StatType.PoisonPower, BaseStats.PoisonPower );
+		SetBaseStat( StatType.NecroticPower, BaseStats.NecroticPower );
+		
+		SetBaseStat( StatType.ArcanePower, BaseStats.ArcanePower );
+		SetBaseStat( StatType.DivinePower, BaseStats.DivinePower );
+		SetBaseStat( StatType.OccultPower, BaseStats.OccultPower );
+		
 		SetBaseStat( StatType.ArmorPenetration, BaseStats.ArmorPenetration );
 		SetBaseStat( StatType.WardingPenetration, BaseStats.WardingPenetration );
 		SetBaseStat( StatType.CriticalMultiplier, BaseStats.CriticalMultiplier );
@@ -228,6 +238,16 @@ public partial class ActorComponent
 		//Combat
 		InitializeStat( StatType.PhysicalPower, BaseStats.PhysicalPower );
 		InitializeStat( StatType.SpellPower, BaseStats.SpellPower );
+		
+		InitializeStat( StatType.FirePower, BaseStats.FirePower );
+		InitializeStat( StatType.FrostPower, BaseStats.FrostPower );
+		InitializeStat( StatType.ElectricPower, BaseStats.ElectricPower );
+		InitializeStat( StatType.PoisonPower, BaseStats.PoisonPower );
+		InitializeStat( StatType.NecroticPower, BaseStats.NecroticPower );
+		
+		InitializeStat( StatType.ArcanePower, BaseStats.ArcanePower );
+		InitializeStat( StatType.DivinePower, BaseStats.DivinePower );
+		InitializeStat( StatType.OccultPower, BaseStats.OccultPower );
 		
 		InitializeStat( StatType.ArmorPenetration, BaseStats.ArmorPenetration );
 		InitializeStat( StatType.WardingPenetration, BaseStats.WardingPenetration );
