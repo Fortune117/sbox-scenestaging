@@ -197,32 +197,6 @@
           ],
           "Children": [
             {
-              "Id": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
-              "Name": "Sword",
-              "Enabled": true,
-              "Position": "15.10675,-5.817139,55.90998",
-              "Rotation": "-0.5766751,0.6220463,-0.3883541,-0.3601186",
-              "Scale": "1,1,1",
-              "Components": [
-                {
-                  "__type": "AnimatedModelComponent",
-                  "__enabled": true,
-                  "BodyGroups": 18446744073709551615,
-                  "BoneMergeTarget": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
-                  "CreateBoneObjects": false,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/weapons/longsword/longsword.vmdl",
-                  "ShouldCastShadows": true,
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "WeaponItemComponent",
-                  "__enabled": true
-                }
-              ]
-            },
-            {
               "Id": "e2cd223a-cb88-48dd-a602-eb7fa0e9ed97",
               "Name": "Root",
               "Enabled": true,
@@ -939,6 +913,33 @@
                   ]
                 }
               ]
+            },
+            {
+              "Id": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
+              "Name": "Sword",
+              "Enabled": true,
+              "Position": "0.1534882,-12.28204,35.09876",
+              "Rotation": "0.5000027,0.5000063,0.4999939,0.4999971",
+              "Scale": "1,1,1",
+              "Components": [
+                {
+                  "__type": "AnimatedModelComponent",
+                  "__enabled": true,
+                  "BodyGroups": 18446744073709551615,
+                  "BoneMergeTarget": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
+                  "CreateBoneObjects": false,
+                  "MaterialGroup": null,
+                  "MaterialOverride": null,
+                  "Model": "models/weapons/longsword/longsword.vmdl",
+                  "ShouldCastShadows": true,
+                  "Tint": "1,1,1,1"
+                },
+                {
+                  "__type": "CarriedItemComponent",
+                  "__enabled": true,
+                  "FollowBoneMerge": true
+                }
+              ]
             }
           ]
         },
@@ -970,7 +971,7 @@
     {
       "Id": "7bddcd66-c6b3-4548-81e1-9e7ac129eb8a",
       "Name": "Object",
-      "Enabled": false,
+      "Enabled": true,
       "Position": "-3.303916,117.4875,62.16875",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
@@ -1008,7 +1009,7 @@
     {
       "Id": "a8b55460-1f98-4f3f-86de-573941eb5a41",
       "Name": "Object",
-      "Enabled": false,
+      "Enabled": true,
       "Position": "-3.303916,24.53076,62.16875",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
