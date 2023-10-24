@@ -7,6 +7,8 @@ public abstract class ColliderBaseComponent : BaseComponent, BaseComponent.Execu
 	List<PhysicsShape> shapes = new();
 	protected PhysicsBody keyframeBody;
 
+	public IReadOnlyCollection<PhysicsShape> Shapes => shapes;
+
 	[Property] public Surface Surface { get; set; }
 
 	bool _isTrigger;

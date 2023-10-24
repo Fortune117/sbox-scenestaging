@@ -13,7 +13,7 @@ public static partial class GameLogSystem
 			? Language.GetPhrase( GameLogEvents.Interactions.Pickup.Struggle )
 			: Language.GetPhrase( GameLogEvents.Interactions.Pickup.Success );
 
-		var name = target.Name;
+		var name = target.GameObject.Name;
 
 		var classifier = target.GetComponent<ObjectClassifierComponent>();
 		if ( classifier is not null)
@@ -30,7 +30,7 @@ public static partial class GameLogSystem
 	{
 		var actionString = Language.GetPhrase( GameLogEvents.Interactions.Pickup.Drop );
 
-		var name = target.Name;
+		var name = target.GameObject.Name;
 
 		var classifier = target.GetComponent<ObjectClassifierComponent>();
 		if ( classifier is not null)
@@ -47,7 +47,7 @@ public static partial class GameLogSystem
 	{
 		var actionString = Language.GetPhrase( GameLogEvents.Interactions.Pickup.Throw );
 
-		var name = target.Name;
+		var name = target.GameObject.Name;
 
 		var classifier = target.GetComponent<ObjectClassifierComponent>();
 		if ( classifier is not null)
@@ -64,7 +64,7 @@ public static partial class GameLogSystem
 	{
 		var actionString = Language.GetPhrase( GameLogEvents.Interactions.Pickup.TooHeavy );
 
-		var name = target.Name;
+		var name = target.GameObject.Name;
 
 		var classifier = target.GetComponent<ObjectClassifierComponent>();
 		if ( classifier is not null)
@@ -86,7 +86,7 @@ public static partial class GameLogSystem
 		
 		var actionString = Language.GetPhrase( GameLogEvents.Interactions.Pickup.StrengthFail );
 
-		var name = target.Name;
+		var name = target.GameObject.Name;
 
 		var classifier = gameObject.GetComponent<ObjectClassifierComponent>();
 		if ( classifier is not null)
@@ -108,7 +108,7 @@ public static partial class GameLogSystem
 		
 		var actionString = Language.GetPhrase( GameLogEvents.Interactions.Pickup.LoseGrip );
 
-		var name = target.Name;
+		var name = target.GameObject.Name;
 
 		var classifier = gameObject.GetComponent<ObjectClassifierComponent>();
 		if ( classifier is not null)

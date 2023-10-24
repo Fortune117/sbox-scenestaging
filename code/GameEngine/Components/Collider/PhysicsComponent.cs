@@ -61,7 +61,7 @@ public class PhysicsComponent : BaseComponent
 		_body.GravityEnabled = Gravity;
 
 		var bt = _body.Transform;
-
+		
 		isUpdatingPositionFromPhysics = true;
 		Transform.World = bt.WithScale( Transform.Scale.x );
 		isUpdatingPositionFromPhysics = false;
