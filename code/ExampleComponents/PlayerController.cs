@@ -14,6 +14,7 @@ public class PlayerController : BaseComponent
 	[Property] GameObject Body { get; set; }
 	[Property] GameObject Eye { get; set; }
 	[Property] bool FirstPerson { get; set; }
+	[Property] CitizenAnimation AnimationHelper { get; set; }
 
 	public Angles EyeAngles;
 	public Vector3 EyePosition => Eye.Transform.Position;
@@ -39,13 +40,42 @@ public class PlayerController : BaseComponent
 			camera.Transform.Rotation = EyeAngles.ToRotation();
 		}
 
+		var cc = GameObject.GetComponent<CharacterController>();
+		if ( cc is null ) return;
+
+		float rotateDifference = 0;
+
 		// rotate body to look angles
 		if ( Body is not null )
 		{
-			Body.Transform.Rotation = new Angles( 0, EyeAngles.yaw, 0 ).ToRotation();
+			var targetAngle = new Angles( 0, EyeAngles.yaw, 0 ).ToRotation();
+
+			if ( cc.Velocity.Length > 10.0f )
+			{
+				targetAngle = Rotation.LookAt( cc.Velocity );
+			}
+
+			rotateDifference = Body.Transform.Rotation.Distance( targetAngle );
+
+			if ( rotateDifference > 50.0f || cc.Velocity.Length > 10.0f )
+			{
+				Body.Transform.Rotation = Rotation.Lerp( Body.Transform.Rotation, targetAngle, Time.Delta * 2.0f );
+			}
 		}
 
-		// read inputs
+
+		if ( AnimationHelper is not null )
+		{
+			AnimationHelper.WithVelocity( cc.Velocity );
+			AnimationHelper.IsGrounded = cc.IsOnGround;
+			AnimationHelper.FootShuffle = rotateDifference;
+			AnimationHelper.WithLook( EyeAngles.Forward, 1, 1, 1.0f );
+			AnimationHelper.MoveStyle = Input.Down( "Run" ) ? CitizenAnimation.MoveStyles.Run : CitizenAnimation.MoveStyles.Walk;
+		}
+	}
+
+	public override void FixedUpdate()
+	{
 		BuildWishVelocity();
 
 		var cc = GameObject.GetComponent<CharacterController>();
@@ -58,7 +88,9 @@ public class PlayerController : BaseComponent
 			//	flMul *= 0.8f;
 
 			cc.Punch( Vector3.Up * flMul * flGroundFactor );
-		//	cc.IsOnGround = false;
+			//	cc.IsOnGround = false;
+
+			AnimationHelper?.TriggerJump();
 		}
 
 		if ( cc.IsOnGround )

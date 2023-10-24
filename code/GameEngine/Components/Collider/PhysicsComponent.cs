@@ -1,7 +1,5 @@
 ﻿using Sandbox;
 using Sandbox.Diagnostics;
-using System.Linq;
-using System.Text.Json.Serialization;
 
 [Title( "Rigid Body" )]
 [Category( "Physics" )]
@@ -56,7 +54,7 @@ public class PhysicsComponent : BaseComponent
 
 	bool isUpdatingPositionFromPhysics;
 
-	protected override void OnPostPhysics()
+	public override void FixedUpdate()
 	{
 		if ( _body is null ) return;
 
@@ -69,7 +67,7 @@ public class PhysicsComponent : BaseComponent
 		isUpdatingPositionFromPhysics = false;
 	}
 
-	void OnLocalTransformChanged( GameTransform tx )
+	void OnLocalTransformChanged()
 	{
 		if ( isUpdatingPositionFromPhysics ) return;
 

@@ -56,39 +56,29 @@ internal struct CharacterControllerHelper
 			travelFraction += pm.Fraction;
 			timeLeft -= timeLeft * pm.Fraction;
 
-
-
-			//if ( pm.StartedSolid )
-			//{
-			//	break;
-			//}
-
-			if ( pm.Hit )
-			{
-				// There's a bug with sweeping where sometimes the end position is starting in solid, so we get stuck.
-				// Push back by a small margin so this should never happen.
-				Position = pm.EndPosition + pm.Normal * 0.001f;
-			}
-			else
+			if ( !pm.Hit )
 			{
 				Position = pm.EndPosition;
-
 				break;
 			}
 
-			Gizmo.Transform = Transform.Zero;
+			Position = pm.EndPosition;// + pm.Normal * 0.001f;
 
-			var dot = Velocity.Normal.Dot( pm.Normal );
-			Gizmo.Draw.Color = Color.White;
-			Gizmo.Draw.Text( $"{bump}\n{pm.Normal}\n{dot}", new Transform( pm.StartPosition ) );
-			Gizmo.Draw.Line( pm.StartPosition + Vector3.Up * 5, pm.EndPosition + Vector3.Up * 5 );
+			bool standable = pm.Normal.Angle( Vector3.Up ) <= MaxStandableAngle;
 
-			Gizmo.Draw.Color = Color.Green;
-			Gizmo.Draw.Line( pm.StartPosition + Vector3.Up * 5, pm.StartPosition + Vector3.Up * 5 + pm.Normal * 3 );
+			//Gizmo.Transform = Transform.Zero;
+
+			//var dot = Velocity.Normal.Dot( pm.Normal );
+			//Gizmo.Draw.Color = Color.White;
+			//Gizmo.Draw.Text( $"{bump}\n{pm.Normal}\n{dot}", new Transform( pm.StartPosition ) );
+			//Gizmo.Draw.Line( pm.StartPosition + Vector3.Up * 5, pm.EndPosition + Vector3.Up * 5 );
+
+			//Gizmo.Draw.Color = Color.Green;
+			//Gizmo.Draw.Line( pm.StartPosition + Vector3.Up * 5, pm.StartPosition + Vector3.Up * 5 + pm.Normal * 3 );
 
 			moveplanes.StartBump( Velocity );
 
-			if ( !moveplanes.TryAdd( pm.Normal, ref Velocity, Bounce ) )
+			if ( !moveplanes.TryAdd( pm.Normal, ref Velocity, standable ? 0 : Bounce ) )
 				break;
 		}
 

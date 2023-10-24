@@ -3,7 +3,7 @@ using Sandbox.Diagnostics;
 
 [Title( "Model Renderer" )]
 [Category( "Rendering" )]
-[Icon( "visibility", "red", "white" )]
+[Icon( "free_breakfast" )]
 [Alias( "ModelComponentMate" )]
 public class ModelComponent : BaseComponent, BaseComponent.ExecuteInEditor
 {
@@ -90,7 +90,22 @@ public class ModelComponent : BaseComponent, BaseComponent.ExecuteInEditor
 		}
 	}
 
-	public string TestString { get; set; }
+	ulong _bodyGroupsMask = ulong.MaxValue;
+	[Property, Model.BodyGroupMask]
+	public ulong BodyGroups
+	{
+		get => _bodyGroupsMask;
+		set
+		{
+			if ( _bodyGroupsMask == value ) return;
+			_bodyGroupsMask = value;
+
+			if ( _sceneObject is not null )
+			{
+				_sceneObject.MeshGroupMask = _bodyGroupsMask;
+			}
+		}
+	}
 
 	SceneObject _sceneObject;
 	public SceneObject SceneObject => _sceneObject;
@@ -123,11 +138,13 @@ public class ModelComponent : BaseComponent, BaseComponent.ExecuteInEditor
 		Assert.True( _sceneObject == null );
 		Assert.NotNull( Scene );
 
-		_sceneObject = new SceneObject( Scene.SceneWorld, Model ?? Model.Load( "models/dev/box.vmdl" ) );
-		_sceneObject.Transform = Transform.World;
+		var model = Model ?? Model.Load( "models/dev/box.vmdl" );
+
+		_sceneObject = new SceneObject( Scene.SceneWorld, model, Transform.World );
 		_sceneObject.SetMaterialOverride( MaterialOverride );
 		_sceneObject.ColorTint = Tint;
 		_sceneObject.Flags.CastShadows = _castShadows;
+		_sceneObject.MeshGroupMask = _bodyGroupsMask;
 	}
 
 	public override void OnDisabled()

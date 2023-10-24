@@ -1,9 +1,9 @@
 ﻿using Sandbox;
 using System;
 
-public class FixedUpdate
+internal class FixedUpdate
 {
-	public float Frequency = 32;
+	public float Frequency = 16;
 	public float MaxSteps = 5;
 	public float Delta => 1.0f / Frequency;
 
@@ -15,10 +15,8 @@ public class FixedUpdate
 		var saveDelta = Time.Delta;
 
 		var delta = Delta;
-		var time = RealTime.Now;
+		var time = saveNow;
 		lastTime = lastTime.Clamp( time - (MaxSteps * delta), time + delta );
-
-		
 
 		Time.Delta = delta;
 

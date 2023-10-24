@@ -53,7 +53,7 @@ public abstract partial class BaseComponent
 		get => _enabledState;
 	}
 
-	public string Name { get; set; }
+
 	private bool ShouldExecute => Scene is not null && (!Scene.IsEditor || this is ExecuteInEditor);
 
 	public virtual void DrawGizmos() { }
@@ -79,12 +79,6 @@ public abstract partial class BaseComponent
 	/// Called once, when the component or gameobject is destroyed
 	/// </summary>
 	public virtual void OnDestroy() { }
-
-	protected virtual void OnPostPhysics() { }
-	internal void PostPhysics()
-	{
-		OnPostPhysics();
-	}
 
 	protected virtual void OnPreRender() { }
 	internal void PreRender()

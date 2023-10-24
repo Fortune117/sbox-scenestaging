@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Sandbox;
+using Sandbox.Physics;
+using System;
 
 public class GameTransform
 {
 	public GameObject GameObject { get; init; }
 	public GameObject Parent => GameObject.Parent;
 
-	public Action<GameTransform> OnTransformChanged;
+	public Action OnTransformChanged;
+
+	public TransformProxy Proxy { get; set; }
 
 	internal GameTransform( GameObject owner )
 	{
@@ -14,23 +18,61 @@ public class GameTransform
 	}
 
 	Transform _local;
+	Transform _fixedLocal;
 
 	/// <summary>
 	/// The current local transform
 	/// </summary>
 	public Transform Local
 	{
-		get => _local;
+		get
+		{
+			if ( Proxy is not null )
+			{
+				return Proxy.GetLocalTransform();
+			}
+
+			if ( GameObject.Scene.IsFixedUpdate )
+			{
+				return _fixedLocal;
+			}
+
+			return _local;
+		}
+
 		set
 		{
 			if ( value.Position.IsNaN ) throw new System.ArgumentOutOfRangeException();
 
-			if ( _local == value )
+			if ( Proxy is not null )
+			{
+				Proxy.SetLocalTransform( value );
+				return;
+			}
+
+			if ( Local == value )
 				return;
 
 			_local = value;
-			OnTransformChanged?.Invoke( this );
+			_fixedLocal = value;
+
+			TransformChanged();
+
+			if ( GameObject.Scene.IsFixedUpdate )
+			{
+				LerpTo( World, Time.Delta );
+			}
 		}
+	}
+
+	/// <summary>
+	/// Our transform has changed, which means our children transforms changed too
+	/// tell them all.
+	/// </summary>
+	void TransformChanged()
+	{
+		OnTransformChanged?.Invoke();
+		GameObject.ForEachChild( "TransformChanged", true, ( c ) => c.Transform.TransformChanged() );
 	}
 
 	/// <summary>
@@ -43,12 +85,23 @@ public class GameTransform
 			if ( Parent is null ) return Local;
 			if ( Parent is Scene ) return Local;
 
+			if ( Proxy is not null )
+			{
+				return Proxy.GetWorldTransform();
+			}
+
 			return Parent.Transform.World.ToWorld( Local );
 		}
 
 		set
 		{
 			if ( value.Position.IsNaN ) throw new System.ArgumentOutOfRangeException();
+
+			if ( Proxy is not null )
+			{
+				Proxy.SetWorldTransform( value );
+				return;
+			}
 
 			if ( Parent is null || Parent is Scene )
 			{
@@ -97,10 +150,10 @@ public class GameTransform
 	/// </summary>
 	public Vector3 LocalPosition
 	{
-		get => _local.Position;
+		get => Local.Position;
 		set
 		{
-			Local = _local.WithPosition( value );
+			Local = Local.WithPosition( value );
 		}
 	}
 
@@ -109,10 +162,10 @@ public class GameTransform
 	/// </summary>
 	public Rotation LocalRotation
 	{
-		get => _local.Rotation;
+		get => Local.Rotation;
 		set
 		{
-			Local = _local.WithRotation( value );
+			Local = Local.WithRotation( value );
 		}
 	}
 
@@ -121,10 +174,40 @@ public class GameTransform
 	/// </summary>
 	public Vector3 LocalScale
 	{
-		get => _local.Scale;
+		get => Local.Scale;
 		set
 		{
-			Local = _local.WithScale( value.x );
+			Local = Local.WithScale( value.x );
 		}
+	}
+
+	TransformInterpolate interp = new TransformInterpolate();
+
+	public void LerpTo( in Transform target, float timeToTake )
+	{
+		interp.Add( Time.Now + timeToTake, target );
+	}
+
+	public void ClearLerp()
+	{
+		interp.Clear( Local );
+	}
+
+	internal void Update()
+	{
+		if ( interp.entries is null )
+			return;
+
+		interp.CullOlderThan( Time.Now - 1.0f );
+
+		if ( interp.Query( Time.Now, ref _local ) )
+		{
+			// okay
+		}
+	}
+
+	public void FDdd()
+	{
+		//
 	}
 }
