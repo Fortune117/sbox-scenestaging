@@ -108,80 +108,6 @@
       ],
       "Children": [
         {
-          "Id": "e4c460aa-c998-43f5-b4ff-b946848d6aa5",
-          "Name": "Camera",
-          "Enabled": true,
-          "Position": "0,0,68.53114",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "",
-          "Components": [
-            {
-              "__type": "CameraShake",
-              "__enabled": true
-            },
-            {
-              "__type": "ViewPunch",
-              "__enabled": true
-            },
-            {
-              "__type": "ViewBob",
-              "__enabled": true,
-              "ViewBobFrequency": 7,
-              "ViewBobMagnitude": 15,
-              "ViewBobRunningMultiplier": 2,
-              "ViewBobSpeedThreshold": 150
-            },
-            {
-              "__type": "CameraComponent",
-              "__enabled": true,
-              "BackgroundColor": "0.33333,0.46275,0.52157,1",
-              "ClearFlags": "Color, Depth, Stencil",
-              "FieldOfView": 115,
-              "ZFar": 10000,
-              "ZNear": 5
-            },
-            {
-              "__type": "PixelatePostProcess",
-              "__enabled": false,
-              "Resolution": 850
-            },
-            {
-              "__type": "Pixelate",
-              "__enabled": true,
-              "Scale": 0.025
-            },
-            {
-              "__type": "Bloom",
-              "__enabled": true,
-              "BloomColor": {
-                "color": [
-                  {
-                    "c": "1,1,1,1"
-                  },
-                  {
-                    "t": 1,
-                    "c": "0.5,0.5,0.5,1"
-                  }
-                ]
-              },
-              "BloomCurve": [
-                {
-                  "y": 0.5
-                },
-                {
-                  "x": 1,
-                  "y": 1
-                }
-              ],
-              "Mode": "Screen",
-              "Strength": 1,
-              "Threshold": 0.5,
-              "ThresholdWidth": 0
-            }
-          ]
-        },
-        {
           "Id": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
           "Name": "Body",
           "Enabled": true,
@@ -273,7 +199,83 @@
                                           "Position": "1.753082,0.01624988,-0.00006026774",
                                           "Rotation": "-0.7071063,-0.0000001343425,-0.0000003254064,0.7071072",
                                           "Scale": "0.9999999,0.9999999,0.9999999",
-                                          "Tags": ""
+                                          "Tags": "",
+                                          "Children": [
+                                            {
+                                              "Id": "e4c460aa-c998-43f5-b4ff-b946848d6aa5",
+                                              "Name": "Camera",
+                                              "Enabled": true,
+                                              "Position": "0,-0.0002136335,0",
+                                              "Rotation": "-0.0000001192093,0.00000007301607,0.0000001117417,1",
+                                              "Scale": "1,1,1",
+                                              "Tags": "",
+                                              "Components": [
+                                                {
+                                                  "__type": "CameraShake",
+                                                  "__enabled": true
+                                                },
+                                                {
+                                                  "__type": "ViewPunch",
+                                                  "__enabled": true
+                                                },
+                                                {
+                                                  "__type": "ViewBob",
+                                                  "__enabled": true,
+                                                  "ViewBobFrequency": 7,
+                                                  "ViewBobMagnitude": 15,
+                                                  "ViewBobRunningMultiplier": 2,
+                                                  "ViewBobSpeedThreshold": 150
+                                                },
+                                                {
+                                                  "__type": "CameraComponent",
+                                                  "__enabled": true,
+                                                  "BackgroundColor": "0.33333,0.46275,0.52157,1",
+                                                  "ClearFlags": "Color, Depth, Stencil",
+                                                  "FieldOfView": 115,
+                                                  "ZFar": 10000,
+                                                  "ZNear": 5
+                                                },
+                                                {
+                                                  "__type": "PixelatePostProcess",
+                                                  "__enabled": false,
+                                                  "Resolution": 850
+                                                },
+                                                {
+                                                  "__type": "Pixelate",
+                                                  "__enabled": true,
+                                                  "Scale": 0.025
+                                                },
+                                                {
+                                                  "__type": "Bloom",
+                                                  "__enabled": true,
+                                                  "BloomColor": {
+                                                    "color": [
+                                                      {
+                                                        "c": "1,1,1,1"
+                                                      },
+                                                      {
+                                                        "t": 1,
+                                                        "c": "0.5,0.5,0.5,1"
+                                                      }
+                                                    ]
+                                                  },
+                                                  "BloomCurve": [
+                                                    {
+                                                      "y": 0.5
+                                                    },
+                                                    {
+                                                      "x": 1,
+                                                      "y": 1
+                                                    }
+                                                  ],
+                                                  "Mode": "Screen",
+                                                  "Strength": 1,
+                                                  "Threshold": 0.5,
+                                                  "ThresholdWidth": 0
+                                                }
+                                              ]
+                                            }
+                                          ]
                                         },
                                         {
                                           "Id": "daa904c3-3175-4b68-b91f-aa11bc37f031",
