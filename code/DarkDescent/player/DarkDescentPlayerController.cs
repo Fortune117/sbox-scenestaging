@@ -5,23 +5,31 @@ namespace DarkDescent;
 
 public partial class DarkDescentPlayerController : BaseComponent
 {
-	[Property] public Vector3 Gravity { get; set; } = new Vector3( 0, 0, 800 );
-	[Property] public float CameraDistance { get; set; } = 200.0f;
-
-	public Vector3 WishVelocity { get; private set; }
-
-	[Property] AnimatedModelComponent Body { get; set; }
-	[Property] GameObject Eye { get; set; }
-	[Property] bool FirstPerson { get; set; }
-
-	public Angles EyeAngles;
-	public Vector3 EyePosition => Eye.Transform.Position;
-
-	public Ray AimRay => new Ray( EyePosition, EyeAngles.Forward );
+	[Property] 
+	public Vector3 Gravity { get; set; } = new Vector3( 0, 0, 800 );
 	
+	[Property] 
+	public float CameraDistance { get; set; } = 200.0f;
+	
+
+	[Property] 
+	private AnimatedModelComponent Body { get; set; }
+	
+	[Property] 
+	private GameObject Eye { get; set; }
+
 	[Property]
 	private CharacterController CharacterController { get; set; }
 
+	private bool IsCrouching { get; set; }
+	
+	private Vector3 WishVelocity { get; set; }
+
+	public Angles EyeAngles;
+	private Vector3 EyePosition => Eye.Transform.Position;
+
+	public Ray AimRay => new Ray( EyePosition, EyeAngles.Forward );
+	
 	public override void OnStart()
 	{
 		HookupAnimEvents();
@@ -55,6 +63,8 @@ public partial class DarkDescentPlayerController : BaseComponent
 			CharacterController.Punch( Vector3.Up * flMul * flGroundFactor );
 		//	cc.IsOnGround = false;
 		}
+		
+		IsCrouching =  Input.Down( "Duck" );
 
 		if ( CharacterController.IsOnGround )
 		{

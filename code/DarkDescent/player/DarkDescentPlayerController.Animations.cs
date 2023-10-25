@@ -31,7 +31,7 @@ public partial class DarkDescentPlayerController
 		var pelvisAngle = 1 - EyeAngles.pitch.Remap( -89, 89, 0.01f, 0.99f );
 		
 		modelComponent.Set( "fPelvisAngle", pelvisAngle );
-		modelComponent.Set( "bCrouching", false );
+		modelComponent.Set( "bCrouching", IsCrouching );
 		modelComponent.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		modelComponent.Set( "bAttack", Input.Pressed( "Attack1" ));
 	}
