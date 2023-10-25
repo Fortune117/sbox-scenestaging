@@ -63,6 +63,8 @@
           "__enabled": true,
           "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
           "CameraDistance": 200,
+          "CarriedItemComponent": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
+          "CharacterController": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "Eye": "eacd1793-17b7-4e17-b4df-cfd99eea118c",
           "FirstPerson": true,
           "Gravity": "0,0,800"
@@ -100,10 +102,6 @@
           "IgnoreLayers": "",
           "Radius": 16,
           "StepHeight": 18
-        },
-        {
-          "__type": "DamageTestComponent",
-          "__enabled": false
         }
       ],
       "Children": [
@@ -206,7 +204,7 @@
                                               "Name": "Camera",
                                               "Enabled": true,
                                               "Position": "0,-0.0002136335,0",
-                                              "Rotation": "-0.0000001192093,0.00000007301607,0.0000001117417,1",
+                                              "Rotation": "0,0,0,1",
                                               "Scale": "1,1,1",
                                               "Tags": "",
                                               "Components": [
@@ -1030,8 +1028,8 @@
                 {
                   "__type": "HurtBoxComponent",
                   "__enabled": true,
-                  "Center1": "0,0,0",
-                  "Center2": "32.20002,0,0",
+                  "Center1": "5.399998,0,0",
+                  "Center2": "34.19999,0,0",
                   "Radius": 2
                 }
               ]

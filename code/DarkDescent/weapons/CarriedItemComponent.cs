@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DarkDescent.Actor;
 using DarkDescent.Actor.Damage;
 using Sandbox;
@@ -13,7 +14,11 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 	[Property]
 	private HurtBoxComponent HurtBox { get; set; }
 	
+	private bool HitBoxActive { get; set; }
+	
 	private AnimatedModelComponent AnimatedModelComponent { get; set; }
+
+	private readonly HashSet<ActorComponent> HitActors = new();
 
 	public override void OnEnabled()
 	{
@@ -44,8 +49,8 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 		
 		var transform = AnimatedModelComponent.SceneObject.GetBoneWorldTransform( 0 );
 		GameObject.Transform.World = transform;
-
-		if ( Scene.IsEditor || !TimeUntilCanHit)
+		
+		if ( Scene.IsEditor )
 			return;
 		
 		var tr = HurtBox.PerformTrace();
@@ -56,6 +61,9 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 		
 		Gizmo.Draw.Color = Color.Blue.WithAlpha( 1f );
 		Gizmo.Draw.LineSphere( new Sphere( tr.EndPosition, 4 ) );
+
+		if ( !HitBoxActive )
+			return;
 		
 		if ( !tr.Hit )
 			return;
@@ -69,14 +77,20 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 			return;
 
 		var actor = GetComponentInParent<ActorComponent>();
+
+		if ( HitActors.Contains( actor ) )
+			return;
+
+		HitActors.Add( actor );
+		
 		var knockback = actor is not null ? actor.Stats.KnockBack : 0;
 
 		var damage = new DamageEventData()
 			.WithOriginator( actor )
 			.WithTarget( hitActor )
 			.WithPosition( tr.HitPosition + tr.Normal * 5f )
-			.WithDirection( tr.Direction )
-			.WithKnockBack( knockback*5f )
+			.WithDirection( HurtBox.DirectionMoment )
+			.WithKnockBack( knockback )
 			.WithDamage( 1f )
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
@@ -84,5 +98,16 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 		hitActor.TakeDamage( damage );
 
 		TimeUntilCanHit = 0.5f;
+	}
+
+	public void BeginAttack()
+	{
+		HitActors.Clear();
+		HitBoxActive = true;
+	}
+
+	public void EndAttack()
+	{
+		HitBoxActive = false;
 	}
 }

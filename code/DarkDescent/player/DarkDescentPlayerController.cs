@@ -10,7 +10,7 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 	public Vector3 WishVelocity { get; private set; }
 
-	[Property] GameObject Body { get; set; }
+	[Property] AnimatedModelComponent Body { get; set; }
 	[Property] GameObject Eye { get; set; }
 	[Property] bool FirstPerson { get; set; }
 
@@ -19,16 +19,12 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 	public Ray AimRay => new Ray( EyePosition, EyeAngles.Forward );
 	
+	[Property]
 	private CharacterController CharacterController { get; set; }
 
 	public override void OnStart()
 	{
-		CharacterController = GetComponent<CharacterController>();
-
-		if ( Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
-		{
-			//modelComponent.SetBodyGroup( "head", 1 );
-		}
+		HookupAnimEvents();
 	}
 
 	public override void Update()

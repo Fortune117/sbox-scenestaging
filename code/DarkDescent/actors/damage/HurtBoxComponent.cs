@@ -4,6 +4,14 @@ namespace DarkDescent.Actor.Damage;
 
 public class HurtBoxComponent : BaseComponent
 {
+	public Vector3 DirectionMoment
+	{
+		get
+		{
+			return (Transform.Position - lastUpdateTransform.Position).Normal;
+		}
+	}
+	
 	[Property]
 	private Vector3 Center1 { get; set; }
 	
@@ -26,6 +34,7 @@ public class HurtBoxComponent : BaseComponent
 		Gizmo.Draw.LineCapsule( new Capsule( Center1, Center2, Radius ) );
 	}
 
+	private Transform lastUpdateTransform = global::Transform.Zero;
 	public override void Update()
 	{
 		base.Update();
@@ -39,6 +48,8 @@ public class HurtBoxComponent : BaseComponent
 		Gizmo.Draw.Color = tr.Hit ? Color.Red : Color.Green;
 
 		Gizmo.Draw.LineCapsule( new Capsule( Center1, Center2, Radius ) );
+
+		lastUpdateTransform = Transform.World;
 	}
 
 	public PhysicsTraceResult PerformTrace()

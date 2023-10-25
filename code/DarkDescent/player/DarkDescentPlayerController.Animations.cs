@@ -4,6 +4,11 @@ namespace DarkDescent;
 
 public partial class DarkDescentPlayerController 
 {
+	private void HookupAnimEvents()
+	{
+		Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
+	}
+	
 	private void UpdateAnimations()
 	{
 		if ( !Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
