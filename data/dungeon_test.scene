@@ -66,7 +66,6 @@
           "CarriedItemComponent": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
           "CharacterController": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "Eye": "eacd1793-17b7-4e17-b4df-cfd99eea118c",
-          "FirstPerson": true,
           "Gravity": "0,0,800"
         },
         {
@@ -102,6 +101,10 @@
           "IgnoreLayers": "",
           "Radius": 16,
           "StepHeight": 18
+        },
+        {
+          "__type": "SoundListenerComponent",
+          "__enabled": true
         }
       ],
       "Children": [
