@@ -98,7 +98,7 @@
         },
         {
           "__type": "DamageTestComponent",
-          "__enabled": true
+          "__enabled": false
         }
       ],
       "Children": [
@@ -937,7 +937,33 @@
                 {
                   "__type": "CarriedItemComponent",
                   "__enabled": true,
-                  "FollowBoneMerge": true
+                  "FollowBoneMerge": true,
+                  "HitBox": "24b6482e-3f8b-4c0e-95f1-9f3db61f15c2"
+                }
+              ],
+              "Children": [
+                {
+                  "Id": "24b6482e-3f8b-4c0e-95f1-9f3db61f15c2",
+                  "Name": "Object",
+                  "Enabled": true,
+                  "Position": "19.80001,0,0",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Components": [
+                    {
+                      "__type": "ColliderBoxComponent",
+                      "__enabled": true,
+                      "IsTrigger": false,
+                      "Scale": "31.40005,5.899992,3.700012",
+                      "Surface": null
+                    },
+                    {
+                      "__type": "PhysicsTagger",
+                      "__enabled": true,
+                      "DiscardOriginalTags": true,
+                      "Tags": "trigger"
+                    }
+                  ]
                 }
               ]
             }

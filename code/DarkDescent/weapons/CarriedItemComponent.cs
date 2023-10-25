@@ -1,4 +1,5 @@
-﻿using Sandbox;
+﻿using System.Linq;
+using Sandbox;
 
 namespace DarkDescent.Weapons;
 
@@ -6,6 +7,9 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 {
 	[Property]
 	private bool FollowBoneMerge { get; set; }
+	
+	[Property]
+	private ColliderBoxComponent HitBox { get; set; }
 	
 	private AnimatedModelComponent AnimatedModelComponent { get; set; }
 
@@ -35,8 +39,17 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 		if ( !FollowBoneMerge || AnimatedModelComponent?.SceneObject is null )
 			return;
 		
-		Log.Info( "test" );
 		var transform = AnimatedModelComponent.SceneObject.GetBoneWorldTransform( 0 );
 		GameObject.Transform.World = transform;
+
+		var body = HitBox.Shapes.FirstOrDefault()?.Body;
+
+		if ( body is null || Scene.IsEditor)
+			return;
+		
+		/*var tr = Physics.Trace.Ray(  )
+			.UseHitboxes()
+			.WithTag( "dummy" )
+			.Run();*/
 	}
 }
