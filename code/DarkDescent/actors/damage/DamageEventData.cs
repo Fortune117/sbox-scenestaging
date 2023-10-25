@@ -48,8 +48,12 @@ public struct DamageEventData
 	/// The various flags this damage has assigned to it.
 	/// </summary>
 	public DamageFlags DamageFlags { get; set; }
-	
 
+	/// <summary>
+	/// The hitbox that was hit. Can be null
+	/// </summary>
+	public TagSet Tags { get; set; }
+	
 	/// <summary>
 	/// Who this damage event was originated by.
 	/// </summary>
@@ -104,6 +108,16 @@ public struct DamageEventData
 	public DamageEventData WithType( DamageType damageType )
 	{
 		DamageTypes |= damageType;
+		return this;
+	}
+
+	public DamageEventData WithTags( params string[] tags )
+	{
+		Tags = new TagSet();
+		foreach ( var tag in tags )
+		{
+			Tags.Add( tag );
+		}
 		return this;
 	}
 	

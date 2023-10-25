@@ -67,14 +67,14 @@ public partial class ActorComponent
 		GameObject.Destroy();
 	}
 
-	private void CreateDamageEffects( DamageEventData damageEventData, DamageInfo damageInfo )
+	private void CreateDamageEffects( DamageEventData damageEventData )
 	{
 		var dir = -damageEventData.Direction.Normal;
 		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
 
 		foreach ( var damageEffectInfo in DamageEffectInfos )
 		{
-			if ( damageInfo.Hitbox.HasTag( damageEffectInfo.HitboxTag  ) )
+			if ( damageEventData.Tags.Has( damageEffectInfo.HitboxTag  ) )
 			{
 				var particle = Particles.Create( damageEffectInfo.ParticleEffect, damageEventData.Position + dir * 5f );
 				particle.Set( "Normal", dir );

@@ -38,8 +38,7 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 
 		AnimatedModelComponent = null;
 	}
-
-	private TimeUntil TimeUntilCanHit;
+	
 	public override void Update()
 	{
 		base.Update();
@@ -92,12 +91,11 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 			.WithDirection( HurtBox.DirectionMoment )
 			.WithKnockBack( knockback )
 			.WithDamage( 1f )
+			//.WithTags( tr.Shape.Tags ) //commented out cause we can't get tags like this :<
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
 
 		hitActor.TakeDamage( damage );
-
-		TimeUntilCanHit = 0.5f;
 	}
 
 	public void BeginAttack()
