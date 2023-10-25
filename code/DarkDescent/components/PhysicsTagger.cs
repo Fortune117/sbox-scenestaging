@@ -5,34 +5,10 @@ namespace DarkDescent.Components;
 
 public class PhysicsTagger : BaseComponent
 {
-	private string _tags;
+	[Property] public TagSet Tags { get; set; }
 
-	[Property, Editor( "tags" )]
-	public string Tags
-	{
-		get => _tags;
-		set
-		{
-			_tags = value;
-			UpdateTagList();
-		}
-
-	}
-	
 	[Property]
 	public bool DiscardOriginalTags { get; set; }
-
-	private readonly HashSet<string> TagSet = new();
-
-	private void UpdateTagList()
-	{
-		TagSet.Clear();
-
-		foreach ( var tag in Tags.Split( " " ) )
-		{
-			TagSet.Add( tag );
-		}
-	}
 
 	private void AddTags()
 	{
@@ -43,7 +19,7 @@ public class PhysicsTagger : BaseComponent
 				if (DiscardOriginalTags)
 					physicsShape.ClearTags();
 				
-				foreach ( var tag in TagSet )
+				foreach ( var tag in Tags.TryGetAll() )
 				{
 					physicsShape.AddTag( tag );
 				}
@@ -57,7 +33,7 @@ public class PhysicsTagger : BaseComponent
 		{
 			foreach (var physicsShape in collider.Shapes)
 			{
-				foreach ( var tag in TagSet )
+				foreach ( var tag in Tags.TryGetAll() )
 				{
 					physicsShape.RemoveTag( tag );
 				}
