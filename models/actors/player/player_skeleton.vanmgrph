@@ -15,7 +15,7 @@
 				{
 					_class = "CCycleControlAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -592.0, -368.0 ]
+					m_vecPosition = [ -608.0, -368.0 ]
 					m_nNodeID = 
 					{
 						m_id = 118675145
@@ -255,6 +255,52 @@
 			{
 				key = 
 				{
+					m_id = 601747019
+				}
+				value = 
+				{
+					_class = "CAddAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -240.0, -160.0 ]
+					m_nNodeID = 
+					{
+						m_id = 601747019
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_baseInput = 
+					{
+						m_nodeID = 
+						{
+							m_id = 118675145
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_additiveInput = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1472553499
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_timingBehavior = "UseChild2"
+					m_flTimingBlend = 0.5
+					m_footMotionTiming = "Child1"
+					m_bResetBase = true
+					m_bResetAdditive = true
+					m_bApplyChannelsSeparately = true
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 711599840
 				}
 				value = 
@@ -283,19 +329,19 @@
 				{
 					_class = "CBoneMaskAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -352.0, -192.0 ]
+					m_vecPosition = [ -256.0, -288.0 ]
 					m_nNodeID = 
 					{
 						m_id = 870747843
 					}
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
-					m_weightListName = "legs_only"
+					m_weightListName = "no_hands"
 					m_inputConnection1 = 
 					{
 						m_nodeID = 
 						{
-							m_id = 118675145
+							m_id = 1472553499
 						}
 						m_outputID = 
 						{
@@ -306,7 +352,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 314924916
+							m_id = 118675145
 						}
 						m_outputID = 
 						{
@@ -331,6 +377,27 @@
 			{
 				key = 
 				{
+					m_id = 1198477232
+				}
+				value = 
+				{
+					_class = "CSingleFrameAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -1088.0, 400.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1198477232
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_sequenceName = "pelvis_angle"
+					m_nFrameIndex = 90
+					m_tagSpans = [  ]
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1366216440
 				}
 				value = 
@@ -348,6 +415,52 @@
 					m_sequenceName = "crouch_idle"
 					m_playbackSpeed = 1.0
 					m_bLoop = true
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1472553499
+				}
+				value = 
+				{
+					_class = "CSubtractAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -512.0, -144.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1472553499
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_baseInputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 314924916
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_subtractInputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1582525107
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_timingBehavior = "UseChild1"
+					m_flTimingBlend = 0.5
+					m_footMotionTiming = "Child1"
+					m_bResetBase = true
+					m_bResetSubtract = true
+					m_bApplyChannelsSeparately = true
 				}
 			},
 			{
@@ -503,13 +616,34 @@
 			{
 				key = 
 				{
+					m_id = 1582525107
+				}
+				value = 
+				{
+					_class = "CSingleFrameAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -768.0, 32.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1582525107
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_sequenceName = "bind_pose"
+					m_nFrameIndex = 0
+					m_tagSpans = [  ]
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1637174658
 				}
 				value = 
 				{
 					_class = "CAddAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -48.0, -32.0 ]
+					m_vecPosition = [ 128.0, -16.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1637174658
@@ -520,7 +654,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 870747843
+							m_id = 601747019
 						}
 						m_outputID = 
 						{
@@ -703,7 +837,7 @@
 				{
 					_class = "CSingleFrameAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -928.0, 560.0 ]
+					m_vecPosition = [ -864.0, 448.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1858231669
@@ -724,7 +858,7 @@
 				{
 					_class = "CRootAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 208.0, -32.0 ]
+					m_vecPosition = [ 352.0, -32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2027420029
@@ -753,7 +887,7 @@
 				{
 					_class = "CSubtractAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -592.0, 208.0 ]
+					m_vecPosition = [ -608.0, 192.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2097942271
@@ -775,7 +909,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 1858231669
+							m_id = 1198477232
 						}
 						m_outputID = 
 						{
