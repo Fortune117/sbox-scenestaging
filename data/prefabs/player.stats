@@ -41,8 +41,6 @@
   "KnockBack": 0,
   "Armor": 0,
   "Warding": 0,
-  "CriticalNegation": 0,
-  "KnockBackResistance": 0,
   "FireResistance": 0,
   "FrostResistance": 0,
   "ElectricResistance": 0,
@@ -51,6 +49,8 @@
   "ArcaneResistance": 0,
   "DivineResistance": 0,
   "OccultResistance": 0,
+  "CriticalNegation": 0,
+  "KnockBackResistance": 0,
   "CarryWeight": 30,
   "__references": []
 }

@@ -33,6 +33,7 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "fPelvisAngle", pelvisAngle );
 		modelComponent.Set( "bCrouching", IsCrouching );
 		modelComponent.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
+		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
 		modelComponent.Set( "bAttack", Input.Pressed( "Attack1" ));
 	}
 }

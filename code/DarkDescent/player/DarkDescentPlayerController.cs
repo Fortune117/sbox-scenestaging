@@ -1,5 +1,6 @@
 using Sandbox;
 using System.Drawing;
+using DarkDescent.Actor;
 
 namespace DarkDescent;
 
@@ -20,6 +21,9 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 	[Property]
 	private CharacterController CharacterController { get; set; }
+	
+	[Property]
+	private ActorComponent ActorComponent { get; set; }
 
 	private bool IsCrouching { get; set; }
 	

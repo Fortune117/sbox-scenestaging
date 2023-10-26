@@ -61,6 +61,7 @@
         {
           "__type": "DarkDescentPlayerController",
           "__enabled": true,
+          "ActorComponent": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
           "CameraDistance": 200,
           "CarriedItemComponent": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
