@@ -198,8 +198,8 @@
                                           "Id": "eacd1793-17b7-4e17-b4df-cfd99eea118c",
                                           "Name": "Camera",
                                           "Enabled": true,
-                                          "Position": "1.753082,0.01624988,-0.00006026774",
-                                          "Rotation": "-0.7071063,-0.0000001343425,-0.0000003254064,0.7071072",
+                                          "Position": "1.753081,-3.086983,-0.00004870829",
+                                          "Rotation": "-0.7071064,-0.0000001343425,-0.0000003254064,0.7071072",
                                           "Scale": "0.9999999,0.9999999,0.9999999",
                                           "Tags": "",
                                           "Children": [
@@ -233,7 +233,7 @@
                                                   "__enabled": true,
                                                   "BackgroundColor": "0.33333,0.46275,0.52157,1",
                                                   "ClearFlags": "Color, Depth, Stencil",
-                                                  "FieldOfView": 115,
+                                                  "FieldOfView": 110,
                                                   "ZFar": 10000,
                                                   "ZNear": 5
                                                 },
