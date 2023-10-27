@@ -8,7 +8,8 @@ public partial class DarkDescentPlayerController
 	{
 		Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
 	}
-	
+
+	private TimeUntil TimeUntilNextAttack;
 	private void UpdateAnimations()
 	{
 		if ( !Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
@@ -34,6 +35,12 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "bCrouching", IsCrouching );
 		modelComponent.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
-		modelComponent.Set( "bAttack", Input.Pressed( "Attack1" ));
+
+		if ( !TimeUntilNextAttack || !Input.Pressed( "Attack1" ) )
+			return;
+		
+		modelComponent.Set( "bAttack", true );
+		
+		TimeUntilNextAttack = 1.5f;
 	}
 }
