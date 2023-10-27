@@ -183,14 +183,6 @@
 							{
 								_class = "AnimFile"
 								name = "walk_forward"
-								children = 
-								[
-									{
-										_class = "AnimSubtract"
-										anim_name = "bind_pose"
-										frame = 0
-									},
-								]
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -213,14 +205,6 @@
 							{
 								_class = "AnimFile"
 								name = "stand_idle"
-								children = 
-								[
-									{
-										_class = "AnimSubtract"
-										anim_name = "bind_pose"
-										frame = 0
-									},
-								]
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -250,14 +234,6 @@
 							{
 								_class = "AnimFile"
 								name = "crouch_walk_forward"
-								children = 
-								[
-									{
-										_class = "AnimSubtract"
-										anim_name = "bind_pose"
-										frame = 0
-									},
-								]
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -280,14 +256,6 @@
 							{
 								_class = "AnimFile"
 								name = "crouch_idle"
-								children = 
-								[
-									{
-										_class = "AnimSubtract"
-										anim_name = "bind_pose"
-										frame = 0
-									},
-								]
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -339,9 +307,17 @@
 							{
 								_class = "AnimFile"
 								name = "pelvis_angle"
+								children = 
+								[
+									{
+										_class = "AnimSubtract"
+										anim_name = "bind_pose"
+										frame = 0
+									},
+								]
 								activity_name = ""
 								activity_weight = 1
-								weight_list_name = ""
+								weight_list_name = "pelvis_up"
 								fade_in_time = 0.2
 								fade_out_time = 0.2
 								looping = false
@@ -352,8 +328,8 @@
 								disable_compression = true
 								enable_scale = false
 								source_filename = "models/actors/skeleton/skeleton_player.fbx"
-								start_frame = -1
-								end_frame = -1
+								start_frame = 0
+								end_frame = 149
 								framerate = -1.0
 								take = 6
 								reverse = false
