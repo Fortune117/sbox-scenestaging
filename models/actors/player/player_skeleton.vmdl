@@ -309,12 +309,12 @@
 								name = "pelvis_angle"
 								activity_name = ""
 								activity_weight = 1
-								weight_list_name = "pelvis_up"
+								weight_list_name = ""
 								fade_in_time = 0.2
 								fade_out_time = 0.2
 								looping = false
 								delta = false
-								worldSpace = true
+								worldSpace = false
 								hidden = false
 								anim_markup_ordered = false
 								disable_compression = true
@@ -430,7 +430,7 @@
 								enable_scale = false
 								source_filename = "models/actors/skeleton/skeleton_player.fbx"
 								start_frame = -1
-								end_frame = 16
+								end_frame = 23
 								framerate = -1.0
 								take = 8
 								reverse = false
