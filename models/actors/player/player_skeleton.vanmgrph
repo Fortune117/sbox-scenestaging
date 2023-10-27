@@ -307,7 +307,7 @@
 				{
 					_class = "CSubtractAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -528.0, 0.0 ]
+					m_vecPosition = [ -512.0, -144.0 ]
 					m_nNodeID = 
 					{
 						m_id = 509894507
@@ -762,7 +762,7 @@
 				{
 					_class = "CSingleFrameAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -800.0, -16.0 ]
+					m_vecPosition = [ -704.0, 16.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1936181454
