@@ -426,11 +426,11 @@
 								worldSpace = false
 								hidden = false
 								anim_markup_ordered = false
-								disable_compression = false
+								disable_compression = true
 								enable_scale = false
 								source_filename = "models/actors/skeleton/skeleton_player.fbx"
 								start_frame = -1
-								end_frame = 35
+								end_frame = 41
 								framerate = -1.0
 								take = 8
 								reverse = false

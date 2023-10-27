@@ -13,7 +13,7 @@ public sealed class TriggerDebug : BaseComponent, BaseComponent.ITriggerListener
 		// get our trigger
 		iTouching++;
 
-		NameTag.Name = $"{iTouching} touching\n{other.GameObject.Name} entered";
+		NameTag.Name = $"{iTouching} touching\n{other.GameObject.Name} entered"; 
 	}
 
 	void ITriggerListener.OnTriggerExit( ColliderBaseComponent other ) 
