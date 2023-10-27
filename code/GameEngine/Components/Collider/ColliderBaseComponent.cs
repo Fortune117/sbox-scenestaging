@@ -91,6 +91,9 @@ public abstract class ColliderBaseComponent : BaseComponent, BaseComponent.Execu
 
 		bc.OnComponentDeactivated += RemoveDeactivated;
 
+		GameObject.ForEachComponent<ITriggerListener>( "OnTriggerEnter", true, ( c ) => c.OnTriggerEnter( bc ) );
+		bc.GameObject.ForEachComponent<ITriggerListener>( "OnTriggerEnter", true, ( c ) => c.OnTriggerEnter( this ) );
+
 	}
 
 	private void OnTouchStopInternal( PhysicsCollisionStop e )
@@ -102,6 +105,9 @@ public abstract class ColliderBaseComponent : BaseComponent, BaseComponent.Execu
 			return;
 
 		bc.OnComponentDeactivated -= RemoveDeactivated;
+
+		GameObject.ForEachComponent<ITriggerListener>( "OnTriggerExit", true, ( c ) => c.OnTriggerExit( bc ) );
+		bc.GameObject.ForEachComponent<ITriggerListener>( "OnTriggerExit", true, ( c ) => c.OnTriggerExit( this ) );
 	}
 
 	void RemoveDeactivated()
