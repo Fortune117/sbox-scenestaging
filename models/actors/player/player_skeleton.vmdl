@@ -41,10 +41,6 @@
 									"Arm_FIK_L",
 									"Arm_FIK_R",
 									"Camera_Control",
-									"Elbow_Target_L",
-									"Elbow_Target_R",
-									"Elbow_Target_L",
-									"Elbow_Target_R",
 								]
 							},
 						]
@@ -81,10 +77,6 @@
 									"Arm_FIK_L",
 									"Arm_FIK_R",
 									"Camera_Control",
-									"Elbow_Target_L",
-									"Elbow_Target_R",
-									"Elbow_Target_L",
-									"Elbow_Target_R",
 								]
 							},
 						]
@@ -317,7 +309,7 @@
 								name = "pelvis_angle"
 								activity_name = ""
 								activity_weight = 1
-								weight_list_name = ""
+								weight_list_name = "pelvis_up"
 								fade_in_time = 0.2
 								fade_out_time = 0.2
 								looping = false
@@ -523,28 +515,6 @@
 							{
 								bone = "UpperLeg_R"
 								weight = 1.0
-							},
-						]
-						master_morph_weight = -1.0
-						morph_weights = [  ]
-					},
-					{
-						_class = "WeightList"
-						name = "no_hands"
-						default_weight = 0.0
-						weights = 
-						[
-							{
-								bone = "Root"
-								weight = 1.0
-							},
-							{
-								bone = "Wrist_L"
-								weight = 0.0
-							},
-							{
-								bone = "Wrist_R"
-								weight = 0.0
 							},
 						]
 						master_morph_weight = -1.0
