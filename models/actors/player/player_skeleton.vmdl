@@ -309,12 +309,12 @@
 								name = "pelvis_angle"
 								activity_name = ""
 								activity_weight = 1
-								weight_list_name = ""
+								weight_list_name = "pelvis_up"
 								fade_in_time = 0.2
 								fade_out_time = 0.2
 								looping = false
 								delta = false
-								worldSpace = false
+								worldSpace = true
 								hidden = false
 								anim_markup_ordered = false
 								disable_compression = true
