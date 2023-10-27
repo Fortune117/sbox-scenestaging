@@ -37,11 +37,12 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
 
-		if ( !TimeUntilNextAttack || !Input.Pressed( "Attack1" ) )
+		if ( !TimeUntilNextAttack || !Input.Down( "Attack1" ) )
 			return;
 		
 		modelComponent.Set( "bAttack", true );
 		
-		TimeUntilNextAttack = 1.5f;
+		TimeUntilNextAttack = 0.5f / ActorComponent.Stats.ActionSpeed ;
+		Log.Info( TimeUntilNextAttack );
 	}
 }

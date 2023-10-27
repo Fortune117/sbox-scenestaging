@@ -183,6 +183,14 @@
 							{
 								_class = "AnimFile"
 								name = "walk_forward"
+								children = 
+								[
+									{
+										_class = "AnimSubtract"
+										anim_name = "bind_pose"
+										frame = 0
+									},
+								]
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -205,6 +213,14 @@
 							{
 								_class = "AnimFile"
 								name = "stand_idle"
+								children = 
+								[
+									{
+										_class = "AnimSubtract"
+										anim_name = "bind_pose"
+										frame = 0
+									},
+								]
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -234,6 +250,14 @@
 							{
 								_class = "AnimFile"
 								name = "crouch_walk_forward"
+								children = 
+								[
+									{
+										_class = "AnimSubtract"
+										anim_name = "bind_pose"
+										frame = 0
+									},
+								]
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -256,6 +280,14 @@
 							{
 								_class = "AnimFile"
 								name = "crouch_idle"
+								children = 
+								[
+									{
+										_class = "AnimSubtract"
+										anim_name = "bind_pose"
+										frame = 0
+									},
+								]
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -309,7 +341,7 @@
 								name = "pelvis_angle"
 								activity_name = ""
 								activity_weight = 1
-								weight_list_name = "pelvis_up"
+								weight_list_name = ""
 								fade_in_time = 0.2
 								fade_out_time = 0.2
 								looping = false
@@ -365,6 +397,14 @@
 							{
 								_class = "AnimFile"
 								name = "longsword_idle"
+								children = 
+								[
+									{
+										_class = "AnimSubtract"
+										anim_name = "bind_pose"
+										frame = 0
+									},
+								]
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -414,6 +454,11 @@
 											Vector = [ 0.0, 0.0, 0.0 ]
 											StringData = ""
 										}
+									},
+									{
+										_class = "AnimSubtract"
+										anim_name = "bind_pose"
+										frame = 0
 									},
 								]
 								activity_name = ""
@@ -502,6 +547,10 @@
 						[
 							{
 								bone = "Pelvis"
+								weight = 1.0
+							},
+							{
+								bone = "Root"
 								weight = 1.0
 							},
 							{
