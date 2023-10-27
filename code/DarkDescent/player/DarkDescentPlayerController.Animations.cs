@@ -14,7 +14,8 @@ public partial class DarkDescentPlayerController
 	{
 		if ( !Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
 			return;
-		
+
+		Scene.TimeScale = 1f;
 		var animHelper = new CitizenSceneAnimationHelper( modelComponent.SceneObject );
 
 		animHelper.IsClimbing = false;
