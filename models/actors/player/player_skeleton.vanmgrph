@@ -15,7 +15,7 @@
 				{
 					_class = "CCycleControlAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -592.0, -368.0 ]
+					m_vecPosition = [ -800.0, -16.0 ]
 					m_nNodeID = 
 					{
 						m_id = 118675145
@@ -49,7 +49,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1088.0, 256.0 ]
+					m_vecPosition = [ -1200.0, 224.0 ]
 					m_nNodeID = 
 					{
 						m_id = 168846631
@@ -65,13 +65,129 @@
 			{
 				key = 
 				{
+					m_id = 186823835
+				}
+				value = 
+				{
+					_class = "CSolveIKChainAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -32.0, -224.0 ]
+					m_nNodeID = 
+					{
+						m_id = 186823835
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 278918810
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_IkChains = 
+					[
+						{
+							_class = "CSolveIKChainAnimNodeChainData"
+							m_IkChain = "Right_Foot"
+							m_SolverSettingSource = "SOLVEIKCHAINANIMNODESETTINGSOURCE_Default"
+							m_OverrideSolverSettings = 
+							{
+								m_SolverType = "IKSOLVER_TwoBone"
+							}
+							m_TargetSettingSource = "SOLVEIKCHAINANIMNODESETTINGSOURCE_Default"
+							m_OverrideTargetSettings = 
+							{
+								m_TargetSource = "Bone"
+								m_Bone = 
+								{
+									m_Name = ""
+								}
+								m_AnimgraphParameterNamePosition = 
+								{
+									m_id = 4294967295
+								}
+								m_TargetCoordSystem = "World Space"
+							}
+							m_DebugSetting = "SOLVEIKCHAINANIMNODEDEBUGSETTING_None"
+							m_flDebugNormalizedLength = 1.0
+							m_vDebugOffset = [ 0.0, 0.0, 0.0 ]
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 278918810
+				}
+				value = 
+				{
+					_class = "CSolveIKChainAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -272.0, -224.0 ]
+					m_nNodeID = 
+					{
+						m_id = 278918810
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 425905922
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_IkChains = 
+					[
+						{
+							_class = "CSolveIKChainAnimNodeChainData"
+							m_IkChain = "Left_Foot"
+							m_SolverSettingSource = "SOLVEIKCHAINANIMNODESETTINGSOURCE_Default"
+							m_OverrideSolverSettings = 
+							{
+								m_SolverType = "IKSOLVER_TwoBone"
+							}
+							m_TargetSettingSource = "SOLVEIKCHAINANIMNODESETTINGSOURCE_Default"
+							m_OverrideTargetSettings = 
+							{
+								m_TargetSource = "Bone"
+								m_Bone = 
+								{
+									m_Name = ""
+								}
+								m_AnimgraphParameterNamePosition = 
+								{
+									m_id = 4294967295
+								}
+								m_TargetCoordSystem = "World Space"
+							}
+							m_DebugSetting = "SOLVEIKCHAINANIMNODEDEBUGSETTING_None"
+							m_flDebugNormalizedLength = 1.0
+							m_vDebugOffset = [ 0.0, 0.0, 0.0 ]
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 294680898
 				}
 				value = 
 				{
 					_class = "CBlendAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -928.0, -64.0 ]
+					m_vecPosition = [ -1104.0, -160.0 ]
 					m_nNodeID = 
 					{
 						m_id = 294680898
@@ -142,7 +258,7 @@
 				{
 					_class = "CSelectorAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -624.0, -128.0 ]
+					m_vecPosition = [ -800.0, -224.0 ]
 					m_nNodeID = 
 					{
 						m_id = 314924916
@@ -217,7 +333,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1152.0, -144.0 ]
+					m_vecPosition = [ -1328.0, -240.0 ]
 					m_nNodeID = 
 					{
 						m_id = 399077433
@@ -239,7 +355,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1040.0, 144.0 ]
+					m_vecPosition = [ -1168.0, 176.0 ]
 					m_nNodeID = 
 					{
 						m_id = 413254614
@@ -261,7 +377,7 @@
 				{
 					_class = "CAddAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -272.0, -160.0 ]
+					m_vecPosition = [ -512.0, -224.0 ]
 					m_nNodeID = 
 					{
 						m_id = 425905922
@@ -272,7 +388,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 118675145
+							m_id = 314924916
 						}
 						m_outputID = 
 						{
@@ -283,7 +399,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 314924916
+							m_id = 118675145
 						}
 						m_outputID = 
 						{
@@ -307,7 +423,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1136.0, -208.0 ]
+					m_vecPosition = [ -1312.0, -304.0 ]
 					m_nNodeID = 
 					{
 						m_id = 711599840
@@ -329,7 +445,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1152.0, -80.0 ]
+					m_vecPosition = [ -1328.0, -176.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1366216440
@@ -351,7 +467,7 @@
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Longsword"
-					m_vecPosition = [ -784.0, 176.0 ]
+					m_vecPosition = [ -928.0, 192.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1511051236
@@ -501,7 +617,7 @@
 				{
 					_class = "CAddAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 0.0, -32.0 ]
+					m_vecPosition = [ 224.0, -32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1637174658
@@ -512,7 +628,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 425905922
+							m_id = 186823835
 						}
 						m_outputID = 
 						{
@@ -547,7 +663,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -848.0, -368.0 ]
+					m_vecPosition = [ -992.0, -16.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1643574677
@@ -569,7 +685,7 @@
 				{
 					_class = "CSpeedScaleAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -480.0, 160.0 ]
+					m_vecPosition = [ -624.0, 192.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1695279343
@@ -602,7 +718,7 @@
 				{
 					_class = "CBlendAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -912.0, -192.0 ]
+					m_vecPosition = [ -1088.0, -288.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1718041834
@@ -673,7 +789,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1200.0, -32.0 ]
+					m_vecPosition = [ -1376.0, -128.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1810508235
@@ -695,7 +811,7 @@
 				{
 					_class = "CRootAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 208.0, -32.0 ]
+					m_vecPosition = [ 432.0, -32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2027420029

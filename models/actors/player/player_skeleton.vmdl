@@ -36,10 +36,6 @@
 								_class = "RemoveBoneAndChildren"
 								bone_names = 
 								[
-									"Foot_ik_Controller_L",
-									"Foot_ik_Controller_R",
-									"Arm_FIK_L",
-									"Arm_FIK_R",
 									"Camera_Control",
 								]
 							},
@@ -72,10 +68,6 @@
 								_class = "RemoveBoneAndChildren"
 								bone_names = 
 								[
-									"Foot_ik_Controller_L",
-									"Foot_ik_Controller_R",
-									"Arm_FIK_L",
-									"Arm_FIK_R",
 									"Camera_Control",
 								]
 							},
@@ -317,12 +309,12 @@
 								]
 								activity_name = ""
 								activity_weight = 1
-								weight_list_name = "pelvis_up"
+								weight_list_name = ""
 								fade_in_time = 0.2
 								fade_out_time = 0.2
 								looping = false
 								delta = false
-								worldSpace = true
+								worldSpace = false
 								hidden = false
 								anim_markup_ordered = false
 								disable_compression = true
@@ -473,7 +465,7 @@
 						[
 							{
 								bone = "Pelvis"
-								weight = 0.0
+								weight = 1.0
 							},
 							{
 								bone = "Root"
@@ -567,6 +559,102 @@
 					},
 				]
 				bone_cull_type = "None"
+			},
+			{
+				_class = "IKData"
+				children = 
+				[
+					{
+						_class = "IKChain"
+						name = "Left_Foot"
+						children = 
+						[
+							{
+								_class = "IKChainJoint"
+								name = "UpperLeg_L"
+								children = 
+								[
+									{
+										_class = "IKChainJoint"
+										name = "LowerLeg_L"
+										children = 
+										[
+											{
+												_class = "IKChainJoint"
+												name = "Foot1_L"
+												bone = "Foot1_L"
+											},
+										]
+										bone = "LowerLeg_L"
+									},
+								]
+								bone = "UpperLeg_L"
+							},
+						]
+						m_bDoBonesOrientAlongPositiveX = true
+						"m_DefaultSolverSettings.m_nNumIterations" = 6
+						"m_DefaultSolverSettings.m_SolverType " = "IKSOLVER_TwoBone"
+						"m_DefaultTargetSettings.m_Bone" = 
+						{
+							m_Name = "F_ik_L"
+						}
+						"m_DefaultTargetSettings.m_TargetSource" = "Bone"
+						"m_Data.m_DefaultTargetSettings.m_AnimgraphParameterNamePosition" = 
+						{
+							m_id = 4294967295
+						}
+						"m_Data.m_EndEffectorFixedOffsetAttachment" = 
+						{
+							m_Name = ""
+						}
+						"m_Data.m_bParentJointRequiresAlignment" = true
+					},
+					{
+						_class = "IKChain"
+						name = "Right_Foot"
+						children = 
+						[
+							{
+								_class = "IKChainJoint"
+								name = "UpperLeg_R"
+								children = 
+								[
+									{
+										_class = "IKChainJoint"
+										name = "LowerLeg_R"
+										children = 
+										[
+											{
+												_class = "IKChainJoint"
+												name = "Foot1_R"
+												bone = "Foot1_R"
+											},
+										]
+										bone = "LowerLeg_R"
+									},
+								]
+								bone = "UpperLeg_R"
+							},
+						]
+						m_bDoBonesOrientAlongPositiveX = true
+						"m_DefaultSolverSettings.m_nNumIterations" = 6
+						"m_DefaultSolverSettings.m_SolverType " = "IKSOLVER_TwoBone"
+						"m_DefaultTargetSettings.m_Bone" = 
+						{
+							m_Name = "F_ik_R"
+						}
+						"m_DefaultTargetSettings.m_TargetSource" = "Bone"
+						"m_Data.m_DefaultTargetSettings.m_AnimgraphParameterNamePosition" = 
+						{
+							m_id = 4294967295
+						}
+						"m_Data.m_EndEffectorFixedOffsetAttachment" = 
+						{
+							m_Name = ""
+						}
+						"m_Data.m_bParentJointRequiresAlignment" = true
+					},
+				]
 			},
 		]
 		model_archetype = ""
