@@ -42,7 +42,7 @@ public partial class DarkDescentPlayerController
 		
 		modelComponent.Set( "bAttack", true );
 		
-		TimeUntilNextAttack = 0.5f / ActorComponent.Stats.ActionSpeed ;
+		TimeUntilNextAttack = 1.75f / ActorComponent.Stats.ActionSpeed ;
 		Log.Info( TimeUntilNextAttack );
 	}
 }
