@@ -1,3 +1,5 @@
+using DarkDescent.Actor.Damage;
+using DarkDescent.Actor.Marker;
 using Sandbox;
 
 namespace DarkDescent.Actor;

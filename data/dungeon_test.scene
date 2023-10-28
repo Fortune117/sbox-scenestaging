@@ -1531,14 +1531,17 @@
           "Tint": "1,1,1,1"
         },
         {
-          "__type": "BehaviourComponent",
-          "__enabled": true
-        },
-        {
           "__type": "PhysicsComponent",
           "__enabled": true,
           "Gravity": false,
           "Static": false
+        },
+        {
+          "__type": "FlameSkullBehaviourComponent",
+          "__enabled": true,
+          "FlameParticles": "75f3cdb2-d2b7-476b-812e-0930544bce71",
+          "HoverDistance": 133.87,
+          "RigidBody": "3e345fa7-35d8-4777-8396-836858d43c6f"
         }
       ],
       "Children": [

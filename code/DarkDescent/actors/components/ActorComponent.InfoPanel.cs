@@ -6,13 +6,19 @@ namespace DarkDescent.Actor;
 public partial class ActorComponent
 {
 	[Property, Category("Info Panel")] 
-	public bool ShowInfoPanel { get; set; } = true;
+	private bool ShowInfoPanel { get; set; } = true;
 
 	[Property, Range( 0, 600 ), Category("Info Panel")] 
-	public float PanelDrawDistance { get; set; } = 300;
+	private float PanelDrawDistance { get; set; } = 300;
 	
 	[Property, Range( 0, 150 ), Category("Info Panel")] 
-	public float InfoPanelOffset { get; set; } = 0;
+	private float InfoPanelOffset { get; set; } = 0;
+	
+	/// <summary>
+	/// Will use this as the info panels parent if set, otherwise uses GameObject.
+	/// </summary>
+	[Property]
+	private GameObject InfoPanelParent { get; set; }
 
 	[Property]
 	private GameObject InfoPanelPrefab { get; set; }
@@ -25,7 +31,7 @@ public partial class ActorComponent
 			return;
 		
 		var obj = SceneUtility.Instantiate( InfoPanelPrefab, Transform.Position, Transform.Rotation );
-		obj.SetParent( GameObject );
+		obj.SetParent( InfoPanelParent ?? Scene );
 		InfoPanel = obj.GetComponent<ActorInfoPanel>();
 		InfoPanel.Actor = GameObject;
 	}
@@ -59,8 +65,8 @@ public partial class ActorComponent
 			.WithTag( "solid" )
 			.Radius( 3f )
 			.Run();
-		
-		InfoPanel.Transform.LocalPosition = Vector3.Up * height;
+
+		InfoPanel.Transform.Position = InfoPanel.Transform.Position.LerpTo(Transform.Position + Vector3.Up * height, Time.Delta * 30f);
 
 		var distanceCheck = Camera.Position.Distance( InfoPanel.Transform.Position ) > PanelDrawDistance;
 		
