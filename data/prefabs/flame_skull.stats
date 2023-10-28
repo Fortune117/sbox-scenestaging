@@ -50,7 +50,7 @@
   "DivineResistance": 0,
   "OccultResistance": 0,
   "CriticalNegation": 0,
-  "KnockBackResistance": -300,
+  "KnockBackResistance": 0,
   "CarryWeight": 0,
   "__references": []
 }

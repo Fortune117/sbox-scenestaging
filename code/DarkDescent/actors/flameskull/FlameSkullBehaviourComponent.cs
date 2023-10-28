@@ -4,7 +4,7 @@ using Sandbox;
 
 namespace DarkDescent.Actor;
 
-public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenListener
+public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenListener, BaseComponent.ITriggerListener
 {
 	[Property]
 	private PhysicsComponent RigidBody { get; set; }
@@ -59,15 +59,33 @@ public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenList
 			return;
 
 		var tr = Physics.Trace.Ray( Transform.Position, Transform.Position + Vector3.Down * HoverDistance )
-			.WithoutTags( "actor" )
+			.WithoutTags( "actor", "trigger", "player" )
 			.Run();
 
 		var length = HoverDistance - tr.Distance;
 
 		Transform.Position = Transform.Position.LerpTo( tr.EndPosition + Vector3.Up * length, Time.Delta * 5f );
-		Transform.Rotation = Rotation.Lerp( Transform.Rotation, Rotation.Identity, Time.Delta * 5f );
+		Transform.Rotation = Rotation.Lerp( Transform.Rotation, Rotation.FromYaw( Transform.Rotation.Yaw() ), Time.Delta * 60f );
+	}
+
+	public override void FixedUpdate()
+	{
+		base.FixedUpdate();
 		
-		RigidBody.Velocity *= 0.9f;
-		RigidBody.AngularVelocity *= 0.9f;
+		if ( KnockedOut )
+			return;
+		
+		RigidBody.Velocity = RigidBody.Velocity.LerpTo( Vector3.Zero, Time.Delta * 2.5f );
+		RigidBody.AngularVelocity = RigidBody.AngularVelocity.LerpTo( Vector3.Zero, Time.Delta * 4f );
+	}
+
+	public void OnTriggerEnter( Collider other )
+	{
+		Log.Info( other.GameObject.Name );
+	}
+
+	public void OnTriggerExit( Collider other )
+	{
+		Log.Info( other.GameObject.Name );
 	}
 }

@@ -102,6 +102,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		var player = GameObject.GetComponent<DarkDescentPlayerController>();
 		
 		var tr = Physics.Trace.Ray( player.AimRay, PickupRange )
+			.WithoutTags( "trigger" )
 			.Radius( 3 )
 			.Run();
 

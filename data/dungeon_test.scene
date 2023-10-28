@@ -3,23 +3,7 @@
     {
       "Id": "0d9865d8-7476-4c6a-8347-91de5c0ab4d6",
       "Name": "Map",
-      "Enabled": false,
-      "Position": "0,0,0",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Components": [
-        {
-          "__type": "MapComponent",
-          "__enabled": true,
-          "MapName": "fdd.dungeon"
-        }
-      ]
-    },
-    {
-      "Id": "8f429e12-8dde-494b-b843-7fe2b22790a2",
-      "Name": "Map",
-      "Enabled": false,
+      "Enabled": true,
       "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
@@ -99,9 +83,9 @@
           "__enabled": true,
           "Acceleration": 10,
           "GroundAngle": 45,
-          "Height": 64,
-          "IgnoreLayers": "",
-          "Radius": 16,
+          "Height": 71.79988,
+          "IgnoreLayers": "trigger,player",
+          "Radius": 7.999974,
           "StepHeight": 18
         },
         {
@@ -1243,6 +1227,24 @@
               "Actor": "3e6b5d88-8683-4dbc-832a-9598263ddf6d"
             }
           ]
+        },
+        {
+          "Id": "05b2b46f-5e80-4127-90db-ebcee914961d",
+          "Name": "Player Collider",
+          "Enabled": true,
+          "Position": "0,0,21.81686",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "player",
+          "Components": [
+            {
+              "__type": "ColliderSphereComponent",
+              "__enabled": true,
+              "IsTrigger": false,
+              "Radius": 21.499992,
+              "Surface": null
+            }
+          ]
         }
       ]
     },
@@ -1349,7 +1351,7 @@
           "Name": "Particle",
           "Enabled": true,
           "Position": "0,0,0",
-          "Rotation": "0.00000005957136,-0.9994416,0.000000000000004853799,-0.03340646",
+          "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "",
           "Components": [
@@ -1359,6 +1361,12 @@
               "Looped": true,
               "Particles": "particles/brazier_flame.vpcf",
               "PlaybackSpeed": 1
+            },
+            {
+              "__type": "PointLightComponent",
+              "__enabled": true,
+              "LightColor": "1,0.34,0,1",
+              "Radius": 400
             }
           ]
         }
@@ -1452,7 +1460,7 @@
     {
       "Id": "bf8c894f-39b7-4233-bab1-577eb15ca30a",
       "Name": "Surface",
-      "Enabled": true,
+      "Enabled": false,
       "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "20,20,20",
@@ -1492,9 +1500,9 @@
         {
           "__type": "DirectionalLightComponent",
           "__enabled": true,
-          "LightColor": "1,1,1,1",
+          "LightColor": "0,0,0,1",
           "Shadows": true,
-          "SkyColor": "1,1,1,1"
+          "SkyColor": "0.07921,0.07921,0.07921,1"
         }
       ]
     },
@@ -1505,7 +1513,7 @@
       "Position": "-135.5045,-145.4549,67.72075",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
-      "Tags": "actor",
+      "Tags": "actor,trigger",
       "Components": [
         {
           "__type": "ActorComponent",
@@ -1527,7 +1535,7 @@
           "BodyGroups": 18446744073709551615,
           "MaterialOverride": null,
           "Model": "models/actors/skeleton/flame_skull.vmdl",
-          "ShouldCastShadows": true,
+          "ShouldCastShadows": false,
           "Tint": "1,1,1,1"
         },
         {
@@ -1547,7 +1555,7 @@
       "Children": [
         {
           "Id": "75f3cdb2-d2b7-476b-812e-0930544bce71",
-          "Name": "Object",
+          "Name": "Effects",
           "Enabled": true,
           "Position": "0,0,4.460058",
           "Rotation": "0,0,0,1",
@@ -1560,12 +1568,18 @@
               "Looped": false,
               "Particles": "particles/torch_flame.vpcf",
               "PlaybackSpeed": 1
+            },
+            {
+              "__type": "PointLightComponent",
+              "__enabled": true,
+              "LightColor": "1,0.38,0,1",
+              "Radius": 309.69977
             }
           ]
         },
         {
           "Id": "d5f528b6-88dc-49a2-85d0-e3363b5f2315",
-          "Name": "Object",
+          "Name": "Collider",
           "Enabled": true,
           "Position": "0,0,4.502568",
           "Rotation": "0,0,0,1",
@@ -1578,6 +1592,28 @@
               "IsTrigger": false,
               "Radius": 4.3,
               "Surface": null
+            }
+          ]
+        },
+        {
+          "Id": "c226f918-cad9-427d-aeea-3b4e6d118d48",
+          "Name": "Detection Trigger",
+          "Enabled": false,
+          "Position": "0,0,2.983597",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "trigger",
+          "Components": [
+            {
+              "__type": "ColliderSphereComponent",
+              "__enabled": true,
+              "IsTrigger": true,
+              "Radius": 300,
+              "Surface": null
+            },
+            {
+              "__type": "TriggerPropagator",
+              "__enabled": true
             }
           ]
         }
