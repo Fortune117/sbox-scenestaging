@@ -3,7 +3,7 @@
     {
       "Id": "0d9865d8-7476-4c6a-8347-91de5c0ab4d6",
       "Name": "Map",
-      "Enabled": true,
+      "Enabled": false,
       "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
@@ -1460,7 +1460,7 @@
     {
       "Id": "bf8c894f-39b7-4233-bab1-577eb15ca30a",
       "Name": "Surface",
-      "Enabled": false,
+      "Enabled": true,
       "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "20,20,20",
