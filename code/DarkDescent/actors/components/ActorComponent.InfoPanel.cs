@@ -10,6 +10,9 @@ public partial class ActorComponent
 
 	[Property, Range( 0, 600 ), Category("Info Panel")] 
 	public float PanelDrawDistance { get; set; } = 300;
+	
+	[Property, Range( 0, 150 ), Category("Info Panel")] 
+	public float InfoPanelOffset { get; set; } = 0;
 
 	[Property]
 	private GameObject InfoPanelPrefab { get; set; }
@@ -43,11 +46,10 @@ public partial class ActorComponent
 		
 		var modelComponent = GetComponent<ModelComponent>( false, true );
 
-		var height = 0f;
+		var height = InfoPanelOffset;
 		if ( modelComponent is not null )
 		{
-			height = modelComponent.Bounds.Maxs.z - Transform.Position.z;
-			height *= 1.15f;
+			height += (modelComponent.Bounds.Maxs.z - Transform.Position.z) * 1.15f;
 		}
 		
 		var angles = Rotation.LookAt( -Camera.Rotation.Forward ).Angles();
