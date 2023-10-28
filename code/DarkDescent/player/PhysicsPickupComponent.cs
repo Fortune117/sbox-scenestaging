@@ -75,7 +75,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 
 		var player = GameObject.GetComponent<DarkDescentPlayerController>();
 			
-		PickupMove( player.AimRay.Position, player.AimRay.Forward, player.EyeAngles.ToRotation() );
+		PickupMove( player.AimRay.Position, player.AimRay.Forward, player.AimRotation );
 
 		if ( !wasHolding )
 			return;
@@ -136,7 +136,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		var attachPos = tr.Body.FindClosestPoint( player.AimRay.Position );
 
 		var holdDistance = HoldRange + attachPos.Distance( tr.Body.MassCenter );
-		PickupStart( pickupTarget, tr.Body, tr.StartPosition + tr.Direction * holdDistance, player.EyeAngles.ToRotation() );
+		PickupStart( pickupTarget, tr.Body, tr.StartPosition + tr.Direction * holdDistance, player.AimRotation );
 		
 		return true;
 	}

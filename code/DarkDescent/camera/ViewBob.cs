@@ -49,7 +49,7 @@ public class ViewBob : BaseComponent, CameraComponent.ISceneCameraSetup
 		var sinOffset2 = MathF.Sin(Time.Now * ViewBobFrequency * runningMult) / 2f;
 
 		var z = Vector3.Up * sinOffset * ViewBobMagnitude * frac;
-		var y = playerController.EyeAngles.ToRotation().Left.WithZ(0).Normal;
+		var y = playerController.AimRotation.Left.WithZ(0).Normal;
 		y *= sinOffset2 * ViewBobMagnitude * frac;
 
 		return (z + y) * runningMult;
