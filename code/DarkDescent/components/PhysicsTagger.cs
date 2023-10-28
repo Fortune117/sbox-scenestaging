@@ -12,7 +12,7 @@ public class PhysicsTagger : BaseComponent
 
 	private void AddTags()
 	{
-		foreach ( var collider in GetComponents<ColliderBaseComponent>() )
+		foreach ( var collider in GetComponents<Collider>() )
 		{
 			foreach (var physicsShape in collider.Shapes)
 			{
@@ -29,7 +29,7 @@ public class PhysicsTagger : BaseComponent
 
 	private void RemoveTags()
 	{
-		foreach ( var collider in GetComponents<ColliderBaseComponent>() )
+		foreach ( var collider in GetComponents<Collider>() )
 		{
 			foreach (var physicsShape in collider.Shapes)
 			{
