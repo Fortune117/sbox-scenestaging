@@ -1,5 +1,5 @@
 {
-  "Strength": 100,
+  "Strength": 10,
   "Dexterity": 10,
   "Constitution": 10,
   "Wisdom": 10,
@@ -8,9 +8,9 @@
   "MaxHealth": 30,
   "HealthRegen": 0,
   "HealthRegenDelay": 1.5,
-  "HealMultiplier": 1,
+  "HealMultiplier": 0,
   "MaxStamina": 30,
-  "StaminaRegen": 2.5,
+  "StaminaRegen": 3,
   "StaminaCostMultiplier": 1,
   "StaminaRegenDelay": 1.5,
   "ActionSpeed": 1,
@@ -51,6 +51,6 @@
   "OccultResistance": 0,
   "CriticalNegation": 0,
   "KnockBackResistance": -300,
-  "CarryWeight": 30,
+  "CarryWeight": 0,
   "__references": []
 }
