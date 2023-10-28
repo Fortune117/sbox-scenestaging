@@ -94,7 +94,7 @@ public partial class ActorComponent
 			return;
 		
 		body.ApplyForceAt( body.FindClosestPoint( damageEventData.Position ),
-			damageEventData.Direction * damageEventData.KnockBack * body.Mass * 300 );
+			damageEventData.Direction * damageEventData.KnockBackResult * body.Mass * 300 );
 	}
 	
 	public void CreateDamageNumber(DamageEventData damageEventData)
@@ -184,6 +184,7 @@ public partial class ActorComponent
             : GameBalanceResource.ActiveBalance.ResistanceScalingCurve.Evaluate(resist);
         
         damageEventData.DamageResult = damageEventData.DamageOriginal - damageEventData.DamageOriginal*resistMult;
+        damageEventData.KnockBackResult = damageEventData.KnockBackOriginal - Stats.KnockBackResistance;
 	}
 }
 

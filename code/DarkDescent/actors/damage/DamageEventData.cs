@@ -21,7 +21,12 @@ public struct DamageEventData
 	/// <summary>
 	/// The strength of the knockback this damage stat should have.
 	/// </summary>
-	public float KnockBack { get; set; }
+	public float KnockBackOriginal { get; set; }
+	
+	/// <summary>
+	/// Knockback after applying resistances.
+	/// </summary>
+	public float KnockBackResult { get; set; }
 	
 	/// <summary>
 	/// Whether or not this damage was from a critical hit.
@@ -95,7 +100,7 @@ public struct DamageEventData
 
 	public DamageEventData WithKnockBack( float knockback )
 	{
-		KnockBack = knockback;
+		KnockBackOriginal = knockback;
 		return this;
 	}
 
