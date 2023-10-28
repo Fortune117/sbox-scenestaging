@@ -1,5 +1,5 @@
 {
-  "Strength": 100,
+  "Strength": 10,
   "Dexterity": 10,
   "Constitution": 10,
   "Wisdom": 10,
@@ -38,7 +38,7 @@
   "DivinePenetration": 0,
   "OccultPenetration": 0,
   "CriticalMultiplier": 1.5,
-  "KnockBack": 67.61,
+  "KnockBack": 300,
   "Armor": 0,
   "Warding": 0,
   "FireResistance": 0,

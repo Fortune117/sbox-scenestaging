@@ -32,10 +32,11 @@ public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenList
 	private void KnockOut()
 	{
 		KnockedOut = true;
-		TimeUntilWakeUp = 2f;
+		TimeUntilWakeUp = 1.5f;
 
 		RigidBody.Gravity = true;
-		FlameParticles.Enabled = false;
+		FlameParticles.SceneObject.EmissionStopped = true;
+		//FlameParticles.Enabled = false;
 	}
 
 	private void WakeUp()
@@ -43,7 +44,8 @@ public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenList
 		KnockedOut = false;
 
 		RigidBody.Gravity = false;
-		FlameParticles.Enabled = true;
+		FlameParticles.SceneObject.EmissionStopped = false;
+		//FlameParticles.Enabled = true;
 	}
 
 	public override void Update()
