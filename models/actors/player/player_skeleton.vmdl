@@ -174,7 +174,7 @@
 								enable_scale = false
 								source_filename = "models/actors/skeleton/skeleton_player.fbx"
 								start_frame = -1
-								end_frame = -1
+								end_frame = 16
 								framerate = -1.0
 								take = 1
 								reverse = false
