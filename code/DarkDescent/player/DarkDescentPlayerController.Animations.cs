@@ -49,8 +49,7 @@ public partial class DarkDescentPlayerController
 			average += inputVector;
 		}
 		average /= inputVectorBuffer.Length;
-		
-		var blendValue = MathF.Atan2( -average.y, MathF.Abs(average.x) ).RadianToDegree().Remap( -70, 70, -1, 1f );
+		average = average.Normal;
 		
 		if ( !TimeUntilNextAttack || !Input.Down( "Attack1" ) )
 			return;
@@ -58,7 +57,7 @@ public partial class DarkDescentPlayerController
 		var side = MathF.Sign( average.x ) + 1;
 		
 		Game.SetRandomSeed( count++ );
-		modelComponent.Set( "fSwingBlend",  blendValue );
+		modelComponent.Set( "fSwingBlend", -average.y );
 		modelComponent.Set( "eAttackSide",  side );
 		modelComponent.Set( "bAttack", true );
 		
