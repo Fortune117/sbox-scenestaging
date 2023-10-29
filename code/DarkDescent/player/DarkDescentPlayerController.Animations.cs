@@ -36,6 +36,7 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "bCrouching", IsCrouching );
 		modelComponent.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
+		modelComponent.Set( "fBlendTest", 0.5f );
 
 		if ( !TimeUntilNextAttack || !Input.Down( "Attack1" ) )
 			return;
