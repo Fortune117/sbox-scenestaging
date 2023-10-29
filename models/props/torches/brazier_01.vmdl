@@ -28,13 +28,26 @@
 				children = 
 				[
 					{
-						_class = "PhysicsShapeCylinder"
+						_class = "PhysicsMeshFile"
+						name = "SM_FireBurner"
 						parent_bone = ""
 						surface_prop = "metal.sheet"
 						collision_tags = "solid"
-						radius = 20.0
-						point0 = [ 0.0, 0.0, 30.0 ]
-						point1 = [ 0.0, 0.0, 0.0 ]
+						recenter_on_parent_bone = false
+						offset_origin = [ 0.0, 0.0, 0.0 ]
+						offset_angles = [ 0.0, 0.0, 0.0 ]
+						align_origin_x_type = "None"
+						align_origin_y_type = "None"
+						align_origin_z_type = "BoundsMin"
+						filename = "models/props/torches/SM_FireBurner.fbx"
+						import_scale = 0.3937
+						maxMeshVertices = 0
+						qemError = 0.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
 					},
 				]
 			},
@@ -65,7 +78,7 @@
 						import_scale = 0.3937
 						align_origin_x_type = "None"
 						align_origin_y_type = "None"
-						align_origin_z_type = "BoundsCenter"
+						align_origin_z_type = "BoundsMin"
 						parent_bone = ""
 						import_filter = 
 						{
