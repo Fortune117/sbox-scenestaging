@@ -379,7 +379,7 @@
 							},
 							{
 								_class = "AnimFile"
-								name = "longsword_attack_1"
+								name = "longsword_combo_01_swing_01"
 								children = 
 								[
 									{

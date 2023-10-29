@@ -1330,7 +1330,7 @@
       "Id": "a3b6490f-3756-4db8-8b35-f6aea1a6afc1",
       "Name": "brazier_01",
       "Enabled": true,
-      "Position": "-127.9433,15.01715,20.51796",
+      "Position": "-127.9433,15.01715,-0.4732308",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
@@ -1343,14 +1343,19 @@
           "Model": "models/props/torches/brazier_01.vmdl",
           "ShouldCastShadows": false,
           "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "ModelPhysics",
+          "__enabled": true,
+          "Model": "models/props/torches/brazier_01.vmdl"
         }
       ],
       "Children": [
         {
           "Id": "62f65b5e-9984-4e06-8548-e1bc87bfd722",
-          "Name": "Particle",
+          "Name": "Effects",
           "Enabled": true,
-          "Position": "0,0,0",
+          "Position": "0,0,20.68275",
           "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "",
