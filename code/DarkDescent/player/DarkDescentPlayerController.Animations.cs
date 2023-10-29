@@ -9,15 +9,16 @@ public partial class DarkDescentPlayerController
 		Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
 	}
 
+	private int count = 0;
 	private TimeUntil TimeUntilNextAttack;
 	private void UpdateAnimations()
 	{
 		if ( !Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
 			return;
-
-		Scene.TimeScale = 1f;
+		
 		var animHelper = new CitizenSceneAnimationHelper( modelComponent.SceneObject );
 
+		Scene.TimeScale = 1f;
 		animHelper.IsClimbing = false;
 		animHelper.IsGrounded = CharacterController.IsOnGround;
 		animHelper.IsSitting = false;
@@ -36,12 +37,13 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "bCrouching", IsCrouching );
 		modelComponent.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
-		modelComponent.Set( "fBlendTest", 0.5f );
 		modelComponent.Set( "vLeftHandIKTarget", LeftIKTarget.Transform.Position );
 
 		if ( !TimeUntilNextAttack || !Input.Down( "Attack1" ) )
 			return;
 		
+		Game.SetRandomSeed( count++ );
+		modelComponent.Set( "fBlendTest",  Game.Random.Float( -1, 1f ) );
 		modelComponent.Set( "bAttack", true );
 		
 		TimeUntilNextAttack = 1.75f / ActorComponent.Stats.ActionSpeed;
