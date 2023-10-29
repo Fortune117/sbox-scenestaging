@@ -9,6 +9,114 @@
 			{
 				key = 
 				{
+					m_id = 12665616
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -1984.0, 208.0 ]
+					m_nNodeID = 
+					{
+						m_id = 12665616
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "longsword_swing_top_left_to_bottom_right"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 38633628
+				}
+				value = 
+				{
+					_class = "CBlendAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -1552.0, 160.0 ]
+					m_nNodeID = 
+					{
+						m_id = 38633628
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_children = 
+					[
+						{
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 171118454
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_name = "Bottom to Top"
+							m_blendValue = -1.0
+						},
+						{
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1789749760
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_name = "Horizontal Swing"
+							m_blendValue = 0.0
+						},
+						{
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 12665616
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_name = "Vertical Swing"
+							m_blendValue = 1.0
+						},
+					]
+					m_blendValueSource = "Parameter"
+					m_param = 
+					{
+						m_id = 1537186691
+					}
+					m_blendKeyType = "BlendKey_UserValue"
+					m_bLockBlendOnReset = false
+					m_bSyncCycles = true
+					m_bLoop = true
+					m_bLockWhenWaning = false
+					m_damping = 
+					{
+						_class = "CAnimInputDamping"
+						m_speedFunction = "NoDamping"
+						m_fSpeedScale = 1.0
+						m_fMinSpeed = 10.0
+						m_fMaxTension = 1000.0
+						m_fTension = 100.0
+						m_fDamping = 5.0
+					}
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 118675145
 				}
 				value = 
@@ -38,6 +146,28 @@
 					{
 						m_id = 680369330
 					}
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 171118454
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -1984.0, 112.0 ]
+					m_nNodeID = 
+					{
+						m_id = 171118454
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "longsword_swing_bottom_left_to_top_right"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
 				}
 			},
 			{
@@ -107,7 +237,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1920.0, 384.0 ]
+					m_vecPosition = [ -1984.0, 432.0 ]
 					m_nNodeID = 
 					{
 						m_id = 237918903
@@ -187,7 +317,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1856.0, 432.0 ]
+					m_vecPosition = [ -1920.0, 480.0 ]
 					m_nNodeID = 
 					{
 						m_id = 280966518
@@ -377,7 +507,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1184.0, 128.0 ]
+					m_vecPosition = [ -1136.0, 112.0 ]
 					m_nNodeID = 
 					{
 						m_id = 413254614
@@ -523,7 +653,7 @@
 						{
 							m_nodeID = 
 							{
-								m_id = 1789749760
+								m_id = 38633628
 							}
 							m_outputID = 
 							{
@@ -795,7 +925,7 @@
 				{
 					_class = "CBlendAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1520.0, 400.0 ]
+					m_vecPosition = [ -1584.0, 448.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1628602052
@@ -1053,7 +1183,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1936.0, 240.0 ]
+					m_vecPosition = [ -1920.0, 160.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1789749760
@@ -1097,7 +1227,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1920.0, 480.0 ]
+					m_vecPosition = [ -1984.0, 528.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1847518340

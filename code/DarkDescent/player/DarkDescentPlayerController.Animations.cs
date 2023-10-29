@@ -9,6 +9,8 @@ public partial class DarkDescentPlayerController
 		Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
 	}
 
+	private const int inputVectorBufferSize = 5;
+	private Vector2[] inputVectorBuffer = new Vector2[inputVectorBufferSize];
 	private int count = 0;
 	private TimeUntil TimeUntilNextAttack;
 	private void UpdateAnimations()
@@ -39,12 +41,25 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
 		modelComponent.Set( "vLeftHandIKTarget", LeftIKTarget.Transform.Position );
 
+		inputVectorBuffer = inputVectorBuffer.Prepend( Input.MouseDelta ).Take( inputVectorBufferSize ).ToArray();
+		
+		var average = Vector2.Zero;
+		foreach ( var inputVector in inputVectorBuffer )
+		{
+			average += inputVector;
+		}
+		average /= inputVectorBuffer.Length;
+		
+		var blendValue = MathF.Atan2( -average.y, MathF.Abs(average.x) ).RadianToDegree().Remap( -70, 70, -1, 1f );
+		
 		if ( !TimeUntilNextAttack || !Input.Down( "Attack1" ) )
 			return;
 		
+		var side = MathF.Sign( average.x ) + 1;
+		
 		Game.SetRandomSeed( count++ );
-		modelComponent.Set( "fSwingBlend",  Game.Random.Float( -1, 1f ) );
-		modelComponent.Set( "eAttackSide",  Game.Random.Int( 0, 1 ) );
+		modelComponent.Set( "fSwingBlend",  blendValue );
+		modelComponent.Set( "eAttackSide",  side );
 		modelComponent.Set( "bAttack", true );
 		
 		TimeUntilNextAttack = 1.75f / ActorComponent.Stats.ActionSpeed;

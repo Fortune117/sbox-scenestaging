@@ -1215,7 +1215,7 @@
                   "Id": "994fe54a-92a3-4067-a47b-3e4750a3a537",
                   "Name": "Hand_L IK Target",
                   "Enabled": true,
-                  "Position": "0,0,0",
+                  "Position": "-0.6034711,1.803831,-0.6885564",
                   "Rotation": "0,0,0,1",
                   "Scale": "1,1,1",
                   "Tags": ""
