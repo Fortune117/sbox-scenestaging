@@ -174,9 +174,9 @@
 								enable_scale = false
 								source_filename = "models/actors/skeleton/skeleton_player.fbx"
 								start_frame = -1
-								end_frame = 16
+								end_frame = -1
 								framerate = -1.0
-								take = 1
+								take = 2
 								reverse = false
 							},
 							{
@@ -198,7 +198,7 @@
 								start_frame = -1
 								end_frame = -1
 								framerate = -1.0
-								take = 2
+								take = 3
 								reverse = false
 							},
 						]
@@ -227,7 +227,7 @@
 								start_frame = -1
 								end_frame = -1
 								framerate = -1.0
-								take = 4
+								take = 5
 								reverse = false
 							},
 							{
@@ -249,7 +249,7 @@
 								start_frame = -1
 								end_frame = -1
 								framerate = -1.0
-								take = 3
+								take = 4
 								reverse = false
 							},
 						]
@@ -308,7 +308,7 @@
 								start_frame = -1
 								end_frame = -1
 								framerate = -1.0
-								take = 5
+								take = 1
 								reverse = false
 							},
 						]

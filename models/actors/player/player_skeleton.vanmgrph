@@ -151,7 +151,7 @@
 				{
 					_class = "CSolveIKChainAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 0.0, -32.0 ]
+					m_vecPosition = [ 32.0, -32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 278918810
@@ -1022,7 +1022,7 @@
 				{
 					_class = "CRootAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 432.0, -32.0 ]
+					m_vecPosition = [ 448.0, -32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2027420029
