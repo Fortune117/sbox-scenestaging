@@ -123,6 +123,28 @@
 			{
 				key = 
 				{
+					m_id = 248996353
+				}
+				value = 
+				{
+					_class = "CSequenceAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -1248.0, 320.0 ]
+					m_nNodeID = 
+					{
+						m_id = 248996353
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_tagSpans = [  ]
+					m_sequenceName = "longsword_combo_01_swing_03"
+					m_playbackSpeed = 1.0
+					m_bLoop = false
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 278918810
 				}
 				value = 
@@ -654,16 +676,21 @@
 									m_conditions = 
 									[
 										{
-											_class = "CFinishedCondition"
-											m_comparisonOp = 0
-											m_option = "FinishedConditionOption_OnAlmostFinished"
-											m_bIsFinished = true
+											_class = "CCycleCondition"
+											m_comparisonOp = 3
+											m_comparisonValue = 0.6
+											m_comparisonValueType = 0
+											m_comparisonControlValue = "ControlValue_MoveHeading"
+											m_comparisonParamID = 
+											{
+												m_id = 4294967295
+											}
 										},
 									]
 									m_blendDuration = 0.2
 									m_destState = 
 									{
-										m_id = 1183456942
+										m_id = 1203055263
 									}
 									m_bReset = true
 									m_resetCycleOption = "Beginning"
@@ -699,6 +726,66 @@
 								m_id = 872207116
 							}
 							m_position = [ 240.0, 208.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CFinishedCondition"
+											m_comparisonOp = 0
+											m_option = "FinishedConditionOption_OnAlmostFinished"
+											m_bIsFinished = true
+										},
+									]
+									m_blendDuration = 0.2
+									m_destState = 
+									{
+										m_id = 1183456942
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+									m_bRandomTimeBetween = false
+									m_flRandomTimeStart = 0.0
+									m_flRandomTimeEnd = 0.0
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "attack 3"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 248996353
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 1203055263
+							}
+							m_position = [ 48.0, 208.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false

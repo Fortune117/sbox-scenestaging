@@ -52,6 +52,8 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 		
 		if ( Scene.IsEditor )
 			return;
+
+		Scene.TimeScale = 1f;
 		
 		var tr = HurtBox.PerformTrace();
 		
