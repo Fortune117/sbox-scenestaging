@@ -505,6 +505,10 @@
 				}
 			}
 		},
+		{
+			_class = "C_OP_PositionLock"
+			m_flStartTime_min = 0.0
+		},
 	]
 	m_Renderers = 
 	[

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DarkDescent.Actor.Damage;
+using DarkDescent.Actor.Marker;
 using DarkDescent.Actor.UI;
 using DarkDescent.GameLog;
 using Sandbox;
@@ -53,6 +54,16 @@ public partial class ActorComponent
 
 		GameLogSystem.DamageEventReceived( damageEventData );
 
+		foreach ( var damageListener in GetComponents<IDamageTakenListener>(true, true) )
+		{
+			damageListener.OnDamageTaken( damageEventData, Health <= 0 );	
+		}
+		
+		foreach ( var damageDealtListener in damageEventData.Originator.GetComponents<IDamageDealtListener>(true, true) )
+		{
+			damageDealtListener.OnDamageDealt( damageEventData, Health <= 0 );	
+		}
+		
 		//i'm not dead yet!!
 		if ( Health > 0 )
 			return;
@@ -94,7 +105,7 @@ public partial class ActorComponent
 			return;
 		
 		body.ApplyForceAt( body.FindClosestPoint( damageEventData.Position ),
-			damageEventData.Direction * damageEventData.KnockBack * body.Mass * 300 );
+			damageEventData.Direction * damageEventData.KnockBackResult * body.Mass * 300 );
 	}
 	
 	public void CreateDamageNumber(DamageEventData damageEventData)
@@ -184,6 +195,7 @@ public partial class ActorComponent
             : GameBalanceResource.ActiveBalance.ResistanceScalingCurve.Evaluate(resist);
         
         damageEventData.DamageResult = damageEventData.DamageOriginal - damageEventData.DamageOriginal*resistMult;
+        damageEventData.KnockBackResult = damageEventData.KnockBackOriginal - Stats.KnockBackResistance;
 	}
 }
 

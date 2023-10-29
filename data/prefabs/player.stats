@@ -38,7 +38,7 @@
   "DivinePenetration": 0,
   "OccultPenetration": 0,
   "CriticalMultiplier": 1.5,
-  "KnockBack": 0,
+  "KnockBack": 150,
   "Armor": 0,
   "Warding": 0,
   "FireResistance": 0,
@@ -50,7 +50,7 @@
   "DivineResistance": 0,
   "OccultResistance": 0,
   "CriticalNegation": 0,
-  "KnockBackResistance": 0,
+  "KnockBackResistance": -300,
   "CarryWeight": 30,
   "__references": []
 }

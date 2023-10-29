@@ -74,7 +74,7 @@ public static class SceneUtility
 
 		MakeGameObjectsUnique( json );
 
-		var go = GameObject.Create();
+		var go = new GameObject();
 		go.Deserialize( json );
 		go.Transform.Local = transform.WithScale( transform.Scale * go.Transform.LocalScale.x );
 

@@ -47,7 +47,8 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 			return;
 		
 		var transform = AnimatedModelComponent.SceneObject.GetBoneWorldTransform( 0 );
-		GameObject.Transform.World = transform;
+		GameObject.Transform.Position = transform.Position;
+		GameObject.Transform.Rotation = transform.Rotation;
 		
 		if ( Scene.IsEditor )
 			return;

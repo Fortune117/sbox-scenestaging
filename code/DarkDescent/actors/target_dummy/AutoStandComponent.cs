@@ -11,7 +11,7 @@ public class AutoStandComponent : BaseComponent
 	private TimeSince TimeSinceBeenOnGround { get; set; }
 
 
-	public override void Update()
+	public override void FixedUpdate()
 	{
 		if ( !GameObject.TryGetComponent<PhysicsComponent>( out var physicsComponent ) )
 			return;
@@ -27,14 +27,14 @@ public class AutoStandComponent : BaseComponent
 		
 		var body = physicsComponent.GetBody();
 		
-		body.AngularDamping = 5f;
+		body.AngularDamping = 15f;
 ;
 		var mult = GameObject.Transform.Rotation.Up.Dot( Vector3.Up );
 
 		if ( mult.AlmostEqual( 1 ) )
 			return;
 		
-		mult = mult.Remap( 0, 1, 0.75f, 1.5f );
+		mult = mult.Remap( 0, 1, 0.5f, 2f );
 		
 		body.AngularVelocity += Vector3.Up.Cross( Transform.Rotation.Up ) * -SettleSpeed * mult * Time.Delta;
 	}

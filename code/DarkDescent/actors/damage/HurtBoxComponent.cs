@@ -8,9 +8,12 @@ public class HurtBoxComponent : BaseComponent
 	{
 		get
 		{
-			return (Transform.Position - lastUpdateTransform.Position).Normal;
+			return HitDirection.Transform.Rotation.Forward;
 		}
 	}
+	
+	[Property]
+	private GameObject HitDirection { get; set; }
 	
 	[Property]
 	private Vector3 Center1 { get; set; }
@@ -33,8 +36,7 @@ public class HurtBoxComponent : BaseComponent
 
 		Gizmo.Draw.LineCapsule( new Capsule( Center1, Center2, Radius ) );
 	}
-
-	private Transform lastUpdateTransform = global::Transform.Zero;
+	
 	public override void Update()
 	{
 		base.Update();
@@ -48,15 +50,13 @@ public class HurtBoxComponent : BaseComponent
 		Gizmo.Draw.Color = tr.Hit ? Color.Red : Color.Green;
 
 		Gizmo.Draw.LineCapsule( new Capsule( Center1, Center2, Radius ) );
-
-		lastUpdateTransform = Transform.World;
 	}
 
 	public PhysicsTraceResult PerformTrace()
 	{
 		var tr = Physics.Trace.Ray( Transform.World.TransformVector( Center1 ), Transform.World.TransformVector( Center2 ) )
 			.Radius( Radius )
-			.WithTag( "dummy" )
+			.WithTag( "actor" )
 			.Run();
 
 		return tr;

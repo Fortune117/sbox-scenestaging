@@ -32,6 +32,8 @@ public partial class ActorComponent : BaseComponent
 		
 		//TODO: world panels
 		CreateInfoPanel();
+		
+		Blackboard.Register( this );
 	}
 	
 
@@ -44,11 +46,15 @@ public partial class ActorComponent : BaseComponent
 		
 		//TODO: world panels
 		DestroyInfoPanel();
+		
+		Blackboard.UnRegister( this );
 	}
 
 	public override void OnDestroy()
 	{
 		DestroyInfoPanel();
+		
+		Blackboard.UnRegister( this );
 	}
 
 	public override void Update()

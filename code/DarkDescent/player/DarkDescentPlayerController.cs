@@ -28,11 +28,12 @@ public partial class DarkDescentPlayerController : BaseComponent
 	private bool IsCrouching { get; set; }
 	
 	private Vector3 WishVelocity { get; set; }
+	
+	private Angles internalEyeAngles;
 
-	public Angles EyeAngles;
-	private Vector3 EyePosition => Eye.Transform.Position;
+	public Rotation AimRotation => Eye.Transform.Rotation;
 
-	public Ray AimRay => new Ray( EyePosition, EyeAngles.Forward );
+	public Ray AimRay => new Ray( Eye.Transform.Position, Eye.Transform.Rotation.Forward );
 	
 	public override void OnStart()
 	{
@@ -42,16 +43,16 @@ public partial class DarkDescentPlayerController : BaseComponent
 	public override void Update()
 	{
 		// Eye input
-		EyeAngles.pitch += Input.MouseDelta.y * 0.1f;
-		EyeAngles.yaw -= Input.MouseDelta.x * 0.1f;
-		EyeAngles.pitch = EyeAngles.pitch.Clamp( -89f, 89f );
-		EyeAngles.roll = 0;
-		EyeAngles = EyeAngles.Normal;
+		internalEyeAngles.pitch += Input.MouseDelta.y * 0.1f;
+		internalEyeAngles.yaw -= Input.MouseDelta.x * 0.1f;
+		internalEyeAngles.pitch = internalEyeAngles.pitch.Clamp( -89f, 89f );
+		internalEyeAngles.roll = 0;
+		internalEyeAngles = internalEyeAngles.Normal;
 
 		// rotate body to look angles
 		if ( Body is not null )
 		{
-			Body.Transform.Rotation = new Angles( 0, EyeAngles.yaw, 0 ).ToRotation();
+			Body.Transform.Rotation = new Angles( 0, internalEyeAngles.yaw, 0 ).ToRotation();
 		}
 
 		// read inputs
