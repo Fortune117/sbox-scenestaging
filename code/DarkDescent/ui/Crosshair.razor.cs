@@ -10,7 +10,10 @@ public partial class Crosshair : Panel
 	public static Crosshair Instance;
 	public static bool InteractPossible { get; set; }
 	
+	public Panel AimPip { get; set; }
+	
 	private Panel InteractFailureOverlay { get; set; }
+	public Panel CrosshairInternal { get; set; }
 	private string Action { get; set; }
 
 	public Crosshair()
@@ -20,7 +23,7 @@ public partial class Crosshair : Panel
 
 	public static void SetVisible(bool b)
 	{
-		Instance?.SetClass("visible", b);
+		Instance.CrosshairInternal?.SetClass("visible", b);
 	}
 
 	public override void Tick()

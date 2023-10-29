@@ -1,21 +1,61 @@
-﻿Crosshair
+﻿$cross-hair-size: 20px;
+
+Crosshair
 {
 	position: absolute;
 	z-index: 10;
-	align-items: flex-end;
-	width: 16px;
-	height: 16px;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	height: 100px;
 	top: 50%;
 	left: 50%;
 	transform: translate( -50% -50% );
 	opacity: 1;
 	transition: all 0.05s linear;
 	
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-image: url("textures/ui/crosshair_icons/crosshair.png");
-	image-rendering: pixelated;
+	.crosshair
+	{
+		left: 0;
+		top: 0;
+		width: $cross-hair-size;
+		height: $cross-hair-size;
+		transition: all 0.05s linear;
+		
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url("textures/ui/crosshair_icons/crosshair.png");
+		image-rendering: pixelated;
 
+		&.interact
+		{
+			background-image: url("textures/ui/crosshair_icons/hand_interact.png");
+			width: 72px;
+			height: 72px;
+		}
+
+		&.holding
+		{
+			background-image: url("textures/ui/crosshair_icons/crosshair.png");
+		}
+	}
+
+	.aim-pip
+	{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 50px;
+		height: 50px;
+		opacity: 1;
+		transition: all 0s linear;
+
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-image: url("textures/ui/crosshair_icons/crosshair_aim_pip.png");
+		image-rendering: pixelated;
+	}
+	
 	.body
 	{
 		position: absolute;
@@ -55,17 +95,5 @@
 		{
 			opacity: 1;
 		}
-	}
-	
-	&.interact
-	{
-		background-image: url("textures/ui/crosshair_icons/hand_interact.png");
-		width: 72px;
-		height: 72px;
-	}
-	
-	&.holding
-	{
-		background-image: url("textures/ui/crosshair_icons/crosshair.png");
 	}
 }

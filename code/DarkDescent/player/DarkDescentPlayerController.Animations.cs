@@ -1,4 +1,6 @@
-﻿using Sandbox;
+﻿using DarkDescent.UI;
+using Sandbox;
+using Sandbox.UI;
 
 namespace DarkDescent;
 
@@ -9,6 +11,8 @@ public partial class DarkDescentPlayerController
 		Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
 	}
 
+	private bool isAttacking;
+	private Vector2 lockedInputVector = Vector2.Zero;
 	private const int inputVectorBufferSize = 5;
 	private Vector2[] inputVectorBuffer = new Vector2[inputVectorBufferSize];
 	private int count = 0;
@@ -41,7 +45,8 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
 		modelComponent.Set( "vLeftHandIKTarget", LeftIKTarget.Transform.Position );
 
-		inputVectorBuffer = inputVectorBuffer.Prepend( Input.MouseDelta ).Take( inputVectorBufferSize ).ToArray();
+		if (Input.MouseDelta.Length > 0.1f)
+			inputVectorBuffer = inputVectorBuffer.Prepend( Input.MouseDelta ).Take( inputVectorBufferSize ).ToArray();
 		
 		var average = Vector2.Zero;
 		foreach ( var inputVector in inputVectorBuffer )
@@ -50,11 +55,32 @@ public partial class DarkDescentPlayerController
 		}
 		average /= inputVectorBuffer.Length;
 		average = average.Normal;
+
+		if ( TimeUntilNextAttack )
+			isAttacking = false;
+
+		if ( !isAttacking )
+		{
+			var angle = average.Degrees - 90;
+			angle = angle.NormalizeDegrees();
+			
+			Log.Info( angle );
+			
+			var transform = new PanelTransform();
+			transform.AddRotation( new Vector3( 0, 0, angle ) );
+			transform.AddTranslate( Length.Percent( -50 ), Length.Percent( -50 ) );
+
+			Crosshair.Instance.AimPip.Style.TransformOriginX = Length.Percent( -100 );
+			Crosshair.Instance.AimPip.Style.TransformOriginY = Length.Percent( -100 );
+			Crosshair.Instance.AimPip.Style.Transform = transform;
+		}
 		
 		if ( !TimeUntilNextAttack || !Input.Down( "Attack1" ) )
 			return;
 		
 		var side = MathF.Sign( average.x ) + 1;
+
+		lockedInputVector = average;
 		
 		Game.SetRandomSeed( count++ );
 		modelComponent.Set( "fSwingBlend", -average.y );
@@ -62,6 +88,8 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "bAttack", true );
 		
 		TimeUntilNextAttack = 1.75f / ActorComponent.Stats.ActionSpeed;
+
+		isAttacking = true;
 	}
 
 	protected override void OnPreRender()
