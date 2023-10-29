@@ -541,7 +541,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 12
+										event_frame = 24
 										event_keys = 
 										{
 											TypeName = "AttackEndEvent"
@@ -570,7 +570,7 @@
 								disable_compression = true
 								enable_scale = false
 								source_filename = "models/actors/skeleton/skeleton_player.fbx"
-								start_frame = 12
+								start_frame = 0
 								end_frame = -1
 								framerate = -1.0
 								take = 9
@@ -597,7 +597,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 12
+										event_frame = 24
 										event_keys = 
 										{
 											TypeName = "AttackEndEvent"
@@ -626,7 +626,7 @@
 								disable_compression = true
 								enable_scale = false
 								source_filename = "models/actors/skeleton/skeleton_player.fbx"
-								start_frame = 12
+								start_frame = 0
 								end_frame = -1
 								framerate = -1.0
 								take = 7
@@ -828,6 +828,96 @@
 							m_Name = "F_ik_R"
 						}
 						"m_DefaultTargetSettings.m_TargetSource" = "Bone"
+						"m_Data.m_DefaultTargetSettings.m_AnimgraphParameterNamePosition" = 
+						{
+							m_id = 4294967295
+						}
+						"m_Data.m_EndEffectorFixedOffsetAttachment" = 
+						{
+							m_Name = ""
+						}
+						"m_Data.m_bParentJointRequiresAlignment" = true
+					},
+					{
+						_class = "IKChain"
+						name = "Right_Hand"
+						children = 
+						[
+							{
+								_class = "IKChainJoint"
+								name = "UpperArm_R"
+								children = 
+								[
+									{
+										_class = "IKChainJoint"
+										name = "LowerArm_R"
+										children = 
+										[
+											{
+												_class = "IKChainJoint"
+												name = "Wrist_R"
+												bone = "Wrist_R"
+											},
+										]
+										bone = "LowerArm_R"
+									},
+								]
+								bone = "UpperArm_R"
+							},
+						]
+						m_bDoBonesOrientAlongPositiveX = true
+						"m_DefaultSolverSettings.m_nNumIterations" = 6
+						"m_DefaultSolverSettings.m_SolverType " = "IKSOLVER_TwoBone"
+						"m_DefaultTargetSettings.m_Bone" = 
+						{
+							m_Name = "Wrist_R"
+						}
+						"m_DefaultTargetSettings.m_TargetSource" = "Animgraph Parameter"
+						"m_Data.m_DefaultTargetSettings.m_AnimgraphParameterNamePosition" = 
+						{
+							m_id = 4294967295
+						}
+						"m_Data.m_EndEffectorFixedOffsetAttachment" = 
+						{
+							m_Name = ""
+						}
+						"m_Data.m_bParentJointRequiresAlignment" = true
+					},
+					{
+						_class = "IKChain"
+						name = "Left_Hand"
+						children = 
+						[
+							{
+								_class = "IKChainJoint"
+								name = "UpperArm_L"
+								children = 
+								[
+									{
+										_class = "IKChainJoint"
+										name = "LowerArm_L"
+										children = 
+										[
+											{
+												_class = "IKChainJoint"
+												name = "Wrist_L"
+												bone = "Wrist_L"
+											},
+										]
+										bone = "LowerArm_L"
+									},
+								]
+								bone = "UpperArm_L"
+							},
+						]
+						m_bDoBonesOrientAlongPositiveX = true
+						"m_DefaultSolverSettings.m_nNumIterations" = 6
+						"m_DefaultSolverSettings.m_SolverType " = "IKSOLVER_TwoBone"
+						"m_DefaultTargetSettings.m_Bone" = 
+						{
+							m_Name = "Wrist_L"
+						}
+						"m_DefaultTargetSettings.m_TargetSource" = "Animgraph Parameter"
 						"m_Data.m_DefaultTargetSettings.m_AnimgraphParameterNamePosition" = 
 						{
 							m_id = 4294967295

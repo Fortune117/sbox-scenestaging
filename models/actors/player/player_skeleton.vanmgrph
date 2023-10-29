@@ -461,6 +461,50 @@
 			{
 				key = 
 				{
+					m_id = 663872776
+				}
+				value = 
+				{
+					_class = "CTwoBoneIKAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 448.0, -32.0 ]
+					m_nNodeID = 
+					{
+						m_id = 663872776
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 186823835
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_ikChainName = "Left_Hand"
+					m_endEffectorType = "IkEndEffector_Bone"
+					m_endEffectorAttachmentName = ""
+					m_targetType = "IkTarget_Parameter_WorldSpace"
+					m_attachmentName = ""
+					m_targetBoneName = "Hand_Ik_L"
+					m_targetParam = 
+					{
+						m_id = 1128852381
+					}
+					m_bMatchTargetOrientation = false
+					m_rotationParam = 
+					{
+						m_id = 4294967295
+					}
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 711599840
 				}
 				value = 
@@ -1137,7 +1181,7 @@
 				{
 					_class = "CRootAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 448.0, -32.0 ]
+					m_vecPosition = [ 672.0, -32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2027420029
@@ -1148,7 +1192,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 186823835
+							m_id = 663872776
 						}
 						m_outputID = 
 						{
@@ -1258,6 +1302,21 @@
 				m_fDefaultValue = 0.0
 				m_fMinValue = 0.0
 				m_fMaxValue = 1.0
+				m_bInterpolate = false
+			},
+			{
+				_class = "CVectorAnimParameter"
+				m_name = "vLeftHandIKTarget"
+				m_id = 
+				{
+					m_id = 1128852381
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = true
+				m_defaultValue = [ 0.0, 0.0, 0.0 ]
 				m_bInterpolate = false
 			},
 		]

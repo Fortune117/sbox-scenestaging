@@ -37,6 +37,7 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
 		modelComponent.Set( "fBlendTest", 0.5f );
+		modelComponent.Set( "vLeftHandIKTarget", LeftIKTarget.Transform.Position );
 
 		if ( !TimeUntilNextAttack || !Input.Down( "Attack1" ) )
 			return;
@@ -44,5 +45,14 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "bAttack", true );
 		
 		TimeUntilNextAttack = 1.75f / ActorComponent.Stats.ActionSpeed;
+	}
+
+	protected override void OnPreRender()
+	{
+		base.OnPreRender();
+		if ( !Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
+			return;
+		
+		modelComponent.Set( "vLeftHandIKTarget", LeftIKTarget.Transform.Position );
 	}
 }

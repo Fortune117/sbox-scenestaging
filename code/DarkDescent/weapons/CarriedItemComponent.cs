@@ -38,7 +38,19 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 
 		AnimatedModelComponent = null;
 	}
-	
+
+	protected override void OnPreRender()
+	{
+		if ( !FollowBoneMerge || AnimatedModelComponent?.SceneObject is null )
+			return;
+		
+		var transform = AnimatedModelComponent.SceneObject.GetBoneWorldTransform( 0 );
+		GameObject.Transform.Position = transform.Position;
+		GameObject.Transform.Rotation = transform.Rotation;
+		
+		base.OnPreRender();
+	}
+
 	public override void Update()
 	{
 		base.Update();
@@ -47,13 +59,11 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 			return;
 		
 		var transform = AnimatedModelComponent.SceneObject.GetBoneWorldTransform( 0 );
-		GameObject.Transform.Position = transform.Position;
-		GameObject.Transform.Rotation = transform.Rotation;
+		//GameObject.Transform.Position = transform.Position;
+		//GameObject.Transform.Rotation = transform.Rotation;
 		
 		if ( Scene.IsEditor )
 			return;
-
-		Scene.TimeScale = 1f;
 		
 		var tr = HurtBox.PerformTrace();
 		

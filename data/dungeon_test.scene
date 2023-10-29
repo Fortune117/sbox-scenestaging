@@ -51,7 +51,9 @@
           "CarriedItemComponent": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
           "CharacterController": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "Eye": "eacd1793-17b7-4e17-b4df-cfd99eea118c",
-          "Gravity": "0,0,800"
+          "Gravity": "0,0,800",
+          "LeftIKTarget": "994fe54a-92a3-4067-a47b-3e4750a3a537",
+          "RightIKTarget": "cbc98f38-3606-4b4d-b632-9da09579f044"
         },
         {
           "__type": "ActorComponent",
@@ -1197,6 +1199,24 @@
                   "Enabled": true,
                   "Position": "24.06384,-0.00000135116,-0.0000008033323",
                   "Rotation": "-0.00000000868437,0.000000006031744,-0.707107,0.7071065",
+                  "Scale": "1,1,1",
+                  "Tags": ""
+                },
+                {
+                  "Id": "cbc98f38-3606-4b4d-b632-9da09579f044",
+                  "Name": "Hand_R IK Target",
+                  "Enabled": true,
+                  "Position": "2.423419,-0.0000005951199,0.0000004652058",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": ""
+                },
+                {
+                  "Id": "994fe54a-92a3-4067-a47b-3e4750a3a537",
+                  "Name": "Hand_L IK Target",
+                  "Enabled": true,
+                  "Position": "0,0,0",
+                  "Rotation": "0,0,0,1",
                   "Scale": "1,1,1",
                   "Tags": ""
                 }
