@@ -1159,7 +1159,7 @@
               "Name": "Sword",
               "Enabled": true,
               "Position": "0.1216278,-12.2886,35.09869",
-              "Rotation": "0.4935335,0.5116254,0.5050943,0.4894322",
+              "Rotation": "0.4935334,0.5116254,0.5050942,0.4894322",
               "Scale": "1,1,1",
               "Tags": "",
               "Components": [
@@ -1490,7 +1490,7 @@
     },
     {
       "Id": "6d82af09-7400-496e-8c1a-d82936282abb",
-      "Name": "Object",
+      "Name": "Env Light",
       "Enabled": true,
       "Position": "-36.43511,-0.00002053193,331.8715",
       "Rotation": "-0.00000004456984,0.7477577,-0.000000000000002235644,0.6639711",
@@ -1500,9 +1500,9 @@
         {
           "__type": "DirectionalLightComponent",
           "__enabled": true,
-          "LightColor": "0,0,0,1",
+          "LightColor": "1,1,1,1",
           "Shadows": true,
-          "SkyColor": "0.07921,0.07921,0.07921,1"
+          "SkyColor": "1,1,1,1"
         }
       ]
     },
