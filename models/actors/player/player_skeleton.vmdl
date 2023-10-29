@@ -354,174 +354,6 @@
 							},
 							{
 								_class = "AnimFile"
-								name = "longsword_combo_01_swing_01"
-								children = 
-								[
-									{
-										_class = "AnimEvent"
-										event_class = "AE_GENERIC_EVENT"
-										event_frame = 12
-										event_keys = 
-										{
-											TypeName = "AttackStartEvent"
-											Int = 0
-											Float = 0.0
-											Vector = [ 0.0, 0.0, 0.0 ]
-											StringData = ""
-										}
-									},
-									{
-										_class = "AnimEvent"
-										event_class = "AE_GENERIC_EVENT"
-										event_frame = 24
-										event_keys = 
-										{
-											TypeName = "AttackEndEvent"
-											Int = 0
-											Float = 0.0
-											Vector = [ 0.0, 0.0, 0.0 ]
-											StringData = ""
-										}
-									},
-									{
-										_class = "AnimSubtract"
-										anim_name = "bind_pose"
-										frame = 0
-									},
-								]
-								activity_name = ""
-								activity_weight = 1
-								weight_list_name = ""
-								fade_in_time = 0.2
-								fade_out_time = 0.2
-								looping = false
-								delta = false
-								worldSpace = false
-								hidden = false
-								anim_markup_ordered = false
-								disable_compression = true
-								enable_scale = false
-								source_filename = "models/actors/skeleton/skeleton_player.fbx"
-								start_frame = -1
-								end_frame = -1
-								framerate = -1.0
-								take = 7
-								reverse = false
-							},
-							{
-								_class = "AnimFile"
-								name = "longsword_combo_01_swing_02"
-								children = 
-								[
-									{
-										_class = "AnimEvent"
-										event_class = "AE_GENERIC_EVENT"
-										event_frame = 12
-										event_keys = 
-										{
-											TypeName = "AttackStartEvent"
-											Int = 0
-											Float = 0.0
-											Vector = [ 0.0, 0.0, 0.0 ]
-											StringData = ""
-										}
-									},
-									{
-										_class = "AnimEvent"
-										event_class = "AE_GENERIC_EVENT"
-										event_frame = 24
-										event_keys = 
-										{
-											TypeName = "AttackEndEvent"
-											Int = 0
-											Float = 0.0
-											Vector = [ 0.0, 0.0, 0.0 ]
-											StringData = ""
-										}
-									},
-									{
-										_class = "AnimSubtract"
-										anim_name = "bind_pose"
-										frame = 0
-									},
-								]
-								activity_name = ""
-								activity_weight = 1
-								weight_list_name = ""
-								fade_in_time = 0.2
-								fade_out_time = 0.2
-								looping = false
-								delta = false
-								worldSpace = false
-								hidden = false
-								anim_markup_ordered = false
-								disable_compression = true
-								enable_scale = false
-								source_filename = "models/actors/skeleton/skeleton_player.fbx"
-								start_frame = -1
-								end_frame = -1
-								framerate = -1.0
-								take = 8
-								reverse = false
-							},
-							{
-								_class = "AnimFile"
-								name = "longsword_combo_01_swing_03"
-								children = 
-								[
-									{
-										_class = "AnimEvent"
-										event_class = "AE_GENERIC_EVENT"
-										event_frame = 12
-										event_keys = 
-										{
-											TypeName = "AttackStartEvent"
-											Int = 0
-											Float = 0.0
-											Vector = [ 0.0, 0.0, 0.0 ]
-											StringData = ""
-										}
-									},
-									{
-										_class = "AnimEvent"
-										event_class = "AE_GENERIC_EVENT"
-										event_frame = 24
-										event_keys = 
-										{
-											TypeName = "AttackEndEvent"
-											Int = 0
-											Float = 0.0
-											Vector = [ 0.0, 0.0, 0.0 ]
-											StringData = ""
-										}
-									},
-									{
-										_class = "AnimSubtract"
-										anim_name = "bind_pose"
-										frame = 0
-									},
-								]
-								activity_name = ""
-								activity_weight = 1
-								weight_list_name = ""
-								fade_in_time = 0.2
-								fade_out_time = 0.2
-								looping = false
-								delta = false
-								worldSpace = false
-								hidden = false
-								anim_markup_ordered = false
-								disable_compression = true
-								enable_scale = false
-								source_filename = "models/actors/skeleton/skeleton_player.fbx"
-								start_frame = -1
-								end_frame = -1
-								framerate = -1.0
-								take = 9
-								reverse = false
-							},
-							{
-								_class = "AnimFile"
 								name = "longsword_swing_top_right_to_bottom_left"
 								children = 
 								[
@@ -570,10 +402,10 @@
 								disable_compression = true
 								enable_scale = false
 								source_filename = "models/actors/skeleton/skeleton_player.fbx"
-								start_frame = 0
+								start_frame = -1
 								end_frame = -1
 								framerate = -1.0
-								take = 9
+								take = 7
 								reverse = false
 							},
 							{
@@ -626,10 +458,10 @@
 								disable_compression = true
 								enable_scale = false
 								source_filename = "models/actors/skeleton/skeleton_player.fbx"
-								start_frame = 0
+								start_frame = -1
 								end_frame = -1
 								framerate = -1.0
-								take = 7
+								take = 9
 								reverse = false
 							},
 							{
@@ -686,6 +518,62 @@
 								end_frame = -1
 								framerate = -1.0
 								take = 10
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "longsword_swing_left_to_right"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 0
+										event_keys = 
+										{
+											TypeName = "AttackStartEvent"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 24
+										event_keys = 
+										{
+											TypeName = "AttackEndEvent"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+									{
+										_class = "AnimSubtract"
+										anim_name = "bind_pose"
+										frame = 0
+									},
+								]
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = true
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 8
 								reverse = false
 							},
 						]

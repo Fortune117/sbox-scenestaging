@@ -43,7 +43,8 @@ public partial class DarkDescentPlayerController
 			return;
 		
 		Game.SetRandomSeed( count++ );
-		modelComponent.Set( "fBlendTest",  Game.Random.Float( -1, 1f ) );
+		modelComponent.Set( "fSwingBlend",  Game.Random.Float( -1, 1f ) );
+		modelComponent.Set( "eAttackSide",  Game.Random.Int( 0, 1 ) );
 		modelComponent.Set( "bAttack", true );
 		
 		TimeUntilNextAttack = 1.75f / ActorComponent.Stats.ActionSpeed;
