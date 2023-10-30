@@ -127,8 +127,12 @@ public partial class DarkDescentPlayerController
 
 		if ( TimeUntilNextAttack )
 		{
-			isDoingCombo = false;
 			isAttacking = false;
+		}
+
+		if ( TimeUntilComboInvalid )
+		{
+			isDoingCombo = false;
 		}
 
 		if ( !isAttacking )
@@ -178,8 +182,16 @@ public partial class DarkDescentPlayerController
 			return;
 		}
 
-		if ( !Input.Down( "Attack1" ) || !TimeUntilNextAttack )
+		if ( !Input.Down( "Attack1" ) && !bufferedAttack  )
 			return;
+
+		if ( !TimeUntilNextAttack )
+		{
+			if ( TimeUntilComboInvalid )
+				bufferedAttack = true;
+			
+			return;
+		}
 		
 		attackSide = MathF.Sign( average.x ).Remap( -1, 1, 0, 1 );
 
@@ -195,9 +207,10 @@ public partial class DarkDescentPlayerController
 		
 		TimeUntilNextAttack = (wait + CarriedItemComponent.RecoveryTime) / ActorComponent.Stats.ActionSpeed;
 		TimeUntilCanCombo = wait / ActorComponent.Stats.ActionSpeed;
-		TimeUntilComboInvalid = wait + CarriedItemComponent.RecoveryTime;
+		TimeUntilComboInvalid = wait + CarriedItemComponent.RecoveryTime/2f;
 		TimeSinceAttackStarted = 0;
 		mainAttackSpeedScale = 0;
+		bufferedAttack = false;
 
 		isAttacking = true;
 	}
