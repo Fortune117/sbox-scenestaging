@@ -1188,12 +1188,12 @@
                 {
                   "__type": "CarriedWeaponComponent",
                   "__enabled": true,
-                  "ComboTime": 0,
+                  "ComboTime": 0.7,
                   "FollowBoneMerge": true,
                   "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
                   "RecoveryTime": 0.5,
-                  "ReleaseTime": 3,
-                  "WindupTime": 0.12
+                  "ReleaseTime": 0.5,
+                  "WindupTime": 0.5
                 },
                 {
                   "__type": "HurtBoxComponent",

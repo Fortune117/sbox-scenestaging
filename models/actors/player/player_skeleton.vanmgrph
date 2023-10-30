@@ -619,7 +619,7 @@
 				{
 					_class = "CSpeedScaleAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1408.0, 336.0 ]
+					m_vecPosition = [ -1360.0, 336.0 ]
 					m_nNodeID = 
 					{
 						m_id = 690964331
@@ -958,7 +958,7 @@
 							{
 								m_id = 1795357989
 							}
-							m_position = [ 224.0, -80.0 ]
+							m_position = [ 224.0, -144.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
@@ -1055,7 +1055,7 @@
 							{
 								m_id = 1481581540
 							}
-							m_position = [ 224.0, 96.0 ]
+							m_position = [ 224.0, 192.0 ]
 							m_bIsStartState = false
 							m_bIsEndtState = false
 							m_bIsPassthrough = false
