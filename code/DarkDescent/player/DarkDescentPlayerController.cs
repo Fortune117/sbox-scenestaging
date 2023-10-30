@@ -102,6 +102,9 @@ public partial class DarkDescentPlayerController : BaseComponent
 		}
 		
 		UpdateAnimations();
+		
+		if (isAttacking)
+			AttackUpdate();
 	}
 	
 	public void BuildWishVelocity()

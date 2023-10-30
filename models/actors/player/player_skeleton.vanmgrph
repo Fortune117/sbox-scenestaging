@@ -507,7 +507,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1136.0, 112.0 ]
+					m_vecPosition = [ -1264.0, 16.0 ]
 					m_nNodeID = 
 					{
 						m_id = 413254614
@@ -613,6 +613,39 @@
 			{
 				key = 
 				{
+					m_id = 690964331
+				}
+				value = 
+				{
+					_class = "CSpeedScaleAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -1408.0, 336.0 ]
+					m_nNodeID = 
+					{
+						m_id = 690964331
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1628602052
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_param = 
+					{
+						m_id = 1893984475
+					}
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 711599840
 				}
 				value = 
@@ -657,13 +690,46 @@
 			{
 				key = 
 				{
+					m_id = 1450196601
+				}
+				value = 
+				{
+					_class = "CSpeedScaleAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -1376.0, 144.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1450196601
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 38633628
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_param = 
+					{
+						m_id = 1599110985
+					}
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1511051236
 				}
 				value = 
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Longsword"
-					m_vecPosition = [ -928.0, 192.0 ]
+					m_vecPosition = [ -944.0, 208.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1511051236
@@ -860,7 +926,7 @@
 										m_id = 1481581540
 									}
 									m_bReset = true
-									m_resetCycleOption = "FixedValue"
+									m_resetCycleOption = "Beginning"
 									m_flFixedCycleValue = 0.0
 									m_blendCurve = 
 									{
@@ -881,7 +947,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 38633628
+									m_id = 1450196601
 								}
 								m_outputID = 
 								{
@@ -957,7 +1023,7 @@
 										m_id = 1795357989
 									}
 									m_bReset = true
-									m_resetCycleOption = "FixedValue"
+									m_resetCycleOption = "Beginning"
 									m_flFixedCycleValue = 0.0
 									m_blendCurve = 
 									{
@@ -978,7 +1044,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 1628602052
+									m_id = 690964331
 								}
 								m_outputID = 
 								{
@@ -1153,39 +1219,6 @@
 					m_sequenceName = "pelvis_angle"
 					m_playbackSpeed = 1.0
 					m_bLoop = true
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1695279343
-				}
-				value = 
-				{
-					_class = "CSpeedScaleAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -624.0, 240.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1695279343
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_inputConnection = 
-					{
-						m_nodeID = 
-						{
-							m_id = 1511051236
-						}
-						m_outputID = 
-						{
-							m_id = 4294967295
-						}
-					}
-					m_param = 
-					{
-						m_id = 1081195564
-					}
 				}
 			},
 			{
@@ -1504,6 +1537,40 @@
 				m_bAutoReset = true
 				m_bPredicted = true
 				m_bDefaultValue = false
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "fSpeedScaleAttackLeft"
+				m_id = 
+				{
+					m_id = 1599110985
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = true
+				m_fDefaultValue = 1.0
+				m_fMinValue = 0.0
+				m_fMaxValue = 10.0
+				m_bInterpolate = false
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "fSpeedScaleAttackRight"
+				m_id = 
+				{
+					m_id = 1893984475
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = true
+				m_fDefaultValue = 1.0
+				m_fMinValue = 0.0
+				m_fMaxValue = 10.0
+				m_bInterpolate = false
 			},
 		]
 	}

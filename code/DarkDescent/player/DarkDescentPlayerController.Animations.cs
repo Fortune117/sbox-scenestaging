@@ -12,6 +12,14 @@ public partial class DarkDescentPlayerController
 	}
 
 	private float comboDelay => 1f;
+
+	private float windupFraction =  0.2857f;
+	private float windupAndReleaseFraction = 0.571f;
+	
+	private float mainAttackSpeedScale;
+	private float comboAttackSpeed;
+
+	private bool isDoingCombo;
 	private bool isAttacking;
 	private int attackSide;
 	private Vector2 lockedInputVector = Vector2.Zero;
@@ -20,6 +28,12 @@ public partial class DarkDescentPlayerController
 	private int count = 0;
 	private TimeUntil TimeUntilNextAttack;
 	private TimeUntil TimeUntilCanCombo;
+	private TimeSince TimeSinceAttackStarted;
+	private TimeSince TimeSinceComboStarted;
+
+	private string mainAttack;
+	private string comboAttack;
+	
 	private void UpdateAnimations()
 	{
 		if ( !Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
@@ -58,14 +72,69 @@ public partial class DarkDescentPlayerController
 		}
 		average /= inputVectorBuffer.Length;
 		average = average.Normal;
+		
+		if ( isAttacking )
+		{
+			if ( TimeSinceAttackStarted < CarriedItemComponent.WindupTime )
+			{
+				mainAttackSpeedScale = 0.5f / CarriedItemComponent.WindupTime;
+				modelComponent.Set( mainAttack, mainAttackSpeedScale );
+			}
+			else if ( TimeSinceAttackStarted < CarriedItemComponent.WindupTime + CarriedItemComponent.ReleaseTime )
+			{
+				if (!hitboxesActive)
+					OnAttackStart();
+				
+				mainAttackSpeedScale = 0.5f/CarriedItemComponent.ReleaseTime;
+				modelComponent.Set( mainAttack,  mainAttackSpeedScale );
+			}
+			else
+			{
+				if (hitboxesActive)
+					OnAttackEnd();
+				
+				mainAttackSpeedScale = 1;
+				modelComponent.Set( mainAttack,  mainAttackSpeedScale );
+			}
+		}
 
+		if ( isDoingCombo )
+		{
+			if ( TimeSinceComboStarted < CarriedItemComponent.WindupTime )
+			{
+				comboAttackSpeed = 0.5f/CarriedItemComponent.WindupTime;
+				modelComponent.Set( comboAttack, comboAttackSpeed );
+			}
+			else if ( TimeSinceComboStarted < CarriedItemComponent.WindupTime + CarriedItemComponent.ReleaseTime )
+			{
+				if (!hitboxesActive)
+					OnAttackStart();
+
+				comboAttackSpeed = 0.5f / CarriedItemComponent.ReleaseTime;
+				modelComponent.Set( comboAttack,  comboAttackSpeed );
+			}
+			else
+			{
+				if (hitboxesActive)
+					OnAttackEnd();
+			
+				comboAttackSpeed = 1f;
+				modelComponent.Set( comboAttack, comboAttackSpeed  );
+			}
+		}
+		
 		if ( TimeUntilNextAttack )
+		{
+			isDoingCombo = false;
 			isAttacking = false;
+		}
 
 		if ( !isAttacking )
 		{
 			Crosshair.SetAimPipVector( average );
 		}
+		
+		var wait = CarriedItemComponent.WindupTime + CarriedItemComponent.ReleaseTime;
 		
 		if ( !TimeUntilNextAttack && TimeUntilCanCombo && Input.Down( "Attack1" ) )
 		{
@@ -73,20 +142,35 @@ public partial class DarkDescentPlayerController
 			attackSide %= 2;
 
 			lockedInputVector = -lockedInputVector;
+
+			if ( isDoingCombo )
+			{
+				TimeSinceAttackStarted = TimeSinceComboStarted;
+				TimeSinceComboStarted = 0;
+				
+				mainAttack = attackSide == 0 ? "fSpeedScaleAttackRight" : "fSpeedScaleAttackLeft";
+				comboAttack = attackSide == 1 ? "fSpeedScaleAttackRight" : "fSpeedScaleAttackLeft";
+			}
+			else
+			{
+				TimeSinceComboStarted = 0;
+				
+				mainAttack = attackSide == 0 ? "fSpeedScaleAttackRight" : "fSpeedScaleAttackLeft";
+				comboAttack = attackSide == 1 ? "fSpeedScaleAttackRight" : "fSpeedScaleAttackLeft";
+			}
 			
 			Game.SetRandomSeed( count++ );
-			//modelComponent.Set( "fSwingBlend", -average.y );
-			modelComponent.Set( "fSwingBlend",-modelComponent.GetFloat(  "fSwingBlend" ));
+			modelComponent.Set( "fSwingBlend", -average.y );
 			modelComponent.Set( "eAttackSide",  attackSide );
 			modelComponent.Set( "bCombo", true );
 			
-
 			isAttacking = true;
+			isDoingCombo = true;
 			
-			TimeUntilNextAttack = 1.75f / ActorComponent.Stats.ActionSpeed;
-			TimeUntilCanCombo = (comboDelay) / ActorComponent.Stats.ActionSpeed;
+			TimeUntilNextAttack = (wait + 1f) / ActorComponent.Stats.ActionSpeed;
+			TimeUntilCanCombo = wait / ActorComponent.Stats.ActionSpeed;
 
-			Crosshair.SetAimPipVector( lockedInputVector );
+			Crosshair.SetAimPipVector( average.WithX( attackSide.Remap( 0, 1, -1, 1 ) ) );
 
 			return;
 		}
@@ -94,17 +178,22 @@ public partial class DarkDescentPlayerController
 		if ( !TimeUntilNextAttack || !Input.Down( "Attack1" ) )
 			return;
 		
-		attackSide = MathF.Sign( average.x ) + 1;
+		attackSide = MathF.Sign( average.x ).Remap( -1, 1, 0, 1 );
 
 		lockedInputVector = average;
 		
 		Game.SetRandomSeed( count++ );
+		
 		modelComponent.Set( "fSwingBlend", -average.y );
 		modelComponent.Set( "eAttackSide",  attackSide );
 		modelComponent.Set( "bAttack", true );
 		
-		TimeUntilNextAttack = 1.75f / ActorComponent.Stats.ActionSpeed;
-		TimeUntilCanCombo = (comboDelay + 0.5f) / ActorComponent.Stats.ActionSpeed;
+		mainAttack = attackSide == 1 ? "fSpeedScaleAttackRight" : "fSpeedScaleAttackLeft";
+		
+		TimeUntilNextAttack = (wait + 1f) / ActorComponent.Stats.ActionSpeed;
+		TimeUntilCanCombo = wait / ActorComponent.Stats.ActionSpeed;
+		TimeSinceAttackStarted = 0;
+		mainAttackSpeedScale = 0;
 
 		isAttacking = true;
 	}
