@@ -1,0 +1,397 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:animgraph2:version{0f7898b8-5471-45c4-9867-cd9c46bcfdb5} -->
+{
+	_class = "CAnimationSubGraph"
+	m_nodeManager = 
+	{
+		_class = "CAnimNodeManager"
+		m_nodes = 
+		[
+			{
+				key = 
+				{
+					m_id = 735615087
+				}
+				value = 
+				{
+					_class = "CSpeedScaleAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -118.903564, -72.0 ]
+					m_nNodeID = 
+					{
+						m_id = 735615087
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1693480057
+						}
+						m_outputID = 
+						{
+							m_id = 634764639
+						}
+					}
+					m_param = 
+					{
+						m_id = 1617888234
+					}
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1246598933
+				}
+				value = 
+				{
+					_class = "CGroupOutputAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 416.0, 32.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1246598933
+					}
+					m_networkMode = "ServerAuthoritative"
+					m_sNote = ""
+					m_proxyItems = 
+					[
+						{
+							m_name = ""
+							m_outputID = 
+							{
+								m_id = 741623255
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1974515476
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1693480057
+				}
+				value = 
+				{
+					_class = "CGroupInputAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -560.0, 0.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1693480057
+					}
+					m_networkMode = "ServerAuthoritative"
+					m_sNote = ""
+					m_proxyItems = 
+					[
+						{
+							m_name = "Wind Up"
+							m_outputID = 
+							{
+								m_id = 634764639
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Release"
+							m_outputID = 
+							{
+								m_id = 867201654
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Recovery"
+							m_outputID = 
+							{
+								m_id = 1517431218
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1794657185
+				}
+				value = 
+				{
+					_class = "CSpeedScaleAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -134.903564, 72.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1794657185
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1693480057
+						}
+						m_outputID = 
+						{
+							m_id = 1517431218
+						}
+					}
+					m_param = 
+					{
+						m_id = 908210300
+					}
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1974515476
+				}
+				value = 
+				{
+					_class = "CStateMachineAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 134.903809, 18.439789 ]
+					m_nNodeID = 
+					{
+						m_id = 1974515476
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_states = 
+					[
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CFinishedCondition"
+											m_comparisonOp = 0
+											m_option = "FinishedConditionOption_OnFinished"
+											m_bIsFinished = true
+										},
+									]
+									m_blendDuration = 0.0
+									m_destState = 
+									{
+										m_id = 1611515481
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+									m_bRandomTimeBetween = false
+									m_flRandomTimeStart = 0.0
+									m_flRandomTimeEnd = 0.0
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Windup"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 735615087
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 1306732761
+							}
+							m_position = [ -208.0, -64.0 ]
+							m_bIsStartState = true
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = 
+							[
+								{
+									_class = "CAnimStateTransition"
+									m_conditions = 
+									[
+										{
+											_class = "CFinishedCondition"
+											m_comparisonOp = 0
+											m_option = "FinishedConditionOption_OnFinished"
+											m_bIsFinished = true
+										},
+									]
+									m_blendDuration = 0.0
+									m_destState = 
+									{
+										m_id = 1371037277
+									}
+									m_bReset = true
+									m_resetCycleOption = "Beginning"
+									m_flFixedCycleValue = 0.0
+									m_blendCurve = 
+									{
+										m_vControlPoint1 = [ 0.5, 0.0 ]
+										m_vControlPoint2 = [ 0.5, 1.0 ]
+									}
+									m_bForceFootPlant = false
+									m_bDisabled = false
+									m_bRandomTimeBetween = false
+									m_flRandomTimeStart = 0.0
+									m_flRandomTimeEnd = 0.0
+								},
+							]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Release"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 2105206501
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 1611515481
+							}
+							m_position = [ 32.0, -64.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = false
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+						{
+							_class = "CAnimState"
+							m_transitions = [  ]
+							m_tags = [  ]
+							m_tagBehaviors = [  ]
+							m_name = "Recovery"
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1794657185
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+							m_stateID = 
+							{
+								m_id = 1371037277
+							}
+							m_position = [ 256.0, -64.0 ]
+							m_bIsStartState = false
+							m_bIsEndtState = true
+							m_bIsPassthrough = false
+							m_bIsRootMotionExclusive = false
+							m_bAlwaysEvaluate = false
+						},
+					]
+					m_bBlockWaningTags = false
+					m_bLockStateWhenWaning = false
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 2105206501
+				}
+				value = 
+				{
+					_class = "CSpeedScaleAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -134.903564, 8.0 ]
+					m_nNodeID = 
+					{
+						m_id = 2105206501
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1693480057
+						}
+						m_outputID = 
+						{
+							m_id = 867201654
+						}
+					}
+					m_param = 
+					{
+						m_id = 96195884
+					}
+				}
+			},
+		]
+	}
+	m_localParameters = [  ]
+	m_localTags = [  ]
+}
