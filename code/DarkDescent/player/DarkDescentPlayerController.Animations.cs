@@ -165,35 +165,21 @@ public partial class DarkDescentPlayerController
 			modelComponent.Set( "fSwingBlend", -average.y );
 			modelComponent.Set( "eAttackSide",  attackSide );
 			modelComponent.Set( "bCombo", true );
-			modelComponent.Set( "bAttack", true );
-			
-			Log.Info( "Combo!" );
 			
 			isAttacking = true;
 			isDoingCombo = true;
 			
-			TimeUntilNextAttack = (wait + 1f) / ActorComponent.Stats.ActionSpeed;
+			TimeUntilNextAttack = (wait + CarriedItemComponent.RecoveryTime) / ActorComponent.Stats.ActionSpeed;
 			TimeUntilCanCombo = wait / ActorComponent.Stats.ActionSpeed;
-			TimeUntilComboInvalid = wait + CarriedItemComponent.RecoveryTime;
+			TimeUntilComboInvalid = wait + CarriedItemComponent.RecoveryTime/2f;
 
 			Crosshair.SetAimPipVector( average.WithX( attackSide.Remap( 0, 1, -1, 1 ) ) );
 
 			return;
 		}
 
-		if ( !Input.Down( "Attack1" ) && !bufferedAttack )
+		if ( !Input.Down( "Attack1" ) || !TimeUntilNextAttack )
 			return;
-
-		if ( !TimeUntilNextAttack )
-		{
-			bufferedAttack = true;
-			return;
-		}
-		
-		if (bufferedAttack)	
-			Log.Info( "Buffered attack!!" );
-		else
-			Log.Info( "Regular attack!" );
 		
 		attackSide = MathF.Sign( average.x ).Remap( -1, 1, 0, 1 );
 
@@ -207,12 +193,11 @@ public partial class DarkDescentPlayerController
 		
 		mainAttack = attackSide == 1 ? "fSpeedScaleAttackRight" : "fSpeedScaleAttackLeft";
 		
-		TimeUntilNextAttack = (wait + 1f) / ActorComponent.Stats.ActionSpeed;
+		TimeUntilNextAttack = (wait + CarriedItemComponent.RecoveryTime) / ActorComponent.Stats.ActionSpeed;
 		TimeUntilCanCombo = wait / ActorComponent.Stats.ActionSpeed;
 		TimeUntilComboInvalid = wait + CarriedItemComponent.RecoveryTime;
 		TimeSinceAttackStarted = 0;
 		mainAttackSpeedScale = 0;
-		bufferedAttack = false;
 
 		isAttacking = true;
 	}
