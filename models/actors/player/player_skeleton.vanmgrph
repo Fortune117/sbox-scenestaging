@@ -15,7 +15,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3088.0, -208.0 ]
+					m_vecPosition = [ -3056.0, -48.0 ]
 					m_nNodeID = 
 					{
 						m_id = 36898078
@@ -37,7 +37,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3088.0, 0.0 ]
+					m_vecPosition = [ -3104.0, 128.0 ]
 					m_nNodeID = 
 					{
 						m_id = 42260913
@@ -140,7 +140,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2480.0, -256.0 ]
+					m_vecPosition = [ -2496.0, -112.0 ]
 					m_nNodeID = 
 					{
 						m_id = 101244440
@@ -313,7 +313,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3200.0, 1136.0 ]
+					m_vecPosition = [ -3152.0, 912.0 ]
 					m_nNodeID = 
 					{
 						m_id = 191842175
@@ -561,7 +561,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2592.0, 1120.0 ]
+					m_vecPosition = [ -2544.0, 896.0 ]
 					m_nNodeID = 
 					{
 						m_id = 334711994
@@ -642,7 +642,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3120.0, 848.0 ]
+					m_vecPosition = [ -3104.0, 736.0 ]
 					m_nNodeID = 
 					{
 						m_id = 354685681
@@ -664,7 +664,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2512.0, -16.0 ]
+					m_vecPosition = [ -2528.0, 128.0 ]
 					m_nNodeID = 
 					{
 						m_id = 392131159
@@ -767,7 +767,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3216.0, 1184.0 ]
+					m_vecPosition = [ -3168.0, 960.0 ]
 					m_nNodeID = 
 					{
 						m_id = 402305486
@@ -857,7 +857,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3072.0, -304.0 ]
+					m_vecPosition = [ -3040.0, -144.0 ]
 					m_nNodeID = 
 					{
 						m_id = 589387943
@@ -1026,7 +1026,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3088.0, 48.0 ]
+					m_vecPosition = [ -3104.0, 176.0 ]
 					m_nNodeID = 
 					{
 						m_id = 945356652
@@ -1048,7 +1048,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3088.0, -48.0 ]
+					m_vecPosition = [ -3104.0, 80.0 ]
 					m_nNodeID = 
 					{
 						m_id = 991997131
@@ -1156,7 +1156,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3200.0, 1088.0 ]
+					m_vecPosition = [ -3152.0, 864.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1162671518
@@ -1178,7 +1178,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3072.0, -256.0 ]
+					m_vecPosition = [ -3040.0, -96.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1185072855
@@ -1222,7 +1222,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3120.0, 800.0 ]
+					m_vecPosition = [ -3104.0, 688.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1449037883
@@ -1665,7 +1665,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2576.0, 816.0 ]
+					m_vecPosition = [ -2560.0, 704.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1562656540
@@ -1854,7 +1854,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3200.0, 336.0 ]
+					m_vecPosition = [ -3168.0, 336.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1634936215
@@ -1944,7 +1944,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3184.0, 240.0 ]
+					m_vecPosition = [ -3152.0, 240.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1661387977
@@ -2059,7 +2059,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3184.0, 288.0 ]
+					m_vecPosition = [ -3152.0, 288.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1958404369
@@ -2081,7 +2081,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3136.0, 896.0 ]
+					m_vecPosition = [ -3120.0, 784.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1973505562
