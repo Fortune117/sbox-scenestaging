@@ -84,14 +84,19 @@ public partial class DarkDescentPlayerController
 			}
 			else if ( TimeSinceAttackStarted < CarriedItemComponent.WindupTime + CarriedItemComponent.ReleaseTime )
 			{
+				if (!hitboxesActive)
+					OnAttackStart();
+				
 				mainAttackSpeedScale = 0.5f/CarriedItemComponent.ReleaseTime;
 				modelComponent.Set( mainAttack,  mainAttackSpeedScale );
 			}
 			else
 			{
+				if (hitboxesActive && !isDoingCombo)
+					OnAttackEnd();
+				
 				mainAttackSpeedScale = 1;
 				modelComponent.Set( mainAttack,  mainAttackSpeedScale );
-				isAttacking = false;
 			}
 		}
 
@@ -104,15 +109,26 @@ public partial class DarkDescentPlayerController
 			}
 			else if ( TimeSinceComboStarted < CarriedItemComponent.WindupTime + CarriedItemComponent.ReleaseTime )
 			{
+				if (!hitboxesActive)
+					OnAttackStart();
+				
 				comboAttackSpeed = 0.5f / CarriedItemComponent.ReleaseTime;
 				modelComponent.Set( comboAttack,  comboAttackSpeed );
 			}
 			else
 			{
+				if (hitboxesActive)
+					OnAttackEnd();
+				
 				comboAttackSpeed = 1f;
 				modelComponent.Set( comboAttack, comboAttackSpeed  );
-				isDoingCombo = false;
 			}
+		}
+
+		if ( TimeUntilNextAttack )
+		{
+			isDoingCombo = false;
+			isAttacking = false;
 		}
 
 		if ( !isAttacking )
@@ -151,6 +167,8 @@ public partial class DarkDescentPlayerController
 			modelComponent.Set( "bCombo", true );
 			modelComponent.Set( "bAttack", true );
 			
+			Log.Info( "Combo!" );
+			
 			isAttacking = true;
 			isDoingCombo = true;
 			
@@ -163,14 +181,19 @@ public partial class DarkDescentPlayerController
 			return;
 		}
 
-		if ( !Input.Down( "Attack1" ) || isAttacking || isDoingCombo )
+		if ( !Input.Down( "Attack1" ) && !bufferedAttack )
 			return;
 
-		if ( !TimeUntilNextAttack && !bufferedAttack )
+		if ( !TimeUntilNextAttack )
 		{
 			bufferedAttack = true;
 			return;
 		}
+		
+		if (bufferedAttack)	
+			Log.Info( "Buffered attack!!" );
+		else
+			Log.Info( "Regular attack!" );
 		
 		attackSide = MathF.Sign( average.x ).Remap( -1, 1, 0, 1 );
 

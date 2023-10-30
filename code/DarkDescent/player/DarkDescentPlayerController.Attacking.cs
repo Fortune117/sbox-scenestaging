@@ -25,7 +25,7 @@ public partial class DarkDescentPlayerController
 	
 	private void OnGenericAnimEvent( SceneModel.GenericEvent genericEvent )
 	{
-		switch ( genericEvent.Type )
+		/*switch ( genericEvent.Type )
 		{
 			case PlayerEvents.AttackStartEvent:
 				OnAttackStart();
@@ -33,7 +33,7 @@ public partial class DarkDescentPlayerController
 			case PlayerEvents.AttackEndEvent:
 				OnAttackEnd();
 				break;
-		}
+		}*/
 	}
 
 	private bool hitboxesActive;
