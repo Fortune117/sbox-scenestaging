@@ -83,8 +83,6 @@ public partial class DarkDescentPlayerController
 			.AsCritical( false );
 
 		hitActor.TakeDamage( damage );
-		
-		
 	}
 
 	private void OnAttackStart()
