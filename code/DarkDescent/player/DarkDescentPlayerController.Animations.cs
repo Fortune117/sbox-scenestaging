@@ -6,35 +6,28 @@ namespace DarkDescent;
 
 public partial class DarkDescentPlayerController 
 {
+	private const int inputVectorBufferSize = 5;
+	
 	private void HookupAnimEvents()
 	{
 		Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
 	}
-
-	private float comboDelay => 1f;
-
-	private float windupFraction =  0.2857f;
-	private float windupAndReleaseFraction = 0.571f;
 	
-	private float mainAttackSpeedScale;
-	private float comboAttackSpeed;
-
 	private bool isDoingCombo;
 	private bool isAttacking;
 	private int attackSide;
+	private int count;
+	
+	private bool bufferedAttack;
+	
 	private Vector2 lockedInputVector = Vector2.Zero;
-	private const int inputVectorBufferSize = 5;
 	private Vector2[] inputVectorBuffer = new Vector2[inputVectorBufferSize];
-	private int count = 0;
+
 	private TimeUntil TimeUntilNextAttack;
 	private TimeUntil TimeUntilCanCombo;
 	private TimeUntil TimeUntilComboInvalid;
 	private TimeSince TimeSinceAttackStarted;
 	private TimeSince TimeSinceComboStarted;
-
-	private string mainAttack;
-	private string comboAttack;
-	private bool bufferedAttack;
 	
 	private void UpdateAnimations()
 	{
@@ -82,10 +75,9 @@ public partial class DarkDescentPlayerController
 				if (!hitboxesActive)
 					OnAttackStart();
 			}
-			else
+			else if (hitboxesActive && !isDoingCombo)
 			{
-				if (hitboxesActive && !isDoingCombo)
-					OnAttackEnd();
+				OnAttackEnd();
 			}
 		}
 
@@ -96,10 +88,10 @@ public partial class DarkDescentPlayerController
 				if (!hitboxesActive)
 					OnAttackStart();
 			}
-			else
+			else if (hitboxesActive)
 			{
-				if (hitboxesActive)
-					OnAttackEnd();
+				Log.Info( "test" );
+				OnAttackEnd();
 			}
 		}
 
