@@ -360,7 +360,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 0
+										event_frame = 12
 										event_keys = 
 										{
 											TypeName = "AttackStartEvent"
@@ -416,7 +416,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 0
+										event_frame = 12
 										event_keys = 
 										{
 											TypeName = "AttackStartEvent"
@@ -472,7 +472,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 0
+										event_frame = 12
 										event_keys = 
 										{
 											TypeName = "AttackStartEvent"
@@ -528,7 +528,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 0
+										event_frame = 12
 										event_keys = 
 										{
 											TypeName = "AttackStartEvent"
@@ -584,7 +584,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 0
+										event_frame = 12
 										event_keys = 
 										{
 											TypeName = "AttackStartEvent"
@@ -640,7 +640,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 0
+										event_frame = 12
 										event_keys = 
 										{
 											TypeName = "AttackStartEvent"

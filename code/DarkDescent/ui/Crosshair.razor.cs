@@ -26,6 +26,23 @@ public partial class Crosshair : Panel
 		Instance.CrosshairInternal?.SetClass("visible", b);
 	}
 
+	public static void SetAimPipVector(Vector2 inputAngle)
+	{
+		if ( Instance?.AimPip is null )
+			return;
+		
+		var angle = inputAngle.Degrees - 90;
+		angle = angle.NormalizeDegrees();
+			
+		var transform = new PanelTransform();
+		transform.AddRotation( new Vector3( 0, 0, angle ) );
+		transform.AddTranslate( Length.Percent( -50 ), Length.Percent( -50 ) );
+
+		Instance.AimPip.Style.TransformOriginX = Length.Percent( -100 );
+		Instance.AimPip.Style.TransformOriginY = Length.Percent( -100 );
+		Instance.AimPip.Style.Transform = transform;
+	}
+
 	public override void Tick()
 	{
 		InteractFailureOverlay.SetClass( "visible", !InteractPossible );

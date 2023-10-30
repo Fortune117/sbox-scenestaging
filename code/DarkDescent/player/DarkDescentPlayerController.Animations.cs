@@ -11,12 +11,15 @@ public partial class DarkDescentPlayerController
 		Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
 	}
 
+	private float comboDelay => 1f;
 	private bool isAttacking;
+	private int attackSide;
 	private Vector2 lockedInputVector = Vector2.Zero;
 	private const int inputVectorBufferSize = 5;
 	private Vector2[] inputVectorBuffer = new Vector2[inputVectorBufferSize];
 	private int count = 0;
 	private TimeUntil TimeUntilNextAttack;
+	private TimeUntil TimeUntilCanCombo;
 	private void UpdateAnimations()
 	{
 		if ( !Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
@@ -61,33 +64,47 @@ public partial class DarkDescentPlayerController
 
 		if ( !isAttacking )
 		{
-			var angle = average.Degrees - 90;
-			angle = angle.NormalizeDegrees();
-			
-			Log.Info( angle );
-			
-			var transform = new PanelTransform();
-			transform.AddRotation( new Vector3( 0, 0, angle ) );
-			transform.AddTranslate( Length.Percent( -50 ), Length.Percent( -50 ) );
+			Crosshair.SetAimPipVector( average );
+		}
+		
+		if ( !TimeUntilNextAttack && TimeUntilCanCombo && Input.Down( "Attack1" ) )
+		{
+			attackSide++;
+			attackSide %= 2;
 
-			Crosshair.Instance.AimPip.Style.TransformOriginX = Length.Percent( -100 );
-			Crosshair.Instance.AimPip.Style.TransformOriginY = Length.Percent( -100 );
-			Crosshair.Instance.AimPip.Style.Transform = transform;
+			lockedInputVector = -lockedInputVector;
+			
+			Game.SetRandomSeed( count++ );
+			//modelComponent.Set( "fSwingBlend", -average.y );
+			modelComponent.Set( "fSwingBlend",-modelComponent.GetFloat(  "fSwingBlend" ));
+			modelComponent.Set( "eAttackSide",  attackSide );
+			modelComponent.Set( "bCombo", true );
+			
+
+			isAttacking = true;
+			
+			TimeUntilNextAttack = 1.75f / ActorComponent.Stats.ActionSpeed;
+			TimeUntilCanCombo = (comboDelay) / ActorComponent.Stats.ActionSpeed;
+
+			Crosshair.SetAimPipVector( lockedInputVector );
+
+			return;
 		}
 		
 		if ( !TimeUntilNextAttack || !Input.Down( "Attack1" ) )
 			return;
 		
-		var side = MathF.Sign( average.x ) + 1;
+		attackSide = MathF.Sign( average.x ) + 1;
 
 		lockedInputVector = average;
 		
 		Game.SetRandomSeed( count++ );
 		modelComponent.Set( "fSwingBlend", -average.y );
-		modelComponent.Set( "eAttackSide",  side );
+		modelComponent.Set( "eAttackSide",  attackSide );
 		modelComponent.Set( "bAttack", true );
 		
 		TimeUntilNextAttack = 1.75f / ActorComponent.Stats.ActionSpeed;
+		TimeUntilCanCombo = (comboDelay + 0.5f) / ActorComponent.Stats.ActionSpeed;
 
 		isAttacking = true;
 	}
