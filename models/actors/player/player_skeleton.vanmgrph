@@ -861,7 +861,7 @@
 									}
 									m_bReset = true
 									m_resetCycleOption = "FixedValue"
-									m_flFixedCycleValue = 0.1
+									m_flFixedCycleValue = 0.0
 									m_blendCurve = 
 									{
 										m_vControlPoint1 = [ 0.5, 0.0 ]
@@ -958,7 +958,7 @@
 									}
 									m_bReset = true
 									m_resetCycleOption = "FixedValue"
-									m_flFixedCycleValue = 0.1
+									m_flFixedCycleValue = 0.0
 									m_blendCurve = 
 									{
 										m_vControlPoint1 = [ 0.5, 0.0 ]
