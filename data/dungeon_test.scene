@@ -51,7 +51,9 @@
           "CarriedItemComponent": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
           "CharacterController": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "Eye": "eacd1793-17b7-4e17-b4df-cfd99eea118c",
-          "Gravity": "0,0,800"
+          "Gravity": "0,0,800",
+          "LeftIKTarget": "994fe54a-92a3-4067-a47b-3e4750a3a537",
+          "RightIKTarget": "cbc98f38-3606-4b4d-b632-9da09579f044"
         },
         {
           "__type": "ActorComponent",
@@ -1176,16 +1178,28 @@
                   "Tint": "1,1,1,1"
                 },
                 {
-                  "__type": "CarriedItemComponent",
-                  "__enabled": true,
-                  "FollowBoneMerge": true,
-                  "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004"
-                },
-                {
                   "__type": "HurtBoxComponent",
                   "__enabled": true,
                   "Center1": "5.399998,0,0",
                   "Center2": "45.19983,0,0",
+                  "HitDirection": "9ece1909-203b-4145-8636-f113e2d25d40",
+                  "Radius": 2
+                },
+                {
+                  "__type": "CarriedWeaponComponent",
+                  "__enabled": true,
+                  "ComboTime": 0,
+                  "FollowBoneMerge": true,
+                  "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
+                  "RecoveryTime": 0.5,
+                  "ReleaseTime": 3,
+                  "WindupTime": 0.12
+                },
+                {
+                  "__type": "HurtBoxComponent",
+                  "__enabled": false,
+                  "Center1": "5.299997,0,0",
+                  "Center2": "43.79998,0,0",
                   "HitDirection": "9ece1909-203b-4145-8636-f113e2d25d40",
                   "Radius": 2
                 }
@@ -1197,6 +1211,24 @@
                   "Enabled": true,
                   "Position": "24.06384,-0.00000135116,-0.0000008033323",
                   "Rotation": "-0.00000000868437,0.000000006031744,-0.707107,0.7071065",
+                  "Scale": "1,1,1",
+                  "Tags": ""
+                },
+                {
+                  "Id": "cbc98f38-3606-4b4d-b632-9da09579f044",
+                  "Name": "Hand_R IK Target",
+                  "Enabled": true,
+                  "Position": "2.423419,-0.0000005951199,0.0000004652058",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": ""
+                },
+                {
+                  "Id": "994fe54a-92a3-4067-a47b-3e4750a3a537",
+                  "Name": "Hand_L IK Target",
+                  "Enabled": true,
+                  "Position": "-0.6034711,1.803831,-0.6885564",
+                  "Rotation": "0,0,0,1",
                   "Scale": "1,1,1",
                   "Tags": ""
                 }

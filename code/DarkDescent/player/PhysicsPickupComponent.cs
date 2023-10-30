@@ -71,7 +71,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		if ( !HoldingItem )
 			return;
 		
-		Crosshair.Instance?.SetClass( "interact", false );
+		Crosshair.Instance?.CrosshairInternal?.SetClass( "interact", false );
 
 		var player = GameObject.GetComponent<DarkDescentPlayerController>();
 			
@@ -97,7 +97,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 
 	private bool TryPickup()
 	{
-		Crosshair.Instance?.SetClass( "interact", false );
+		Crosshair.Instance?.CrosshairInternal?.SetClass( "interact", false );
 		
 		var player = GameObject.GetComponent<DarkDescentPlayerController>();
 		
@@ -119,7 +119,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		                         pickupTarget.StrengthThreshold - pickupTarget.StrengthLeeway;
 
 
-		Crosshair.Instance?.SetClass( "interact", true );
+		Crosshair.Instance?.CrosshairInternal?.SetClass( "interact", true );
 		Crosshair.InteractPossible = passedStrengthTest;
 		
 		if ( !Input.Pressed( "use" ) )

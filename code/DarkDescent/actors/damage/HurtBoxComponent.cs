@@ -31,7 +31,7 @@ public class HurtBoxComponent : BaseComponent
 		
 		using var scope = Gizmo.Scope( $"{GetHashCode()}" );
 		
-		Gizmo.Transform = Gizmo.Transform.WithScale( 1 );
+		Gizmo.Transform = Transform.World.WithScale( 1 );
 		Gizmo.Draw.Color = Color.Green;
 
 		Gizmo.Draw.LineCapsule( new Capsule( Center1, Center2, Radius ) );
@@ -46,8 +46,8 @@ public class HurtBoxComponent : BaseComponent
 
 		var tr = PerformTrace();
 
-		Gizmo.Transform = Transform.World;
-		Gizmo.Draw.Color = tr.Hit ? Color.Red : Color.Green;
+		Gizmo.Transform = Transform.World.WithScale( 1 );
+		Gizmo.Draw.Color = Color.Green;
 
 		Gizmo.Draw.LineCapsule( new Capsule( Center1, Center2, Radius ) );
 	}

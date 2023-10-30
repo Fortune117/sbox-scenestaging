@@ -10,7 +10,10 @@ public partial class Crosshair : Panel
 	public static Crosshair Instance;
 	public static bool InteractPossible { get; set; }
 	
+	public Panel AimPip { get; set; }
+	
 	private Panel InteractFailureOverlay { get; set; }
+	public Panel CrosshairInternal { get; set; }
 	private string Action { get; set; }
 
 	public Crosshair()
@@ -20,7 +23,24 @@ public partial class Crosshair : Panel
 
 	public static void SetVisible(bool b)
 	{
-		Instance?.SetClass("visible", b);
+		Instance.CrosshairInternal?.SetClass("visible", b);
+	}
+
+	public static void SetAimPipVector(Vector2 inputAngle)
+	{
+		if ( Instance?.AimPip is null )
+			return;
+		
+		var angle = inputAngle.Degrees - 90;
+		angle = angle.NormalizeDegrees();
+			
+		var transform = new PanelTransform();
+		transform.AddRotation( new Vector3( 0, 0, angle ) );
+		transform.AddTranslate( Length.Percent( -50 ), Length.Percent( -50 ) );
+
+		Instance.AimPip.Style.TransformOriginX = Length.Percent( -100 );
+		Instance.AimPip.Style.TransformOriginY = Length.Percent( -100 );
+		Instance.AimPip.Style.Transform = transform;
 	}
 
 	public override void Tick()
