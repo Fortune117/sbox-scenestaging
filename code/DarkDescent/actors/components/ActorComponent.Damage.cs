@@ -7,10 +7,13 @@ using Sandbox;
 
 namespace DarkDescent.Actor;
 
-public partial class ActorComponent
+public partial class ActorComponent : IDamageable
 {
 	[Property, Category("Damage")]
 	private List<DamageEffectInfo> DamageEffectInfos { get; set; }
+
+	[Property] 
+	public bool CauseHitBounce { get; set; } = false;
 	
 	/// <summary>
 	/// When we take damage, we assume it's going to be mostly unprocessed damage.
@@ -18,6 +21,8 @@ public partial class ActorComponent
 	/// <param name="damageEventData"></param>
 	public void TakeDamage( DamageEventData damageEventData )
 	{
+		damageEventData.Target = this;
+		
 		//apply our resistances as we take damage
 		ApplyResistances( ref damageEventData );
 		
@@ -25,26 +30,6 @@ public partial class ActorComponent
 		if ( physics is not null && physics.GetBody() is not null )
 		{
 			ApplyKnockBack( physics.GetBody(), damageEventData );
-		}
-
-		if ( TryGetComponent<PhysicsComponent>( out var physicsComponent ) )
-		{
-			/*PhysicsBody closestBody = null;
-			var closestDistance = float.PositiveInfinity;
-			foreach ( var body in physicsComponent.PhysicsGroup.Bodies )
-			{
-				var distance = body.Position.Distance( damageInfo.Position );
-				if (  distance < closestDistance )
-				{
-					closestBody = body;
-					closestDistance = distance;
-				}
-			}*/
-
-			var body = physicsComponent.GetBody();
-
-			if (body is not null)
-				ApplyKnockBack( body, damageEventData );
 		}
 		
 		//CreateDamageEffects(damageEventData, damageInfo);

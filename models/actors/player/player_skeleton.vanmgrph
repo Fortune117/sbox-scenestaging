@@ -64,7 +64,7 @@
 					{
 						m_id = 74975768
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputNodeID = 
 					{
@@ -173,12 +173,12 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2528.0, -80.0 ]
+					m_vecPosition = [ -2528.0, -96.0 ]
 					m_nNodeID = 
 					{
 						m_id = 101244440
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputNodeID = 
 					{
@@ -599,7 +599,7 @@
 					{
 						m_id = 334711994
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputNodeID = 
 					{
@@ -852,7 +852,7 @@
 					{
 						m_id = 392131159
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputNodeID = 
 					{
@@ -1201,7 +1201,7 @@
 					{
 						m_id = 810951467
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputNodeID = 
 					{
@@ -1995,7 +1995,7 @@
 					{
 						m_id = 1562656540
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputNodeID = 
 					{

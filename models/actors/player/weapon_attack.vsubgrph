@@ -53,7 +53,7 @@
 					{
 						m_id = 1246598933
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_proxyItems = 
 					[
@@ -92,7 +92,7 @@
 					{
 						m_id = 1693480057
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_proxyItems = 
 					[

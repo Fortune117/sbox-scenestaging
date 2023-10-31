@@ -57,7 +57,7 @@ public partial class DarkDescentPlayerController
 	}
 
 	private bool hitboxesActive;
-	private readonly HashSet<ActorComponent> HitActors = new();
+	private readonly HashSet<IDamageable> hitDamageables = new();
 
 	private void AttackUpdate()
 	{
@@ -172,21 +172,27 @@ public partial class DarkDescentPlayerController
 		if ( gameObject is not GameObject hitGameObject )
 			return;
 
-		var hitActor = hitGameObject.GetComponentInParent<ActorComponent>( true, true );
-		if ( hitActor is null ) //impacted the world?
+		var damageable = hitGameObject.GetComponentInParent<IDamageable>( true, true );
+		if ( damageable is null ) //impacted the world?
 		{
 			if (tr.Fraction < CarriedItemComponent.BounceFraction)
 				BounceAttack();
 			return;
 		}
 
-		if ( hitActor == ActorComponent )
+		if ( damageable == ActorComponent )
 			return;
 
-		if ( HitActors.Contains( hitActor ) )
+		if ( hitDamageables.Contains( damageable ) )
 			return;
 
-		HitActors.Add( hitActor );
+		hitDamageables.Add( damageable );
+
+		if ( damageable.CauseHitBounce )
+		{
+			BounceAttack();
+			return;
+		}
 
 		DoHitStop();
 		
@@ -194,7 +200,6 @@ public partial class DarkDescentPlayerController
 
 		var damage = new DamageEventData()
 			.WithOriginator( ActorComponent )
-			.WithTarget( hitActor )
 			.WithPosition( tr.HitPosition + tr.Normal * 5f )
 			.WithDirection( CarriedItemComponent.GetImpactDirection() )
 			.WithKnockBack( knockback )
@@ -203,7 +208,7 @@ public partial class DarkDescentPlayerController
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
 
-		hitActor.TakeDamage( damage );
+		damageable.TakeDamage( damage );
 	}
 
 	private void DoHitStop()
@@ -284,7 +289,7 @@ public partial class DarkDescentPlayerController
 
 	private void ActivateHitBoxes()
 	{
-		HitActors.Clear();
+		hitDamageables.Clear();
 		hitboxesActive = true;
 	}
 
