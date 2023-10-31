@@ -49,8 +49,17 @@ public partial class DarkDescentPlayerController : BaseComponent
 	public override void Update()
 	{
 		// Eye input
-		internalEyeAngles.pitch += Input.MouseDelta.y * 0.1f;
-		internalEyeAngles.yaw -= Input.MouseDelta.x * 0.1f;
+
+		var input = Input.MouseDelta * 0.1f;
+
+		if ( isAttacking )
+		{
+			input = new Vector2( input.x.Clamp( -CarriedItemComponent.TurnCapX, CarriedItemComponent.TurnCapX ),
+				input.y.Clamp( -CarriedItemComponent.TurnCapY, CarriedItemComponent.TurnCapY ) );
+		}
+		
+		internalEyeAngles.pitch += input.y;
+		internalEyeAngles.yaw -= input.x;
 		internalEyeAngles.pitch = internalEyeAngles.pitch.Clamp( -89f, 89f );
 		internalEyeAngles.roll = 0;
 		internalEyeAngles = internalEyeAngles.Normal;

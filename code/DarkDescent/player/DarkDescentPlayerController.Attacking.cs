@@ -64,7 +64,7 @@ public partial class DarkDescentPlayerController
 		if ( attackStopped && TimeSinceAttackStopped < CarriedItemComponent.RecoveryTime )
 			return;
 		
-		if ( TimeSinceLastHit > 0.07f && !attackStopped )
+		if ( TimeSinceLastHit > 0.09f && !attackStopped )
 			HitStopSpeedScale = 1f;
 		
 		if (!attackStopped)

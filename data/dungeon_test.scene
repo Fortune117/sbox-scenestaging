@@ -1195,6 +1195,8 @@
                   "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
                   "RecoveryTime": 0.5,
                   "ReleaseTime": 0.5,
+                  "TurnCapX": 2,
+                  "TurnCapY": 2,
                   "WindupTime": 0.5
                 },
                 {

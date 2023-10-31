@@ -31,6 +31,12 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	[Property, Range(0, 3)]
 	public float RecoveryTime { get; set; }
 
+	[Property, Range( 0, 5 )] 
+	public float TurnCapX { get; set; } = 2f;
+	
+	[Property, Range(0, 5)]
+	public float TurnCapY { get; set; } = 2f;
+
 	/// <summary>
 	/// How far the trace has to be before the attack no longer bounces upon hitting a solid surface.
 	/// </summary>
