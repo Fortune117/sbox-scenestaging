@@ -38,7 +38,7 @@
   "DivinePenetration": 0,
   "OccultPenetration": 0,
   "CriticalMultiplier": 1.5,
-  "KnockBack": 150,
+  "KnockBack": 0,
   "Armor": 0,
   "Warding": 0,
   "FireResistance": 0,

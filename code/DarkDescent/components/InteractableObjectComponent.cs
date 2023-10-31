@@ -48,7 +48,7 @@ public partial class InteractableObjectComponent : BaseComponent, IDamageable
 		var frac = strengthDif.Remap( 0, 100, 0.2f, 0.75f );
 
 		body.ApplyForceAt( body.FindClosestPoint( damageEventData.Position ),
-			damageEventData.Direction * damageEventData.KnockBackResult * frac * body.Mass * 1000 );
+			damageEventData.Direction * frac * body.Mass * 150000 );
 	}
 
 }
