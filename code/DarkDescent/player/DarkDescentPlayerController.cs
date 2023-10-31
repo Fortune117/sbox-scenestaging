@@ -54,8 +54,8 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 		if ( isAttacking )
 		{
-			input = new Vector2( input.x.Clamp( -CarriedItemComponent.TurnCapX, CarriedItemComponent.TurnCapX ),
-				input.y.Clamp( -CarriedItemComponent.TurnCapY, CarriedItemComponent.TurnCapY ) );
+			input = new Vector2( input.x.Clamp( -CarriedItemComponent.TurnCapX * Time.Delta, CarriedItemComponent.TurnCapX * Time.Delta ),
+				input.y.Clamp( -CarriedItemComponent.TurnCapY * Time.Delta, CarriedItemComponent.TurnCapY * Time.Delta ) );
 		}
 		
 		internalEyeAngles.pitch += input.y;
