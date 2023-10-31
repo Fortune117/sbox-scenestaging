@@ -90,7 +90,6 @@ public partial class DarkDescentPlayerController
 			}
 			else if (hitboxesActive)
 			{
-				Log.Info( "test" );
 				OnAttackEnd();
 			}
 		}
