@@ -1200,7 +1200,6 @@
                   "__enabled": false,
                   "Center1": "5.299997,0,0",
                   "Center2": "43.79998,0,0",
-                  "HitDirection": "9ece1909-203b-4145-8636-f113e2d25d40",
                   "Radius": 2
                 }
               ],
@@ -1485,12 +1484,122 @@
           "__enabled": true,
           "StrengthLeeway": 5,
           "StrengthThreshold": 10
+        }
+      ]
+    },
+    {
+      "Id": "1a0bb576-7625-4d7f-b92f-9d425bd60f33",
+      "Name": "Target Dummy (1)",
+      "Enabled": true,
+      "Position": "-330.4048,-59.67177,-0.0003221387",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "actor",
+      "Components": [
+        {
+          "__type": "ActorComponent",
+          "__enabled": true,
+          "BaseStats": "data/prefabs/target_dummy_stats.stats",
+          "DamageEffectInfos": null,
+          "InfoPanelOffset": 0,
+          "InfoPanelPrefab": "data/actor_info_panel.object",
+          "PanelDrawDistance": 300,
+          "PrimaryAttribute": "Strength",
+          "ShowInfoPanel": true,
+          "SpellCastingAttribute": "Intelligence",
+          "StaminaJumpCost": 0,
+          "StaminaSprintCost": 0
         },
         {
-          "__type": "PhysicsTagger",
-          "__enabled": false,
-          "DiscardOriginalTags": false,
-          "Tags": "dummy"
+          "__type": "ModelCollider",
+          "__enabled": true,
+          "IsTrigger": false,
+          "Model": "models/actors/target_dummy/target_dummy.vmdl",
+          "Surface": null
+        },
+        {
+          "__type": "PhysicsComponent",
+          "__enabled": true,
+          "Gravity": true,
+          "Static": false
+        },
+        {
+          "__type": "AutoStandComponent",
+          "__enabled": true,
+          "SettleSpeed": 150
+        },
+        {
+          "__type": "ModelComponent",
+          "__enabled": true,
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": null,
+          "Model": "models/actors/target_dummy/target_dummy.vmdl",
+          "ShouldCastShadows": true,
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PickupTargetComponent",
+          "__enabled": true,
+          "StrengthLeeway": 5,
+          "StrengthThreshold": 10
+        }
+      ]
+    },
+    {
+      "Id": "3e851fdc-cefe-43a0-a515-b7d727179bdf",
+      "Name": "Target Dummy (2)",
+      "Enabled": true,
+      "Position": "-330.4048,-5.373247,-0.0003221387",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "actor",
+      "Components": [
+        {
+          "__type": "ActorComponent",
+          "__enabled": true,
+          "BaseStats": "data/prefabs/target_dummy_stats.stats",
+          "DamageEffectInfos": null,
+          "InfoPanelOffset": 0,
+          "InfoPanelPrefab": "data/actor_info_panel.object",
+          "PanelDrawDistance": 300,
+          "PrimaryAttribute": "Strength",
+          "ShowInfoPanel": true,
+          "SpellCastingAttribute": "Intelligence",
+          "StaminaJumpCost": 0,
+          "StaminaSprintCost": 0
+        },
+        {
+          "__type": "ModelCollider",
+          "__enabled": true,
+          "IsTrigger": false,
+          "Model": "models/actors/target_dummy/target_dummy.vmdl",
+          "Surface": null
+        },
+        {
+          "__type": "PhysicsComponent",
+          "__enabled": true,
+          "Gravity": true,
+          "Static": false
+        },
+        {
+          "__type": "AutoStandComponent",
+          "__enabled": true,
+          "SettleSpeed": 150
+        },
+        {
+          "__type": "ModelComponent",
+          "__enabled": true,
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": null,
+          "Model": "models/actors/target_dummy/target_dummy.vmdl",
+          "ShouldCastShadows": true,
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "PickupTargetComponent",
+          "__enabled": true,
+          "StrengthLeeway": 5,
+          "StrengthThreshold": 10
         }
       ]
     },
