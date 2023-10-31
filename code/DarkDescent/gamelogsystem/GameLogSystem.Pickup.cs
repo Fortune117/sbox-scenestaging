@@ -7,7 +7,7 @@ namespace DarkDescent.GameLog;
 public static partial class GameLogSystem
 {
 		
-	public static void PlayerPickupObject( PickupTargetComponent target, bool struggle )
+	public static void PlayerPickupObject( InteractableObjectComponent target, bool struggle )
 	{
 		var actionString = struggle
 			? Language.GetPhrase( GameLogEvents.Interactions.Pickup.Struggle )
@@ -26,7 +26,7 @@ public static partial class GameLogSystem
 		GameLogPanel.AddEntry( actionString );
 	}
 
-	public static void PlayerDropObject( PickupTargetComponent target )
+	public static void PlayerDropObject( InteractableObjectComponent target )
 	{
 		var actionString = Language.GetPhrase( GameLogEvents.Interactions.Pickup.Drop );
 
@@ -43,7 +43,7 @@ public static partial class GameLogSystem
 		GameLogPanel.AddEntry( actionString );
 	}
 	
-	public static void PlayerThrowObject( PickupTargetComponent target )
+	public static void PlayerThrowObject( InteractableObjectComponent target )
 	{
 		var actionString = Language.GetPhrase( GameLogEvents.Interactions.Pickup.Throw );
 
@@ -60,7 +60,7 @@ public static partial class GameLogSystem
 		GameLogPanel.AddEntry( actionString );
 	}
 
-	public static void PlayerFailToPickup( PickupTargetComponent target )
+	public static void PlayerFailToPickup( InteractableObjectComponent target )
 	{
 		var actionString = Language.GetPhrase( GameLogEvents.Interactions.Pickup.TooHeavy );
 
@@ -80,7 +80,7 @@ public static partial class GameLogSystem
 
 	public static void PlayerStrengthFailPickup( GameObject gameObject )
 	{
-		var target = gameObject.GetComponent<PickupTargetComponent>();
+		var target = gameObject.GetComponent<InteractableObjectComponent>();
 		if ( target is null )
 			return;
 		
@@ -102,7 +102,7 @@ public static partial class GameLogSystem
 
 	public static void PlayerLoseGrip( GameObject gameObject )
 	{
-		var target = gameObject.GetComponent<PickupTargetComponent>();
+		var target = gameObject.GetComponent<InteractableObjectComponent>();
 		if ( target is null )
 			return;
 		

@@ -1,0 +1,54 @@
+﻿using DarkDescent.Actor.Damage;
+using Sandbox;
+
+namespace DarkDescent.Components;
+
+public partial class InteractableObjectComponent : BaseComponent, IDamageable
+{
+	[Property]
+	public bool CanPickUp { get; set; }
+	
+	/// <summary>
+	/// How much strength is required to pick up this object.
+	/// </summary>
+	[Property, Range( 0, 100 )]
+	public float StrengthThreshold { get; set; } = 10;
+
+	/// <summary>
+	/// How much strength below the threshold can we be and still move the object?
+	/// </summary>
+	[Property,  Range( 0, 100 )]
+	public float StrengthLeeway { get; set; } = 5;
+	
+	[Property]
+	public bool CauseHitBounce { get; set; }
+	
+	public void TakeDamage( DamageEventData damageEventData )
+	{
+		var physics = GetComponent<PhysicsComponent>( true, true );
+		if ( physics is not null && physics.GetBody() is not null )
+		{
+			ApplyKnockBack( physics.GetBody(), damageEventData );
+		}
+	}
+
+	private void ApplyKnockBack( PhysicsBody body, DamageEventData damageEventData )
+	{
+		if ( !body.IsValid() )
+			return;
+
+		if ( damageEventData.Originator is null )
+			return;
+
+		var strengthDif = damageEventData.Originator.Stats.Strength - StrengthThreshold + StrengthLeeway;
+
+		if ( strengthDif <= 0 )
+			return;
+
+		var frac = strengthDif.Remap( 0, 100, 0.2f, 0.75f );
+
+		body.ApplyForceAt( body.FindClosestPoint( damageEventData.Position ),
+			damageEventData.Direction * damageEventData.KnockBackResult * frac * body.Mass * 1000 );
+	}
+
+}

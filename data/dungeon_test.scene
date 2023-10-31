@@ -1291,12 +1291,6 @@
       "Tags": "",
       "Components": [
         {
-          "__type": "PickupTargetComponent",
-          "__enabled": true,
-          "StrengthLeeway": 5,
-          "StrengthThreshold": 10
-        },
-        {
           "__type": "PhysicsComponent",
           "__enabled": true,
           "Gravity": true,
@@ -1319,9 +1313,12 @@
           "Surface": null
         },
         {
-          "__type": "DamageableObject",
+          "__type": "InteractableObjectComponent",
           "__enabled": true,
-          "CauseHitBounce": true
+          "CanPickUp": true,
+          "CauseHitBounce": true,
+          "StrengthLeeway": 5,
+          "StrengthThreshold": 10
         }
       ]
     },
@@ -1335,12 +1332,6 @@
       "Tags": "",
       "Components": [
         {
-          "__type": "PickupTargetComponent",
-          "__enabled": true,
-          "StrengthLeeway": 15,
-          "StrengthThreshold": 60
-        },
-        {
           "__type": "PhysicsComponent",
           "__enabled": true,
           "Gravity": true,
@@ -1363,9 +1354,12 @@
           "Surface": null
         },
         {
-          "__type": "DamageableObject",
+          "__type": "InteractableObjectComponent",
           "__enabled": true,
-          "CauseHitBounce": true
+          "CanPickUp": true,
+          "CauseHitBounce": true,
+          "StrengthLeeway": 15,
+          "StrengthThreshold": 60
         }
       ]
     },
@@ -1491,12 +1485,6 @@
           "Model": "models/actors/target_dummy/target_dummy.vmdl",
           "ShouldCastShadows": true,
           "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "PickupTargetComponent",
-          "__enabled": true,
-          "StrengthLeeway": 5,
-          "StrengthThreshold": 10
         }
       ]
     },
@@ -1550,12 +1538,6 @@
           "Model": "models/actors/target_dummy/target_dummy.vmdl",
           "ShouldCastShadows": true,
           "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "PickupTargetComponent",
-          "__enabled": true,
-          "StrengthLeeway": 5,
-          "StrengthThreshold": 10
         }
       ]
     },
@@ -1609,12 +1591,6 @@
           "Model": "models/actors/target_dummy/target_dummy.vmdl",
           "ShouldCastShadows": true,
           "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "PickupTargetComponent",
-          "__enabled": true,
-          "StrengthLeeway": 5,
-          "StrengthThreshold": 10
         }
       ]
     },
