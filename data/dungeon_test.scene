@@ -78,8 +78,8 @@
           "StaminaDrainBase": 1,
           "StaminaDrainPerMissingStrength": 1,
           "StaminaThrowCost": 5,
-          "ThrowForceBase": 500,
-          "ThrowForcePerStrength": 150
+          "ThrowForceBase": 300,
+          "ThrowForcePerStrength": 10
         },
         {
           "__type": "CharacterController",
