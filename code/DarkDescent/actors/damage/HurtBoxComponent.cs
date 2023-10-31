@@ -55,6 +55,7 @@ public class HurtBoxComponent : BaseComponent
 	public PhysicsTraceResult PerformTrace()
 	{
 		var tr = Physics.Trace.Ray( Transform.World.TransformVector( Center1 ), Transform.World.TransformVector( Center2 ) )
+			.WithoutTags( "nohit" )
 			.Radius( Radius )
 			.Run();
 

@@ -204,6 +204,43 @@
 				]
 				default_root_bone_name = ""
 			},
+			{
+				_class = "PhysicsShapeList"
+				children = 
+				[
+					{
+						_class = "PhysicsShapeBox"
+						parent_bone = "Root"
+						surface_prop = "default"
+						collision_tags = "solid"
+						origin = [ 20.710888, 162.988297, 1.1087 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						dimensions = [ 18.756294, 19.881256, 14.258605 ]
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "Root"
+								surface_property = ""
+								translation_only = false
+								tags = "actor"
+								hitbox_mins = [ -28.554564, -1.0, -23.985485 ]
+								hitbox_maxs = [ 37.232277, 163.550293, 31.502926 ]
+							},
+						]
+					},
+				]
+			},
 		]
 		model_archetype = ""
 		primary_associated_entity = ""
