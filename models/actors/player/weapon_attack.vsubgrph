@@ -15,7 +15,7 @@
 				{
 					_class = "CSpeedScaleAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -118.903564, -72.0 ]
+					m_vecPosition = [ -144.0, -48.0 ]
 					m_nNodeID = 
 					{
 						m_id = 735615087
@@ -48,7 +48,7 @@
 				{
 					_class = "CGroupOutputAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 416.0, 32.0 ]
+					m_vecPosition = [ 416.0, 16.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1246598933
@@ -162,7 +162,7 @@
 				{
 					_class = "CSpeedScaleAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -134.903564, 72.0 ]
+					m_vecPosition = [ -144.0, 80.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1794657185
@@ -195,7 +195,7 @@
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 134.903809, 18.439789 ]
+					m_vecPosition = [ 128.0, 0.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1974515476
@@ -366,7 +366,7 @@
 				{
 					_class = "CSpeedScaleAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -134.903564, 8.0 ]
+					m_vecPosition = [ -144.0, 16.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2105206501

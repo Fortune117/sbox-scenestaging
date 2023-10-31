@@ -324,6 +324,28 @@
 						[
 							{
 								_class = "AnimFile"
+								name = "longsword_idle_pose"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 6
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
 								name = "longsword_idle"
 								children = 
 								[
@@ -1113,6 +1135,36 @@
 										reverse = false
 									},
 								]
+							},
+							{
+								_class = "AnimFile"
+								name = "longsword_swing_bounce"
+								children = 
+								[
+									{
+										_class = "AnimSubtract"
+										anim_name = "longsword_idle_pose"
+										frame = 0
+									},
+								]
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_player.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 13
+								reverse = false
 							},
 						]
 					},

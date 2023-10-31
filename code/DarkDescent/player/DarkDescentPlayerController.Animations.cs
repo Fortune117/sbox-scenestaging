@@ -61,13 +61,14 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
 		modelComponent.Set( "vLeftHandIKTarget", LeftIKTarget.Transform.Position );
 
-		if ( attackStopped && TimeSinceAttackStopped < 0.5f )
+		if ( attackStopped && TimeSinceAttackStopped < CarriedItemComponent.RecoveryTime )
 			return;
 		
 		if ( TimeSinceLastHit > 0.08f && !attackStopped )
 			HitStopSpeedScale = 1f;//HitStopSpeedScale.Approach( 1f, 3f * Time.Delta );
 		
-		modelComponent.Set( "fHitStopSpeedScale", HitStopSpeedScale );
+		if (!attackStopped)
+			modelComponent.Set( "fHitStopSpeedScale", HitStopSpeedScale );
 		
 		if (Input.MouseDelta.Length > 0.1f)
 			inputVectorBuffer = inputVectorBuffer.Prepend( Input.MouseDelta ).Take( inputVectorBufferSize ).ToArray();
@@ -129,7 +130,7 @@ public partial class DarkDescentPlayerController
 			Crosshair.SetAimPipVector( average );
 		}
 		
-		if ( !TimeUntilNextAttack && TimeUntilCanCombo && !TimeUntilComboInvalid && Input.Down( "Attack1" ) )
+		if ( !attackStopped && !TimeUntilNextAttack && TimeUntilCanCombo && !TimeUntilComboInvalid && Input.Down( "Attack1" ) )
 		{
 			attackSide++;
 			attackSide %= 2;
