@@ -188,12 +188,6 @@ public partial class DarkDescentPlayerController
 
 		hitDamageables.Add( damageable );
 
-		if ( damageable.CauseHitBounce )
-		{
-			BounceAttack();
-			return;
-		}
-
 		DoHitStop();
 		
 		var knockback = ActorComponent is not null ? ActorComponent.Stats.KnockBack : 0;
@@ -209,6 +203,12 @@ public partial class DarkDescentPlayerController
 			.AsCritical( false );
 
 		damageable.TakeDamage( damage );
+		
+		if ( damageable.CauseHitBounce )
+		{
+			BounceAttack();
+			return;
+		}
 	}
 
 	private void DoHitStop()

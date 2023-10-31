@@ -101,6 +101,7 @@ public struct DamageEventData
 	public DamageEventData WithKnockBack( float knockback )
 	{
 		KnockBackOriginal = knockback;
+		KnockBackResult = knockback;
 		return this;
 	}
 
