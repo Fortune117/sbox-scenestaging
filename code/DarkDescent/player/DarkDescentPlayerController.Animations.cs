@@ -35,8 +35,7 @@ public partial class DarkDescentPlayerController
 			return;
 		
 		var animHelper = new CitizenSceneAnimationHelper( modelComponent.SceneObject );
-
-		Scene.TimeScale = 1f;
+		
 		animHelper.IsClimbing = false;
 		animHelper.IsGrounded = CharacterController.IsOnGround;
 		animHelper.IsSitting = false;
@@ -70,7 +69,7 @@ public partial class DarkDescentPlayerController
 		
 		if ( isAttacking )
 		{
-			if ( TimeSinceAttackStarted < CarriedItemComponent.WindupTime + CarriedItemComponent.ReleaseTime )
+			if ( TimeSinceAttackStarted > CarriedItemComponent.WindupTime )
 			{
 				if (!hitboxesActive)
 					OnAttackStart();
@@ -83,7 +82,7 @@ public partial class DarkDescentPlayerController
 
 		if ( isDoingCombo )
 		{ 
-			if ( TimeSinceComboStarted < CarriedItemComponent.WindupTime + CarriedItemComponent.ReleaseTime )
+			if ( TimeSinceComboStarted > CarriedItemComponent.WindupTime )
 			{
 				if (!hitboxesActive)
 					OnAttackStart();
