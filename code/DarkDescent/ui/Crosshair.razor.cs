@@ -31,8 +31,18 @@ public partial class Crosshair : Panel
 		if ( Instance?.AimPip is null )
 			return;
 		
-		var angle = inputAngle.Degrees - 90;
-		angle = angle.NormalizeDegrees();
+		var angle = inputAngle.Degrees;
+		
+		if ( angle > 0 && angle < 180 )
+		{
+			angle = angle.Clamp( 35, 145 );
+		}
+		else
+		{
+			angle = angle.Clamp(215, 325);
+		}
+
+		angle -= 90;
 			
 		var transform = new PanelTransform();
 		transform.AddRotation( new Vector3( 0, 0, angle ) );
