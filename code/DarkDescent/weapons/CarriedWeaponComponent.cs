@@ -30,6 +30,12 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	/// </summary>
 	[Property, Range(0, 3)]
 	public float RecoveryTime { get; set; }
+
+	/// <summary>
+	/// How far the trace has to be before the attack no longer bounces upon hitting a solid surface.
+	/// </summary>
+	[Property, Range( 0, 1 )]
+	public float BounceFraction { get; set; } = 1f;
 	
 	[Property]
 	private HurtBoxComponent HurtBox { get; set; }

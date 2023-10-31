@@ -1188,6 +1188,7 @@
                 {
                   "__type": "CarriedWeaponComponent",
                   "__enabled": true,
+                  "BounceFraction": 0.6,
                   "ComboTime": 0.7,
                   "FollowBoneMerge": true,
                   "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
