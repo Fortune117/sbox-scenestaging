@@ -90,7 +90,7 @@ public partial class ActorComponent : IDamageable
 			return;
 		
 		body.ApplyForceAt( body.FindClosestPoint( damageEventData.Position ),
-			damageEventData.Direction * damageEventData.KnockBackResult * body.Mass * 300 );
+			damageEventData.Direction * damageEventData.KnockBackResult * body.Mass * 600 );
 	}
 	
 	public void CreateDamageNumber(DamageEventData damageEventData)

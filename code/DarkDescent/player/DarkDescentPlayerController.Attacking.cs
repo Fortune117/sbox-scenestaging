@@ -100,6 +100,11 @@ public partial class DarkDescentPlayerController
 			{
 				DeactivateHitBoxes();
 			}
+
+			if ( TimeSinceAttackStarted > windUpAndRelease + 0.05f )
+			{
+				isAttacking = false;
+			}
 		}
 
 		if ( isDoingCombo )
@@ -113,16 +118,12 @@ public partial class DarkDescentPlayerController
 			{
 				DeactivateHitBoxes();
 			}
-		}
 
-		if ( TimeUntilNextAttack )
-		{
-			isAttacking = false;
-		}
-
-		if ( TimeUntilComboInvalid )
-		{
-			isDoingCombo = false;
+			if ( TimeSinceComboStarted > windUpAndRelease + 0.05f )
+			{
+				isAttacking = false;
+				isDoingCombo = false;
+			}
 		}
 
 		if ( !isAttacking )
