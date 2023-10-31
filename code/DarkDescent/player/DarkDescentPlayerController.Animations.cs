@@ -19,6 +19,7 @@ public partial class DarkDescentPlayerController
 	private int count;
 	
 	private bool bufferedAttack;
+	private bool attackStopped;
 	
 	private Vector2 lockedInputVector = Vector2.Zero;
 	private Vector2[] inputVectorBuffer = new Vector2[inputVectorBufferSize];
@@ -31,6 +32,7 @@ public partial class DarkDescentPlayerController
 
 	private float HitStopSpeedScale = 1f;
 	private TimeSince TimeSinceLastHit;
+	private TimeSince TimeSinceAttackStopped;
 	
 	private void UpdateAnimations()
 	{
@@ -59,11 +61,14 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
 		modelComponent.Set( "vLeftHandIKTarget", LeftIKTarget.Transform.Position );
 
-		if (TimeSinceLastHit > 0.02f)
-			HitStopSpeedScale = HitStopSpeedScale.Approach( 1f, 3f * Time.Delta );
+		if ( attackStopped && TimeSinceAttackStopped < 0.5f )
+			return;
+		
+		if ( TimeSinceLastHit > 0.08f && !attackStopped )
+			HitStopSpeedScale = 1f;//HitStopSpeedScale.Approach( 1f, 3f * Time.Delta );
 		
 		modelComponent.Set( "fHitStopSpeedScale", HitStopSpeedScale );
-
+		
 		if (Input.MouseDelta.Length > 0.1f)
 			inputVectorBuffer = inputVectorBuffer.Prepend( Input.MouseDelta ).Take( inputVectorBufferSize ).ToArray();
 		
@@ -145,7 +150,8 @@ public partial class DarkDescentPlayerController
 			TimeUntilNextAttack = windUpAndRelease + CarriedItemComponent.RecoveryTime / ActorComponent.Stats.ActionSpeed ;
 			TimeUntilCanCombo = windUpAndRelease;
 			TimeUntilComboInvalid = windUpAndRelease + (CarriedItemComponent.RecoveryTime/2f)/ ActorComponent.Stats.ActionSpeed;
-
+			attackStopped = false;
+			
 			Crosshair.SetAimPipVector( average.WithX( attackSide.Remap( 0, 1, -1, 1 ) ) );
 			
 			//combo started, make sure our hitboxes turn off
@@ -190,6 +196,7 @@ public partial class DarkDescentPlayerController
 		TimeUntilCanCombo = windUpAndRelease;
 		TimeUntilComboInvalid = windUpAndRelease + (CarriedItemComponent.RecoveryTime/2f)/ ActorComponent.Stats.ActionSpeed;
 		TimeSinceAttackStarted = 0;
+		attackStopped = false;
 		
 		bufferedAttack = false;
 		isAttacking = true;

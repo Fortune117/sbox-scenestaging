@@ -56,7 +56,6 @@ public class HurtBoxComponent : BaseComponent
 	{
 		var tr = Physics.Trace.Ray( Transform.World.TransformVector( Center1 ), Transform.World.TransformVector( Center2 ) )
 			.Radius( Radius )
-			.WithTag( "actor" )
 			.Run();
 
 		return tr;

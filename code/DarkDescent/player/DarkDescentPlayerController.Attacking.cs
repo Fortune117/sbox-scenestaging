@@ -61,7 +61,21 @@ public partial class DarkDescentPlayerController
 			return;
 
 		var hitActor = hitGameObject.GetComponentInParent<ActorComponent>( true, true );
-		if ( hitActor is null )
+		if ( hitActor is null ) //impacted the world?
+		{
+			if ( Body.TryGetComponent<AnimatedModelComponent>( out var modelComponent ) )
+			{
+				isAttacking = false;
+				attackStopped = true;
+				TimeSinceAttackStopped = 0;
+				modelComponent.Set( "fHitStopSpeedScale", 0f );
+				modelComponent.Set( "bAttackStopped", true );
+			}
+			
+			return;
+		}
+
+		if ( hitActor == ActorComponent )
 			return;
 
 		if ( HitActors.Contains( hitActor ) )
