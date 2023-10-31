@@ -136,6 +136,8 @@ public partial class DarkDescentPlayerController
 			modelComponent.Set( "eAttackSide",  attackSide );
 			modelComponent.Set( "bCombo", true );
 			
+			HitStopSpeedScale = 1;
+			
 			isAttacking = true;
 			isDoingCombo = true;
 
