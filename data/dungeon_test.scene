@@ -59,6 +59,7 @@
           "__type": "ActorComponent",
           "__enabled": true,
           "BaseStats": "data/prefabs/player.stats",
+          "CauseHitBounce": false,
           "DamageEffectInfos": null,
           "InfoPanelOffset": 0,
           "InfoPanelPrefab": "data/actor_info_panel.object",
@@ -1316,6 +1317,11 @@
           "IsTrigger": false,
           "Model": "models/props/storage/crate_01.vmdl",
           "Surface": null
+        },
+        {
+          "__type": "DamageableObject",
+          "__enabled": true,
+          "CauseHitBounce": true
         }
       ]
     },
@@ -1355,6 +1361,11 @@
           "IsTrigger": false,
           "Model": "models/props/tools/anvil_01.vmdl",
           "Surface": null
+        },
+        {
+          "__type": "DamageableObject",
+          "__enabled": true,
+          "CauseHitBounce": true
         }
       ]
     },
@@ -1443,6 +1454,7 @@
           "__type": "ActorComponent",
           "__enabled": true,
           "BaseStats": "data/prefabs/target_dummy_stats.stats",
+          "CauseHitBounce": false,
           "DamageEffectInfos": null,
           "InfoPanelOffset": 0,
           "InfoPanelPrefab": "data/actor_info_panel.object",
@@ -1501,6 +1513,7 @@
           "__type": "ActorComponent",
           "__enabled": true,
           "BaseStats": "data/prefabs/target_dummy_stats.stats",
+          "CauseHitBounce": false,
           "DamageEffectInfos": null,
           "InfoPanelOffset": 0,
           "InfoPanelPrefab": "data/actor_info_panel.object",
@@ -1559,6 +1572,7 @@
           "__type": "ActorComponent",
           "__enabled": true,
           "BaseStats": "data/prefabs/target_dummy_stats.stats",
+          "CauseHitBounce": false,
           "DamageEffectInfos": null,
           "InfoPanelOffset": 0,
           "InfoPanelPrefab": "data/actor_info_panel.object",
@@ -1666,6 +1680,7 @@
           "__type": "ActorComponent",
           "__enabled": true,
           "BaseStats": "data/prefabs/flame_skull.stats",
+          "CauseHitBounce": false,
           "DamageEffectInfos": null,
           "InfoPanelOffset": 10,
           "InfoPanelPrefab": "data/actor_info_panel.object",
