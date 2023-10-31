@@ -28,6 +28,9 @@ public partial class DarkDescentPlayerController
 	private TimeUntil TimeUntilComboInvalid;
 	private TimeSince TimeSinceAttackStarted;
 	private TimeSince TimeSinceComboStarted;
+
+	private float HitStopSpeedScale = 1f;
+	private TimeSince TimeSinceLastHit;
 	
 	private void UpdateAnimations()
 	{
@@ -55,6 +58,11 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		modelComponent.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
 		modelComponent.Set( "vLeftHandIKTarget", LeftIKTarget.Transform.Position );
+
+		if (TimeSinceLastHit > 0.02f)
+			HitStopSpeedScale = HitStopSpeedScale.Approach( 1f, 3f * Time.Delta );
+		
+		modelComponent.Set( "fHitStopSpeedScale", HitStopSpeedScale );
 
 		if (Input.MouseDelta.Length > 0.1f)
 			inputVectorBuffer = inputVectorBuffer.Prepend( Input.MouseDelta ).Take( inputVectorBufferSize ).ToArray();
@@ -174,7 +182,8 @@ public partial class DarkDescentPlayerController
 		modelComponent.Set( "fWindupSpeedScale", windupSpeedScale );
 		modelComponent.Set( "fReleaseSpeedScale",  releaseSpeedScale );
 		modelComponent.Set( "fRecoverySpeedScale",  1 );
-		
+
+		HitStopSpeedScale = 1;
 		TimeUntilNextAttack = windUpAndRelease + CarriedItemComponent.RecoveryTime / ActorComponent.Stats.ActionSpeed ;
 		TimeUntilCanCombo = windUpAndRelease;
 		TimeUntilComboInvalid = windUpAndRelease + (CarriedItemComponent.RecoveryTime/2f)/ ActorComponent.Stats.ActionSpeed;

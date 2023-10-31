@@ -68,6 +68,9 @@ public partial class DarkDescentPlayerController
 			return;
 
 		HitActors.Add( hitActor );
+
+		TimeSinceLastHit = 0;
+		HitStopSpeedScale = 0.05f;
 		
 		var knockback = ActorComponent is not null ? ActorComponent.Stats.KnockBack : 0;
 

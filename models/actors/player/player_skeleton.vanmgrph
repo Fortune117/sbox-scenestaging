@@ -1216,6 +1216,39 @@
 			{
 				key = 
 				{
+					m_id = 1432904601
+				}
+				value = 
+				{
+					_class = "CSpeedScaleAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -672.0, 416.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1432904601
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1511051236
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_param = 
+					{
+						m_id = 333148288
+					}
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 1449037883
 				}
 				value = 
@@ -1898,7 +1931,7 @@
 					{
 						m_nodeID = 
 						{
-							m_id = 1511051236
+							m_id = 1432904601
 						}
 						m_outputID = 
 						{
@@ -2345,6 +2378,23 @@
 				m_fDefaultValue = 1.0
 				m_fMinValue = 0.0
 				m_fMaxValue = 10.0
+				m_bInterpolate = false
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "fHitStopSpeedScale"
+				m_id = 
+				{
+					m_id = 333148288
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = true
+				m_fDefaultValue = 1.0
+				m_fMinValue = 0.0
+				m_fMaxValue = 1.0
 				m_bInterpolate = false
 			},
 		]
