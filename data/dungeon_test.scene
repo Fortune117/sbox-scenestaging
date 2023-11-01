@@ -90,7 +90,7 @@
           "Acceleration": 10,
           "GroundAngle": 45,
           "Height": 71.79988,
-          "IgnoreLayers": "trigger,player",
+          "IgnoreLayers": "trigger,player,block",
           "Radius": 7.999974,
           "StepHeight": 18
         },
@@ -1199,6 +1199,7 @@
                 {
                   "__type": "CarriedWeaponComponent",
                   "__enabled": true,
+                  "BlockerComponent": "7ac3758b-515b-44c3-aff8-bcb51e310609",
                   "BounceFraction": 0.6,
                   "ComboTime": 0.7,
                   "FollowBoneMerge": true,
@@ -1237,6 +1238,29 @@
                   "Rotation": "0,0,0,1",
                   "Scale": "1,1,1",
                   "Tags": ""
+                },
+                {
+                  "Id": "7ac3758b-515b-44c3-aff8-bcb51e310609",
+                  "Name": "Block Hitbox",
+                  "Enabled": true,
+                  "Position": "11.69699,-0.000002871924,0.000002242484",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": "block",
+                  "Components": [
+                    {
+                      "__type": "ColliderSphereComponent",
+                      "__enabled": true,
+                      "IsTrigger": false,
+                      "Radius": 17.700018,
+                      "Surface": null
+                    },
+                    {
+                      "__type": "AttackBlockerComponent",
+                      "__enabled": true,
+                      "Collider": "7ac3758b-515b-44c3-aff8-bcb51e310609"
+                    }
+                  ]
                 }
               ]
             }
@@ -1831,7 +1855,7 @@
           "Acceleration": 10,
           "GroundAngle": 45,
           "Height": 72,
-          "IgnoreLayers": "trigger,actor",
+          "IgnoreLayers": "trigger,actor,block",
           "Radius": 8,
           "StepHeight": 18
         }

@@ -139,6 +139,7 @@ public partial class DarkDescentPlayerController
 			isBlocking = false;
 		}
 		
+		CarriedItemComponent.SetBlockStatus( isBlocking );
 		Body.Set( "bBlocking", isBlocking );
 		
 		if ( !attackStopped && !TimeUntilNextAttack && TimeUntilCanCombo && !TimeUntilComboInvalid && Input.Down( "Attack1" ) )

@@ -46,6 +46,9 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	[Property]
 	private HurtBoxComponent HurtBox { get; set; }
 	
+	[Property]
+	private AttackBlockerComponent BlockerComponent { get; set; }
+	
 	public virtual PhysicsTraceResult GetWeaponTrace()
 	{
 		return HurtBox.PerformTrace();
@@ -54,5 +57,10 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	public virtual Vector3 GetImpactDirection()
 	{
 		return HurtBox.DirectionMoment;
+	}
+
+	public void SetBlockStatus( bool status )
+	{
+		BlockerComponent.SetActive( status );
 	}
 }

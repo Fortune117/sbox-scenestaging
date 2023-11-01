@@ -9,6 +9,8 @@ public struct AttackEvent
 	public List<HurtBoxComponent> HurtBoxes { get; }
 	
 	public GameObject Initiator { get; private set; }
+	
+	public bool Blocked { get; private set; }
 
 	public AttackEvent()
 	{
@@ -18,6 +20,11 @@ public struct AttackEvent
 
 	public AttackHitEvent? CheckForHit()
 	{
+		if ( Blocked )
+			return null;
+		
+		var attackHitEvent = new AttackHitEvent();
+		
 		foreach ( var hurtBox in HurtBoxes )
 		{
 			var tr = hurtBox.PerformTrace();
@@ -29,6 +36,19 @@ public struct AttackEvent
 			if ( gameObject is not GameObject hitGameObject )
 				continue;
 
+			if ( hitGameObject.TryGetComponent<AttackBlockerComponent>( out var blockerComponent ) )
+			{
+				Log.Info( "BLOCKED!" );
+				Blocked = true;
+				
+				attackHitEvent.HitDirection = hurtBox.DirectionMoment;
+				attackHitEvent.Blocker = blockerComponent;
+				attackHitEvent.WasBlocked = true;
+				attackHitEvent.TraceResult = tr;
+				
+				return attackHitEvent;
+			}
+			
 			var damageable = hitGameObject.GetComponentInParent<IDamageable>( true, true );
 			if ( damageable is null ) //impacted the world?
 			{
@@ -42,8 +62,7 @@ public struct AttackEvent
 				continue;
 
 			HitDamageables.Add( damageable );
-
-			var attackHitEvent = new AttackHitEvent();
+			
 			attackHitEvent.HitDirection = hurtBox.DirectionMoment;
 			attackHitEvent.Damageable = damageable;
 			attackHitEvent.TraceResult = tr;

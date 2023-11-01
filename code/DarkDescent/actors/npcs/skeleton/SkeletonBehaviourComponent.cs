@@ -97,11 +97,14 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 
 		var hit = AttackEvent.CheckForHit();
 
-		if ( hit is null )
+		if ( hit is null)
 			return;
 
 		var hitEvent = hit.Value;
 
+		if ( hitEvent.WasBlocked )
+			return;
+		
 		var knockback = ActorComponent.Stats.KnockBack;
 		
 		var damage = new DamageEventData()
