@@ -15,17 +15,17 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -400.0, -32.0 ]
+					m_vecPosition = [ -416.0, -32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1705295170
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "idle_01"
+					m_sequenceName = "walk_limp"
 					m_playbackSpeed = 1.0
-					m_bLoop = false
+					m_bLoop = true
 				}
 			},
 			{
@@ -42,7 +42,7 @@
 					{
 						m_id = 1705943383
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputConnection = 
 					{
@@ -62,7 +62,24 @@
 	m_pParameterList = 
 	{
 		_class = "CAnimParameterList"
-		m_Parameters = [  ]
+		m_Parameters = 
+		[
+			{
+				_class = "CVectorAnimParameter"
+				m_name = "weee"
+				m_id = 
+				{
+					m_id = 1620094953
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = false
+				m_defaultValue = [ 0.0, 0.0, 0.0 ]
+				m_bInterpolate = false
+			},
+		]
 	}
 	m_pTagManager = 
 	{

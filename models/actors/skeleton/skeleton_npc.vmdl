@@ -196,7 +196,7 @@
 						enable_scale = false
 						source_filename = "models/actors/skeleton/skeleton_npc.fbx"
 						start_frame = -1
-						end_frame = 22
+						end_frame = 23
 						framerate = -1.0
 						take = 2
 						reverse = false
@@ -213,9 +213,18 @@
 						parent_bone = "Root"
 						surface_prop = "default"
 						collision_tags = "solid"
-						origin = [ 20.710888, 162.988297, 1.1087 ]
+						origin = [ 1.014095, 72.296982, -0.384443 ]
 						angles = [ 0.0, 0.0, 0.0 ]
-						dimensions = [ 18.756294, 19.881256, 14.258605 ]
+						dimensions = [ 58.464424, 142.997284, 44.612907 ]
+					},
+					{
+						_class = "PhysicsShapeBox"
+						parent_bone = "Skull"
+						surface_prop = "default"
+						collision_tags = "solid"
+						origin = [ 2.061363, 0.06316, -0.122151 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						dimensions = [ 23.107655, 23.279335, 16.902969 ]
 					},
 				]
 			},
