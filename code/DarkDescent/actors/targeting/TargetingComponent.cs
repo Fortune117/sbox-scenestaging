@@ -1,3 +1,4 @@
+using DarkDescent.Actor.Targeting;
 using Sandbox;
 
 namespace DarkDescent.Actor;
@@ -53,13 +54,24 @@ public class TargetingComponent : BaseComponent
 		}
 	}
 
+	private bool CanTarget( TargetComponent targetComponent )
+	{
+		if ( targetComponent.GameObject == GameObject )
+			return false;
+		
+		if ( (EnemyFactions & targetComponent.Factions) != Faction.None )
+			return true;
+
+		return false;
+	}
+
 	public void UpdateTargetFromDistance()
 	{
 		var minDistance = float.PositiveInfinity;
 		TargetComponent closestTarget = null;
 		foreach ( var target in Blackboard.Targets )
 		{
-			if (target.GameObject == GameObject)
+			if (!CanTarget(target))
 				continue;
 			
 			var distance = target.Transform.Position.Distance( Transform.Position );

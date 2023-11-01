@@ -1,0 +1,10 @@
+using Sandbox;
+
+namespace DarkDescent.Actor.Damage;
+
+public struct AttackHitEvent
+{
+	public IDamageable Damageable { get; set; }
+	public Vector3 HitDirection { get; set; }
+	public PhysicsTraceResult TraceResult { get; set; }
+}

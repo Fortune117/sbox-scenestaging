@@ -14,6 +14,9 @@ public partial class ActorComponent : IDamageable
 
 	[Property] 
 	public bool CauseHitBounce { get; set; } = false;
+
+	[Property]
+	public bool ShowDamageNumbers { get; set; } = true;
 	
 	/// <summary>
 	/// When we take damage, we assume it's going to be mostly unprocessed damage.
@@ -33,7 +36,9 @@ public partial class ActorComponent : IDamageable
 		}
 		
 		//CreateDamageEffects(damageEventData, damageInfo);
-		CreateDamageNumber(damageEventData);
+		
+		if (ShowDamageNumbers)
+			CreateDamageNumber(damageEventData);
 		
 		DamageHealth( damageEventData.DamageResult );
 
