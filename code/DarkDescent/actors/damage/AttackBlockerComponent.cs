@@ -9,6 +9,8 @@ public class AttackBlockerComponent : BaseComponent
 
 	private bool isActive;
 
+	public Action OnBlock;
+
 	public bool IsActive
 	{
 		get
@@ -28,5 +30,10 @@ public class AttackBlockerComponent : BaseComponent
 	public void SetActive( bool status )
 	{
 		IsActive = status;
+	}
+
+	public void BlockedHit()
+	{
+		OnBlock?.Invoke();
 	}
 }

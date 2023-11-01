@@ -56,6 +56,11 @@ public partial class DarkDescentPlayerController
 		}*/
 	}
 
+	public void OnBlock()
+	{
+		Body.Set( "bBlockImpact", true );
+	}
+
 	private bool hitboxesActive;
 	private readonly HashSet<IDamageable> hitDamageables = new();
 

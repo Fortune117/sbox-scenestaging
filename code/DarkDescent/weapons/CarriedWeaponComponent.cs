@@ -48,7 +48,17 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	
 	[Property]
 	private AttackBlockerComponent BlockerComponent { get; set; }
-	
+
+	public override void OnStart()
+	{
+		base.OnStart();
+
+		var playerController = GetComponentInParent<DarkDescentPlayerController>();
+
+		if ( playerController is not null )
+			BlockerComponent.OnBlock += playerController.OnBlock;
+	}
+
 	public virtual PhysicsTraceResult GetWeaponTrace()
 	{
 		return HurtBox.PerformTrace();
