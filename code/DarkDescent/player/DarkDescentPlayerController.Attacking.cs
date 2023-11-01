@@ -59,6 +59,8 @@ public partial class DarkDescentPlayerController
 	private bool hitboxesActive;
 	private readonly HashSet<IDamageable> hitDamageables = new();
 
+	private bool isBlocking;
+
 	private void AttackUpdate()
 	{
 		if ( attackStopped && TimeSinceAttackStopped < CarriedItemComponent.RecoveryTime )
@@ -129,7 +131,15 @@ public partial class DarkDescentPlayerController
 		if ( !isAttacking )
 		{
 			Crosshair.SetAimPipVector( average );
+
+			isBlocking = Input.Down( "Attack2" );
 		}
+		else
+		{
+			isBlocking = false;
+		}
+		
+		Body.Set( "bBlocking", isBlocking );
 		
 		if ( !attackStopped && !TimeUntilNextAttack && TimeUntilCanCombo && !TimeUntilComboInvalid && Input.Down( "Attack1" ) )
 		{
