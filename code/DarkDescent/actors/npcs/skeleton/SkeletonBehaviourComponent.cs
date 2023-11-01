@@ -10,5 +10,9 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 	public override void Update()
 	{
 		base.Update();
+		
+		TargetingComponent.UpdateTargetFromDistance();
+		
+		Log.Info( TargetingComponent.Target?.GameObject.Name );
 	}
 }

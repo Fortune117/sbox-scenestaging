@@ -9,10 +9,14 @@ namespace DarkDescent.Actor;
 /// </summary>
 public class BehaviourComponent : BaseComponent
 {
-	private ActorComponent ActorComponent { get; set; }
+	protected TargetingComponent TargetingComponent { get; set; }
+	protected ActorComponent ActorComponent { get; set; }
+
+	protected TargetComponent Target => TargetingComponent.Target;
 
 	public override void OnStart()
 	{
+		TargetingComponent = GetComponent<TargetingComponent>();
 		ActorComponent = GetComponent<ActorComponent>();
 
 		if ( ActorComponent is null )

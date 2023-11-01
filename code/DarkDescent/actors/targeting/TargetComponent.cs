@@ -1,3 +1,5 @@
+using Sandbox;
+
 namespace DarkDescent.Actor;
 
 /// <summary>
@@ -6,6 +8,25 @@ namespace DarkDescent.Actor;
 /// </summary>
 public class TargetComponent : BaseComponent
 {
+	/// <summary>
+	/// The factions this target is a part of.
+	/// </summary>
+	[Property]
+	public Targeting.Faction Factions { get; set; }
+	
+	/// <summary>
+	/// The primary point on this object that should be targeted.
+	/// i.e. players center of mass
+	/// </summary>
+	[Property]
+	public GameObject PrimaryTargetPoint { get; set; }
+	
+	/// <summary>
+	/// A publicly accessible 'weakpoint' enemies can choose to target. i.e. the players head.
+	/// </summary>
+	[Property]
+	public GameObject WeakPoint { get; set; }
+	
 	private ActorComponent ActorComponent { get; set; }
 
 	public override void OnEnabled()
@@ -29,7 +50,7 @@ public class TargetComponent : BaseComponent
 
 		if ( ActorComponent is null )
 		{
-			Log.Error( $"No Actor Component on {GameObject.Name} for Behaviour Component!" );
+			Log.Error( $"No Actor Component on {GameObject.Name} for Target Component!" );
 		}
 	}
 }
