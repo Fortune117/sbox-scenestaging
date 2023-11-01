@@ -21,6 +21,9 @@ public class BehaviourComponent : BaseComponent
 	[Property]
 	protected AnimatedModelComponent Body { get; set; }
 	
+	[Property]
+	protected CharacterController CharacterController { get; set; }
+	
 	protected TargetingComponent TargetingComponent { get; set; }
 	protected ActorComponent ActorComponent { get; set; }
 
@@ -32,6 +35,7 @@ public class BehaviourComponent : BaseComponent
 	{
 		TargetingComponent = GetComponent<TargetingComponent>();
 		ActorComponent = GetComponent<ActorComponent>();
+		CharacterController = GetComponent<CharacterController>();
 
 		if ( ActorComponent is null )
 		{

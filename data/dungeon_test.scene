@@ -1824,6 +1824,16 @@
           "__type": "SkeletonBehaviourComponent",
           "__enabled": true,
           "Body": "c0c20524-f444-4d1b-b043-25e460879a9c"
+        },
+        {
+          "__type": "CharacterController",
+          "__enabled": true,
+          "Acceleration": 10,
+          "GroundAngle": 45,
+          "Height": 72,
+          "IgnoreLayers": "trigger,actor",
+          "Radius": 8,
+          "StepHeight": 18
         }
       ],
       "Children": [
@@ -2850,24 +2860,6 @@
                   ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "Id": "204a08f2-52e1-430a-b325-e96828808a76",
-          "Name": "Collider",
-          "Enabled": true,
-          "Position": "0,0,34.70008",
-          "Rotation": "0,0,0,1",
-          "Scale": "1,1,1",
-          "Tags": "actor,nohit",
-          "Components": [
-            {
-              "__type": "ColliderBoxComponent",
-              "__enabled": true,
-              "IsTrigger": false,
-              "Scale": "21.49999,27.29998,69.89998",
-              "Surface": null
             }
           ]
         }

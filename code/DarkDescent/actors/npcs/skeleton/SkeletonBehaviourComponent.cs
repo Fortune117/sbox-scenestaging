@@ -9,6 +9,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 	private bool hitBoxesActive;
 
 	private AttackEvent AttackEvent;
+	private Vector3 WishVelocity = Vector3.Zero;
 	
 	protected override void OnGenericAnimEvent( SceneModel.GenericEvent genericEvent )
 	{
@@ -42,6 +43,10 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 		
 		TargetingComponent.UpdateTargetFromDistance();
 
+		MoveUpdate();
+
+		WishVelocity = Vector3.Zero;
+		
 		if ( Target is null )
 		{
 			Body.Set( "bMoving", false );
@@ -60,6 +65,27 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 			AttackTarget();
 		else
 			FollowTarget();
+	}
+
+	private void MoveUpdate()
+	{
+		if ( CharacterController.IsOnGround )
+		{
+			CharacterController.Velocity = CharacterController.Velocity.WithZ( 0 );
+			CharacterController.Accelerate( WishVelocity );
+			CharacterController.ApplyFriction( 1.0f );
+		}
+		
+		CharacterController.Move();
+
+		if ( !CharacterController.IsOnGround )
+		{
+			CharacterController.Velocity -= Scene.PhysicsWorld.Gravity * Time.Delta * 0.5f;
+		}
+		else
+		{
+			CharacterController.Velocity = CharacterController.Velocity.WithZ( 0 );
+		}
 	}
 
 	private void AttackUpdate()
@@ -107,7 +133,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 		var dir = Target.Transform.Position - Transform.Position;
 		dir = dir.WithZ( 0 ).Normal;
 
-		Transform.Position += dir * 25f * Time.Delta;
+		WishVelocity = dir * 35f;
 		FaceTarget();
 		
 		Body.Set( "bMoving", true );
