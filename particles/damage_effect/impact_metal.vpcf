@@ -1098,6 +1098,9 @@
 				}
 			}
 		},
+		{
+			_class = "C_OP_PositionLock"
+		},
 	]
 	m_Renderers = 
 	[

@@ -927,7 +927,7 @@
                                   "Id": "6151ce8d-464a-4032-a9de-0eb8f37f3f31",
                                   "Name": "Block Particle",
                                   "Enabled": true,
-                                  "Position": "0,0,0",
+                                  "Position": "0.6856445,-9.267468,-0.000001304642",
                                   "Rotation": "0,0,0,1",
                                   "Scale": "1,1,1",
                                   "Tags": "",
@@ -935,6 +935,7 @@
                                     {
                                       "__type": "ParticleSystem",
                                       "__enabled": true,
+                                      "EmissionStopped": false,
                                       "Looped": false,
                                       "Particles": "particles/damage_effect/impact_metal.vpcf",
                                       "PlaybackSpeed": 1
@@ -1452,6 +1453,7 @@
             {
               "__type": "ParticleSystem",
               "__enabled": true,
+              "EmissionStopped": false,
               "Looped": true,
               "Particles": "particles/brazier_flame.vpcf",
               "PlaybackSpeed": 1
@@ -1775,6 +1777,7 @@
             {
               "__type": "ParticleSystem",
               "__enabled": true,
+              "EmissionStopped": false,
               "Looped": false,
               "Particles": "particles/torch_flame.vpcf",
               "PlaybackSpeed": 1

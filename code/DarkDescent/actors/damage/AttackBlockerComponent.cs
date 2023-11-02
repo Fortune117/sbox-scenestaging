@@ -50,7 +50,7 @@ public class AttackBlockerComponent : BaseComponent
 		var line = new Line(capsule.CenterA, capsule.CenterB);
 
 		ParticleSystem.Transform.Position = line.ClosestPoint( hitEvent.TraceResult.HitPosition );
-		
-		ParticleSystem.Play();
+
+		ParticleSystem.PlayEffect();
 	}
 }
