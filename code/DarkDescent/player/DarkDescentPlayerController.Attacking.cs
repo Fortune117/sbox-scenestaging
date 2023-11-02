@@ -196,7 +196,7 @@ public partial class DarkDescentPlayerController
 		if ( damageable is null ) //impacted the world?
 		{
 			if (tr.Fraction < CarriedItemComponent.BounceFraction)
-				BounceAttack();
+				BounceAttack(tr);
 			return;
 		}
 
@@ -226,7 +226,7 @@ public partial class DarkDescentPlayerController
 		
 		if ( damageable.CauseHitBounce )
 		{
-			BounceAttack();
+			BounceAttack(tr);
 			return;
 		}
 	}
@@ -240,13 +240,15 @@ public partial class DarkDescentPlayerController
 	/// <summary>
 	/// Our attack was stopped short, cancel the attack and play a lil bounce animation.
 	/// </summary>
-	private void BounceAttack()
+	private void BounceAttack(PhysicsTraceResult traceResult)
 	{
 		isAttacking = false;
 		attackStopped = true;
 		TimeSinceAttackStopped = 0;
 		Body.Set( "fHitStopSpeedScale", 0f );
 		Body.Set( "bAttackStopped", true );
+
+		Sound.FromWorld( CarriedItemComponent.ImpactSound, traceResult.HitPosition );
 	}
 	
 	private void BeginAttack( Vector2 inputVector, bool isCombo = false )

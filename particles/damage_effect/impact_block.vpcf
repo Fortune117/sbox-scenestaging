@@ -502,7 +502,7 @@
 				m_LiteralColor = [ 0, 0, 0, 0 ]
 				m_nVectorAttribute = 6
 				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
-				m_nControlPoint = 0
+				m_nControlPoint = 5
 				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
 				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
 				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
@@ -2020,6 +2020,12 @@
 			}
 			m_bOnlyRenderInEffectsBloomPass = true
 			m_hTexture = resource:"materials/particles/spark_white.vtex"
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/damage_effect/impact_block_ring.vpcf"
 		},
 	]
 }

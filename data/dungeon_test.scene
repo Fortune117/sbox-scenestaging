@@ -934,7 +934,7 @@
                                   "Components": [
                                     {
                                       "__type": "ParticleSystem",
-                                      "__enabled": true,
+                                      "__enabled": false,
                                       "EmissionStopped": false,
                                       "Looped": false,
                                       "Particles": "particles/damage_effect/impact_metal.vpcf",
@@ -1246,11 +1246,11 @@
                 {
                   "__type": "CarriedWeaponComponent",
                   "__enabled": true,
-                  "BlockBounds": {},
                   "BounceFraction": 0.6,
                   "ComboTime": 0.7,
                   "FollowBoneMerge": true,
                   "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
+                  "ImpactSound": "impact.metal",
                   "RecoveryTime": 0.5,
                   "ReleaseTime": 0.5,
                   "TurnCapX": 250,
