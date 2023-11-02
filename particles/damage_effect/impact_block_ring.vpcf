@@ -2,6 +2,12 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_nBehaviorVersion = 10
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+		},
+	]
 	m_Emitters = 
 	[
 		{
@@ -1007,12 +1013,6 @@
 			}
 			m_bOnlyRenderInEffectsBloomPass = true
 			m_hTexture = resource:"materials/particle/particle_ring_wave_12.vtex"
-		},
-	]
-	m_controlPointConfigurations = 
-	[
-		{
-			m_name = "preview"
 		},
 	]
 }

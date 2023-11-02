@@ -107,6 +107,11 @@ public class ParticleSystem : BaseComponent, BaseComponent.ExecuteInEditor
 		_sceneObject?.SetControlPoint( i, rotation );
 	}
 
+	public void Set( string name, Vector3 position )
+	{
+		_sceneObject?.SetNamedValue( name, position );
+	}
+
 	public override void Update()
 	{
 		if ( !_sceneObject.IsValid() )

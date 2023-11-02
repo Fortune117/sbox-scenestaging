@@ -13,6 +13,9 @@ public class AttackBlockerComponent : BaseComponent
 	
 	[Property]
 	private CarriedWeaponComponent CarriedItemComponent { get; set; }
+	
+	[Property]
+	private SoundEvent BlockSound { get; set; }
 
 	private bool isActive;
 
@@ -51,10 +54,20 @@ public class AttackBlockerComponent : BaseComponent
 
 		ParticleSystem.Transform.Position = line.ClosestPoint( hitEvent.TraceResult.HitPosition );
 
+		var dir = hitEvent.HitDirection;
+		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
+		
 		if (!ParticleSystem.Enabled)
 			ParticleSystem.Enabled = true;
 		else 
 			ParticleSystem.PlayEffect();
+		
+		ParticleSystem.Set( "Normal", dir );
+		ParticleSystem.Set("RingPitch", angles.pitch  );
+		ParticleSystem.Set("RingYaw", angles.yaw  );
+		ParticleSystem.Set("RingRoll", angles.roll  );
+
+		Sound.FromWorld( BlockSound.ResourceName, ParticleSystem.Transform.Position );
 	}
 	
 	//code for normal and other stuff
