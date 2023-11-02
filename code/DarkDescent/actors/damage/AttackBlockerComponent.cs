@@ -1,3 +1,4 @@
+using DarkDescent.Weapons;
 using Sandbox;
 
 namespace DarkDescent.Actor.Damage;
@@ -6,6 +7,12 @@ public class AttackBlockerComponent : BaseComponent
 {
 	[Property]
 	private ColliderBoxComponent Collider { get; set; }
+	
+	[Property]
+	private ParticleSystem ParticleSystem { get; set; }
+	
+	[Property]
+	private CarriedWeaponComponent CarriedItemComponent { get; set; }
 
 	private bool isActive;
 
@@ -32,8 +39,18 @@ public class AttackBlockerComponent : BaseComponent
 		IsActive = status;
 	}
 
-	public void BlockedHit()
+	public void BlockedHit(AttackHitEvent hitEvent)
 	{
 		OnBlock?.Invoke();
+
+		ParticleSystem.Transform.Position = hitEvent.TraceResult.HitPosition;
+
+		var capsule = CarriedItemComponent.GetHurtBoxCapsule();
+		
+		var line = new Line(capsule.CenterA, capsule.CenterB);
+
+		ParticleSystem.Transform.Position = line.ClosestPoint( hitEvent.TraceResult.HitPosition );
+		
+		ParticleSystem.Play();
 	}
 }

@@ -62,6 +62,16 @@ public class ParticleSystem : BaseComponent, BaseComponent.ExecuteInEditor
 		_sceneObject.Transform = Transform.World;
 	}
 
+	public void Play()
+	{
+		RecreateSceneObject();
+	}
+
+	public void Set( string name, float value )
+	{
+		//_sceneObject?.
+	}
+
 	public override void Update()
 	{
 		if ( !_sceneObject.IsValid() )

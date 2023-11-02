@@ -917,7 +917,29 @@
                                 {
                                   "__type": "AttackBlockerComponent",
                                   "__enabled": true,
-                                  "Collider": "08b7baad-09f5-4c23-a7a5-413cf9d9f053"
+                                  "CarriedItemComponent": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
+                                  "Collider": "08b7baad-09f5-4c23-a7a5-413cf9d9f053",
+                                  "ParticleSystem": "6151ce8d-464a-4032-a9de-0eb8f37f3f31"
+                                }
+                              ],
+                              "Children": [
+                                {
+                                  "Id": "6151ce8d-464a-4032-a9de-0eb8f37f3f31",
+                                  "Name": "Block Particle",
+                                  "Enabled": true,
+                                  "Position": "0,0,0",
+                                  "Rotation": "0,0,0,1",
+                                  "Scale": "1,1,1",
+                                  "Tags": "",
+                                  "Components": [
+                                    {
+                                      "__type": "ParticleSystem",
+                                      "__enabled": true,
+                                      "Looped": false,
+                                      "Particles": "particles/damage_effect/impact_metal.vpcf",
+                                      "PlaybackSpeed": 1
+                                    }
+                                  ]
                                 }
                               ]
                             }
@@ -1223,6 +1245,7 @@
                 {
                   "__type": "CarriedWeaponComponent",
                   "__enabled": true,
+                  "BlockBounds": {},
                   "BounceFraction": 0.6,
                   "ComboTime": 0.7,
                   "FollowBoneMerge": true,
@@ -1690,7 +1713,7 @@
           "BaseStats": "data/prefabs/flame_skull.stats",
           "CauseHitBounce": false,
           "DamageEffectInfos": null,
-          "InfoPanelOffset": 10,
+          "InfoPanelOffset": 20,
           "InfoPanelPrefab": "data/actor_info_panel.object",
           "PanelDrawDistance": 300,
           "PrimaryAttribute": "Strength",

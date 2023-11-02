@@ -46,7 +46,7 @@ public struct AttackEvent
 				attackHitEvent.WasBlocked = true;
 				attackHitEvent.TraceResult = tr;
 				
-				blockerComponent.BlockedHit();
+				blockerComponent.BlockedHit(attackHitEvent);
 				
 				return attackHitEvent;
 			}

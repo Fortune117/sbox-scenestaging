@@ -46,7 +46,15 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	[Property]
 	private HurtBoxComponent HurtBox { get; set; }
 	
+	[Property]
+	private BBox BlockBounds { get; set; }
 
+
+	public Capsule GetHurtBoxCapsule()
+	{
+		return HurtBox.Capsule;
+	}
+	
 	public virtual PhysicsTraceResult GetWeaponTrace()
 	{
 		return HurtBox.PerformTrace();

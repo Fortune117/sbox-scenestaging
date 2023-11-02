@@ -11,7 +11,10 @@ public class HurtBoxComponent : BaseComponent
 			return HitDirection.Transform.Rotation.Forward;
 		}
 	}
-	
+
+	public Capsule Capsule => new Capsule( Transform.World.TransformVector( Center1 ),
+		Transform.World.TransformVector( Center2 ), Radius );
+		
 	[Property]
 	private GameObject HitDirection { get; set; }
 	
