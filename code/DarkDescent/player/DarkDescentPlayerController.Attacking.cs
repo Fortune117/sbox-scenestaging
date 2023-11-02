@@ -24,6 +24,9 @@ public partial class DarkDescentPlayerController
 	[Property]
 	private CarriedWeaponComponent CarriedItemComponent { get; set; }
 	
+	[Property]
+	private AttackBlockerComponent BlockerComponent { get; set; }
+	
 	private bool isDoingCombo;
 	private bool isAttacking;
 	private int attackSide;
@@ -144,7 +147,7 @@ public partial class DarkDescentPlayerController
 			isBlocking = false;
 		}
 		
-		CarriedItemComponent.SetBlockStatus( isBlocking );
+		BlockerComponent.SetActive( isBlocking );
 		Body.Set( "bBlocking", isBlocking );
 		
 		if ( !attackStopped && !TimeUntilNextAttack && TimeUntilCanCombo && !TimeUntilComboInvalid && Input.Down( "Attack1" ) )

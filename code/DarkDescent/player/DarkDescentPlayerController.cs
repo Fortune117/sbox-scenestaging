@@ -49,6 +49,8 @@ public partial class DarkDescentPlayerController : BaseComponent
 	public override void OnStart()
 	{
 		HookupAnimEvents();
+
+		BlockerComponent.OnBlock += OnBlock;
 	}
 
 	public override void Update()

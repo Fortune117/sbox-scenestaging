@@ -46,6 +46,7 @@
           "__type": "DarkDescentPlayerController",
           "__enabled": true,
           "ActorComponent": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
+          "BlockerComponent": "08b7baad-09f5-4c23-a7a5-413cf9d9f053",
           "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
           "CameraDistance": 200,
           "CarriedItemComponent": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
@@ -896,6 +897,29 @@
                               "Rotation": "0.6997912,0.7143474,0.000002384186,0.000002503033",
                               "Scale": "1,1,1",
                               "Tags": ""
+                            },
+                            {
+                              "Id": "08b7baad-09f5-4c23-a7a5-413cf9d9f053",
+                              "Name": "Block Hitbox",
+                              "Enabled": true,
+                              "Position": "12.06134,-12.11173,0.00000009013847",
+                              "Rotation": "0,0,0,1",
+                              "Scale": "1,1,1",
+                              "Tags": "block",
+                              "Components": [
+                                {
+                                  "__type": "ColliderBoxComponent",
+                                  "__enabled": true,
+                                  "IsTrigger": false,
+                                  "Scale": "22.59996,14.5,15.70001",
+                                  "Surface": null
+                                },
+                                {
+                                  "__type": "AttackBlockerComponent",
+                                  "__enabled": true,
+                                  "Collider": "08b7baad-09f5-4c23-a7a5-413cf9d9f053"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -1199,7 +1223,6 @@
                 {
                   "__type": "CarriedWeaponComponent",
                   "__enabled": true,
-                  "BlockerComponent": "7ac3758b-515b-44c3-aff8-bcb51e310609",
                   "BounceFraction": 0.6,
                   "ComboTime": 0.7,
                   "FollowBoneMerge": true,
@@ -1238,29 +1261,6 @@
                   "Rotation": "0,0,0,1",
                   "Scale": "1,1,1",
                   "Tags": ""
-                },
-                {
-                  "Id": "7ac3758b-515b-44c3-aff8-bcb51e310609",
-                  "Name": "Block Hitbox",
-                  "Enabled": true,
-                  "Position": "11.69699,-0.000002871924,0.000002242484",
-                  "Rotation": "0,0,0,1",
-                  "Scale": "1,1,1",
-                  "Tags": "block",
-                  "Components": [
-                    {
-                      "__type": "ColliderSphereComponent",
-                      "__enabled": true,
-                      "IsTrigger": false,
-                      "Radius": 17.700018,
-                      "Surface": null
-                    },
-                    {
-                      "__type": "AttackBlockerComponent",
-                      "__enabled": true,
-                      "Collider": "7ac3758b-515b-44c3-aff8-bcb51e310609"
-                    }
-                  ]
                 }
               ]
             }

@@ -46,18 +46,6 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	[Property]
 	private HurtBoxComponent HurtBox { get; set; }
 	
-	[Property]
-	private AttackBlockerComponent BlockerComponent { get; set; }
-
-	public override void OnStart()
-	{
-		base.OnStart();
-
-		var playerController = GetComponentInParent<DarkDescentPlayerController>();
-
-		if ( playerController is not null )
-			BlockerComponent.OnBlock += playerController.OnBlock;
-	}
 
 	public virtual PhysicsTraceResult GetWeaponTrace()
 	{
@@ -67,10 +55,5 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	public virtual Vector3 GetImpactDirection()
 	{
 		return HurtBox.DirectionMoment;
-	}
-
-	public void SetBlockStatus( bool status )
-	{
-		BlockerComponent.SetActive( status );
 	}
 }

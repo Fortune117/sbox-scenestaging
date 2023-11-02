@@ -5,7 +5,7 @@ namespace DarkDescent.Actor.Damage;
 public class AttackBlockerComponent : BaseComponent
 {
 	[Property]
-	private ColliderSphereComponent Collider { get; set; }
+	private ColliderBoxComponent Collider { get; set; }
 
 	private bool isActive;
 
