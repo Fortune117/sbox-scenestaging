@@ -38,7 +38,6 @@ public struct AttackEvent
 
 			if ( hitGameObject.TryGetComponent<AttackBlockerComponent>( out var blockerComponent ) )
 			{
-				Log.Info( "BLOCKED!" );
 				Blocked = true;
 				
 				attackHitEvent.HitDirection = hurtBox.DirectionMoment;
