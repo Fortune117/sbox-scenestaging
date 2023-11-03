@@ -1918,7 +1918,7 @@
               "__enabled": true,
               "IsTrigger": false,
               "Model": "models/actors/skeleton/skeleton_npc.vmdl",
-              "Surface": null
+              "Surface": "data/surfaces/hay.surface"
             },
             {
               "__type": "PhysicsComponent",
