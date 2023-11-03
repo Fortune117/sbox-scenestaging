@@ -45,7 +45,7 @@
 					{
 						_class = "PhysicsShapeCylinder"
 						parent_bone = ""
-						surface_prop = "wood"
+						surface_prop = "darkdescent_wood"
 						collision_tags = "solid"
 						radius = 8.5
 						point0 = [ 0.0, 0.0, 16.242512 ]
@@ -54,7 +54,7 @@
 					{
 						_class = "PhysicsShapeCylinder"
 						parent_bone = ""
-						surface_prop = "chair_foam"
+						surface_prop = "darkdescent_wood"
 						collision_tags = "solid"
 						radius = 4.0
 						point0 = [ 0.0, 0.0, 21.365242 ]
@@ -90,7 +90,7 @@
 					{
 						_class = "PhysicsShapeSphere"
 						parent_bone = ""
-						surface_prop = "wood"
+						surface_prop = "darkdescent_wood"
 						collision_tags = "solid wood"
 						radius = 16.742138
 						center = [ 0.0, 0.0, 7.464665 ]
