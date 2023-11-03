@@ -69,25 +69,4 @@ public class AttackBlockerComponent : BaseComponent
 
 		Sound.FromWorld( BlockSound.ResourceName, ParticleSystem.Transform.Position );
 	}
-	
-	//code for normal and other stuff
-	/*
-	 	var dir = -damageEventData.Direction.Normal;
-		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
-
-		foreach ( var damageEffectInfo in DamageEffectInfos )
-		{
-			if ( damageEventData.Tags.Has( damageEffectInfo.HitboxTag  ) )
-			{
-				var particle = Particles.Create( damageEffectInfo.ParticleEffect, damageEventData.Position + dir * 5f );
-				particle.Set( "Normal", dir );
-				particle.Set("RingPitch", angles.pitch  );
-				particle.Set("RingYaw", angles.yaw  );
-				particle.Set("RingRoll", angles.roll  );
-
-				Sound.FromWorld( damageEffectInfo.ImpactSound, damageEventData.Position );
-				return;
-			}
-		}
-	 */
 }

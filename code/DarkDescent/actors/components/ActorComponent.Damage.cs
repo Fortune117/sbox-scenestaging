@@ -10,9 +10,6 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent : IDamageable
 {
-	[Property, Category("Damage")]
-	private List<DamageEffectInfo> DamageEffectInfos { get; set; }
-
 	[Property] 
 	public bool CauseHitBounce { get; set; } = false;
 
@@ -169,15 +166,4 @@ public partial class ActorComponent : IDamageable
         damageEventData.DamageResult = damageEventData.DamageOriginal - damageEventData.DamageOriginal*resistMult;
         damageEventData.KnockBackResult = damageEventData.KnockBackOriginal - Stats.KnockBackResistance;
 	}
-}
-
-internal struct DamageEffectInfo
-{
-	public string HitboxTag { get; set; }
-	
-	[ResourceType("vpcf")]
-	public string ParticleEffect { get; set; }
-	
-	[ResourceType("sound")]
-	public string ImpactSound { get; set; }
 }
