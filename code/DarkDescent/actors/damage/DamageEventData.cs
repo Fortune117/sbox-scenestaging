@@ -1,4 +1,5 @@
-﻿using Sandbox;
+﻿using DarkDescent.Components;
+using Sandbox;
 
 namespace DarkDescent.Actor.Damage;
 
@@ -68,6 +69,8 @@ public struct DamageEventData
 	/// Target
 	/// </summary>
 	public ActorComponent Target { get; set; }
+	
+	public Surface Surface { get; set; }
 
 	public bool HasDamageType( DamageType damageType )
 	{
@@ -133,6 +136,12 @@ public struct DamageEventData
 		return this;
 	}
 
+	public DamageEventData WithSurface( Surface surface )
+	{
+		Surface = surface;
+		return this;
+	}
+
 	public DamageEventData WithOriginator( ActorComponent originator )
 	{
 		Originator = originator;
@@ -142,5 +151,34 @@ public struct DamageEventData
 	public bool HasFlag( DamageFlags flags )
 	{
 		return DamageFlags.HasFlag( flags );
+	}
+
+	public DamageEventData UsingTraceResult( PhysicsTraceResult traceResult )
+	{
+		Position = traceResult.HitPosition;
+		Direction = -traceResult.Normal;
+		Surface = traceResult.Surface;
+		return this;
+	}
+	
+	public void CreateDamageEffects()
+	{
+		var surface = Surface;
+		if ( surface is null )
+			return;
+
+		Sound.FromWorld( surface.Sounds.ImpactHard, Position );
+
+		if ( surface.ImpactEffects.Regular is null || surface.ImpactEffects.Regular.Length == 0 )
+			return;
+		
+		var dir = -Direction.Normal;
+		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
+		
+		var particle = QuickParticle.Create( surface.ImpactEffects.Regular.FirstOrDefault(), Position );
+		particle.Set( "Normal", dir );
+		particle.Set("RingPitch", angles.pitch  );
+		particle.Set("RingYaw", angles.yaw  );
+		particle.Set("RingRoll", angles.roll  );
 	}
 }

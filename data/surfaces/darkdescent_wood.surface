@@ -1,7 +1,7 @@
 {
-  "BaseSurface": "surfaces/chair_foam.surface",
+  "BaseSurface": "surfaces/wood.surface",
   "AudioMaterial": null,
-  "Description": null,
+  "Description": "",
   "Friction": 0.8,
   "Elasticity": 0.25,
   "Density": 2000,
@@ -10,7 +10,7 @@
   "BounceThreshold": 40,
   "ImpactEffects": {
     "Regular": [
-      "particles/damage_effect/damage_training_dummy.vpcf"
+      "particles/impact.wood.vpcf"
     ]
   },
   "ScrapeEffects": {
@@ -18,8 +18,7 @@
     "RoughThreshold": 0.5
   },
   "Sounds": {
-    "ImpactHard": "data/sounds/impact/dummy/impact.target_dummy.sound",
-    "ImpactSoft": "data/sounds/impact/dummy/impact.target_dummy.sound"
+    "ImpactHard": "data/sounds/impact/wood/impact.wood.sound"
   },
   "Breakables": {},
   "Tags": null,

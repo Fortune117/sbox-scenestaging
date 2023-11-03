@@ -2,6 +2,7 @@
 using DarkDescent.Actor.Damage;
 using DarkDescent.Actor.Marker;
 using DarkDescent.Actor.UI;
+using DarkDescent.Components;
 using DarkDescent.GameLog;
 using Sandbox;
 
@@ -35,7 +36,7 @@ public partial class ActorComponent : IDamageable
 			ApplyKnockBack( physics.GetBody(), damageEventData );
 		}
 		
-		//CreateDamageEffects(damageEventData, damageInfo);
+		damageEventData.CreateDamageEffects();
 		
 		if (ShowDamageNumbers)
 			CreateDamageNumber(damageEventData);
@@ -68,26 +69,7 @@ public partial class ActorComponent : IDamageable
 		GameObject.Destroy();
 	}
 
-	private void CreateDamageEffects( DamageEventData damageEventData )
-	{
-		var dir = -damageEventData.Direction.Normal;
-		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
 
-		foreach ( var damageEffectInfo in DamageEffectInfos )
-		{
-			if ( damageEventData.Tags.Has( damageEffectInfo.HitboxTag  ) )
-			{
-				var particle = Particles.Create( damageEffectInfo.ParticleEffect, damageEventData.Position + dir * 5f );
-				particle.Set( "Normal", dir );
-				particle.Set("RingPitch", angles.pitch  );
-				particle.Set("RingYaw", angles.yaw  );
-				particle.Set("RingRoll", angles.roll  );
-
-				Sound.FromWorld( damageEffectInfo.ImpactSound, damageEventData.Position );
-				return;
-			}
-		}
-	}
 
 	private void ApplyKnockBack(PhysicsBody body, DamageEventData damageEventData)
 	{

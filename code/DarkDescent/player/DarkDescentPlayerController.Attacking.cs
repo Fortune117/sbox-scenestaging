@@ -65,8 +65,6 @@ public partial class DarkDescentPlayerController
 	}
 
 	private bool hitboxesActive;
-	private readonly HashSet<IDamageable> hitDamageables = new();
-
 	private bool isBlocking;
 
 	private void AttackUpdate()
@@ -170,7 +168,9 @@ public partial class DarkDescentPlayerController
 		
 		BeginAttack( average, false );
 	}
-	
+
+
+	private AttackEvent attackEvent;
 	private void AttackHitUpdate()
 	{
 		var tr = CarriedItemComponent.GetWeaponTrace();
@@ -185,28 +185,22 @@ public partial class DarkDescentPlayerController
 		if ( !hitboxesActive )
 			return;
 		
-		if ( !tr.Hit )
+		var hit = attackEvent.CheckForHit();
+
+		if ( hit is null)
 			return;
 
-		var gameObject = tr.Body.GameObject;
-		if ( gameObject is not GameObject hitGameObject )
-			return;
+		var hitEvent = hit.Value;
 
-		var damageable = hitGameObject.GetComponentInParent<IDamageable>( true, true );
-		if ( damageable is null ) //impacted the world?
+		if ( hitEvent.WasBlocked )
+			return;
+		
+		if ( hitEvent.Damageable is null ) //impacted the world?
 		{
-			if (tr.Fraction < CarriedItemComponent.BounceFraction)
-				BounceAttack(tr);
+			if (hitEvent.TraceResult.Fraction < CarriedItemComponent.BounceFraction)
+				BounceAttack(hitEvent.TraceResult);
 			return;
 		}
-
-		if ( damageable == ActorComponent )
-			return;
-
-		if ( hitDamageables.Contains( damageable ) )
-			return;
-
-		hitDamageables.Add( damageable );
 
 		DoHitStop();
 		
@@ -214,25 +208,20 @@ public partial class DarkDescentPlayerController
 
 		var damage = new DamageEventData()
 			.WithOriginator( ActorComponent )
-			.WithPosition( tr.HitPosition + tr.Normal * 5f )
+			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( CarriedItemComponent.GetImpactDirection() )
 			.WithKnockBack( knockback )
 			.WithDamage( 1f )
-			//.WithTags( tr.Shape.Tags ) //commented out cause we can't get tags like this :<
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
 
-		damageable.TakeDamage( damage );
+		hitEvent.Damageable.TakeDamage( damage );
 		
-		if ( damageable.CauseHitBounce )
+		if ( hitEvent.Damageable.CauseHitBounce )
 		{
 			BounceAttack(tr);
 			return;
 		}
-		
-		var surface = tr.Surface;
-        if ( surface is null )
-        	return;
 	}
 
 	private void DoHitStop()
@@ -251,8 +240,6 @@ public partial class DarkDescentPlayerController
 		TimeSinceAttackStopped = 0;
 		Body.Set( "fHitStopSpeedScale", 0f );
 		Body.Set( "bAttackStopped", true );
-
-		Sound.FromWorld( CarriedItemComponent.ImpactSound.ResourceName, traceResult.HitPosition );
 	}
 	
 	private void BeginAttack( Vector2 inputVector, bool isCombo = false )
@@ -315,7 +302,10 @@ public partial class DarkDescentPlayerController
 
 	private void ActivateAttack()
 	{
-		hitDamageables.Clear();
+		attackEvent = new AttackEvent()
+			.WithInitiator( GameObject )
+			.WithHurtBox( GetComponent<HurtBoxComponent>( true, true ) );
+		
 		hitboxesActive = true;
 
 		Sound.FromWorld( CarriedItemComponent.SwingSound.ResourceName, Eye.Transform.Position );

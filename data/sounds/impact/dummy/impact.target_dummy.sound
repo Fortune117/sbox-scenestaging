@@ -2,7 +2,7 @@
   "UI": false,
   "Volume": "1.00,1.00,0",
   "Pitch": "1.00,1.00,0",
-  "Decibels": 180,
+  "Decibels": 70,
   "SelectionMode": "RandomExclusive",
   "Sounds": [
     "sound/impact/dummy/dummy_hit_01.vsnd",
@@ -10,6 +10,7 @@
     "sound/impact/dummy/dummy_hit_03.vsnd",
     "sound/impact/dummy/dummy_hit_04.vsnd"
   ],
-  "MaximumDistance": 7384.377,
-  "MinimumDistance": 369.21884
+  "MaximumDistance": 1143.9335,
+  "MinimumDistance": 57.196674,
+  "__references": []
 }

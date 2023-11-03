@@ -109,11 +109,10 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 		
 		var damage = new DamageEventData()
 			.WithOriginator( ActorComponent )
-			.WithPosition( hitEvent.TraceResult.HitPosition + hitEvent.TraceResult.Normal * 5f )
+			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( hitEvent.HitDirection )
 			.WithKnockBack( knockback )
 			.WithDamage( 1f )
-			//.WithTags( tr.Shape.Tags ) //commented out cause we can't get tags like this :<
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
 
