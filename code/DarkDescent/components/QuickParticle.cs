@@ -20,6 +20,6 @@ public class QuickParticle : ParticleSystem
 		base.Update();
 		
 		if (SceneObject is null || SceneObject.Finished)
-			Destroy();
+			GameObject.Destroy();
 	}
 }
