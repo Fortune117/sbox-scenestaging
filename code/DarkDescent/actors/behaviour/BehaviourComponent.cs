@@ -21,7 +21,6 @@ public class BehaviourComponent : BaseComponent
 	[Property]
 	protected AnimatedModelComponent Body { get; set; }
 	
-	[Property]
 	protected CharacterController CharacterController { get; set; }
 	
 	protected TargetingComponent TargetingComponent { get; set; }
