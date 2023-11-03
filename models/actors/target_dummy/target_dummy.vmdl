@@ -45,7 +45,7 @@
 					{
 						_class = "PhysicsShapeCylinder"
 						parent_bone = ""
-						surface_prop = "chair_foam"
+						surface_prop = "wood"
 						collision_tags = "solid"
 						radius = 8.5
 						point0 = [ 0.0, 0.0, 16.242512 ]
@@ -63,7 +63,7 @@
 					{
 						_class = "PhysicsShapeCylinder"
 						parent_bone = ""
-						surface_prop = "chair_foam"
+						surface_prop = "hay"
 						collision_tags = "solid"
 						radius = 20.601835
 						point0 = [ 0.0, 0.0, 63.546127 ]
@@ -72,7 +72,7 @@
 					{
 						_class = "PhysicsShapeCylinder"
 						parent_bone = ""
-						surface_prop = "chair_foam"
+						surface_prop = "hay"
 						collision_tags = "solid"
 						radius = 5.0
 						point0 = [ 0.136076, 44.112965, 114.16758 ]
@@ -81,7 +81,7 @@
 					{
 						_class = "PhysicsShapeCylinder"
 						parent_bone = ""
-						surface_prop = "chair_foam"
+						surface_prop = "hay"
 						collision_tags = "solid"
 						radius = 10.0
 						point0 = [ 0.0, 0.0, 132.40416 ]

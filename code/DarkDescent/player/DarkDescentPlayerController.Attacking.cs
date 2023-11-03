@@ -104,11 +104,11 @@ public partial class DarkDescentPlayerController
 			if ( TimeSinceAttackStarted > windupTime && TimeSinceAttackStarted < windUpAndRelease )
 			{
 				if (!hitboxesActive)
-					ActivateHitBoxes();
+					ActivateAttack();
 			}
 			else if (hitboxesActive)
 			{
-				DeactivateHitBoxes();
+				DeactivateAttack();
 			}
 
 			if ( TimeSinceAttackStarted > windUpAndRelease + 0.05f )
@@ -122,11 +122,11 @@ public partial class DarkDescentPlayerController
 			if ( TimeSinceComboStarted > windupTime && TimeSinceComboStarted < windUpAndRelease )
 			{
 				if (!hitboxesActive)
-					ActivateHitBoxes();
+					ActivateAttack();
 			}
 			else if (hitboxesActive)
 			{
-				DeactivateHitBoxes();
+				DeactivateAttack();
 			}
 
 			if ( TimeSinceComboStarted > windUpAndRelease + 0.05f )
@@ -229,6 +229,10 @@ public partial class DarkDescentPlayerController
 			BounceAttack(tr);
 			return;
 		}
+		
+		var surface = tr.Surface;
+        if ( surface is null )
+        	return;
 	}
 
 	private void DoHitStop()
@@ -248,7 +252,7 @@ public partial class DarkDescentPlayerController
 		Body.Set( "fHitStopSpeedScale", 0f );
 		Body.Set( "bAttackStopped", true );
 
-		Sound.FromWorld( CarriedItemComponent.ImpactSound, traceResult.HitPosition );
+		Sound.FromWorld( CarriedItemComponent.ImpactSound.ResourceName, traceResult.HitPosition );
 	}
 	
 	private void BeginAttack( Vector2 inputVector, bool isCombo = false )
@@ -283,7 +287,7 @@ public partial class DarkDescentPlayerController
 			Body.Set( "bCombo", true );
 			
 			//make sure hitboxes are turned off when we start our combo
-			DeactivateHitBoxes();
+			DeactivateAttack();
 		}
 		else
 		{
@@ -309,13 +313,15 @@ public partial class DarkDescentPlayerController
 		Crosshair.SetAimPipVector( inputVector );
 	}
 
-	private void ActivateHitBoxes()
+	private void ActivateAttack()
 	{
 		hitDamageables.Clear();
 		hitboxesActive = true;
+
+		Sound.FromWorld( CarriedItemComponent.SwingSound.ResourceName, Eye.Transform.Position );
 	}
 
-	private void DeactivateHitBoxes()
+	private void DeactivateAttack()
 	{
 		hitboxesActive = false;
 	}

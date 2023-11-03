@@ -43,8 +43,11 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	[Property, Range( 0, 1 )]
 	public float BounceFraction { get; set; } = 1f;
 	
-	[Property, Editor("sound")]
-	public string ImpactSound { get; set; }
+	[Property]
+	public SoundEvent ImpactSound { get; set; }
+	
+	[Property]
+	public SoundEvent SwingSound { get; set; }
 	
 	[Property]
 	private HurtBoxComponent HurtBox { get; set; }

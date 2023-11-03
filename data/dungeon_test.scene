@@ -1251,9 +1251,10 @@
                   "ComboTime": 0.7,
                   "FollowBoneMerge": true,
                   "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
-                  "ImpactSound": "impact.metal",
+                  "ImpactSound": "data/sounds/impact/metal/impact.metal.sound",
                   "RecoveryTime": 0.5,
                   "ReleaseTime": 0.5,
+                  "SwingSound": "data/sounds/combat/sword.swing.sound",
                   "TurnCapX": 250,
                   "TurnCapY": 250,
                   "WindupTime": 0.5
@@ -1628,7 +1629,7 @@
           "__enabled": true,
           "IsTrigger": false,
           "Model": "models/actors/target_dummy/target_dummy.vmdl",
-          "Surface": null
+          "Surface": "data/surfaces/hay.surface"
         },
         {
           "__type": "PhysicsComponent",
@@ -2008,7 +2009,7 @@
                                           "Id": "6f9ee679-3d24-4df6-9f6a-c5f85d8bcb78",
                                           "Name": "Camera_Control",
                                           "Enabled": true,
-                                          "Position": "35.21678,0.01621598,0.000006691194",
+                                          "Position": "35.21679,0.01621598,0.000002876498",
                                           "Rotation": "-0.00000002980232,-0.0000002682209,-0.00000002980232,0.9999999",
                                           "Scale": "0.9999999,0.9999999,0.9999999",
                                           "Tags": ""
@@ -2732,7 +2733,7 @@
                       "Id": "5872e714-f6c9-4dc1-891d-049cef5f6532",
                       "Name": "UpperLeg_R",
                       "Enabled": true,
-                      "Position": "0.4311832,-3.904805,5.385186",
+                      "Position": "0.4311843,-3.904805,5.385182",
                       "Rotation": "-0.7384611,0.6732207,0.03417885,0.01675794",
                       "Scale": "1,1,1",
                       "Tags": "",
@@ -2857,7 +2858,7 @@
                               "Id": "cd075257-737c-4874-94f3-924e7f0dad3e",
                               "Name": "Knee_ik_L",
                               "Enabled": true,
-                              "Position": "33.06989,30.0753,-1.099738",
+                              "Position": "33.06989,30.0753,-1.099735",
                               "Rotation": "0.0000001937151,0.0000001639128,0.155364,0.9878574",
                               "Scale": "1,1,1",
                               "Tags": ""
@@ -2899,7 +2900,7 @@
                               "Id": "9b889b2f-6944-4517-bc28-e3f574415478",
                               "Name": "Knee_ik_R",
                               "Enabled": true,
-                              "Position": "34.00473,29.56471,0.4628092",
+                              "Position": "34.00473,29.56471,0.4628054",
                               "Rotation": "-0.0000005662441,0.0000001043081,0.1461075,0.9892687",
                               "Scale": "1,1,1",
                               "Tags": ""
