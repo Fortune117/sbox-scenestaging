@@ -1,15 +1,15 @@
 {
   "UI": false,
-  "Volume": "0.40,0.40,0",
+  "Volume": "0.55,0.55,0",
   "Pitch": "0.95,1.05,1",
-  "Decibels": 180,
+  "Decibels": 80,
   "SelectionMode": "RandomExclusive",
   "Sounds": [
     "sound/combat/sword/sword_swing_01.vsnd",
     "sound/combat/sword/sword_swing_02.vsnd",
     "sound/combat/sword/sword_swing_03.vsnd"
   ],
-  "MaximumDistance": 7384.377,
-  "MinimumDistance": 369.21884,
+  "MaximumDistance": 1484.3214,
+  "MinimumDistance": 74.21607,
   "__references": []
 }
