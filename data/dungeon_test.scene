@@ -908,7 +908,7 @@
                               "Components": [
                                 {
                                   "__type": "ColliderBoxComponent",
-                                  "__enabled": true,
+                                  "__enabled": false,
                                   "IsTrigger": false,
                                   "Scale": "17.99997,9.400002,9.400012",
                                   "Surface": null
@@ -1254,6 +1254,7 @@
                   "RecoveryTime": 0.5,
                   "ReleaseTime": 0.5,
                   "SwingSound": "data/sounds/combat/sword.swing.sound",
+                  "SwordTrail": "c3e68b08-bf8b-4ca6-b8c7-57dc2624d26a",
                   "TurnCapX": 250,
                   "TurnCapY": 250,
                   "WindupTime": 0.5
@@ -1286,6 +1287,61 @@
                   "Rotation": "0,0,0,1",
                   "Scale": "1,1,1",
                   "Tags": ""
+                },
+                {
+                  "Id": "c3e68b08-bf8b-4ca6-b8c7-57dc2624d26a",
+                  "Name": "Sword Trail",
+                  "Enabled": true,
+                  "Position": "0,0,0",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": "",
+                  "Components": [
+                    {
+                      "__type": "ParticleSystem",
+                      "__enabled": true,
+                      "ControlPoint0": "f2b75d38-7351-421f-aee5-5959631ee293",
+                      "ControlPoint1": "754820bf-bf33-4c63-824e-f1e80fa964cd",
+                      "EmissionStopped": true,
+                      "Looped": false,
+                      "Particles": "particles/sword_trail.vpcf",
+                      "PlaybackSpeed": 1
+                    },
+                    {
+                      "__type": "SwordTrail",
+                      "__enabled": true,
+                      "Normal": "c7015270-c7c1-4343-8b20-78159d9f11d2"
+                    }
+                  ],
+                  "Children": [
+                    {
+                      "Id": "f2b75d38-7351-421f-aee5-5959631ee293",
+                      "Name": "Anchor 1",
+                      "Enabled": true,
+                      "Position": "5.946345,-0.000001460219,0.000001141311",
+                      "Rotation": "0,0,0,1",
+                      "Scale": "1,1,1",
+                      "Tags": ""
+                    },
+                    {
+                      "Id": "754820bf-bf33-4c63-824e-f1e80fa964cd",
+                      "Name": "Anchor 2",
+                      "Enabled": true,
+                      "Position": "41.8521,-0.00001028008,0.000008022357",
+                      "Rotation": "0,0,0,1",
+                      "Scale": "1,1,1",
+                      "Tags": ""
+                    },
+                    {
+                      "Id": "c7015270-c7c1-4343-8b20-78159d9f11d2",
+                      "Name": "Normal",
+                      "Enabled": true,
+                      "Position": "25.89437,-0.000003307687,0.000004017774",
+                      "Rotation": "0,0.707107,0,0.7071065",
+                      "Scale": "1,1,1",
+                      "Tags": ""
+                    }
+                  ]
                 }
               ]
             }
@@ -1878,8 +1934,7 @@
         },
         {
           "__type": "SkeletonBehaviourComponent",
-          "__enabled": true,
-          "Body": "c0c20524-f444-4d1b-b043-25e460879a9c"
+          "__enabled": false
         },
         {
           "__type": "CharacterController",

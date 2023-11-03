@@ -74,9 +74,15 @@ public partial class DarkDescentPlayerController
 		
 		if ( TimeSinceLastHit > 0.09f && !attackStopped )
 			HitStopSpeedScale = 1f;
-		
-		if (!attackStopped)
+
+		if ( !attackStopped )
+		{
 			Body.Set( "fHitStopSpeedScale", HitStopSpeedScale );
+			if (CarriedItemComponent.SwordTrail.ParticleSystem is not null)
+				CarriedItemComponent.SwordTrail.ParticleSystem.PlaybackSpeed = HitStopSpeedScale;
+		}
+
+		Scene.TimeScale = 1f;
 		
 		if (Input.MouseDelta.Length > 0.1f)
 			inputVectorBuffer = inputVectorBuffer.Prepend( Input.MouseDelta ).Take( inputVectorBufferSize ).ToArray();
@@ -308,11 +314,15 @@ public partial class DarkDescentPlayerController
 		
 		hitboxesActive = true;
 
+		CarriedItemComponent.SwordTrail.StartTrail();
+
 		Sound.FromWorld( CarriedItemComponent.SwingSound.ResourceName, Eye.Transform.Position );
 	}
 
 	private void DeactivateAttack()
 	{
 		hitboxesActive = false;
+		
+		CarriedItemComponent.SwordTrail.StopTrail();
 	}
 }

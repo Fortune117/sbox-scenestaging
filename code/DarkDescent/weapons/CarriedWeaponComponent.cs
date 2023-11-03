@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DarkDescent.Actor;
 using DarkDescent.Actor.Damage;
+using DarkDescent.Components;
 using Sandbox;
 
 namespace DarkDescent.Weapons;
@@ -51,6 +52,9 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	
 	[Property]
 	private HurtBoxComponent HurtBox { get; set; }
+	
+	[Property]
+	public SwordTrail SwordTrail { get; set; }
 	
 	public Capsule GetHurtBoxCapsule()
 	{
