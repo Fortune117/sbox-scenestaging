@@ -108,7 +108,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( hitEvent.HitDirection )
 			.WithKnockBack( knockback )
-			.WithDamage( 1f )
+			.WithDamage( 5f )
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
 

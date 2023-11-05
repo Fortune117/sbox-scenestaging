@@ -231,6 +231,8 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		DoHitStop();
 		
 		hitEvent.Damageable.TakeDamage( damage );
+
+		Sound.FromWorld( CarriedItemComponent.ImpactSound.ResourceName, hitEvent.TraceResult.HitPosition );
 		
 		if ( hitEvent.Damageable.CauseHitBounce )
 		{

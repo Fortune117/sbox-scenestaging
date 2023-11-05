@@ -1269,7 +1269,7 @@
                   "ComboTime": 0.7,
                   "FollowBoneMerge": true,
                   "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
-                  "ImpactSound": "data/sounds/impact/metal/impact.metal.sound",
+                  "ImpactSound": "data/sounds/combat/sword.hit.sound",
                   "ParryEffect": "particles/damage_effect/impact_block_parry.vpcf",
                   "ParrySound": "data/sounds/impact/metal/impact.metal.sound",
                   "RecoveryTime": 0.5,
