@@ -6,13 +6,18 @@ namespace DarkDescent;
 
 public partial class DarkDescentPlayerController : BaseComponent
 {
+	[Property, Range( 0, 300 )] 
+	public float WalkSpeed { get; set; } = 75f;
+
+	[Property, Range( 0, 300 )] 
+	public float RunSpeed { get; set; } = 150f;
+	
 	[Property] 
 	public Vector3 Gravity { get; set; } = new Vector3( 0, 0, 800 );
 	
 	[Property] 
 	public float CameraDistance { get; set; } = 200.0f;
 	
-
 	[Property] 
 	private AnimatedModelComponent Body { get; set; }
 	
@@ -44,6 +49,8 @@ public partial class DarkDescentPlayerController : BaseComponent
 	public override void OnStart()
 	{
 		HookupAnimEvents();
+
+		BlockerComponent.OnBlock += OnBlock;
 	}
 
 	public override void Update()
@@ -133,7 +140,7 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 		if ( !WishVelocity.IsNearZeroLength ) WishVelocity = WishVelocity.Normal;
 
-		if ( Input.Down( "Run" ) ) WishVelocity *= 320.0f;
-		else WishVelocity *= 150.0f;
+		if ( Input.Down( "Run" ) ) WishVelocity *= RunSpeed;
+		else WishVelocity *= WalkSpeed;
 	}
 }

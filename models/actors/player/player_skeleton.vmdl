@@ -390,6 +390,7 @@
 												frame = 0
 											},
 										]
+										disabled = true
 										activity_name = ""
 										activity_weight = 1
 										weight_list_name = ""
@@ -517,6 +518,7 @@
 												frame = 0
 											},
 										]
+										disabled = true
 										activity_name = ""
 										activity_weight = 1
 										weight_list_name = ""
@@ -644,6 +646,7 @@
 												frame = 0
 											},
 										]
+										disabled = true
 										activity_name = ""
 										activity_weight = 1
 										weight_list_name = ""
@@ -771,6 +774,7 @@
 												frame = 0
 											},
 										]
+										disabled = true
 										activity_name = ""
 										activity_weight = 1
 										weight_list_name = ""
@@ -898,6 +902,7 @@
 												frame = 0
 											},
 										]
+										disabled = true
 										activity_name = ""
 										activity_weight = 1
 										weight_list_name = ""
@@ -1025,6 +1030,7 @@
 												frame = 0
 											},
 										]
+										disabled = true
 										activity_name = ""
 										activity_weight = 1
 										weight_list_name = ""
@@ -1165,6 +1171,164 @@
 								framerate = -1.0
 								take = 13
 								reverse = false
+							},
+							{
+								_class = "Folder"
+								name = "block"
+								children = 
+								[
+									{
+										_class = "AnimFile"
+										name = "longsword_block"
+										children = 
+										[
+											{
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
+											},
+										]
+										disabled = true
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = -1
+										framerate = -1.0
+										take = 14
+										reverse = false
+									},
+									{
+										_class = "AnimFile"
+										name = "longsword_block_start"
+										children = 
+										[
+											{
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = 2
+										framerate = -1.0
+										take = 14
+										reverse = false
+									},
+									{
+										_class = "AnimFile"
+										name = "longsword_block_hold"
+										children = 
+										[
+											{
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = 3
+										end_frame = 3
+										framerate = -1.0
+										take = 14
+										reverse = false
+									},
+									{
+										_class = "AnimFile"
+										name = "longsword_block_end"
+										children = 
+										[
+											{
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = 4
+										end_frame = 7
+										framerate = -1.0
+										take = 14
+										reverse = false
+									},
+									{
+										_class = "AnimFile"
+										name = "longsword_block_impact"
+										children = 
+										[
+											{
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = -1
+										framerate = -1.0
+										take = 15
+										reverse = false
+									},
+								]
 							},
 						]
 					},

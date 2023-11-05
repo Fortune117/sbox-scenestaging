@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DarkDescent.Actor;
 using DarkDescent.Actor.Damage;
+using DarkDescent.Components;
 using Sandbox;
 
 namespace DarkDescent.Weapons;
@@ -44,7 +45,21 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	public float BounceFraction { get; set; } = 1f;
 	
 	[Property]
+	public SoundEvent ImpactSound { get; set; }
+	
+	[Property]
+	public SoundEvent SwingSound { get; set; }
+	
+	[Property]
 	private HurtBoxComponent HurtBox { get; set; }
+	
+	[Property]
+	public SwordTrail SwordTrail { get; set; }
+	
+	public Capsule GetHurtBoxCapsule()
+	{
+		return HurtBox.Capsule;
+	}
 	
 	public virtual PhysicsTraceResult GetWeaponTrace()
 	{

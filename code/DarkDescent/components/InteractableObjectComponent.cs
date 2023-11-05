@@ -25,6 +25,8 @@ public partial class InteractableObjectComponent : BaseComponent, IDamageable
 	
 	public void TakeDamage( DamageEventData damageEventData )
 	{
+		damageEventData.CreateDamageEffects();
+		
 		var physics = GetComponent<PhysicsComponent>( true, true );
 		if ( physics is not null && physics.GetBody() is not null )
 		{

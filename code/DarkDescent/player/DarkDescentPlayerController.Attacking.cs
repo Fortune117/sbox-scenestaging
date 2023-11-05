@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using DarkDescent.Actor;
 using DarkDescent.Actor.Damage;
+using DarkDescent.Actor.Marker;
 using DarkDescent.UI;
 using DarkDescent.Weapons;
 using Sandbox;
 
 namespace DarkDescent;
 
-public partial class DarkDescentPlayerController
+public partial class DarkDescentPlayerController : IDamageTakenListener
 {
 	private static class PlayerEvents
 	{
@@ -23,6 +24,9 @@ public partial class DarkDescentPlayerController
 	
 	[Property]
 	private CarriedWeaponComponent CarriedItemComponent { get; set; }
+	
+	[Property]
+	private AttackBlockerComponent BlockerComponent { get; set; }
 	
 	private bool isDoingCombo;
 	private bool isAttacking;
@@ -56,8 +60,13 @@ public partial class DarkDescentPlayerController
 		}*/
 	}
 
+	public void OnBlock()
+	{
+		Body.Set( "bBlockImpact", true );
+	}
+
 	private bool hitboxesActive;
-	private readonly HashSet<IDamageable> hitDamageables = new();
+	private bool isBlocking;
 
 	private void AttackUpdate()
 	{
@@ -66,9 +75,15 @@ public partial class DarkDescentPlayerController
 		
 		if ( TimeSinceLastHit > 0.09f && !attackStopped )
 			HitStopSpeedScale = 1f;
-		
-		if (!attackStopped)
+
+		if ( !attackStopped )
+		{
 			Body.Set( "fHitStopSpeedScale", HitStopSpeedScale );
+			if (CarriedItemComponent.SwordTrail.ParticleSystem is not null)
+				CarriedItemComponent.SwordTrail.ParticleSystem.PlaybackSpeed = HitStopSpeedScale;
+		}
+
+		Scene.TimeScale = 1f;
 		
 		if (Input.MouseDelta.Length > 0.1f)
 			inputVectorBuffer = inputVectorBuffer.Prepend( Input.MouseDelta ).Take( inputVectorBufferSize ).ToArray();
@@ -94,11 +109,11 @@ public partial class DarkDescentPlayerController
 			if ( TimeSinceAttackStarted > windupTime && TimeSinceAttackStarted < windUpAndRelease )
 			{
 				if (!hitboxesActive)
-					ActivateHitBoxes();
+					ActivateAttack();
 			}
 			else if (hitboxesActive)
 			{
-				DeactivateHitBoxes();
+				DeactivateAttack();
 			}
 
 			if ( TimeSinceAttackStarted > windUpAndRelease + 0.05f )
@@ -112,11 +127,11 @@ public partial class DarkDescentPlayerController
 			if ( TimeSinceComboStarted > windupTime && TimeSinceComboStarted < windUpAndRelease )
 			{
 				if (!hitboxesActive)
-					ActivateHitBoxes();
+					ActivateAttack();
 			}
 			else if (hitboxesActive)
 			{
-				DeactivateHitBoxes();
+				DeactivateAttack();
 			}
 
 			if ( TimeSinceComboStarted > windUpAndRelease + 0.05f )
@@ -129,7 +144,16 @@ public partial class DarkDescentPlayerController
 		if ( !isAttacking )
 		{
 			Crosshair.SetAimPipVector( average );
+
+			isBlocking = Input.Down( "Attack2" );
 		}
+		else
+		{
+			isBlocking = false;
+		}
+		
+		BlockerComponent.SetActive( isBlocking );
+		Body.Set( "bBlocking", isBlocking );
 		
 		if ( !attackStopped && !TimeUntilNextAttack && TimeUntilCanCombo && !TimeUntilComboInvalid && Input.Down( "Attack1" ) )
 		{
@@ -151,7 +175,9 @@ public partial class DarkDescentPlayerController
 		
 		BeginAttack( average, false );
 	}
-	
+
+
+	private AttackEvent attackEvent;
 	private void AttackHitUpdate()
 	{
 		var tr = CarriedItemComponent.GetWeaponTrace();
@@ -166,28 +192,22 @@ public partial class DarkDescentPlayerController
 		if ( !hitboxesActive )
 			return;
 		
-		if ( !tr.Hit )
+		var hit = attackEvent.CheckForHit();
+
+		if ( hit is null)
 			return;
 
-		var gameObject = tr.Body.GameObject;
-		if ( gameObject is not GameObject hitGameObject )
-			return;
+		var hitEvent = hit.Value;
 
-		var damageable = hitGameObject.GetComponentInParent<IDamageable>( true, true );
-		if ( damageable is null ) //impacted the world?
+		if ( hitEvent.WasBlocked )
+			return;
+		
+		if ( hitEvent.Damageable is null ) //impacted the world?
 		{
-			if (tr.Fraction < CarriedItemComponent.BounceFraction)
-				BounceAttack();
+			if (hitEvent.TraceResult.Fraction < CarriedItemComponent.BounceFraction)
+				BounceAttack(hitEvent.TraceResult);
 			return;
 		}
-
-		if ( damageable == ActorComponent )
-			return;
-
-		if ( hitDamageables.Contains( damageable ) )
-			return;
-
-		hitDamageables.Add( damageable );
 
 		DoHitStop();
 		
@@ -195,19 +215,18 @@ public partial class DarkDescentPlayerController
 
 		var damage = new DamageEventData()
 			.WithOriginator( ActorComponent )
-			.WithPosition( tr.HitPosition + tr.Normal * 5f )
+			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( CarriedItemComponent.GetImpactDirection() )
 			.WithKnockBack( knockback )
 			.WithDamage( 1f )
-			//.WithTags( tr.Shape.Tags ) //commented out cause we can't get tags like this :<
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
 
-		damageable.TakeDamage( damage );
+		hitEvent.Damageable.TakeDamage( damage );
 		
-		if ( damageable.CauseHitBounce )
+		if ( hitEvent.Damageable.CauseHitBounce )
 		{
-			BounceAttack();
+			BounceAttack(tr);
 			return;
 		}
 	}
@@ -221,7 +240,7 @@ public partial class DarkDescentPlayerController
 	/// <summary>
 	/// Our attack was stopped short, cancel the attack and play a lil bounce animation.
 	/// </summary>
-	private void BounceAttack()
+	private void BounceAttack(PhysicsTraceResult traceResult)
 	{
 		isAttacking = false;
 		attackStopped = true;
@@ -262,7 +281,7 @@ public partial class DarkDescentPlayerController
 			Body.Set( "bCombo", true );
 			
 			//make sure hitboxes are turned off when we start our combo
-			DeactivateHitBoxes();
+			DeactivateAttack();
 		}
 		else
 		{
@@ -288,14 +307,43 @@ public partial class DarkDescentPlayerController
 		Crosshair.SetAimPipVector( inputVector );
 	}
 
-	private void ActivateHitBoxes()
+	private void ActivateAttack()
 	{
-		hitDamageables.Clear();
+		attackEvent = new AttackEvent()
+			.WithInitiator( GameObject )
+			.WithHurtBox( GetComponent<HurtBoxComponent>( true, true ) );
+		
 		hitboxesActive = true;
+
+		CarriedItemComponent.SwordTrail.StartTrail();
+
+		Sound.FromWorld( CarriedItemComponent.SwingSound.ResourceName, Eye.Transform.Position );
 	}
 
-	private void DeactivateHitBoxes()
+	private void DeactivateAttack()
 	{
 		hitboxesActive = false;
+		
+		CarriedItemComponent.SwordTrail.StopTrail();
+	}
+
+	private void InterruptAttack()
+	{
+		if ( !isAttacking )
+			return;
+		
+		isAttacking = false;
+		attackStopped = true;
+		TimeSinceAttackStopped = 0;
+		Body.Set( "bInterruptAttack", true );
+		DeactivateAttack();
+	}
+
+	public void OnDamageTaken( DamageEventData damageEvent, bool isLethal )
+	{
+		if ( isLethal )
+			return;
+		
+		InterruptAttack();
 	}
 }

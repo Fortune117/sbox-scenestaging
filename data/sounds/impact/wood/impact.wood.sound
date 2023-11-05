@@ -2,11 +2,12 @@
   "UI": false,
   "Volume": "0.30,0.50,1",
   "Pitch": "0.95,1.05,1",
-  "Decibels": 180,
+  "Decibels": 60,
   "SelectionMode": "Random",
   "Sounds": [
     "sound/impact/wood/impact_wood.vsnd"
   ],
-  "MaximumDistance": 7384.377,
-  "MinimumDistance": 369.21884
+  "MaximumDistance": 848.93066,
+  "MinimumDistance": 42.446533,
+  "__references": []
 }

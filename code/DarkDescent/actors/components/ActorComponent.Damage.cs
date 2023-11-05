@@ -2,6 +2,7 @@
 using DarkDescent.Actor.Damage;
 using DarkDescent.Actor.Marker;
 using DarkDescent.Actor.UI;
+using DarkDescent.Components;
 using DarkDescent.GameLog;
 using Sandbox;
 
@@ -9,11 +10,11 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent : IDamageable
 {
-	[Property, Category("Damage")]
-	private List<DamageEffectInfo> DamageEffectInfos { get; set; }
-
 	[Property] 
 	public bool CauseHitBounce { get; set; } = false;
+
+	[Property]
+	public bool ShowDamageNumbers { get; set; } = true;
 	
 	/// <summary>
 	/// When we take damage, we assume it's going to be mostly unprocessed damage.
@@ -32,8 +33,10 @@ public partial class ActorComponent : IDamageable
 			ApplyKnockBack( physics.GetBody(), damageEventData );
 		}
 		
-		//CreateDamageEffects(damageEventData, damageInfo);
-		CreateDamageNumber(damageEventData);
+		damageEventData.CreateDamageEffects();
+		
+		if (ShowDamageNumbers)
+			CreateDamageNumber(damageEventData);
 		
 		DamageHealth( damageEventData.DamageResult );
 
@@ -63,26 +66,7 @@ public partial class ActorComponent : IDamageable
 		GameObject.Destroy();
 	}
 
-	private void CreateDamageEffects( DamageEventData damageEventData )
-	{
-		var dir = -damageEventData.Direction.Normal;
-		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
 
-		foreach ( var damageEffectInfo in DamageEffectInfos )
-		{
-			if ( damageEventData.Tags.Has( damageEffectInfo.HitboxTag  ) )
-			{
-				var particle = Particles.Create( damageEffectInfo.ParticleEffect, damageEventData.Position + dir * 5f );
-				particle.Set( "Normal", dir );
-				particle.Set("RingPitch", angles.pitch  );
-				particle.Set("RingYaw", angles.yaw  );
-				particle.Set("RingRoll", angles.roll  );
-
-				Sound.FromWorld( damageEffectInfo.ImpactSound, damageEventData.Position );
-				return;
-			}
-		}
-	}
 
 	private void ApplyKnockBack(PhysicsBody body, DamageEventData damageEventData)
 	{
@@ -182,15 +166,4 @@ public partial class ActorComponent : IDamageable
         damageEventData.DamageResult = damageEventData.DamageOriginal - damageEventData.DamageOriginal*resistMult;
         damageEventData.KnockBackResult = damageEventData.KnockBackOriginal - Stats.KnockBackResistance;
 	}
-}
-
-internal struct DamageEffectInfo
-{
-	public string HitboxTag { get; set; }
-	
-	[ResourceType("vpcf")]
-	public string ParticleEffect { get; set; }
-	
-	[ResourceType("sound")]
-	public string ImpactSound { get; set; }
 }

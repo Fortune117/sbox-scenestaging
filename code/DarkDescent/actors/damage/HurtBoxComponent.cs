@@ -11,7 +11,10 @@ public class HurtBoxComponent : BaseComponent
 			return HitDirection.Transform.Rotation.Forward;
 		}
 	}
-	
+
+	public Capsule Capsule => new Capsule( Transform.World.TransformVector( Center1 ),
+		Transform.World.TransformVector( Center2 ), Radius );
+		
 	[Property]
 	private GameObject HitDirection { get; set; }
 	
@@ -28,13 +31,11 @@ public class HurtBoxComponent : BaseComponent
 	{
 		if ( !Scene.IsEditor )
 			return;
-		
-		using var scope = Gizmo.Scope( $"{GetHashCode()}" );
-		
-		Gizmo.Transform = Transform.World.WithScale( 1 );
+
+		Gizmo.Transform = Scene.Transform.World;
 		Gizmo.Draw.Color = Color.Green;
 
-		Gizmo.Draw.LineCapsule( new Capsule( Center1, Center2, Radius ) );
+		Gizmo.Draw.LineCapsule( new Capsule( Transform.World.TransformVector(Center1), Transform.World.TransformVector(Center2), Radius ) );
 	}
 	
 	public override void Update()
@@ -46,10 +47,10 @@ public class HurtBoxComponent : BaseComponent
 
 		var tr = PerformTrace();
 
-		Gizmo.Transform = Transform.World.WithScale( 1 );
+		Gizmo.Transform = Scene.Transform.World;
 		Gizmo.Draw.Color = Color.Green;
 
-		Gizmo.Draw.LineCapsule( new Capsule( Center1, Center2, Radius ) );
+		Gizmo.Draw.LineCapsule( new Capsule( Transform.World.TransformVector(Center1), Transform.World.TransformVector(Center2), Radius ) );
 	}
 
 	public PhysicsTraceResult PerformTrace()
