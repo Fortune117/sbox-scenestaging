@@ -89,4 +89,21 @@ public partial class ActorComponent
 
 		modelPhysics.Enabled = true;
 	}
+
+	public void Revive()
+	{
+		Health = Stats.MaxHealth;
+		Alive = true;
+		
+		if ( TryGetComponent<ModelCollider>( out var modelCollider, false, true ) )	
+			modelCollider.Enabled = true;
+		
+		if ( TryGetComponent<ModelPhysics>( out var modelPhysics, false, true ) )
+			modelPhysics.Enabled = false;
+		
+		foreach ( var behaviour in GetComponents<BehaviourComponent>(false) )
+		{
+			behaviour.Enabled = true;
+		}
+	}
 }

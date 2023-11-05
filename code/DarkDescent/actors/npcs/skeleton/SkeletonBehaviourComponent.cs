@@ -1,12 +1,17 @@
+using System.Threading.Tasks;
 using DarkDescent.Actor.Damage;
+using DarkDescent.Actor.Marker;
 using Sandbox;
 
 namespace DarkDescent.Actor;
 
-public class SkeletonBehaviourComponent : BehaviourComponent
+public class SkeletonBehaviourComponent : BehaviourComponent, IDeathListener
 {
 	[Property]
 	private GameObject Weapon { get; set; }
+	
+	[Property]
+	private GameObject HoldR { get; set; }
 	
 	private bool isAttacking;
 	private bool hitBoxesActive;
@@ -156,5 +161,43 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 		AttackEvent = new AttackEvent()
 			.WithInitiator( GameObject )
 			.WithHurtBox( GetComponent<HurtBoxComponent>( true, true ) );
+	}
+
+	public void OnDeath( DamageEventData damageEventData )
+	{
+		if ( Weapon is null )
+			return;
+		
+		Weapon.SetParent( Scene );
+
+		if ( Weapon.TryGetComponent<ModelCollider>( out var modelCollider, false ) )
+			modelCollider.Enabled = true;
+
+		if ( Weapon.TryGetComponent<PhysicsComponent>( out var physicsComponent, false ) )
+			physicsComponent.Enabled = true;
+
+		Revive();
+	}
+
+	private async void Revive()
+	{
+		await Task.Delay( TimeSpan.FromSeconds( 2f ) );
+
+		Log.Info( "test" );
+		ActorComponent.Revive();
+		
+		if ( Weapon is null )
+			return;
+		
+		Weapon.SetParent( HoldR );
+
+		if ( Weapon.TryGetComponent<ModelCollider>( out var modelCollider, false ) )
+			modelCollider.Enabled = false;
+
+		if ( Weapon.TryGetComponent<PhysicsComponent>( out var physicsComponent, false ) )
+			physicsComponent.Enabled = false;
+
+		Weapon.Transform.LocalPosition = 0;
+		Weapon.Transform.LocalRotation = Rotation.Identity;
 	}
 }
