@@ -63,7 +63,7 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDama
 	    Add( vert * verticalImpact, horizontal * horizontalImpact, false );
     }
 
-    public void OnBlock( DamageEventData damageEvent )
+    public void OnBlock( DamageEventData damageEvent, bool isParry )
     {
 	    var vert = -damageEvent.Direction.Dot( Transform.Rotation.Up );
 	    var horizontal = -damageEvent.Direction.Dot( Transform.Rotation.Left );

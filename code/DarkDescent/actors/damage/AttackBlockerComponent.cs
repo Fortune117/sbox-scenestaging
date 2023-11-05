@@ -14,12 +14,11 @@ public class AttackBlockerComponent : BaseComponent
 	[Property]
 	private CarriedWeaponComponent CarriedItemComponent { get; set; }
 	
-	[Property]
-	private SoundEvent BlockSound { get; set; }
+	public Action<DamageEventData, bool> OnBlock;
 
+	private TimeSince TimeSinceBlockStarted;
+	
 	private bool isActive;
-
-	public Action<DamageEventData> OnBlock;
 
 	public bool IsActive
 	{
@@ -39,18 +38,26 @@ public class AttackBlockerComponent : BaseComponent
 
 	public void SetActive( bool status )
 	{
+		var oldBlock = isActive;
 		IsActive = status;
+
+		if ( !oldBlock && status )
+			TimeSinceBlockStarted = 0;
 	}
 
 	public void BlockedHit(DamageEventData damageEvent)
 	{
-		OnBlock?.Invoke(damageEvent);
+		var isParry = TimeSinceBlockStarted < 0.25f;
+		
+		OnBlock?.Invoke(damageEvent, isParry);
 		
 		var capsule = CarriedItemComponent.GetHurtBoxCapsule();
 		
 		var line = new Line(capsule.CenterA, capsule.CenterB);
 
 		ParticleSystem.Transform.Position = line.ClosestPoint( damageEvent.Position );
+
+		ParticleSystem.Particles = isParry ? CarriedItemComponent.ParryEffect : CarriedItemComponent.BlockEffect;
 
 		var dir = damageEvent.Direction;
 		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
@@ -65,6 +72,6 @@ public class AttackBlockerComponent : BaseComponent
 		ParticleSystem.Set("RingYaw", angles.yaw  );
 		ParticleSystem.Set("RingRoll", angles.roll  );
 
-		Sound.FromWorld( BlockSound.ResourceName, ParticleSystem.Transform.Position );
+		Sound.FromWorld( isParry ? CarriedItemComponent.ParrySound.ResourceName : CarriedItemComponent.BlockSound.ResourceName, ParticleSystem.Transform.Position );
 	}
 }

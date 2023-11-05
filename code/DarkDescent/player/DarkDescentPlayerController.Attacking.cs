@@ -60,13 +60,13 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		}*/
 	}
 
-	public void OnBlock(DamageEventData damageEvent)
+	public void OnBlock(DamageEventData damageEvent, bool isParry)
 	{
 		Body.Set( "bBlockImpact", true );
 		
-		foreach ( var damageListener in GetComponents<IBlockListener>(true, true) )
+		foreach ( var blockListener in GetComponents<IBlockListener>(true, true) )
 		{
-			damageListener.OnBlock( damageEvent );	
+			blockListener.OnBlock( damageEvent, isParry );	
 		}
 	}
 

@@ -934,7 +934,6 @@
                                 {
                                   "__type": "AttackBlockerComponent",
                                   "__enabled": true,
-                                  "BlockSound": "data/sounds/impact/metal/impact.metal.sound",
                                   "CarriedItemComponent": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
                                   "Collider": "08b7baad-09f5-4c23-a7a5-413cf9d9f053",
                                   "ParticleSystem": "6151ce8d-464a-4032-a9de-0eb8f37f3f31"
@@ -955,7 +954,7 @@
                                       "__enabled": false,
                                       "EmissionStopped": false,
                                       "Looped": false,
-                                      "Particles": "particles/damage_effect/impact_block.vpcf",
+                                      "Particles": null,
                                       "PlaybackSpeed": 1
                                     }
                                   ]
@@ -1264,11 +1263,15 @@
                 {
                   "__type": "CarriedWeaponComponent",
                   "__enabled": true,
+                  "BlockEffect": "particles/damage_effect/impact_block.vpcf",
+                  "BlockSound": "data/sounds/impact/metal/impact.metal.sound",
                   "BounceFraction": 0.6,
                   "ComboTime": 0.7,
                   "FollowBoneMerge": true,
                   "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
                   "ImpactSound": "data/sounds/impact/metal/impact.metal.sound",
+                  "ParryEffect": "particles/damage_effect/impact_block_parry.vpcf",
+                  "ParrySound": "data/sounds/impact/metal/impact.metal.sound",
                   "RecoveryTime": 0.5,
                   "ReleaseTime": 0.5,
                   "SwingSound": "data/sounds/combat/sword.swing.sound",

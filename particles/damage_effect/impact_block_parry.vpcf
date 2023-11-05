@@ -17,7 +17,7 @@
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
 				m_NamedValue = ""
-				m_flLiteralValue = 15.0
+				m_flLiteralValue = 30.0
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
@@ -115,7 +115,7 @@
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
 				m_NamedValue = ""
-				m_flLiteralValue = 60.0
+				m_flLiteralValue = 100.0
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
@@ -1923,8 +1923,7 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/damage_effect/impact_block_ring.vpcf"
-			m_bDisableChild = true
+			m_ChildRef = resource:"particles/damage_effect/impact_block_parry_ring.vpcf"
 		},
 	]
 }

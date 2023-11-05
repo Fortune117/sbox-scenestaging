@@ -51,10 +51,23 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	public SoundEvent SwingSound { get; set; }
 	
 	[Property]
-	private HurtBoxComponent HurtBox { get; set; }
+	public SwordTrail SwordTrail { get; set; }
+	
+	[Property] 
+	public SoundEvent BlockSound { get; set; }
 	
 	[Property]
-	public SwordTrail SwordTrail { get; set; }
+	public Sandbox.ParticleSystem  BlockEffect { get; set; }
+	
+	[Property]
+	public SoundEvent ParrySound { get; set; }
+	
+	[Property]
+	public Sandbox.ParticleSystem ParryEffect { get; set; }
+	
+	[Property] 
+	private HurtBoxComponent HurtBox { get; set; }
+	
 	
 	public Capsule GetHurtBoxCapsule()
 	{

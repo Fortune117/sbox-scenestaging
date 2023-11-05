@@ -4,5 +4,5 @@ namespace DarkDescent.Actor.Marker;
 
 public interface IBlockListener
 {
-	void OnBlock( DamageEventData damageEvent );
+	void OnBlock( DamageEventData damageEvent, bool isParry );
 }
