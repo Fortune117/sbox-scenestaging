@@ -1,4 +1,6 @@
 ﻿using System;
+using DarkDescent.Actor.Damage;
+using DarkDescent.Actor.Marker;
 using Sandbox;
 using Sandbox.Utility;
 
@@ -7,7 +9,7 @@ namespace DarkDescent.Cameras;
 [Title( "View Punch" )]
 [Category( "Camera" )]
 [Icon( "cameraswitch" )]
-public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup
+public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDamageTakenListener
 {
     private Rotation targetRotation = Rotation.Identity;
     private Rotation currentRotation = Rotation.Identity;
@@ -43,6 +45,18 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup
 	    targetRotation = Rotation.Slerp(targetRotation, Rotation.Identity, Time.Delta * 10f);
 	    currentRotation = Rotation.Slerp(currentRotation, targetRotation, Time.Delta * 10f);
 
-	    sceneCamera.Rotation *= targetRotation;
+	    sceneCamera.Rotation *= currentRotation;
+    }
+
+
+    public void OnDamageTaken( DamageEventData damageEvent, bool isLethal )
+    {
+	    if ( isLethal )
+		    return;
+
+	    var vert = -damageEvent.Direction.ProjectOnNormal( Transform.Rotation.Up ).Length;
+		var horizontal = -damageEvent.Direction.ProjectOnNormal( Transform.Rotation.Left ).Length;
+	    
+	    Add( vert * 50f, horizontal * 60f, false );
     }
 }
