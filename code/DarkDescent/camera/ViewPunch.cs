@@ -54,8 +54,8 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDama
 	    if ( isLethal )
 		    return;
 
-	    var vert = -damageEvent.Direction.ProjectOnNormal( Transform.Rotation.Up ).Length;
-		var horizontal = -damageEvent.Direction.ProjectOnNormal( Transform.Rotation.Left ).Length;
+	    var vert = -damageEvent.Direction.Dot( Transform.Rotation.Up );
+		var horizontal = -damageEvent.Direction.Dot( Transform.Rotation.Left );
 	    
 	    Add( vert * 50f, horizontal * 60f, false );
     }
