@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using DarkDescent.Actor;
 using DarkDescent.Actor.Damage;
+using DarkDescent.Actor.Marker;
 using DarkDescent.UI;
 using DarkDescent.Weapons;
 using Sandbox;
 
 namespace DarkDescent;
 
-public partial class DarkDescentPlayerController
+public partial class DarkDescentPlayerController : IDamageTakenListener
 {
 	private static class PlayerEvents
 	{
@@ -324,5 +325,25 @@ public partial class DarkDescentPlayerController
 		hitboxesActive = false;
 		
 		CarriedItemComponent.SwordTrail.StopTrail();
+	}
+
+	private void InterruptAttack()
+	{
+		if ( !isAttacking )
+			return;
+		
+		isAttacking = false;
+		attackStopped = true;
+		TimeSinceAttackStopped = 0;
+		Body.Set( "bInterruptAttack", true );
+		DeactivateAttack();
+	}
+
+	public void OnDamageTaken( DamageEventData damageEvent, bool isLethal )
+	{
+		if ( isLethal )
+			return;
+		
+		InterruptAttack();
 	}
 }
