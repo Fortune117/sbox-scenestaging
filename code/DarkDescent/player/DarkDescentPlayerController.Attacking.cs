@@ -211,7 +211,7 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( CarriedItemComponent.GetImpactDirection() )
 			.WithKnockBack( knockback )
-			.WithDamage( 1f )
+			.WithDamage( 15f )
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
 
