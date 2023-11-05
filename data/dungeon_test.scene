@@ -287,7 +287,7 @@
                                                 },
                                                 {
                                                   "__type": "HealthPostProcessing",
-                                                  "__enabled": true,
+                                                  "__enabled": false,
                                                   "Center": "0.5,0.5",
                                                   "Color": "0.17327,0.01201,0.01201,1",
                                                   "Intensity": 0,
@@ -919,7 +919,7 @@
                               "Id": "08b7baad-09f5-4c23-a7a5-413cf9d9f053",
                               "Name": "Block Hitbox",
                               "Enabled": true,
-                              "Position": "12.06134,-12.11173,0.00000009013847",
+                              "Position": "12.06134,-16.41174,0.00000009013847",
                               "Rotation": "0,0,0,1",
                               "Scale": "1,1,1",
                               "Tags": "block",
@@ -928,7 +928,7 @@
                                   "__type": "ColliderBoxComponent",
                                   "__enabled": false,
                                   "IsTrigger": false,
-                                  "Scale": "17.99997,9.400002,9.400012",
+                                  "Scale": "24.49998,13.60001,16.40002",
                                   "Surface": null
                                 },
                                 {
