@@ -1,5 +1,5 @@
 {
-  "Strength": 10,
+  "Strength": 60,
   "Dexterity": 10,
   "Constitution": 10,
   "Wisdom": 10,
@@ -50,7 +50,7 @@
   "DivineResistance": 0,
   "OccultResistance": 0,
   "CriticalNegation": 0,
-  "KnockBackResistance": -300,
+  "KnockBackResistance": 0,
   "CarryWeight": 30,
   "__references": []
 }

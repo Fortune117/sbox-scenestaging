@@ -11,7 +11,7 @@ public class ModelPhysics : BaseComponent
 
 	[Property] public AnimatedModelComponent Renderer { get; set; }
 
-	PhysicsGroup PhysicsGroup;
+	public PhysicsGroup PhysicsGroup;
 
 	public override void DrawGizmos()
 	{

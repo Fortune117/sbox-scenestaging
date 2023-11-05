@@ -66,15 +66,34 @@ public partial class ActorComponent : IDamageable
 		Alive = false;
 		
 		OnDeath(damageEventData);
+		
+		var modelPhysics = GetComponent<ModelPhysics>( true, true );
+		if ( modelPhysics is not null && modelPhysics.PhysicsGroup is not null )
+		{			
+			PhysicsBody closestBody = null;
+			var closestDistance = float.PositiveInfinity;
+			foreach ( var body in modelPhysics.PhysicsGroup.Bodies )
+			{
+				var distance = body.Position.Distance( damageEventData.Position );
+				if (  distance < closestDistance )
+				{
+					closestBody = body;
+					closestDistance = distance;
+				}
+			}
+			
+			if (closestBody is not null)
+				ApplyKnockBack( closestBody, damageEventData, modelPhysics.PhysicsGroup.Mass/10f );
+		}
 	}
 
-	private void ApplyKnockBack(PhysicsBody body, DamageEventData damageEventData)
+	private void ApplyKnockBack(PhysicsBody body, DamageEventData damageEventData, float multiplier = 1f)
 	{
 		if ( !body.IsValid() )
 			return;
 		
 		body.ApplyForceAt( body.FindClosestPoint( damageEventData.Position ),
-			damageEventData.Direction * damageEventData.KnockBackResult * body.Mass * 600 );
+			damageEventData.Direction * damageEventData.KnockBackResult * body.Mass * 600 * multiplier );
 	}
 	
 	public void CreateDamageNumber(DamageEventData damageEventData)
