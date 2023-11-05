@@ -60,9 +60,14 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		}*/
 	}
 
-	public void OnBlock()
+	public void OnBlock(DamageEventData damageEvent)
 	{
 		Body.Set( "bBlockImpact", true );
+		
+		foreach ( var damageListener in GetComponents<IBlockListener>(true, true) )
+		{
+			damageListener.OnBlock( damageEvent );	
+		}
 	}
 
 	private bool hitboxesActive;
@@ -198,18 +203,6 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 			return;
 
 		var hitEvent = hit.Value;
-
-		if ( hitEvent.WasBlocked )
-			return;
-		
-		if ( hitEvent.Damageable is null ) //impacted the world?
-		{
-			if (hitEvent.TraceResult.Fraction < CarriedItemComponent.BounceFraction)
-				BounceAttack(hitEvent.TraceResult);
-			return;
-		}
-
-		DoHitStop();
 		
 		var knockback = ActorComponent is not null ? ActorComponent.Stats.KnockBack : 0;
 
@@ -222,6 +215,21 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
 
+		if ( hitEvent.WasBlocked )
+		{
+			hitEvent.Blocker.BlockedHit( damage );
+			return;
+		}
+		
+		if ( hitEvent.Damageable is null ) //impacted the world?
+		{
+			if (hitEvent.TraceResult.Fraction < CarriedItemComponent.BounceFraction)
+				BounceAttack(hitEvent.TraceResult);
+			return;
+		}
+
+		DoHitStop();
+		
 		hitEvent.Damageable.TakeDamage( damage );
 		
 		if ( hitEvent.Damageable.CauseHitBounce )
@@ -344,6 +352,6 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		if ( isLethal )
 			return;
 		
-		InterruptAttack();
+		//InterruptAttack(); 
 	}
 }

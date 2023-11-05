@@ -9,7 +9,7 @@ namespace DarkDescent.Cameras;
 [Title( "View Punch" )]
 [Category( "Camera" )]
 [Icon( "cameraswitch" )]
-public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDamageTakenListener
+public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDamageTakenListener, IBlockListener
 {
     private Rotation targetRotation = Rotation.Identity;
     private Rotation currentRotation = Rotation.Identity;
@@ -49,6 +49,9 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDama
     }
 
 
+    private float verticalImpact => 50f;
+    private float horizontalImpact => 60f;
+    
     public void OnDamageTaken( DamageEventData damageEvent, bool isLethal )
     {
 	    if ( isLethal )
@@ -57,6 +60,14 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDama
 	    var vert = -damageEvent.Direction.Dot( Transform.Rotation.Up );
 		var horizontal = -damageEvent.Direction.Dot( Transform.Rotation.Left );
 	    
-	    Add( vert * 50f, horizontal * 60f, false );
+	    Add( vert * verticalImpact, horizontal * horizontalImpact, false );
+    }
+
+    public void OnBlock( DamageEventData damageEvent )
+    {
+	    var vert = -damageEvent.Direction.Dot( Transform.Rotation.Up );
+	    var horizontal = -damageEvent.Direction.Dot( Transform.Rotation.Left );
+	    
+	    Add( vert * verticalImpact/2f, horizontal * horizontalImpact/2f, false );
     }
 }

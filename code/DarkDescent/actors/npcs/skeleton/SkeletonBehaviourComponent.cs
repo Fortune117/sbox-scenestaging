@@ -101,12 +101,8 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 			return;
 
 		var hitEvent = hit.Value;
-
-		if ( hitEvent.WasBlocked )
-			return;
 		
 		var knockback = ActorComponent.Stats.KnockBack;
-		
 		var damage = new DamageEventData()
 			.WithOriginator( ActorComponent )
 			.UsingTraceResult( hitEvent.TraceResult )
@@ -116,6 +112,12 @@ public class SkeletonBehaviourComponent : BehaviourComponent
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
 
+		if ( hitEvent.WasBlocked )
+		{
+			hitEvent.Blocker.BlockedHit( damage );
+			return;
+		}
+		
 		hitEvent.Damageable.TakeDamage( damage );
 	}
 

@@ -19,7 +19,7 @@ public class AttackBlockerComponent : BaseComponent
 
 	private bool isActive;
 
-	public Action OnBlock;
+	public Action<DamageEventData> OnBlock;
 
 	public bool IsActive
 	{
@@ -42,19 +42,17 @@ public class AttackBlockerComponent : BaseComponent
 		IsActive = status;
 	}
 
-	public void BlockedHit(AttackHitEvent hitEvent)
+	public void BlockedHit(DamageEventData damageEvent)
 	{
-		OnBlock?.Invoke();
-
-		ParticleSystem.Transform.Position = hitEvent.TraceResult.HitPosition;
-
+		OnBlock?.Invoke(damageEvent);
+		
 		var capsule = CarriedItemComponent.GetHurtBoxCapsule();
 		
 		var line = new Line(capsule.CenterA, capsule.CenterB);
 
-		ParticleSystem.Transform.Position = line.ClosestPoint( hitEvent.TraceResult.HitPosition );
+		ParticleSystem.Transform.Position = line.ClosestPoint( damageEvent.Position );
 
-		var dir = hitEvent.HitDirection;
+		var dir = damageEvent.Direction;
 		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
 		
 		if (!ParticleSystem.Enabled)

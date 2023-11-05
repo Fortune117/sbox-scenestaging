@@ -6,7 +6,7 @@ namespace DarkDescent.PostProcessing;
 
 public class HealthPostProcessing : BaseComponent, BaseComponent.ExecuteInEditor, IDamageTakenListener
 {
-		/// <summary>
+	/// <summary>
 	/// The color of the vignette or the "border"
 	/// </summary>
 	[Property] public Color Color { get; set; } = Color.Black;
@@ -32,12 +32,6 @@ public class HealthPostProcessing : BaseComponent, BaseComponent.ExecuteInEditor
 	/// </summary>
 	[Property] public Vector2 Center { get; set; } = new Vector2( 0.5f, 0.5f );
 	
-	private float maximumSaturationLoss => 0.65f;
-	private float healthEffectsThreshold => 0.6f;
-	private float lowHealthMaxIntensity => 0.2f;
-
-	private float damageIntensity = 0f;
-	
 	IDisposable renderHook;
 	
 	public override void OnEnabled()
@@ -57,9 +51,8 @@ public class HealthPostProcessing : BaseComponent, BaseComponent.ExecuteInEditor
 	public override void Update()
 	{
 		base.Update();
-
-		//damageIntensity = damageIntensity.LerpTo( 0, Time.Delta * 2f );
-		Intensity = Intensity.LerpTo( 0, Time.Delta * 5f );
+		
+		Intensity = Intensity.LerpTo( 0, Time.Delta * 3f );
 	}
 
 	RenderAttributes attributes = new RenderAttributes();
@@ -88,6 +81,6 @@ public class HealthPostProcessing : BaseComponent, BaseComponent.ExecuteInEditor
 		if ( isLethal )
 			return;
 
-		Intensity = 0.75f;
+		Intensity = 0.65f;
 	}
 }

@@ -22,7 +22,7 @@ public partial class InteractableObjectComponent : BaseComponent, IDamageable
 	
 	[Property]
 	public bool CauseHitBounce { get; set; }
-	
+
 	public void TakeDamage( DamageEventData damageEventData )
 	{
 		damageEventData.CreateDamageEffects();
