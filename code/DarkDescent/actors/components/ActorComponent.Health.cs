@@ -1,10 +1,14 @@
-﻿using Sandbox;
+﻿using DarkDescent.Actor.Damage;
+using DarkDescent.Actor.Marker;
+using Sandbox;
 
 namespace DarkDescent.Actor;
 
 public partial class ActorComponent
 {
 	public float Health { get; private set; }
+	
+	public bool Alive { get; private set; }
 	
 	public TimeSince TimeSinceTookDamage { get; set; }
 
@@ -61,5 +65,28 @@ public partial class ActorComponent
 		frac = frac.Clamp( 0, 1 );
 
 		Health = Stats.MaxHealth * frac;
+	}
+
+	private void OnDeath(DamageEventData damageEventData)
+	{
+		foreach ( var deathListener in GetComponents<IDeathListener>() )
+		{
+			deathListener.OnDeath( damageEventData );
+		}
+
+		foreach ( var behaviour in GetComponents<BehaviourComponent>() )
+		{
+			behaviour.Enabled = false;
+		}
+		
+		if ( !TryGetComponent<ModelCollider>( out var modelCollider, false, true ) )
+			return;
+
+		modelCollider.Enabled = false;
+		
+		if ( !TryGetComponent<ModelPhysics>( out var modelPhysics, false, true ) )
+			return;
+
+		modelPhysics.Enabled = true;
 	}
 }

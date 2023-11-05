@@ -63,10 +63,10 @@ public partial class ActorComponent : IDamageable
 			damageEventData.Originator.AddExperience( exp );
 		}
 
-		GameObject.Destroy();
+		Alive = false;
+		
+		OnDeath(damageEventData);
 	}
-
-
 
 	private void ApplyKnockBack(PhysicsBody body, DamageEventData damageEventData)
 	{

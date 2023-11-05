@@ -5,6 +5,9 @@ namespace DarkDescent.Actor;
 
 public class SkeletonBehaviourComponent : BehaviourComponent
 {
+	[Property]
+	private GameObject Weapon { get; set; }
+	
 	private bool isAttacking;
 	private bool hitBoxesActive;
 

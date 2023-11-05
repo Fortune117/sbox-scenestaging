@@ -74,7 +74,8 @@ public struct AttackEvent
 
 	public AttackEvent WithHurtBox( HurtBoxComponent hurtBoxComponent )
 	{
-		HurtBoxes.Add( hurtBoxComponent );
+		if (hurtBoxComponent is not null)
+			HurtBoxes.Add( hurtBoxComponent );
 		return this;
 	}
 

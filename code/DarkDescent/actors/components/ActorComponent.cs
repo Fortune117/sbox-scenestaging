@@ -29,6 +29,8 @@ public partial class ActorComponent : BaseComponent
 
 		BaseStats.OnReload += ReloadBaseStats;
 		InitializeStats();
+
+		Alive = true;
 		
 		//TODO: world panels
 		CreateInfoPanel();
