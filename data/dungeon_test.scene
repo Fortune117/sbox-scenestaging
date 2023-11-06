@@ -1275,6 +1275,7 @@
                   "BlockResource": "data/prefabs/longsword_block.block",
                   "BounceFraction": 0.6,
                   "ComboTime": 0.7,
+                  "DamageResource": "data/prefabs/longsword_damage.damage",
                   "FollowBoneMerge": true,
                   "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
                   "ImpactSound": "data/sounds/combat/sword.hit.sound",

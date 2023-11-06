@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using DarkDescent.Actor;
 using DarkDescent.Actor.Damage;
 using DarkDescent.Components;
@@ -8,6 +7,9 @@ namespace DarkDescent.Weapons;
 
 public class CarriedWeaponComponent : CarriedItemComponent
 {
+	[Property]
+	public DamageResource DamageResource { get; set; }
+	
 	/// <summary>
 	/// Wind up time of this weapon in seconds.
 	/// </summary>
@@ -61,12 +63,12 @@ public class CarriedWeaponComponent : CarriedItemComponent
 
 	public float GetDamage( ActorComponent actorComponent )
 	{
-		return actorComponent.Stats.PhysicalPower;
+		return DamageResource.Calculate( actorComponent.Stats );
 	}
 
 	public DamageType GetDamageType()
 	{
-		return DamageType.Physical;
+		return DamageResource.DamageTypes;
 	}
 	
 	public Capsule GetHurtBoxCapsule()
