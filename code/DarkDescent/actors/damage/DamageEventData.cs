@@ -20,6 +20,11 @@ public struct DamageEventData
 	public float DamageOriginal { get; set; }
 	
 	/// <summary>
+	/// Was this damage done during a successful block?
+	/// </summary>
+	public bool WasBlocked { get; set; }
+	
+	/// <summary>
 	/// The strength of the knockback this damage stat should have.
 	/// </summary>
 	public float KnockBackOriginal { get; set; }
@@ -68,7 +73,7 @@ public struct DamageEventData
 	/// <summary>
 	/// Target
 	/// </summary>
-	public ActorComponent Target { get; set; }
+	public IDamageable Target { get; set; }
 	
 	public Surface Surface { get; set; }
 
@@ -92,6 +97,7 @@ public struct DamageEventData
 	public DamageEventData WithDamage( float damage )
 	{
 		DamageOriginal = damage;
+		DamageResult = damage;
 		return this;
 	}
 
@@ -130,7 +136,7 @@ public struct DamageEventData
 		return this;
 	}
 	
-	public DamageEventData WithTarget( ActorComponent target )
+	public DamageEventData WithTarget( IDamageable target )
 	{
 		Target = target;
 		return this;

@@ -54,7 +54,7 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDama
     
     public void OnDamageTaken( DamageEventData damageEvent, bool isLethal )
     {
-	    if ( isLethal )
+	    if ( isLethal || damageEvent.WasBlocked )
 		    return;
 
 	    var vert = -damageEvent.Direction.Dot( Transform.Rotation.Up );

@@ -113,18 +113,22 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDeathListener
 		var knockback = ActorComponent.Stats.KnockBack;
 		var damage = new DamageEventData()
 			.WithOriginator( ActorComponent )
+			.WithTarget( hitEvent.Damageable )
 			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( hitEvent.HitDirection )
 			.WithKnockBack( knockback )
 			.WithDamage( 5f )
 			.WithType( DamageType.Physical )
 			.AsCritical( false );
-
+		
 		if ( hitEvent.WasBlocked )
 		{
-			hitEvent.Blocker.BlockedHit( damage );
-			return;
+			damage.WasBlocked = true;
+			damage = hitEvent.Blocker.BlockedHit( damage );
 		}
+
+		if ( damage.DamageResult <= 0 )
+			return;
 		
 		hitEvent.Damageable.TakeDamage( damage );
 	}

@@ -16,6 +16,7 @@
         "InfoPanelOffset": 75,
         "InfoPanelPrefab": "data/actor_info_panel.object",
         "PanelDrawDistance": 300,
+        "PlayHitSound": true,
         "PrimaryAttribute": "Strength",
         "ShowDamageNumbers": true,
         "ShowInfoPanel": true,

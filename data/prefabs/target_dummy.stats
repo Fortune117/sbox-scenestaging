@@ -2,21 +2,22 @@
   "Core": {
     "Strength": 10,
     "Dexterity": 10,
-    "Constitution": 10,
+    "Constitution": 100,
     "Wisdom": 10,
     "Intelligence": 10,
     "Charisma": 10
   },
   "Health": {
-    "MaxHealth": 30,
-    "HealthRegenDelay": 2,
-    "HealMultiplier": 1
+    "MaxHealth": 100,
+    "HealthRegen": 10,
+    "HealthRegenDelay": 3,
+    "HealMultiplier": 10
   },
   "Stamina": {
     "MaxStamina": 30,
     "StaminaRegen": 3,
     "StaminaCostMultiplier": 1,
-    "StaminaRegenDelay": 2
+    "StaminaRegenDelay": 1.5
   },
   "Actions": {
     "ActionSpeed": 1,
@@ -24,10 +25,10 @@
     "MoveSpeedMultiplier": 1,
     "JumpHeightMultiplier": 1
   },
-  "Combat": {},
-  "Resistances": {},
-  "Misc": {
-    "CarryWeight": 300
+  "Combat": {
+    "CriticalMultiplier": 1.5
   },
+  "Resistances": {},
+  "Misc": {},
   "__references": []
 }

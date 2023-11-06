@@ -1,4 +1,5 @@
-﻿using Sandbox;
+﻿using DarkDescent.Actor.StatSystem;
+using Sandbox;
 
 namespace DarkDescent.Actor;
 

@@ -11,7 +11,7 @@
       {
         "__type": "ActorComponent",
         "__enabled": true,
-        "BaseStats": "data/prefabs/target_dummy_stats.stats",
+        "BaseStats": "data/prefabs/target_dummy.stats",
         "CauseHitBounce": false,
         "InfoPanelOffset": 0,
         "InfoPanelPrefab": "data/actor_info_panel.object",

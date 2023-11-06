@@ -39,7 +39,8 @@ public struct AttackEvent
 			if ( hitGameObject.TryGetComponent<AttackBlockerComponent>( out var blockerComponent ) )
 			{
 				Blocked = true;
-				
+
+				attackHitEvent.Damageable = blockerComponent.BlockOwner;
 				attackHitEvent.HitDirection = hurtBox.DirectionMoment;
 				attackHitEvent.Blocker = blockerComponent;
 				attackHitEvent.WasBlocked = true;

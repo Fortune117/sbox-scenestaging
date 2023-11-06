@@ -132,168 +132,168 @@ public partial class ActorComponent
 	/// </summary>
 	private void ReloadBaseStats()
 	{
-		SetBaseStat( StatType.Strength, BaseStats.Strength );
-		SetBaseStat( StatType.Dexterity, BaseStats.Dexterity );
-		SetBaseStat( StatType.Constitution, BaseStats.Constitution );
-		SetBaseStat( StatType.Wisdom, BaseStats.Wisdom );
-		SetBaseStat( StatType.Intelligence, BaseStats.Intelligence );
-		SetBaseStat( StatType.Charisma, BaseStats.Charisma );
+		SetBaseStat( StatType.Strength, BaseStats.Core.Strength );
+		SetBaseStat( StatType.Dexterity, BaseStats.Core.Dexterity );
+		SetBaseStat( StatType.Constitution, BaseStats.Core.Constitution );
+		SetBaseStat( StatType.Wisdom, BaseStats.Core.Wisdom );
+		SetBaseStat( StatType.Intelligence, BaseStats.Core.Intelligence );
+		SetBaseStat( StatType.Charisma, BaseStats.Core.Charisma );
 		
 		//Health
-		SetBaseStat( StatType.MaxHealth, BaseStats.MaxHealth );
-		SetBaseStat( StatType.HealthRegen, BaseStats.HealthRegen );
-		SetBaseStat( StatType.HealthRegenDelay, BaseStats.HealthRegenDelay );
-		SetBaseStat( StatType.HealMultiplier, BaseStats.HealMultiplier );
+		SetBaseStat( StatType.MaxHealth, BaseStats.Health.MaxHealth );
+		SetBaseStat( StatType.HealthRegen, BaseStats.Health.HealthRegen );
+		SetBaseStat( StatType.HealthRegenDelay, BaseStats.Health.HealthRegenDelay );
+		SetBaseStat( StatType.HealMultiplier, BaseStats.Health.HealMultiplier );
 		
 		//Stamina
-		SetBaseStat( StatType.MaxStamina, BaseStats.MaxStamina );
-		SetBaseStat( StatType.StaminaRegen, BaseStats.StaminaRegen );
-		SetBaseStat( StatType.StaminaCostMultiplier, BaseStats.StaminaCostMultiplier );
-		SetBaseStat( StatType.StaminaRegenDelay, BaseStats.StaminaRegenDelay );
+		SetBaseStat( StatType.MaxStamina, BaseStats.Stamina.MaxStamina );
+		SetBaseStat( StatType.StaminaRegen, BaseStats.Stamina.StaminaRegen );
+		SetBaseStat( StatType.StaminaCostMultiplier, BaseStats.Stamina.StaminaCostMultiplier );
+		SetBaseStat( StatType.StaminaRegenDelay, BaseStats.Stamina.StaminaRegenDelay );
 		
 		//Actions
-		SetBaseStat( StatType.ActionSpeed, BaseStats.ActionSpeed );
-		SetBaseStat( StatType.SpellCastingSpeed, BaseStats.SpellCastingSpeed );
+		SetBaseStat( StatType.ActionSpeed, BaseStats.Actions.ActionSpeed );
+		SetBaseStat( StatType.SpellCastingSpeed, BaseStats.Actions.SpellCastingSpeed );
 		
 		//Movement
-		SetBaseStat( StatType.MoveSpeedMultiplier, BaseStats.MoveSpeedMultiplier );
-		SetBaseStat( StatType.JumpHeightMultiplier, BaseStats.JumpHeightMultiplier );
+		SetBaseStat( StatType.MoveSpeedMultiplier, BaseStats.Actions.MoveSpeedMultiplier );
+		SetBaseStat( StatType.JumpHeightMultiplier, BaseStats.Actions.JumpHeightMultiplier );
 		
 		//Combat
-		SetBaseStat( StatType.PhysicalPower, BaseStats.PhysicalPower );
-		SetBaseStat( StatType.SpellPower, BaseStats.SpellPower );
+		SetBaseStat( StatType.PhysicalPower, BaseStats.Combat.PhysicalPower );
+		SetBaseStat( StatType.SpellPower, BaseStats.Combat.SpellPower );
 		
-		SetBaseStat( StatType.FirePower, BaseStats.FirePower );
-		SetBaseStat( StatType.FrostPower, BaseStats.FrostPower );
-		SetBaseStat( StatType.ElectricPower, BaseStats.ElectricPower );
-		SetBaseStat( StatType.PoisonPower, BaseStats.PoisonPower );
-		SetBaseStat( StatType.NecroticPower, BaseStats.NecroticPower );
+		SetBaseStat( StatType.FirePower, BaseStats.Combat.FirePower );
+		SetBaseStat( StatType.FrostPower, BaseStats.Combat.FrostPower );
+		SetBaseStat( StatType.ElectricPower, BaseStats.Combat.ElectricPower );
+		SetBaseStat( StatType.PoisonPower, BaseStats.Combat.PoisonPower );
+		SetBaseStat( StatType.NecroticPower, BaseStats.Combat.NecroticPower );
 		
-		SetBaseStat( StatType.ArcanePower, BaseStats.ArcanePower );
-		SetBaseStat( StatType.DivinePower, BaseStats.DivinePower );
-		SetBaseStat( StatType.OccultPower, BaseStats.OccultPower );
+		SetBaseStat( StatType.ArcanePower, BaseStats.Combat.ArcanePower );
+		SetBaseStat( StatType.DivinePower, BaseStats.Combat.DivinePower );
+		SetBaseStat( StatType.OccultPower, BaseStats.Combat.OccultPower );
 		
-		SetBaseStat( StatType.ArmorPenetration, BaseStats.ArmorPenetration );
-		SetBaseStat( StatType.WardingPenetration, BaseStats.WardingPenetration );
+		SetBaseStat( StatType.ArmorPenetration, BaseStats.Combat.ArmorPenetration );
+		SetBaseStat( StatType.WardingPenetration, BaseStats.Combat.WardingPenetration );
 		
-		SetBaseStat( StatType.FirePenetration, BaseStats.FirePenetration );
-		SetBaseStat( StatType.FrostPenetration, BaseStats.FrostPenetration );
-		SetBaseStat( StatType.ElectricPenetration, BaseStats.ElectricPenetration );
-		SetBaseStat( StatType.PoisonPenetration, BaseStats.PoisonPenetration );
-		SetBaseStat( StatType.NecroticPenetration, BaseStats.NecroticPenetration );
+		SetBaseStat( StatType.FirePenetration, BaseStats.Combat.FirePenetration );
+		SetBaseStat( StatType.FrostPenetration, BaseStats.Combat.FrostPenetration );
+		SetBaseStat( StatType.ElectricPenetration, BaseStats.Combat.ElectricPenetration );
+		SetBaseStat( StatType.PoisonPenetration, BaseStats.Combat.PoisonPenetration );
+		SetBaseStat( StatType.NecroticPenetration, BaseStats.Combat.NecroticPenetration );
 		
-		SetBaseStat( StatType.ArcanePenetration, BaseStats.ArcanePenetration );
-		SetBaseStat( StatType.DivinePenetration, BaseStats.DivinePenetration );
-		SetBaseStat( StatType.OccultPenetration, BaseStats.OccultPenetration );
+		SetBaseStat( StatType.ArcanePenetration, BaseStats.Combat.ArcanePenetration );
+		SetBaseStat( StatType.DivinePenetration, BaseStats.Combat.DivinePenetration );
+		SetBaseStat( StatType.OccultPenetration, BaseStats.Combat.OccultPenetration );
 		
-		SetBaseStat( StatType.CriticalMultiplier, BaseStats.CriticalMultiplier );
-		SetBaseStat( StatType.KnockBack, BaseStats.KnockBack );
+		SetBaseStat( StatType.CriticalMultiplier, BaseStats.Combat.CriticalMultiplier );
+		SetBaseStat( StatType.KnockBack, BaseStats.Combat.KnockBack );
 		
 		//Defense
-		SetBaseStat( StatType.Armor, BaseStats.Armor );
-		SetBaseStat( StatType.Warding, BaseStats.Warding );
-		SetBaseStat( StatType.CriticalNegation, BaseStats.CriticalNegation );
-		SetBaseStat( StatType.KnockBackResistance, BaseStats.KnockBackResistance );
+		SetBaseStat( StatType.Armor, BaseStats.Resistances.Armor );
+		SetBaseStat( StatType.Warding, BaseStats.Resistances.Warding );
+		SetBaseStat( StatType.CriticalNegation, BaseStats.Resistances.CriticalNegation );
+		SetBaseStat( StatType.KnockBackResistance, BaseStats.Resistances.KnockBackResistance );
 		
-		SetBaseStat( StatType.FireResistance, BaseStats.FireResistance );
-		SetBaseStat( StatType.FrostResistance, BaseStats.FrostResistance );
-		SetBaseStat( StatType.ElectricResistance, BaseStats.ElectricResistance );
-		SetBaseStat( StatType.PoisonResistance, BaseStats.PoisonResistance );
-		SetBaseStat( StatType.NecroticResistance, BaseStats.NecroticResistance );
+		SetBaseStat( StatType.FireResistance, BaseStats.Resistances.FireResistance );
+		SetBaseStat( StatType.FrostResistance, BaseStats.Resistances.FrostResistance );
+		SetBaseStat( StatType.ElectricResistance, BaseStats.Resistances.ElectricResistance );
+		SetBaseStat( StatType.PoisonResistance, BaseStats.Resistances.PoisonResistance );
+		SetBaseStat( StatType.NecroticResistance, BaseStats.Resistances.NecroticResistance );
 		
-		SetBaseStat( StatType.ArcaneResistance, BaseStats.ArcaneResistance );
-		SetBaseStat( StatType.DivineResistance, BaseStats.DivineResistance );
-		SetBaseStat( StatType.OccultResistance, BaseStats.OccultResistance );
+		SetBaseStat( StatType.ArcaneResistance, BaseStats.Resistances.ArcaneResistance );
+		SetBaseStat( StatType.DivineResistance, BaseStats.Resistances.DivineResistance );
+		SetBaseStat( StatType.OccultResistance, BaseStats.Resistances.OccultResistance );
 		
 		//Misc
-		SetBaseStat( StatType.CarryWeight, BaseStats.CarryWeight );
+		SetBaseStat( StatType.CarryWeight, BaseStats.Misc.CarryWeight );
 	}
 
 	private void InitializeStats()
 	{
 		//Core stats
-		InitializeStat( StatType.Strength, BaseStats.Strength );
-		InitializeStat( StatType.Dexterity, BaseStats.Dexterity );
+		InitializeStat( StatType.Strength, BaseStats.Core.Strength );
+		InitializeStat( StatType.Dexterity, BaseStats.Core.Dexterity );
 		
-		InitializeStat( StatType.Constitution, BaseStats.Constitution );
+		InitializeStat( StatType.Constitution, BaseStats.Core.Constitution );
 		AddStatCallback( StatType.Constitution, OnConstitutionChanged );
 		
-		InitializeStat( StatType.Wisdom, BaseStats.Wisdom );
-		InitializeStat( StatType.Intelligence, BaseStats.Intelligence );
-		InitializeStat( StatType.Charisma, BaseStats.Charisma );
+		InitializeStat( StatType.Wisdom, BaseStats.Core.Wisdom );
+		InitializeStat( StatType.Intelligence, BaseStats.Core.Intelligence );
+		InitializeStat( StatType.Charisma, BaseStats.Core.Charisma );
 		
 		//Health
-		InitializeStat( StatType.MaxHealth, BaseStats.MaxHealth );
+		InitializeStat( StatType.MaxHealth, BaseStats.Health.MaxHealth );
 		AddStatCallback( StatType.MaxHealth, OnMaxHealthChanged );
 		
-		InitializeStat( StatType.HealthRegen, BaseStats.HealthRegen );
-		InitializeStat( StatType.HealthRegenDelay, BaseStats.HealthRegenDelay );
-		InitializeStat( StatType.HealMultiplier, BaseStats.HealMultiplier );
+		InitializeStat( StatType.HealthRegen, BaseStats.Health.HealthRegen );
+		InitializeStat( StatType.HealthRegenDelay, BaseStats.Health.HealthRegenDelay );
+		InitializeStat( StatType.HealMultiplier, BaseStats.Health.HealMultiplier );
 		
 		//Stamina
-		InitializeStat( StatType.MaxStamina, BaseStats.MaxStamina );
+		InitializeStat( StatType.MaxStamina, BaseStats.Stamina.MaxStamina );
 		AddStatCallback( StatType.MaxStamina, OnMaxStaminaChanged );
 		
-		InitializeStat( StatType.StaminaRegen, BaseStats.StaminaRegen );
-		InitializeStat( StatType.StaminaCostMultiplier, BaseStats.StaminaCostMultiplier );
-		InitializeStat( StatType.StaminaRegenDelay, BaseStats.StaminaRegenDelay );
+		InitializeStat( StatType.StaminaRegen, BaseStats.Stamina.StaminaRegen );
+		InitializeStat( StatType.StaminaCostMultiplier, BaseStats.Stamina.StaminaCostMultiplier );
+		InitializeStat( StatType.StaminaRegenDelay, BaseStats.Stamina.StaminaRegenDelay );
 		
 		//Actions
-		InitializeStat( StatType.ActionSpeed, BaseStats.ActionSpeed );
-		InitializeStat( StatType.SpellCastingSpeed, BaseStats.SpellCastingSpeed );
+		InitializeStat( StatType.ActionSpeed, BaseStats.Actions.ActionSpeed );
+		InitializeStat( StatType.SpellCastingSpeed, BaseStats.Actions.SpellCastingSpeed );
 		
 		//Movement
-		InitializeStat( StatType.MoveSpeedMultiplier, BaseStats.MoveSpeedMultiplier );
-		InitializeStat( StatType.JumpHeightMultiplier, BaseStats.JumpHeightMultiplier );
+		InitializeStat( StatType.MoveSpeedMultiplier, BaseStats.Actions.MoveSpeedMultiplier );
+		InitializeStat( StatType.JumpHeightMultiplier, BaseStats.Actions.JumpHeightMultiplier );
 		
 		//Combat
-		InitializeStat( StatType.PhysicalPower, BaseStats.PhysicalPower );
-		InitializeStat( StatType.SpellPower, BaseStats.SpellPower );
+		InitializeStat( StatType.PhysicalPower, BaseStats.Combat.PhysicalPower );
+		InitializeStat( StatType.SpellPower, BaseStats.Combat.SpellPower );
 		
-		InitializeStat( StatType.FirePower, BaseStats.FirePower );
-		InitializeStat( StatType.FrostPower, BaseStats.FrostPower );
-		InitializeStat( StatType.ElectricPower, BaseStats.ElectricPower );
-		InitializeStat( StatType.PoisonPower, BaseStats.PoisonPower );
-		InitializeStat( StatType.NecroticPower, BaseStats.NecroticPower );
+		InitializeStat( StatType.FirePower, BaseStats.Combat.FirePower );
+		InitializeStat( StatType.FrostPower, BaseStats.Combat.FrostPower );
+		InitializeStat( StatType.ElectricPower, BaseStats.Combat.ElectricPower );
+		InitializeStat( StatType.PoisonPower, BaseStats.Combat.PoisonPower );
+		InitializeStat( StatType.NecroticPower, BaseStats.Combat.NecroticPower );
 		
-		InitializeStat( StatType.ArcanePower, BaseStats.ArcanePower );
-		InitializeStat( StatType.DivinePower, BaseStats.DivinePower );
-		InitializeStat( StatType.OccultPower, BaseStats.OccultPower );
+		InitializeStat( StatType.ArcanePower, BaseStats.Combat.ArcanePower );
+		InitializeStat( StatType.DivinePower, BaseStats.Combat.DivinePower );
+		InitializeStat( StatType.OccultPower, BaseStats.Combat.OccultPower );
 		
-		InitializeStat( StatType.ArmorPenetration, BaseStats.ArmorPenetration );
-		InitializeStat( StatType.WardingPenetration, BaseStats.WardingPenetration );
+		InitializeStat( StatType.ArmorPenetration, BaseStats.Combat.ArmorPenetration );
+		InitializeStat( StatType.WardingPenetration, BaseStats.Combat.WardingPenetration );
 		
-		InitializeStat( StatType.FirePenetration, BaseStats.FirePenetration );
-		InitializeStat( StatType.FrostPenetration, BaseStats.FrostPenetration );
-		InitializeStat( StatType.ElectricPenetration, BaseStats.ElectricPenetration );
-		InitializeStat( StatType.PoisonPenetration, BaseStats.PoisonPenetration );
-		InitializeStat( StatType.NecroticPenetration, BaseStats.NecroticPenetration );
+		InitializeStat( StatType.FirePenetration, BaseStats.Combat.FirePenetration );
+		InitializeStat( StatType.FrostPenetration, BaseStats.Combat.FrostPenetration );
+		InitializeStat( StatType.ElectricPenetration, BaseStats.Combat.ElectricPenetration );
+		InitializeStat( StatType.PoisonPenetration, BaseStats.Combat.PoisonPenetration );
+		InitializeStat( StatType.NecroticPenetration, BaseStats.Combat.NecroticPenetration );
 		
-		InitializeStat( StatType.ArcanePenetration, BaseStats.ArcanePenetration );
-		InitializeStat( StatType.DivinePenetration, BaseStats.DivinePenetration );
-		InitializeStat( StatType.OccultPenetration, BaseStats.OccultPenetration );
+		InitializeStat( StatType.ArcanePenetration, BaseStats.Combat.ArcanePenetration );
+		InitializeStat( StatType.DivinePenetration, BaseStats.Combat.DivinePenetration );
+		InitializeStat( StatType.OccultPenetration, BaseStats.Combat.OccultPenetration );
 		
-		InitializeStat( StatType.CriticalMultiplier, BaseStats.CriticalMultiplier );
-		InitializeStat( StatType.KnockBack, BaseStats.KnockBack );
+		InitializeStat( StatType.CriticalMultiplier, BaseStats.Combat.CriticalMultiplier );
+		InitializeStat( StatType.KnockBack, BaseStats.Combat.KnockBack );
 		
 		//Defense
-		InitializeStat( StatType.Armor, BaseStats.Armor );
-		InitializeStat( StatType.Warding, BaseStats.Warding );
-		InitializeStat( StatType.CriticalNegation, BaseStats.CriticalNegation );
-		InitializeStat( StatType.KnockBackResistance, BaseStats.KnockBackResistance );
+		InitializeStat( StatType.Armor, BaseStats.Resistances.Armor );
+		InitializeStat( StatType.Warding, BaseStats.Resistances.Warding );
+		InitializeStat( StatType.CriticalNegation, BaseStats.Resistances.CriticalNegation );
+		InitializeStat( StatType.KnockBackResistance, BaseStats.Resistances.KnockBackResistance );
 
-		InitializeStat( StatType.FireResistance, BaseStats.FireResistance );
-		InitializeStat( StatType.FrostResistance, BaseStats.FrostResistance );
-		InitializeStat( StatType.ElectricResistance, BaseStats.ElectricResistance );
-		InitializeStat( StatType.PoisonResistance, BaseStats.PoisonResistance );
-		InitializeStat( StatType.NecroticResistance, BaseStats.NecroticResistance );
+		InitializeStat( StatType.FireResistance, BaseStats.Resistances.FireResistance );
+		InitializeStat( StatType.FrostResistance, BaseStats.Resistances.FrostResistance );
+		InitializeStat( StatType.ElectricResistance, BaseStats.Resistances.ElectricResistance );
+		InitializeStat( StatType.PoisonResistance, BaseStats.Resistances.PoisonResistance );
+		InitializeStat( StatType.NecroticResistance, BaseStats.Resistances.NecroticResistance );
 		
-		InitializeStat( StatType.ArcaneResistance, BaseStats.ArcaneResistance );
-		InitializeStat( StatType.DivineResistance, BaseStats.DivineResistance );
-		InitializeStat( StatType.OccultResistance, BaseStats.OccultResistance );
+		InitializeStat( StatType.ArcaneResistance, BaseStats.Resistances.ArcaneResistance );
+		InitializeStat( StatType.DivineResistance, BaseStats.Resistances.DivineResistance );
+		InitializeStat( StatType.OccultResistance, BaseStats.Resistances.OccultResistance );
 
 		//Misc
-		InitializeStat( StatType.CarryWeight, BaseStats.CarryWeight );
+		InitializeStat( StatType.CarryWeight, BaseStats.Misc.CarryWeight );
 
 		Health = Stats.MaxHealth;
 		Stamina = Stats.MaxStamina;

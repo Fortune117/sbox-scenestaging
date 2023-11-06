@@ -6,6 +6,9 @@ namespace DarkDescent.Actor.Damage;
 public class AttackBlockerComponent : BaseComponent
 {
 	[Property]
+	public ActorComponent BlockOwner { get; set; }
+	
+	[Property]
 	private ColliderBoxComponent Collider { get; set; }
 	
 	[Property]
@@ -45,11 +48,9 @@ public class AttackBlockerComponent : BaseComponent
 			TimeSinceBlockStarted = 0;
 	}
 
-	public void BlockedHit(DamageEventData damageEvent)
+	public DamageEventData BlockedHit(DamageEventData damageEvent)
 	{
 		var isParry = TimeSinceBlockStarted < 0.25f;
-		
-		OnBlock?.Invoke(damageEvent, isParry);
 		
 		var capsule = CarriedItemComponent.GetHurtBoxCapsule();
 		
@@ -73,5 +74,18 @@ public class AttackBlockerComponent : BaseComponent
 		ParticleSystem.Set("RingRoll", angles.roll  );
 
 		Sound.FromWorld( isParry ? CarriedItemComponent.ParrySound.ResourceName : CarriedItemComponent.BlockSound.ResourceName, ParticleSystem.Transform.Position );
+
+		if ( isParry )
+		{
+			damageEvent.DamageResult = -1f;
+		}
+		else
+		{
+			
+		}
+		
+		OnBlock?.Invoke(damageEvent, isParry);
+
+		return damageEvent;
 	}
 }

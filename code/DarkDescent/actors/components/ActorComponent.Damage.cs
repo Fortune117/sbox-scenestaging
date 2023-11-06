@@ -25,8 +25,6 @@ public partial class ActorComponent : IDamageable
 	/// <param name="damageEventData"></param>
 	public void TakeDamage( DamageEventData damageEventData )
 	{
-		damageEventData.Target = this;
-		
 		//apply our resistances as we take damage
 		ApplyResistances( ref damageEventData );
 		

@@ -208,6 +208,7 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 
 		var damage = new DamageEventData()
 			.WithOriginator( ActorComponent )
+			.WithTarget( hitEvent.Damageable )
 			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( CarriedItemComponent.GetImpactDirection() )
 			.WithKnockBack( knockback )
@@ -217,8 +218,8 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 
 		if ( hitEvent.WasBlocked )
 		{
-			hitEvent.Blocker.BlockedHit( damage );
-			return;
+			damage.WasBlocked = true;
+			damage = hitEvent.Blocker.BlockedHit( damage );
 		}
 		
 		if ( hitEvent.Damageable is null ) //impacted the world?
@@ -227,10 +228,11 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 				BounceAttack(hitEvent.TraceResult);
 			return;
 		}
-
+		
 		DoHitStop();
 		
-		hitEvent.Damageable.TakeDamage( damage );
+		if ( damage.DamageResult > 0 )
+			hitEvent.Damageable.TakeDamage( damage );
 
 		if (hitEvent.Damageable.PlayHitSound)
 			Sound.FromWorld( CarriedItemComponent.ImpactSound.ResourceName, hitEvent.TraceResult.HitPosition );
