@@ -1,4 +1,19 @@
 {
-  "Resistances": {},
+  "BlockSound": "data/sounds/impact/metal/impact.metal.sound",
+  "BlockEffect": "particles/damage_effect/impact_block.vpcf",
+  "ParrySound": "data/sounds/impact/metal/impact.metal.sound",
+  "ParryEffect": "particles/damage_effect/impact_block_parry.vpcf",
+  "PhysicalNegation": 0.55,
+  "MagicalNegation": 0.35,
+  "FireNegation": 0.25,
+  "FrostNegation": 0.25,
+  "ElectricNegation": 0.25,
+  "PoisonNegation": 0.25,
+  "NecroticNegation": 0.25,
+  "ArcaneNegation": 0.25,
+  "DivineNegation": 0.25,
+  "OccultNegation": 0.25,
+  "CriticalNegation": 0.25,
+  "KnockBackNegation": 0,
   "__references": []
 }

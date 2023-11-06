@@ -189,7 +189,7 @@ public partial class ActorComponent : IDamageable
             ? 1
             : GameBalanceResource.ActiveBalance.ResistanceScalingCurve.Evaluate(resist);
         
-        damageEventData.DamageResult = damageEventData.DamageOriginal - damageEventData.DamageOriginal*resistMult;
-        damageEventData.KnockBackResult = damageEventData.KnockBackOriginal - Stats.KnockBackResistance;
+        damageEventData.DamageResult -= damageEventData.DamageResult*resistMult;
+        damageEventData.KnockBackResult -= Stats.KnockBackResistance;
 	}
 }
