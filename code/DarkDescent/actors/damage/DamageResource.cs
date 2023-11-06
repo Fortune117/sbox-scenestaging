@@ -31,6 +31,7 @@ public struct DamageFactors
 		return stats.GetStatForStatType( Stat ) * Factor;
 	}
 }
+
 public struct Die
 {
 	public int Count { get; set; }
