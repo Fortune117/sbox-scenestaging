@@ -1586,6 +1586,16 @@
       "__Prefab": "data/target_dummy.object"
     },
     {
+      "Id": "76d4c884-e8dd-4061-878f-88d72dbcb7ce",
+      "Name": "Target Dummy (2)",
+      "Enabled": true,
+      "Position": "-330.4048,-12.648,-0.0003221387",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "actor",
+      "__Prefab": "data/target_dummy.object"
+    },
+    {
       "Id": "bf8c894f-39b7-4233-bab1-577eb15ca30a",
       "Name": "Surface",
       "Enabled": true,
