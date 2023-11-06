@@ -542,11 +542,11 @@
 						collision_enabled = false
 						friction = 0.2
 						enable_swing_limit = true
-						swing_limit = 0.0
+						swing_limit = 1.0
 						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
 						enable_twist_limit = true
-						min_twist_angle = 0.0
-						max_twist_angle = 0.0
+						min_twist_angle = -1.0
+						max_twist_angle = 1.0
 					},
 					{
 						_class = "PhysicsJointConical"
@@ -557,21 +557,20 @@
 						collision_enabled = false
 						friction = 0.2
 						enable_swing_limit = true
-						swing_limit = 0.0
+						swing_limit = 1.0
 						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
 						enable_twist_limit = true
-						min_twist_angle = 0.0
-						max_twist_angle = 0.0
+						min_twist_angle = -1.0
+						max_twist_angle = 1.0
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "Neck2"
 						child_body = "Skull"
 						anchor_origin = [ 3.874141, -0.456396, -0.115122 ]
 						anchor_angles = [ 6.356533, -112.178154, -93.40023 ]
 						collision_enabled = false
-						friction = 0.2
+						friction = 10.0
 						enable_swing_limit = true
 						swing_limit = 30.0
 						swing_offset_angle = [ 0.0, 0.0, 0.0 ]
@@ -581,7 +580,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "SpineHigh"
 						child_body = "Shoulder_L"
 						anchor_origin = [ 27.599766, 1.908345, -3.591011 ]
@@ -597,7 +595,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "Shoulder_L"
 						child_body = "UpperArm_L"
 						anchor_origin = [ 7.161167, 2.911554, 0.540347 ]
@@ -613,7 +610,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "UpperArm_L"
 						child_body = "LowerArm_L"
 						anchor_origin = [ 27.036695, -0.13812, 0.052076 ]
@@ -629,7 +625,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "LowerArm_L"
 						child_body = "Wrist_L"
 						anchor_origin = [ 27.28075, 0.200669, 0.103633 ]
@@ -645,7 +640,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "SpineHigh"
 						child_body = "ShoulderBlade_R"
 						anchor_origin = [ 27.90667, 3.307799, 3.258587 ]
@@ -661,7 +655,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "ShoulderBlade_R"
 						child_body = "UpperArm_R"
 						anchor_origin = [ 9.771297, 1.693448, -3.653295 ]
@@ -677,7 +670,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "UpperArm_R"
 						child_body = "LowerArm_R"
 						anchor_origin = [ 27.663265, 1.054144, -1.262409 ]
@@ -693,7 +685,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "LowerArm_R"
 						child_body = "Wrist_R"
 						anchor_origin = [ 26.624622, 0.002413, 0.061753 ]
@@ -709,7 +700,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "Pelvis"
 						child_body = "UpperLeg_L"
 						anchor_origin = [ -0.962144, -8.217391, -9.35794 ]
@@ -725,7 +715,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "UpperLeg_L"
 						child_body = "LowerLeg_L"
 						anchor_origin = [ 34.396027, -0.681375, 1.42567 ]
@@ -741,7 +730,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "LowerLeg_L"
 						child_body = "Foot1_L"
 						anchor_origin = [ 50.932312, 0.555556, 0.687277 ]
@@ -757,7 +745,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "Pelvis"
 						child_body = "UpperLeg_R"
 						anchor_origin = [ -2.437494, -7.971272, 10.420957 ]
@@ -773,7 +760,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "UpperLeg_R"
 						child_body = "LowerLeg_R"
 						anchor_origin = [ 35.661839, 5.594493, 0.333242 ]
@@ -789,7 +775,6 @@
 					},
 					{
 						_class = "PhysicsJointConical"
-						disabled = true
 						parent_body = "LowerLeg_R"
 						child_body = "Foot1_R"
 						anchor_origin = [ 52.167553, 0.369662, -1.418356 ]

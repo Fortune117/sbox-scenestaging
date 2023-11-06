@@ -182,8 +182,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDeathListener
 	private async void Revive()
 	{
 		await Task.Delay( TimeSpan.FromSeconds( 2f ) );
-
-		Log.Info( "test" );
+		
 		ActorComponent.Revive();
 		
 		if ( Weapon is null )

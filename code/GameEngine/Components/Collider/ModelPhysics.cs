@@ -87,4 +87,19 @@ public class ModelPhysics : BaseComponent
 		}
 	}
 
+	public void SetBonesToRenderer()
+	{
+		if ( PhysicsGroup is null ) return;
+		if ( Renderer is null ) return;
+		
+		foreach( var body in PhysicsGroup.Bodies )
+		{
+			var bone = Renderer.Model.Bones.AllBones.FirstOrDefault( x => x.Name == body.GroupName );
+			if ( bone is null ) continue;
+
+			var rendererBone = Renderer.GetBoneTransform( bone, true );
+			body.Transform = rendererBone;
+			//Renderer.SetPhysicsBone( bone.Index, body.Transform, Time.Delta * Scene.FixedUpdateFrequency );
+		}
+	}
 }

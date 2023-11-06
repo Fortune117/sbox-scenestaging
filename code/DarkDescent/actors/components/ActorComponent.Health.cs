@@ -88,6 +88,7 @@ public partial class ActorComponent
 			return;
 
 		modelPhysics.Enabled = true;
+		modelPhysics.SetBonesToRenderer();
 	}
 
 	public void Revive()
