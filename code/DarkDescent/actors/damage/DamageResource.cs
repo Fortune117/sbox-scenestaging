@@ -23,8 +23,6 @@ public class DamageResource : GameResource
 
 public struct DamageFactors
 {
-	public DamageFactors() { }
-
 	public StatType Stat { get; set; }
 	public float Factor { get; set; }
 
