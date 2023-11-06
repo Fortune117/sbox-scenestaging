@@ -12,29 +12,27 @@
 	<div class="actor-name">
 		<div class="level">
 			<label class="overlay">
-				@ActorComponent.Level;
+				@Actor.Level;
 			</label>
 		</div>
 		<label class="name">@DisplayName</label>
 	</div>
-	@if (ActorComponent is not null)
+	@if (Actor is not null)
 	{
-		<ResourceBar class="gothic-style health-bar" Maximum=@ActorComponent.Stats.MaxHealth Minimum=@(0) Current=@ActorComponent.Health/>
+		<ResourceBar class="gothic-style health-bar" Maximum=@Actor.Stats.MaxHealth Minimum=@(0) Current=@Actor.Health/>
 	}
 	@*<ResourceBar class="resource-bar stamina-bar" Maximum=@ActorComponent.Stats.MaxStamina Minimum=@(0) Current=@ActorComponent.Stamina />*@
 </root>
 
 @code
 {
-	public GameObject Actor { get; set; }
-
-	private ActorComponent ActorComponent => Actor.GetComponent<ActorComponent>(); 
+	public ActorComponent Actor { get; set; }
 
 	private string DisplayName
 	{
 		get
 		{
-			if (Actor is null || ActorComponent is null)
+			if (Actor is null || Actor is null)
 				return "";
 			
 			if (Actor.TryGetComponent<ObjectClassifierComponent>(out var classifier))
@@ -42,7 +40,7 @@
 				return classifier.DisplayName;
 			}
 			
-			return ActorComponent.GameObject.Name;
+			return Actor.GameObject.Name;
 		}
 	}
 	
@@ -50,9 +48,9 @@
 	//full rebuild of the HUD every time a stat changes is :s
 	protected override int BuildHash()
 	{
-		if ( ActorComponent is null )
+		if ( Actor is null )
 			return 0;
 
-		return HashCode.Combine( ActorComponent.Level, ActorComponent.Stats.MaxHealth, ActorComponent.Health, ActorComponent.Stats.MaxStamina, ActorComponent.Stamina );
+		return HashCode.Combine( Actor.Level, Actor.Stats.MaxHealth, Actor.Health, Actor.Stats.MaxStamina, Actor.Stamina );
 	}
 }

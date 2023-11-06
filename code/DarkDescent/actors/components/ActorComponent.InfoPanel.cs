@@ -33,7 +33,7 @@ public partial class ActorComponent
 		var obj = SceneUtility.Instantiate( InfoPanelPrefab, Transform.Position, Transform.Rotation );
 		obj.SetParent( InfoPanelParent ?? Scene );
 		InfoPanel = obj.GetComponent<ActorInfoPanel>();
-		InfoPanel.Actor = GameObject;
+		InfoPanel.Actor = this;
 	}
 
 	private void DestroyInfoPanel()
