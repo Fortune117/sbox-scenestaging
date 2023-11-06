@@ -305,5 +305,81 @@ public class Stats
 	}
 
 	#endregion
+
+	public float GetStatForStatType( StatType type )
+	{
+		return type switch
+		{
+			StatType.Strength => Strength,
+			StatType.Dexterity => Dexterity,
+			StatType.Constitution => Constitution,
+			StatType.Wisdom => Wisdom,
+			StatType.Intelligence => Intelligence,
+			StatType.Charisma => Charisma,
+			
+			StatType.MaxHealth => MaxHealth,
+			StatType.HealthRegen => HealthRegen,
+			StatType.HealMultiplier => HealMultiplier,
+			StatType.HealthRegenDelay => HealthRegenDelay,
+			
+			StatType.MaxStamina => MaxStamina,
+			StatType.StaminaRegen => StaminaRegen,
+			StatType.StaminaCostMultiplier => StaminaCostMultiplier,
+			StatType.StaminaRegenDelay => StaminaRegenDelay,
+			
+			StatType.ActionSpeed => ActionSpeed,
+			StatType.SpellCastingSpeed => SpellCastingSpeed,
+			
+			StatType.MoveSpeedMultiplier => MoveSpeedMultiplier,
+			StatType.JumpHeightMultiplier => JumpHeightMultiplier,
+			
+			StatType.PhysicalPower => PhysicalPower,
+			StatType.SpellPower => SpellPower,
+			
+			StatType.FirePower => FirePower,
+			StatType.FrostPower => FrostPower,
+			StatType.ElectricPower => ElectricPower,
+			StatType.PoisonPower => PoisonPower,
+			StatType.NecroticPower => NecroticPower,
+			
+			StatType.ArcanePower => ArcanePower,
+			StatType.DivinePower => DivinePower,
+			StatType.OccultPower => OccultPower,
+			
+			StatType.ArmorPenetration => ArcanePenetration,
+			StatType.WardingPenetration => WardingPenetration,
+			
+			StatType.FirePenetration => FirePenetration,
+			StatType.FrostPenetration => FrostPenetration,
+			StatType.ElectricPenetration => ElectricPenetration,
+			StatType.PoisonPenetration => PoisonPenetration,
+			StatType.NecroticPenetration => NecroticPenetration,
+			StatType.ArcanePenetration => ArcanePenetration,
+			StatType.DivinePenetration => DivinePenetration,
+			StatType.OccultPenetration => OccultPenetration,
+			
+			StatType.CriticalMultiplier => CriticalMultiplier,
+			StatType.KnockBack => KnockBack,
+			
+			StatType.Armor => Armor,
+			StatType.Warding => Warding,
+			StatType.CriticalNegation => CriticalNegation,
+			StatType.KnockBackResistance => KnockBackResistance,
+			
+			StatType.FireResistance => FireResistance,
+			StatType.FrostResistance => FrostResistance,
+			StatType.ElectricResistance => ElectricResistance,
+			StatType.PoisonResistance => PoisonResistance,
+			StatType.NecroticResistance => NecroticResistance,
+			StatType.ArcaneResistance => ArcaneResistance,
+			StatType.DivineResistance => DivineResistance,
+			StatType.OccultResistance => OccultResistance,
+			
+			StatType.CarryWeight => CarryWeight,
+			StatType.Luck => Luck,
+			
+			_ => throw new ArgumentOutOfRangeException( nameof(type), type, null )
+		};
+	}
 	
 }

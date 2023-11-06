@@ -5,10 +5,13 @@
       "Type": "D8"
     }
   ],
+  "Factors": [
+    {
+      "Stat": "PhysicalPower",
+      "Factor": 0.5
+    }
+  ],
   "Flat": 0,
-  "Factors": {
-    "PhysicalPower": 0.25
-  },
   "DamageTypes": "Physical",
   "__references": []
 }

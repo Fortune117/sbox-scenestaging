@@ -383,7 +383,7 @@
   },
   "PrimaryAttributeToPhysicalPowerCurve": {
     "rangex": "0,100",
-    "rangey": "-10,100",
+    "rangey": "-10,50",
     "frames": [
       {
         "x": 0.0012315271,
@@ -402,7 +402,7 @@
       },
       {
         "x": 0.6,
-        "y": 0.77272725,
+        "y": 0.7762987,
         "mode": "Linear"
       },
       {
@@ -466,5 +466,6 @@
         "y": 1
       }
     ]
-  }
+  },
+  "__references": []
 }
