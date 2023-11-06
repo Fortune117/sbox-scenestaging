@@ -207,6 +207,7 @@ public partial class ActorComponent
 		
 		//Misc
 		SetBaseStat( StatType.CarryWeight, BaseStats.Misc.CarryWeight );
+		SetBaseStat( StatType.Luck, BaseStats.Misc.Luck );
 	}
 
 	private void InitializeStats()
@@ -294,6 +295,7 @@ public partial class ActorComponent
 
 		//Misc
 		InitializeStat( StatType.CarryWeight, BaseStats.Misc.CarryWeight );
+		InitializeStat( StatType.Luck, BaseStats.Misc.Luck );
 
 		Health = Stats.MaxHealth;
 		Stamina = Stats.MaxStamina;

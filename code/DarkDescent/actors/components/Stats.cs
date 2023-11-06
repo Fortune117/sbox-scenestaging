@@ -295,6 +295,14 @@ public class Stats
 			       GameBalanceResource.ActiveBalance.StrengthToCarryWeightCurve.Evaluate( Strength );
 		}
 	}
+	
+	public float Luck
+	{
+		get
+		{
+			return ActorComponent.GetStat( StatType.Luck );
+		}
+	}
 
 	#endregion
 	

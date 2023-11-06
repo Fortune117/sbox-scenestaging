@@ -77,5 +77,6 @@ public enum StatType
 	
 	//Misc
 	CarryWeight,
+	Luck,
 }
 

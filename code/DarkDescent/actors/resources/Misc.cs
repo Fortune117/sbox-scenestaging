@@ -12,4 +12,7 @@ public struct Misc
 	/// </summary>
 	[Range( 0, 400 )]
 	public float CarryWeight { get; set; } = 0f;
+
+	[Range( 0, 100 )]
+	public float Luck { get; set; } = 0;
 }
