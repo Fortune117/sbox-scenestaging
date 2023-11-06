@@ -37,11 +37,11 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 	
 	private Vector2[] inputVectorBuffer = new Vector2[inputVectorBufferSize];
 
-	private TimeUntil TimeUntilNextAttack;
-	private TimeUntil TimeUntilCanCombo;
-	private TimeUntil TimeUntilComboInvalid;
-	private TimeSince TimeSinceAttackStarted;
-	private TimeSince TimeSinceComboStarted;
+	private float TimeUntilNextAttack;
+	private float TimeUntilCanCombo;
+	private float TimeUntilComboInvalid;
+	private float TimeSinceAttackStarted;
+	private float TimeSinceComboStarted;
 
 	private float HitStopSpeedScale = 1f;
 	private TimeSince TimeSinceLastHit;
@@ -80,6 +80,12 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		
 		if ( TimeSinceLastHit > 0.09f && !attackStopped )
 			HitStopSpeedScale = 1f;
+
+		TimeSinceAttackStarted += Time.Delta * HitStopSpeedScale;
+		TimeSinceComboStarted += Time.Delta * HitStopSpeedScale;
+		TimeUntilNextAttack -= Time.Delta * HitStopSpeedScale;
+		TimeUntilCanCombo -= Time.Delta * HitStopSpeedScale;
+		TimeUntilComboInvalid -= Time.Delta * HitStopSpeedScale;
 
 		if ( !attackStopped )
 		{
@@ -159,8 +165,12 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		
 		BlockerComponent.SetActive( isBlocking );
 		Body.Set( "bBlocking", isBlocking );
+
+		var canAttack = TimeUntilNextAttack <= 0;
+		var canCombo = TimeUntilCanCombo <= 0;
+		var comboInvalid = TimeUntilComboInvalid <= 0;
 		
-		if ( !attackStopped && !TimeUntilNextAttack && TimeUntilCanCombo && !TimeUntilComboInvalid && Input.Down( "Attack1" ) )
+		if ( !attackStopped && !canAttack && canCombo && !comboInvalid && Input.Down( "Attack1" ) )
 		{
 			BeginAttack( average, true );
 
@@ -170,9 +180,9 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		if ( !Input.Down( "Attack1" ) && !bufferedAttack  )
 			return;
 
-		if ( !TimeUntilNextAttack )
+		if ( !canAttack )
 		{
-			if ( TimeUntilComboInvalid )
+			if ( comboInvalid )
 				bufferedAttack = true;
 			
 			return;
