@@ -306,6 +306,8 @@ public class Stats
 
 	#endregion
 
+	//i really tried my best to avoid something like this but frankly, it is awfully convenient.
+	//perhaps if i hate myself enough i'll rewrite this mess
 	public float GetStatForStatType( StatType type )
 	{
 		return type switch
