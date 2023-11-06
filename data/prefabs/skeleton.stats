@@ -1,9 +1,32 @@
 {
-  "Core": {},
-  "Health": {},
-  "Stamina": {},
-  "Actions": {},
-  "Combat": {},
+  "Core": {
+    "Strength": 10,
+    "Dexterity": 10,
+    "Constitution": 10,
+    "Wisdom": 10,
+    "Intelligence": 10,
+    "Charisma": 10
+  },
+  "Health": {
+    "MaxHealth": 30,
+    "HealthRegenDelay": 1.5
+  },
+  "Stamina": {
+    "MaxStamina": 30,
+    "StaminaRegen": 3,
+    "StaminaCostMultiplier": 1,
+    "StaminaRegenDelay": 1.5
+  },
+  "Actions": {
+    "ActionSpeed": 1,
+    "SpellCastingSpeed": 1,
+    "MoveSpeedMultiplier": 1,
+    "JumpHeightMultiplier": 1
+  },
+  "Combat": {
+    "CriticalMultiplier": 1.5,
+    "KnockBack": 50
+  },
   "Resistances": {},
   "Misc": {},
   "__references": []

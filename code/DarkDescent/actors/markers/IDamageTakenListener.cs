@@ -4,5 +4,5 @@ namespace DarkDescent.Actor.Marker;
 
 public interface IDamageTakenListener
 {
-	void OnDamageTaken( DamageEventData damageEvent, bool isLethal );
+	void OnDamageTaken( DamageEventData damageEventData, bool isLethal );
 }

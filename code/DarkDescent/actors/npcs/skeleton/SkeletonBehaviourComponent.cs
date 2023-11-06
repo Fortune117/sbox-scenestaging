@@ -5,7 +5,7 @@ using Sandbox;
 
 namespace DarkDescent.Actor;
 
-public class SkeletonBehaviourComponent : BehaviourComponent, IDeathListener
+public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListener, IDeathListener
 {
 	[Property]
 	private GameObject Weapon { get; set; }
@@ -81,14 +81,14 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDeathListener
 		{
 			CharacterController.Velocity = CharacterController.Velocity.WithZ( 0 );
 			CharacterController.Accelerate( WishVelocity );
-			CharacterController.ApplyFriction( 1.0f );
+			CharacterController.ApplyFriction( 3.0f );
 		}
 		
 		CharacterController.Move();
 
 		if ( !CharacterController.IsOnGround )
 		{
-			CharacterController.Velocity -= Scene.PhysicsWorld.Gravity * Time.Delta * 0.5f;
+			CharacterController.Velocity += Scene.PhysicsWorld.Gravity * Time.Delta;
 		}
 		else
 		{
@@ -149,7 +149,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDeathListener
 		var dir = Target.Transform.Position - Transform.Position;
 		dir = dir.WithZ( 0 ).Normal;
 
-		WishVelocity = dir * 35f;
+		WishVelocity = dir * 50f;
 		FaceTarget();
 		
 		Body.Set( "bMoving", true );
@@ -169,6 +169,8 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDeathListener
 
 	public void OnDeath( DamageEventData damageEventData )
 	{
+		CharacterController.Velocity = 0f;
+		
 		if ( Weapon is null )
 			return;
 		
@@ -202,5 +204,16 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDeathListener
 
 		Weapon.Transform.LocalPosition = 0;
 		Weapon.Transform.LocalRotation = Rotation.Identity;
+	}
+
+	public void OnDamageTaken( DamageEventData damageEventData, bool isLethal )
+	{
+		ApplyKnockBack( damageEventData );
+	}
+
+	private void ApplyKnockBack( DamageEventData damageEventData )
+	{
+		var knockback = damageEventData.Direction * damageEventData.KnockBackResult * 3f;
+		CharacterController.Punch( knockback );
 	}
 }

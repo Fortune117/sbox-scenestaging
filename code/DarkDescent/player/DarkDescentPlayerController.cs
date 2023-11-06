@@ -97,7 +97,7 @@ public partial class DarkDescentPlayerController : BaseComponent
 		{
 			CharacterController.Velocity = CharacterController.Velocity.WithZ( 0 );
 			CharacterController.Accelerate( WishVelocity );
-			CharacterController.ApplyFriction( 4.0f );
+			CharacterController.ApplyFriction( 3.0f );
 		}
 		else
 		{
