@@ -75,17 +75,21 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 
 	private void AttackUpdate()
 	{
-		if ( attackStopped && TimeSinceAttackStopped < CarriedItemComponent.RecoveryTime )
-			return;
-		
 		if ( TimeSinceLastHit > 0.09f && !attackStopped )
 			HitStopSpeedScale = 1f;
-
-		TimeSinceAttackStarted += Time.Delta * HitStopSpeedScale;
-		TimeSinceComboStarted += Time.Delta * HitStopSpeedScale;
-		TimeUntilNextAttack -= Time.Delta * HitStopSpeedScale;
-		TimeUntilCanCombo -= Time.Delta * HitStopSpeedScale;
-		TimeUntilComboInvalid -= Time.Delta * HitStopSpeedScale;
+		
+		var mult = 1f;
+		if ( !attackStopped )
+			mult = HitStopSpeedScale;
+		
+		TimeSinceAttackStarted += Time.Delta * mult;
+		TimeSinceComboStarted += Time.Delta * mult;
+		TimeUntilNextAttack -= Time.Delta * mult;
+		TimeUntilCanCombo -= Time.Delta * mult;
+		TimeUntilComboInvalid -= Time.Delta * mult;
+		
+		if ( attackStopped && TimeSinceAttackStopped < CarriedItemComponent.RecoveryTime )
+			return;
 
 		if ( !attackStopped )
 		{

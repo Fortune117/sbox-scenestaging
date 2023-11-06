@@ -1280,7 +1280,7 @@
                   "HurtBox": "02996b7d-5cd9-4cc7-b4bb-4c320f2bd004",
                   "ImpactSound": "data/sounds/combat/sword.hit.sound",
                   "RecoveryTime": 0.5,
-                  "ReleaseTime": 0.5,
+                  "ReleaseTime": 0.45,
                   "SwingSound": "data/sounds/combat/sword.swing.sound",
                   "SwordTrail": "c3e68b08-bf8b-4ca6-b8c7-57dc2624d26a",
                   "TurnCapX": 275,
