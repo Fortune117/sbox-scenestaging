@@ -7,7 +7,7 @@
 @inherits WorldNumberComponent
 
 <root class="world-number-panel damage-number">
-	<label class="main-number fire">@($"{DamageEventData.DamageResult:#0.}")</label>
+	<label class="main-number @GetDamageClass(DamageEventData.DamageTypes)">@($"{DamageEventData.DamageResult:#0.}")</label>
 </root>
 
 @code 
@@ -37,5 +37,38 @@
 		var dir = (DamageEventData.Position - pos).Normal;
 		
 		Velocity = dir * Game.Random.Float( 100, 200 ); 
+	}
+
+	private string GetDamageClass(DamageType damageTypes)
+	{
+		switch (damageTypes)
+		{
+			case DamageType.Physical:
+				return "physical";
+			case DamageType.Magical:
+				return "magical";
+			case DamageType.Fire:
+				return "fire";
+			case DamageType.Frost:
+				return "frost";
+			case DamageType.Electric:
+				return "electric";
+			case DamageType.Poison:
+				return "poison";
+			case DamageType.Necrotic:
+				return "necrotic";
+			case DamageType.Arcane:
+				return "arcane";
+			case DamageType.Divine:
+				return "divine";
+			case DamageType.Occult:
+				return "occult";
+			case DamageType.Absolute:
+				return "absolute";
+			case DamageType.Chaotic:
+				return "chaotic";
+		}
+
+		return "physical";
 	}
 }

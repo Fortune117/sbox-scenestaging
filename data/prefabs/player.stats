@@ -19,7 +19,7 @@
     "StaminaRegenDelay": 2
   },
   "Actions": {
-    "ActionSpeed": 1,
+    "ActionSpeed": 3,
     "SpellCastingSpeed": 1,
     "MoveSpeedMultiplier": 1,
     "JumpHeightMultiplier": 1

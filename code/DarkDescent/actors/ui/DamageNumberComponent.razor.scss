@@ -12,13 +12,19 @@
     font-size: 100px;
     text-stroke: 16px black;
   }
+
+  .physical
+  {
+    filter: contrast(115%) brightness(200%) sepia(15%);
+
+    color: $damage-physical-color;
+  }
   
   .fire
   {
     filter: contrast(115%) brightness(450%) sepia(15%);
     
     color: $damage-fire-color;
-    text-stroke: 26px black;
   }
 
   .frost
@@ -26,7 +32,6 @@
     filter: contrast(110%) brightness(450%) sepia(35%);
 
     color: $damage-frost-color;
-    text-stroke: 26px black;
   }
 
   .electric
@@ -34,7 +39,6 @@
     filter: contrast(300%) brightness(450%);
 
     color: $damage-electric-color;
-    text-stroke: 26px black;
   }
 }
 
