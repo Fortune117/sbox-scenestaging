@@ -83,7 +83,7 @@ public partial class ActorComponent : IDamageable
 			}
 			
 			if (closestBody is not null)
-				ApplyKnockBack( closestBody, damageEventData, modelPhysics.PhysicsGroup.Mass/10f );
+				ApplyKnockBack( closestBody, damageEventData, 1f ); 
 		}
 	}
 
@@ -91,9 +91,15 @@ public partial class ActorComponent : IDamageable
 	{
 		if ( !body.IsValid() )
 			return;
+
+		var dir = damageEventData.Direction;
+		var baseMult = 20000f;
 		
+		var baseForce = dir * body.Mass * baseMult;
+		var knockbackForce = dir * damageEventData.KnockBackResult * baseMult * 5f;
+		var additiveForce = dir * multiplier;
 		body.ApplyForceAt( body.FindClosestPoint( damageEventData.Position ),
-			damageEventData.Direction * damageEventData.KnockBackResult * body.Mass * 600 * multiplier );
+			baseForce + knockbackForce + additiveForce);
 	}
 	
 	public void CreateDamageNumber(DamageEventData damageEventData)

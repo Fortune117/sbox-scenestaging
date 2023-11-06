@@ -569,7 +569,7 @@
 						child_body = "Skull"
 						anchor_origin = [ 3.874141, -0.456396, -0.115122 ]
 						anchor_angles = [ 6.356533, -112.178154, -93.40023 ]
-						collision_enabled = false
+						collision_enabled = true
 						friction = 10.0
 						enable_swing_limit = true
 						swing_limit = 30.0
