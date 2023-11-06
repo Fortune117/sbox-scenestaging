@@ -364,11 +364,19 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		DeactivateAttack();
 	}
 
-	public void OnDamageTaken( DamageEventData damageEvent, bool isLethal )
+	public void OnDamageTaken( DamageEventData damageEventData, bool isLethal )
 	{
 		if ( isLethal )
 			return;
 		
 		//InterruptAttack(); 
+
+		ApplyKnockBack( damageEventData );
+	}
+
+	private void ApplyKnockBack( DamageEventData damageEventData )
+	{
+		var knockback = damageEventData.Direction * damageEventData.KnockBackResult;
+		CharacterController.Punch( knockback );
 	}
 }
