@@ -58,6 +58,16 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	
 	[Property] 
 	private HurtBoxComponent HurtBox { get; set; }
+
+	public float GetDamage( ActorComponent actorComponent )
+	{
+		return actorComponent.Stats.PhysicalPower;
+	}
+
+	public DamageType GetDamageType()
+	{
+		return DamageType.Physical;
+	}
 	
 	public Capsule GetHurtBoxCapsule()
 	{

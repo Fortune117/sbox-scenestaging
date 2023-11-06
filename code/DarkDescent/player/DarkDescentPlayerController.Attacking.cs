@@ -213,8 +213,8 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 			return;
 
 		var hitEvent = hit.Value;
-		
-		var knockback = ActorComponent is not null ? ActorComponent.Stats.KnockBack : 0;
+
+		var knockback = ActorComponent.Stats.KnockBack;
 
 		var damage = new DamageEventData()
 			.WithOriginator( ActorComponent )
@@ -222,8 +222,8 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( CarriedItemComponent.GetImpactDirection() )
 			.WithKnockBack( knockback )
-			.WithDamage( 15f )
-			.WithType( DamageType.Physical )
+			.WithDamage( CarriedItemComponent.GetDamage( ActorComponent ) )
+			.WithType( CarriedItemComponent.GetDamageType() )
 			.AsCritical( false );
 
 		if ( hitEvent.WasBlocked )
