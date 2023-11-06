@@ -9,13 +9,46 @@
 			{
 				key = 
 				{
+					m_id = 392661597
+				}
+				value = 
+				{
+					_class = "CSpeedScaleAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -272.0, 256.0 ]
+					m_nNodeID = 
+					{
+						m_id = 392661597
+					}
+					m_networkMode = "ServerAuthoritative"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 755909828
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_param = 
+					{
+						m_id = 175197496
+					}
+				}
+			},
+			{
+				key = 
+				{
 					m_id = 755909828
 				}
 				value = 
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -368.0, 272.0 ]
+					m_vecPosition = [ -560.0, 256.0 ]
 					m_nNodeID = 
 					{
 						m_id = 755909828
@@ -48,6 +81,39 @@
 					m_sequenceName = "idle_02"
 					m_playbackSpeed = 1.0
 					m_bLoop = true
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 964054041
+				}
+				value = 
+				{
+					_class = "CSpeedScaleAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ -336.0, -16.0 ]
+					m_nNodeID = 
+					{
+						m_id = 964054041
+					}
+					m_networkMode = "ServerAuthoritative"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1705295170
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_param = 
+					{
+						m_id = 1105353345
+					}
 				}
 			},
 			{
@@ -258,7 +324,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 1705295170
+									m_id = 964054041
 								}
 								m_outputID = 
 								{
@@ -318,7 +384,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 755909828
+									m_id = 392661597
 								}
 								m_outputID = 
 								{
@@ -509,6 +575,40 @@
 				m_bAutoReset = true
 				m_bPredicted = false
 				m_bDefaultValue = false
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "fActionSpeed"
+				m_id = 
+				{
+					m_id = 175197496
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = false
+				m_fDefaultValue = 1.0
+				m_fMinValue = 0.0
+				m_fMaxValue = 10.0
+				m_bInterpolate = false
+			},
+			{
+				_class = "CFloatAnimParameter"
+				m_name = "fMoveSpeed"
+				m_id = 
+				{
+					m_id = 1105353345
+				}
+				m_previewButton = "ANIMPARAM_BUTTON_NONE"
+				m_bNetwork = true
+				m_bUseMostRecentValue = false
+				m_bAutoReset = false
+				m_bPredicted = false
+				m_fDefaultValue = 1.0
+				m_fMinValue = 0.0
+				m_fMaxValue = 10.0
+				m_bInterpolate = false
 			},
 		]
 	}

@@ -13,6 +13,10 @@
           "__type": "MapComponent",
           "__enabled": true,
           "MapName": "fdd.dungeon"
+        },
+        {
+          "__type": "NavMeshGeneratorComponent",
+          "__enabled": true
         }
       ]
     },
@@ -1778,7 +1782,7 @@
       "Id": "968214bb-a48f-4337-9203-fc5143de1af9",
       "Name": "Skeleton",
       "Enabled": true,
-      "Position": "-214.1043,123.4074,0.00000631451",
+      "Position": "-346.256,85.4985,0.00001017893",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",

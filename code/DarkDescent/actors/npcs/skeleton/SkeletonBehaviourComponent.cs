@@ -54,6 +54,9 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		MoveUpdate();
 
 		WishVelocity = Vector3.Zero;
+
+		Body.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
+		Body.Set( "fMoveSpeed", ActorComponent.Stats.MoveSpeedMultiplier );
 		
 		if ( Target is null )
 		{
@@ -149,7 +152,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		var dir = Target.Transform.Position - Transform.Position;
 		dir = dir.WithZ( 0 ).Normal;
 
-		WishVelocity = dir * 50f;
+		WishVelocity = dir * 50f * ActorComponent.Stats.MoveSpeedMultiplier;
 		FaceTarget();
 		
 		Body.Set( "bMoving", true );

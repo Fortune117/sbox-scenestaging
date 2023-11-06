@@ -12,7 +12,7 @@
 	<div class="actor-name">
 		<div class="level">
 			<label class="overlay">
-				32
+				@ActorComponent.Level;
 			</label>
 		</div>
 		<label class="name">@DisplayName</label>
@@ -53,6 +53,6 @@
 		if ( ActorComponent is null )
 			return 0;
 
-		return HashCode.Combine( ActorComponent.Stats.MaxHealth, ActorComponent.Health, ActorComponent.Stats.MaxStamina, ActorComponent.Stamina );
+		return HashCode.Combine( ActorComponent.Level, ActorComponent.Stats.MaxHealth, ActorComponent.Health, ActorComponent.Stats.MaxStamina, ActorComponent.Stamina );
 	}
 }

@@ -65,6 +65,11 @@
         "PlayHitSound": false,
         "StrengthLeeway": 5,
         "StrengthThreshold": 10
+      },
+      {
+        "__type": "TargetComponent",
+        "__enabled": true,
+        "Factions": "Player"
       }
     ]
   },
