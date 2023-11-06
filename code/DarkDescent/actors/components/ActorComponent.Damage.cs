@@ -13,6 +13,9 @@ public partial class ActorComponent : IDamageable
 	[Property] 
 	public bool CauseHitBounce { get; set; } = false;
 
+	[Property] 
+	public bool PlayHitSound { get; set; } = true;
+
 	[Property]
 	public bool ShowDamageNumbers { get; set; } = true;
 	

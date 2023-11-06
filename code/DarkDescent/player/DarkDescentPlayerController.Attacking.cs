@@ -232,7 +232,8 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		
 		hitEvent.Damageable.TakeDamage( damage );
 
-		Sound.FromWorld( CarriedItemComponent.ImpactSound.ResourceName, hitEvent.TraceResult.HitPosition );
+		if (hitEvent.Damageable.PlayHitSound)
+			Sound.FromWorld( CarriedItemComponent.ImpactSound.ResourceName, hitEvent.TraceResult.HitPosition );
 		
 		if ( hitEvent.Damageable.CauseHitBounce )
 		{
@@ -257,6 +258,7 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		TimeSinceAttackStopped = 0;
 		Body.Set( "fHitStopSpeedScale", 0f );
 		Body.Set( "bAttackStopped", true );
+		DeactivateAttack();
 	}
 	
 	private void BeginAttack( Vector2 inputVector, bool isCombo = false )

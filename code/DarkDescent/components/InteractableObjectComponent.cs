@@ -23,6 +23,9 @@ public partial class InteractableObjectComponent : BaseComponent, IDamageable
 	[Property]
 	public bool CauseHitBounce { get; set; }
 
+	[Property] 
+	public bool PlayHitSound { get; set; } = false;
+	
 	public void TakeDamage( DamageEventData damageEventData )
 	{
 		damageEventData.CreateDamageEffects();

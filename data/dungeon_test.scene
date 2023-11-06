@@ -66,6 +66,7 @@
           "InfoPanelOffset": 0,
           "InfoPanelPrefab": "data/actor_info_panel.object",
           "PanelDrawDistance": 300,
+          "PlayHitSound": true,
           "PrimaryAttribute": "Strength",
           "ShowDamageNumbers": false,
           "ShowInfoPanel": false,
@@ -1283,8 +1284,8 @@
                   "ReleaseTime": 0.5,
                   "SwingSound": "data/sounds/combat/sword.swing.sound",
                   "SwordTrail": "c3e68b08-bf8b-4ca6-b8c7-57dc2624d26a",
-                  "TurnCapX": 250,
-                  "TurnCapY": 250,
+                  "TurnCapX": 275,
+                  "TurnCapY": 275,
                   "WindupTime": 0.5
                 }
               ],
@@ -1437,6 +1438,7 @@
           "__enabled": true,
           "CanPickUp": true,
           "CauseHitBounce": true,
+          "PlayHitSound": false,
           "StrengthLeeway": 5,
           "StrengthThreshold": 10
         },
@@ -1483,6 +1485,7 @@
           "__enabled": true,
           "CanPickUp": true,
           "CauseHitBounce": true,
+          "PlayHitSound": false,
           "StrengthLeeway": 15,
           "StrengthThreshold": 60
         }
@@ -1578,6 +1581,7 @@
           "InfoPanelOffset": 0,
           "InfoPanelPrefab": "data/actor_info_panel.object",
           "PanelDrawDistance": 300,
+          "PlayHitSound": true,
           "PrimaryAttribute": "Strength",
           "ShowDamageNumbers": true,
           "ShowInfoPanel": true,
@@ -1631,6 +1635,7 @@
           "InfoPanelOffset": 0,
           "InfoPanelPrefab": "data/actor_info_panel.object",
           "PanelDrawDistance": 300,
+          "PlayHitSound": true,
           "PrimaryAttribute": "Strength",
           "ShowDamageNumbers": true,
           "ShowInfoPanel": true,
@@ -1684,6 +1689,7 @@
           "InfoPanelOffset": 0,
           "InfoPanelPrefab": "data/actor_info_panel.object",
           "PanelDrawDistance": 300,
+          "PlayHitSound": true,
           "PrimaryAttribute": "Strength",
           "ShowDamageNumbers": true,
           "ShowInfoPanel": true,
@@ -1791,6 +1797,7 @@
           "InfoPanelOffset": 20,
           "InfoPanelPrefab": "data/actor_info_panel.object",
           "PanelDrawDistance": 300,
+          "PlayHitSound": true,
           "PrimaryAttribute": "Strength",
           "ShowDamageNumbers": true,
           "ShowInfoPanel": true,
