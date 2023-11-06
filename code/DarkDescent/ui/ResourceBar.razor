@@ -24,7 +24,7 @@
 	
 	private float Fraction => (Current/(Maximum - Minimum)).Clamp( 0, 1 );
 	
-	private string CurrentString =>  $"{Current:#0.}";
+	private string CurrentString =>  $"{Current.CeilToInt()}";
 	private string MiddleString =>  "/";
 	private string MaxString => $"{Maximum:#0.}";
 
