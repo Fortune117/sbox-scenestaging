@@ -331,7 +331,8 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 
 		CarriedItemComponent.SwordTrail.StartTrail();
 
-		Sound.FromWorld( CarriedItemComponent.SwingSound.ResourceName, Eye.Transform.Position );
+		var sound = Sound.FromWorld( CarriedItemComponent.SwingSound.ResourceName, Eye.Transform.Position );
+		sound.SetPitch( ActorComponent.Stats.ActionSpeed.Remap( 0, 2, 0.5f, 1.5f ) );
 	}
 
 	private void DeactivateAttack()

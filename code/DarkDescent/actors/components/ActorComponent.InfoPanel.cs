@@ -70,6 +70,6 @@ public partial class ActorComponent
 
 		var distanceCheck = Camera.Position.Distance( InfoPanel.Transform.Position ) > PanelDrawDistance;
 		
-		InfoPanel.Panel.SetClass( "hidden", !ShowInfoPanel || distanceCheck );
+		InfoPanel.Panel.SetClass( "hidden", !ShowInfoPanel || distanceCheck || !Alive );
 	}
 }
