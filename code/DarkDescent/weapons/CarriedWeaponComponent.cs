@@ -59,8 +59,6 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	[Property] 
 	private HurtBoxComponent HurtBox { get; set; }
 	
-	
-	
 	public Capsule GetHurtBoxCapsule()
 	{
 		return HurtBox.Capsule;
