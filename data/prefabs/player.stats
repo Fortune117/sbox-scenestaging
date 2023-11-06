@@ -24,7 +24,9 @@
     "MoveSpeedMultiplier": 1,
     "JumpHeightMultiplier": 1
   },
-  "Combat": {},
+  "Combat": {
+    "CriticalMultiplier": 1.5
+  },
   "Resistances": {},
   "Misc": {
     "CarryWeight": 300
