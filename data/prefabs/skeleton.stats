@@ -8,7 +8,7 @@
     "Charisma": 10
   },
   "Health": {
-    "MaxHealth": 30,
+    "MaxHealth": 15,
     "HealthRegenDelay": 1.5
   },
   "Stamina": {

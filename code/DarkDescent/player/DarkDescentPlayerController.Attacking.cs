@@ -220,20 +220,22 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 
 		var knockback = ActorComponent.Stats.KnockBack;
 
-		var damage = new DamageEventData()
+		var damage = CarriedItemComponent.GetDamage( ActorComponent );
+		
+		var damageEvent = new DamageEventData()
 			.WithOriginator( ActorComponent )
 			.WithTarget( hitEvent.Damageable )
 			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( CarriedItemComponent.GetImpactDirection() )
 			.WithKnockBack( knockback )
-			.WithDamage( CarriedItemComponent.GetDamage( ActorComponent ) )
+			.WithDamage( damage )
 			.WithType( CarriedItemComponent.GetDamageType() )
 			.AsCritical( false );
 
 		if ( hitEvent.WasBlocked )
 		{
-			damage.WasBlocked = true;
-			damage = hitEvent.Blocker.BlockedHit( damage );
+			damageEvent.WasBlocked = true;
+			damageEvent = hitEvent.Blocker.BlockedHit( damageEvent );
 		}
 		
 		if ( hitEvent.Damageable is null ) //impacted the world?
@@ -245,8 +247,8 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		
 		DoHitStop();
 		
-		if ( damage.DamageResult > 0 )
-			hitEvent.Damageable.TakeDamage( damage );
+		if ( damageEvent.DamageResult > 0 )
+			hitEvent.Damageable.TakeDamage( damageEvent );
 
 		if (hitEvent.Damageable.PlayHitSound)
 			Sound.FromWorld( CarriedItemComponent.ImpactSound.ResourceName, hitEvent.TraceResult.HitPosition );

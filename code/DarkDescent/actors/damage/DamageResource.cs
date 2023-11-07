@@ -42,7 +42,7 @@ public struct Die
 		var total = 0;
 		for ( var i = 0; i < Count; i++ )
 		{
-			total += Game.Random.Next(1, (int)Type);
+			total += Game.Random.Next(1, (int)Type + 1);
 		}
 
 		return total;
