@@ -75,12 +75,20 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 
 	private void AttackUpdate()
 	{
-		if ( TimeSinceLastHit > 0.09f && !attackStopped )
-			HitStopSpeedScale = 1f;
-		
 		var mult = 1f;
+
 		if ( !attackStopped )
+		{
+			if ( TimeSinceLastHit > 0.09f )
+				HitStopSpeedScale = 1f;
+			
 			mult = HitStopSpeedScale;
+			
+			Body.Set( "fHitStopSpeedScale", HitStopSpeedScale );
+			
+			if (CarriedItemComponent.SwordTrail.ParticleSystem is not null)
+				CarriedItemComponent.SwordTrail.ParticleSystem.PlaybackSpeed = HitStopSpeedScale;
+		}
 		
 		TimeSinceAttackStarted += Time.Delta * mult;
 		TimeSinceComboStarted += Time.Delta * mult;
@@ -88,17 +96,9 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		TimeUntilCanCombo -= Time.Delta * mult;
 		TimeUntilComboInvalid -= Time.Delta * mult;
 		
+		//don't think at all if our attack was stopped (i.e. interrupted)
 		if ( attackStopped && TimeSinceAttackStopped < CarriedItemComponent.RecoveryTime )
 			return;
-
-		if ( !attackStopped )
-		{
-			Body.Set( "fHitStopSpeedScale", HitStopSpeedScale );
-			if (CarriedItemComponent.SwordTrail.ParticleSystem is not null)
-				CarriedItemComponent.SwordTrail.ParticleSystem.PlaybackSpeed = HitStopSpeedScale;
-		}
-
-		Scene.TimeScale = 1f;
 		
 		if (Input.MouseDelta.Length > 0.1f)
 			inputVectorBuffer = inputVectorBuffer.Prepend( Input.MouseDelta ).Take( inputVectorBufferSize ).ToArray();
