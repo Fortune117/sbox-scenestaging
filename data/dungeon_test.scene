@@ -3,7 +3,7 @@
     {
       "Id": "0d9865d8-7476-4c6a-8347-91de5c0ab4d6",
       "Name": "Map",
-      "Enabled": true,
+      "Enabled": false,
       "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
@@ -18,8 +18,7 @@
           "__type": "NavMeshGeneratorComponent",
           "__enabled": true
         }
-      ],
-      "Children": []
+      ]
     },
     {
       "Id": "606cc48e-eefe-46ce-a85d-bbbeb9bcf2f6",
@@ -1605,7 +1604,7 @@
     {
       "Id": "bf8c894f-39b7-4233-bab1-577eb15ca30a",
       "Name": "Surface",
-      "Enabled": false,
+      "Enabled": true,
       "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "20,20,20",
@@ -1636,7 +1635,7 @@
     {
       "Id": "6d82af09-7400-496e-8c1a-d82936282abb",
       "Name": "Env Light",
-      "Enabled": false,
+      "Enabled": true,
       "Position": "-36.43511,-0.00002053193,331.8715",
       "Rotation": "-0.00000004456984,0.7477577,-0.000000000000002235644,0.6639711",
       "Scale": "1,1,1",
