@@ -1783,14 +1783,14 @@
       ]
     },
     {
-      "Id": "968214bb-a48f-4337-9203-fc5143de1af9",
-      "Name": "Skeleton",
+      "Id": "51740eeb-a782-41af-9011-e1a050390ac0",
+      "Name": "skeleton_warrior",
       "Enabled": true,
-      "Position": "-346.256,85.4985,0.00001017893",
-      "Rotation": "0,0,0,1",
+      "Position": "-288.7274,253.8715,0.0007685453",
+      "Rotation": "0,0.0000003576279,0,1",
       "Scale": "1,1,1",
       "Tags": "",
-      "__Prefab": "data/skeleton_swordsman.object"
+      "__Prefab": "data/skeleton_warrior.object"
     }
   ],
   "__references": []

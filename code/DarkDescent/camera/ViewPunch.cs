@@ -24,15 +24,10 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDama
             noise2 -= 0.5f;
             noise2 *= 2f;
         }
+
+        var rise = vertMagnitude * noise;
+        var sway = horizMagnitude * noise2;
         
-        var rise = (-vertMagnitude * noise).Clamp(-vertMagnitude, -vertMagnitude / 2f);
-        var sway = (horizMagnitude * noise2);
-
-        if (sway > 0)
-            sway = sway.Clamp(horizMagnitude / 2f, horizMagnitude);
-        else
-            sway = sway.Clamp(-horizMagnitude, -horizMagnitude / 2f);
-
         targetRotation *= new Angles(rise, sway, 0).ToRotation();
     }
     

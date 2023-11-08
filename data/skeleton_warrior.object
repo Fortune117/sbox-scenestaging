@@ -1,7 +1,7 @@
 {
   "RootObject": {
     "Id": "c7461f33-718b-487c-9997-90fd0a78026f",
-    "Name": "skeleton_swordsman",
+    "Name": "skeleton_warrior",
     "Enabled": true,
     "Position": "0,0,0",
     "Rotation": "0,0,0,1",
@@ -90,7 +90,8 @@
           {
             "__type": "ModelPhysics",
             "__enabled": false,
-            "Model": "models/actors/skeleton/skeleton_npc.vmdl"
+            "Model": "models/actors/skeleton/skeleton_npc.vmdl",
+            "Renderer": "6951e4cb-7eb6-44e6-9dcd-5737b325dfd2"
           }
         ],
         "Children": [
@@ -682,7 +683,7 @@
                                                     "CreateBoneObjects": false,
                                                     "MaterialGroup": null,
                                                     "MaterialOverride": null,
-                                                    "Model": "models/weapons/longsword/longsword.vmdl",
+                                                    "Model": "models/weapons/longsword/claymore.vmdl",
                                                     "ShouldCastShadows": true,
                                                     "Tint": "1,1,1,1"
                                                   },
@@ -690,15 +691,15 @@
                                                     "__type": "HurtBoxComponent",
                                                     "__enabled": true,
                                                     "Center1": "5.399998,0,0",
-                                                    "Center2": "45.19983,0,0",
+                                                    "Center2": "50.89978,0,0",
                                                     "HitDirection": "6003e84d-02dd-49be-9135-5b94638cf59d",
-                                                    "Radius": 2
+                                                    "Radius": 3
                                                   },
                                                   {
                                                     "__type": "ModelCollider",
                                                     "__enabled": false,
                                                     "IsTrigger": false,
-                                                    "Model": "models/weapons/longsword/longsword.vmdl",
+                                                    "Model": "models/weapons/longsword/claymore.vmdl",
                                                     "Surface": null
                                                   },
                                                   {
@@ -714,7 +715,7 @@
                                                     "Name": "Hit Direction",
                                                     "Enabled": true,
                                                     "Position": "24.06384,-0.00000135116,-0.0000008033323",
-                                                    "Rotation": "-0.000000006031755,-0.000000008684397,0.707107,0.7071065",
+                                                    "Rotation": "-0.000000008684401,0.000000006031767,-0.707107,0.7071065",
                                                     "Scale": "1,1,1",
                                                     "Tags": ""
                                                   },

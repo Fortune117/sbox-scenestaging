@@ -20,7 +20,7 @@
 					{
 						m_id = 236031522
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputConnection = 
 					{
@@ -75,7 +75,7 @@
 					{
 						m_id = 392661597
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputConnection = 
 					{
@@ -108,7 +108,7 @@
 					{
 						m_id = 462225617
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_children = 
 					[
@@ -196,7 +196,7 @@
 					{
 						m_id = 512388649
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputConnection = 
 					{
@@ -224,7 +224,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1184.0, -96.0 ]
+					m_vecPosition = [ -1216.0, -96.0 ]
 					m_nNodeID = 
 					{
 						m_id = 755909828
@@ -246,7 +246,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1255.72583, -327.946198 ]
+					m_vecPosition = [ -1216.0, -320.0 ]
 					m_nNodeID = 
 					{
 						m_id = 861907581
@@ -273,7 +273,7 @@
 					{
 						m_id = 964054041
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_inputConnection = 
 					{
@@ -328,7 +328,7 @@
 					{
 						m_id = 1435156989
 					}
-					m_networkMode = "ServerAuthoritative"
+					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_states = 
 					[
@@ -1172,7 +1172,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1255.72583, -391.946198 ]
+					m_vecPosition = [ -1216.0, -384.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2112533161
