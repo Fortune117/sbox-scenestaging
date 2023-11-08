@@ -1245,141 +1245,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "Id": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
-              "Name": "item_weapon_longsword",
-              "Enabled": true,
-              "Position": "0.1216278,-12.2886,35.09869",
-              "Rotation": "0.4935335,0.5116254,0.5050943,0.4894322",
-              "Scale": "1,1,1",
-              "Tags": "",
-              "Components": [
-                {
-                  "__type": "AnimatedModelComponent",
-                  "__enabled": true,
-                  "BodyGroups": 18446744073709551615,
-                  "BoneMergeTarget": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
-                  "CreateBoneObjects": false,
-                  "MaterialGroup": null,
-                  "MaterialOverride": null,
-                  "Model": "models/weapons/longsword/longsword.vmdl",
-                  "ShouldCastShadows": true,
-                  "Tint": "1,1,1,1"
-                },
-                {
-                  "__type": "CarriedWeaponComponent",
-                  "__enabled": true,
-                  "BlockResource": "data/prefabs/longsword_block.block",
-                  "BounceFraction": 0.6,
-                  "ComboTime": 0.7,
-                  "DamageResource": "data/prefabs/longsword_damage.damage",
-                  "FollowBoneMerge": true,
-                  "HurtBox": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
-                  "ImpactSound": "data/sounds/combat/sword.hit.sound",
-                  "LeftHandIKTarget": "fab790d2-d1e8-4fc5-b0ed-e09d87ca1d77",
-                  "RecoveryTime": 0.5,
-                  "ReleaseTime": 0.5,
-                  "RightHandIKTarget": "08d57fcb-b138-4535-8978-c220bcc60290",
-                  "SwingSound": "data/sounds/combat/sword.swing.sound",
-                  "SwordTrail": "e62545b8-e4e5-41cd-be88-927229e53436",
-                  "TurnCapX": 275,
-                  "TurnCapY": 275,
-                  "WindupTime": 0.5
-                },
-                {
-                  "__type": "HurtBoxComponent",
-                  "__enabled": true,
-                  "Center1": "5,0,0",
-                  "Center2": "43.79998,0,0",
-                  "HitDirection": "79287b10-5199-4931-8a28-3d63e9a9cc9e",
-                  "Radius": 2
-                }
-              ],
-              "Children": [
-                {
-                  "Id": "79287b10-5199-4931-8a28-3d63e9a9cc9e",
-                  "Name": "Hit Direction",
-                  "Enabled": true,
-                  "Position": "24.06384,-0.00000135116,-0.0000008033323",
-                  "Rotation": "-0.00000000868437,0.000000006031744,-0.707107,0.7071065",
-                  "Scale": "1,1,1",
-                  "Tags": ""
-                },
-                {
-                  "Id": "08d57fcb-b138-4535-8978-c220bcc60290",
-                  "Name": "Hand_R IK Target",
-                  "Enabled": true,
-                  "Position": "2.423419,-0.0000005951199,0.0000004652058",
-                  "Rotation": "0,0,0,1",
-                  "Scale": "1,1,1",
-                  "Tags": ""
-                },
-                {
-                  "Id": "fab790d2-d1e8-4fc5-b0ed-e09d87ca1d77",
-                  "Name": "Hand_L IK Target",
-                  "Enabled": true,
-                  "Position": "-0.6034711,1.803831,-0.6885564",
-                  "Rotation": "0,0,0,1",
-                  "Scale": "1,1,1",
-                  "Tags": ""
-                },
-                {
-                  "Id": "e62545b8-e4e5-41cd-be88-927229e53436",
-                  "Name": "Sword Trail",
-                  "Enabled": true,
-                  "Position": "0,0,0",
-                  "Rotation": "0,0,0,1",
-                  "Scale": "1,1,1",
-                  "Tags": "",
-                  "Components": [
-                    {
-                      "__type": "ParticleSystem",
-                      "__enabled": true,
-                      "ControlPoint0": "c5bb22d9-2883-4335-a0b1-807b894f5be4",
-                      "ControlPoint1": "5e23fb73-55af-4145-ba91-09b20d1fbb9e",
-                      "EmissionStopped": true,
-                      "Looped": false,
-                      "Particles": "particles/sword_trail.vpcf",
-                      "PlaybackSpeed": 1
-                    },
-                    {
-                      "__type": "SwordTrail",
-                      "__enabled": true,
-                      "Normal": "e797ab84-38b1-435b-a400-5137abff4e11"
-                    }
-                  ],
-                  "Children": [
-                    {
-                      "Id": "c5bb22d9-2883-4335-a0b1-807b894f5be4",
-                      "Name": "Anchor 1",
-                      "Enabled": true,
-                      "Position": "5.946345,-0.000001460219,0.000001141311",
-                      "Rotation": "0,0,0,1",
-                      "Scale": "1,1,1",
-                      "Tags": ""
-                    },
-                    {
-                      "Id": "5e23fb73-55af-4145-ba91-09b20d1fbb9e",
-                      "Name": "Anchor 2",
-                      "Enabled": true,
-                      "Position": "41.8521,-0.00001028008,0.000008022357",
-                      "Rotation": "0,0,0,1",
-                      "Scale": "1,1,1",
-                      "Tags": ""
-                    },
-                    {
-                      "Id": "e797ab84-38b1-435b-a400-5137abff4e11",
-                      "Name": "Normal",
-                      "Enabled": true,
-                      "Position": "25.89437,-0.000003307687,0.000004017774",
-                      "Rotation": "0,0.707107,0,0.7071065",
-                      "Scale": "1,1,1",
-                      "Tags": ""
-                    }
-                  ]
-                }
-              ]
             }
           ]
         },
@@ -1404,6 +1269,142 @@
               "__type": "HUD",
               "__enabled": true,
               "Actor": "3e6b5d88-8683-4dbc-832a-9598263ddf6d"
+            }
+          ]
+        },
+        {
+          "Id": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
+          "Name": "item_weapon_longsword",
+          "Enabled": true,
+          "Position": "0.1216278,-12.2886,35.09869",
+          "Rotation": "0.4935335,0.5116254,0.5050943,0.4894322",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Components": [
+            {
+              "__type": "AnimatedModelComponent",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "BoneMergeTarget": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/weapons/longsword/longsword.vmdl",
+              "ShouldCastShadows": true,
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "CarriedWeaponComponent",
+              "__enabled": true,
+              "BlockResource": "data/prefabs/longsword_block.block",
+              "BounceFraction": 0.6,
+              "ComboTime": 0.7,
+              "DamageResource": "data/prefabs/longsword_damage.damage",
+              "FollowBoneMerge": true,
+              "HurtBox": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
+              "ImpactSound": "data/sounds/combat/sword.hit.sound",
+              "KnockBackMultiplier": 1,
+              "LeftHandIKTarget": "fab790d2-d1e8-4fc5-b0ed-e09d87ca1d77",
+              "RecoveryTime": 0.5,
+              "ReleaseTime": 0.5,
+              "RightHandIKTarget": "08d57fcb-b138-4535-8978-c220bcc60290",
+              "SwingSound": "data/sounds/combat/sword.swing.sound",
+              "SwordTrail": "e62545b8-e4e5-41cd-be88-927229e53436",
+              "TurnCapX": 275,
+              "TurnCapY": 275,
+              "WindupTime": 0.5
+            },
+            {
+              "__type": "HurtBoxComponent",
+              "__enabled": true,
+              "Center1": "5,0,0",
+              "Center2": "43.79998,0,0",
+              "HitDirection": "79287b10-5199-4931-8a28-3d63e9a9cc9e",
+              "Radius": 2
+            }
+          ],
+          "Children": [
+            {
+              "Id": "79287b10-5199-4931-8a28-3d63e9a9cc9e",
+              "Name": "Hit Direction",
+              "Enabled": true,
+              "Position": "24.06384,-0.00000135116,-0.0000008033323",
+              "Rotation": "-0.00000000868437,0.000000006031744,-0.707107,0.7071065",
+              "Scale": "1,1,1",
+              "Tags": ""
+            },
+            {
+              "Id": "08d57fcb-b138-4535-8978-c220bcc60290",
+              "Name": "Hand_R IK Target",
+              "Enabled": true,
+              "Position": "2.423419,-0.0000005951199,0.0000004652058",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": ""
+            },
+            {
+              "Id": "fab790d2-d1e8-4fc5-b0ed-e09d87ca1d77",
+              "Name": "Hand_L IK Target",
+              "Enabled": true,
+              "Position": "-0.6034711,1.803831,-0.6885564",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": ""
+            },
+            {
+              "Id": "e62545b8-e4e5-41cd-be88-927229e53436",
+              "Name": "Sword Trail",
+              "Enabled": true,
+              "Position": "0,0,0",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Components": [
+                {
+                  "__type": "ParticleSystem",
+                  "__enabled": true,
+                  "ControlPoint0": "c5bb22d9-2883-4335-a0b1-807b894f5be4",
+                  "ControlPoint1": "5e23fb73-55af-4145-ba91-09b20d1fbb9e",
+                  "EmissionStopped": true,
+                  "Looped": false,
+                  "Particles": "particles/sword_trail.vpcf",
+                  "PlaybackSpeed": 1
+                },
+                {
+                  "__type": "SwordTrail",
+                  "__enabled": true,
+                  "Normal": "e797ab84-38b1-435b-a400-5137abff4e11"
+                }
+              ],
+              "Children": [
+                {
+                  "Id": "c5bb22d9-2883-4335-a0b1-807b894f5be4",
+                  "Name": "Anchor 1",
+                  "Enabled": true,
+                  "Position": "5.946345,-0.000001460219,0.000001141311",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": ""
+                },
+                {
+                  "Id": "5e23fb73-55af-4145-ba91-09b20d1fbb9e",
+                  "Name": "Anchor 2",
+                  "Enabled": true,
+                  "Position": "41.8521,-0.00001028008,0.000008022357",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": ""
+                },
+                {
+                  "Id": "e797ab84-38b1-435b-a400-5137abff4e11",
+                  "Name": "Normal",
+                  "Enabled": true,
+                  "Position": "25.89437,-0.000003307687,0.000004017774",
+                  "Rotation": "0,0.707107,0,0.7071065",
+                  "Scale": "1,1,1",
+                  "Tags": ""
+                }
+              ]
             }
           ]
         }
@@ -1624,7 +1625,7 @@
           "__enabled": true,
           "IsTrigger": false,
           "Scale": "100,100,0.01",
-          "Surface": null
+          "Surface": "data/surfaces/hay.surface"
         },
         {
           "__type": "NavMeshGeneratorComponent",
