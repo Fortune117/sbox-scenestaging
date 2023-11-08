@@ -93,7 +93,7 @@
           "Acceleration": 10,
           "GroundAngle": 45,
           "Height": 71.79988,
-          "IgnoreLayers": "trigger,player,block",
+          "IgnoreLayers": "trigger,player,block,nohit,corpse",
           "Radius": 7.999974,
           "StepHeight": 18
         },

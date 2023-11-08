@@ -45,6 +45,9 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	/// </summary>
 	[Property, Range( 0, 1 )]
 	public float BounceFraction { get; set; } = 1f;
+
+	[Property, Range( 0, 5 )] 
+	public float KnockBackMultiplier { get; set; } = 1f;
 	
 	[Property]
 	public SoundEvent ImpactSound { get; set; }

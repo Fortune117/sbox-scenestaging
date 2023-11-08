@@ -1085,6 +1085,7 @@
             "FollowBoneMerge": true,
             "HurtBox": "700b49f2-31ce-4a86-8d47-b457521ec9bc",
             "ImpactSound": "data/sounds/combat/sword.hit.sound",
+            "KnockBackMultiplier": 1,
             "LeftHandIKTarget": "317c19e4-ddcf-42be-92e5-bd40d6d47102",
             "RecoveryTime": 0.5,
             "ReleaseTime": 0.5,

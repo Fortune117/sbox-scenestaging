@@ -142,7 +142,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 			.WithTarget( hitEvent.Damageable )
 			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( Weapon.GetImpactDirection() )
-			.WithKnockBack( knockback )
+			.WithKnockBack( knockback * Weapon.KnockBackMultiplier )
 			.WithDamage( damage )
 			.WithType( Weapon.GetDamageType() )
 			.AsCritical( false );
@@ -203,6 +203,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		if ( Weapon is null )
 			return;
 
+		Weapon.SwordTrail?.StopTrail();
 		Weapon.WeaponModel.BoneMergeTarget = null;
 		Weapon.GameObject.SetParent( Scene );
 
