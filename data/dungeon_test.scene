@@ -1553,7 +1553,7 @@
     {
       "Id": "d55a8b83-0513-40ac-abb7-3534f2506f52",
       "Name": "Volumetric Fog",
-      "Enabled": true,
+      "Enabled": false,
       "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",

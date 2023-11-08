@@ -133,7 +133,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		if ( damage.DamageResult <= 0 )
 			return;
 		
-		hitEvent.Damageable.TakeDamage( damage );
+		hitEvent.Damageable?.TakeDamage( damage );
 	}
 
 	private void FaceTarget()
