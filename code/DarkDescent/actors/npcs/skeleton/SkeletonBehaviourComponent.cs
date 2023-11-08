@@ -53,6 +53,8 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 			{
 				hitBoxesActive = true;
 				Weapon.SwordTrail?.StartTrail();
+				var sound = Sound.FromWorld( Weapon.SwingSound.ResourceName, Weapon.Transform.Position );
+				sound.SetPitch( ActorComponent.Stats.ActionSpeed.Remap( 0, 2, 0.5f, 1.5f ) );
 				break;
 			}
 			
