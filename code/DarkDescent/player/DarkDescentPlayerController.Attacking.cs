@@ -16,12 +16,6 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		public const string AttackEndEvent = "AttackEndEvent";
 	}
 	
-	private enum HoldTypes
-	{
-		Fists,
-		TwoHandedSword
-	}
-	
 	[Property]
 	private CarriedWeaponComponent CarriedItemComponent { get; set; }
 	

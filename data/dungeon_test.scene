@@ -1783,10 +1783,20 @@
       ]
     },
     {
-      "Id": "51740eeb-a782-41af-9011-e1a050390ac0",
+      "Id": "b77c162d-1786-468c-b829-254a42be94fa",
+      "Name": "skeleton_swordsman",
+      "Enabled": true,
+      "Position": "-77.7876,238.7975,-0.004989624",
+      "Rotation": "0,0.0000003576279,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "__Prefab": "data/skeleton_swordsman.object"
+    },
+    {
+      "Id": "ceae4a78-915e-41f2-8582-532b512190d8",
       "Name": "skeleton_warrior",
       "Enabled": true,
-      "Position": "-288.7274,253.8715,0.0007685453",
+      "Position": "-343.2536,252.6136,-0.00002045951",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",

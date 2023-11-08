@@ -60,6 +60,15 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	
 	[Property] 
 	private HurtBoxComponent HurtBox { get; set; }
+	
+	public AnimatedModelComponent WeaponModel { get; set; }
+
+	public override void OnStart()
+	{
+		base.OnStart();
+
+		WeaponModel = GetComponent<AnimatedModelComponent>();
+	}
 
 	public float GetDamage( ActorComponent actorComponent )
 	{
@@ -85,4 +94,10 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	{
 		return HurtBox.DirectionMoment;
 	}
+}
+
+public enum HoldType
+{
+	None,
+	TwoHandedSword,
 }

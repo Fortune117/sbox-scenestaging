@@ -40,7 +40,8 @@
         "__enabled": true,
         "Body": "6951e4cb-7eb6-44e6-9dcd-5737b325dfd2",
         "HoldR": "07a13ed0-9516-4bff-bfad-4c0845d23613",
-        "Weapon": "6003e84d-02dd-49be-9135-5b94638cf59d"
+        "HoldType": "Longsword",
+        "Weapon": "700b49f2-31ce-4a86-8d47-b457521ec9bc"
       },
       {
         "__type": "CharacterController",
@@ -48,9 +49,15 @@
         "Acceleration": 10,
         "GroundAngle": 45,
         "Height": 72,
-        "IgnoreLayers": "trigger,actor,block",
+        "IgnoreLayers": "trigger,actor,block,corpse,nohit",
         "Radius": 8,
         "StepHeight": 18
+      },
+      {
+        "__type": "ObjectClassifierComponent",
+        "__enabled": true,
+        "BreakVerb": null,
+        "ObjectName": "Skeleton"
       }
     ],
     "Children": [
@@ -90,7 +97,8 @@
           {
             "__type": "ModelPhysics",
             "__enabled": false,
-            "Model": "models/actors/skeleton/skeleton_npc.vmdl"
+            "Model": "models/actors/skeleton/skeleton_npc.vmdl",
+            "Renderer": "6951e4cb-7eb6-44e6-9dcd-5737b325dfd2"
           }
         ],
         "Children": [
@@ -664,118 +672,7 @@
                                             "Position": "2.200361,-0.1372696,0.2653202",
                                             "Rotation": "-0.7208387,0.6893104,-0.07240635,-0.00000009872019",
                                             "Scale": "1,1,1",
-                                            "Tags": "",
-                                            "Children": [
-                                              {
-                                                "Id": "6003e84d-02dd-49be-9135-5b94638cf59d",
-                                                "Name": "Sword",
-                                                "Enabled": true,
-                                                "Position": "0,0,0",
-                                                "Rotation": "0,0,0,1",
-                                                "Scale": "1,1,1",
-                                                "Tags": "",
-                                                "Components": [
-                                                  {
-                                                    "__type": "AnimatedModelComponent",
-                                                    "__enabled": true,
-                                                    "BodyGroups": 18446744073709551615,
-                                                    "CreateBoneObjects": false,
-                                                    "MaterialGroup": null,
-                                                    "MaterialOverride": null,
-                                                    "Model": "models/weapons/longsword/longsword.vmdl",
-                                                    "ShouldCastShadows": true,
-                                                    "Tint": "1,1,1,1"
-                                                  },
-                                                  {
-                                                    "__type": "HurtBoxComponent",
-                                                    "__enabled": true,
-                                                    "Center1": "5.399998,0,0",
-                                                    "Center2": "45.19983,0,0",
-                                                    "HitDirection": "6003e84d-02dd-49be-9135-5b94638cf59d",
-                                                    "Radius": 2
-                                                  },
-                                                  {
-                                                    "__type": "ModelCollider",
-                                                    "__enabled": false,
-                                                    "IsTrigger": false,
-                                                    "Model": "models/weapons/longsword/longsword.vmdl",
-                                                    "Surface": null
-                                                  },
-                                                  {
-                                                    "__type": "PhysicsComponent",
-                                                    "__enabled": false,
-                                                    "Gravity": true,
-                                                    "Static": false
-                                                  }
-                                                ],
-                                                "Children": [
-                                                  {
-                                                    "Id": "ad74fd18-10ad-4517-8763-efbec9c5c192",
-                                                    "Name": "Hit Direction",
-                                                    "Enabled": true,
-                                                    "Position": "24.06384,-0.00000135116,-0.0000008033323",
-                                                    "Rotation": "-0.000000008684401,0.000000006031767,-0.707107,0.7071065",
-                                                    "Scale": "1,1,1",
-                                                    "Tags": ""
-                                                  },
-                                                  {
-                                                    "Id": "ddb3b6fd-5b37-4931-9c03-4f64bf36581d",
-                                                    "Name": "Sword Trail",
-                                                    "Enabled": true,
-                                                    "Position": "0,0,0",
-                                                    "Rotation": "0,0,0,1",
-                                                    "Scale": "1,1,1",
-                                                    "Tags": "",
-                                                    "Components": [
-                                                      {
-                                                        "__type": "ParticleSystem",
-                                                        "__enabled": true,
-                                                        "ControlPoint0": "a8e41c1a-b857-4416-8cc2-872065a21829",
-                                                        "ControlPoint1": "b8d25f57-e978-4fc7-9203-5dc8bac0953c",
-                                                        "EmissionStopped": true,
-                                                        "Looped": false,
-                                                        "Particles": "particles/sword_trail.vpcf",
-                                                        "PlaybackSpeed": 1
-                                                      },
-                                                      {
-                                                        "__type": "SwordTrail",
-                                                        "__enabled": true,
-                                                        "Normal": "70327011-b649-4b15-b234-db70f0ac9d30"
-                                                      }
-                                                    ],
-                                                    "Children": [
-                                                      {
-                                                        "Id": "a8e41c1a-b857-4416-8cc2-872065a21829",
-                                                        "Name": "Anchor 1",
-                                                        "Enabled": true,
-                                                        "Position": "5.946345,-0.000001460219,0.000001141311",
-                                                        "Rotation": "0,0,0,1",
-                                                        "Scale": "1,1,1",
-                                                        "Tags": ""
-                                                      },
-                                                      {
-                                                        "Id": "b8d25f57-e978-4fc7-9203-5dc8bac0953c",
-                                                        "Name": "Anchor 2",
-                                                        "Enabled": true,
-                                                        "Position": "41.8521,-0.00001028008,0.000008022357",
-                                                        "Rotation": "0,0,0,1",
-                                                        "Scale": "1,1,1",
-                                                        "Tags": ""
-                                                      },
-                                                      {
-                                                        "Id": "70327011-b649-4b15-b234-db70f0ac9d30",
-                                                        "Name": "Normal",
-                                                        "Enabled": true,
-                                                        "Position": "25.89437,-0.000003307687,0.000004017774",
-                                                        "Rotation": "0,0.707107,0,0.7071065",
-                                                        "Scale": "1,1,1",
-                                                        "Tags": ""
-                                                      }
-                                                    ]
-                                                  }
-                                                ]
-                                              }
-                                            ]
+                                            "Tags": ""
                                           }
                                         ]
                                       }
@@ -1152,6 +1049,154 @@
                     ]
                   }
                 ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Id": "700b49f2-31ce-4a86-8d47-b457521ec9bc",
+        "Name": "item_weapon_longsword",
+        "Enabled": true,
+        "Position": "0.1216278,-12.2886,35.09869",
+        "Rotation": "0.4935335,0.5116254,0.5050943,0.4894322",
+        "Scale": "1,1,1",
+        "Tags": "nohit",
+        "Components": [
+          {
+            "__type": "AnimatedModelComponent",
+            "__enabled": true,
+            "BodyGroups": 18446744073709551615,
+            "BoneMergeTarget": "6951e4cb-7eb6-44e6-9dcd-5737b325dfd2",
+            "CreateBoneObjects": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/weapons/longsword/longsword.vmdl",
+            "ShouldCastShadows": true,
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "CarriedWeaponComponent",
+            "__enabled": true,
+            "BlockResource": "data/prefabs/longsword_block.block",
+            "BounceFraction": 0.6,
+            "ComboTime": 0.7,
+            "DamageResource": "data/prefabs/longsword_damage.damage",
+            "FollowBoneMerge": true,
+            "HurtBox": "700b49f2-31ce-4a86-8d47-b457521ec9bc",
+            "ImpactSound": "data/sounds/combat/sword.hit.sound",
+            "LeftHandIKTarget": "317c19e4-ddcf-42be-92e5-bd40d6d47102",
+            "RecoveryTime": 0.5,
+            "ReleaseTime": 0.5,
+            "RightHandIKTarget": "de16bbe7-6b7b-434f-8a7c-e3570da21a66",
+            "SwingSound": "data/sounds/combat/sword.swing.sound",
+            "SwordTrail": "ee332e32-046b-4980-a5ed-952b903fe46d",
+            "TurnCapX": 275,
+            "TurnCapY": 275,
+            "WindupTime": 0.5
+          },
+          {
+            "__type": "HurtBoxComponent",
+            "__enabled": true,
+            "Center1": "5,0,0",
+            "Center2": "43.79998,0,0",
+            "HitDirection": "b7960367-d9b2-494d-b7c7-68bbded07d99",
+            "Radius": 2
+          },
+          {
+            "__type": "ModelCollider",
+            "__enabled": false,
+            "IsTrigger": false,
+            "Model": "models/weapons/longsword/longsword.vmdl",
+            "Surface": null
+          },
+          {
+            "__type": "PhysicsComponent",
+            "__enabled": false,
+            "Gravity": true,
+            "Static": false
+          }
+        ],
+        "Children": [
+          {
+            "Id": "b7960367-d9b2-494d-b7c7-68bbded07d99",
+            "Name": "Hit Direction",
+            "Enabled": true,
+            "Position": "24.06384,-0.00000135116,-0.0000008033323",
+            "Rotation": "-0.00000000868437,0.000000006031744,-0.707107,0.7071065",
+            "Scale": "1,1,1",
+            "Tags": ""
+          },
+          {
+            "Id": "de16bbe7-6b7b-434f-8a7c-e3570da21a66",
+            "Name": "Hand_R IK Target",
+            "Enabled": true,
+            "Position": "2.423419,-0.0000005951199,0.0000004652058",
+            "Rotation": "0,0,0,1",
+            "Scale": "1,1,1",
+            "Tags": ""
+          },
+          {
+            "Id": "317c19e4-ddcf-42be-92e5-bd40d6d47102",
+            "Name": "Hand_L IK Target",
+            "Enabled": true,
+            "Position": "-0.6034711,1.803831,-0.6885564",
+            "Rotation": "0,0,0,1",
+            "Scale": "1,1,1",
+            "Tags": ""
+          },
+          {
+            "Id": "ee332e32-046b-4980-a5ed-952b903fe46d",
+            "Name": "Sword Trail",
+            "Enabled": true,
+            "Position": "0,0,0",
+            "Rotation": "0,0,0,1",
+            "Scale": "1,1,1",
+            "Tags": "",
+            "Components": [
+              {
+                "__type": "ParticleSystem",
+                "__enabled": true,
+                "ControlPoint0": "2e9f618d-9081-4cc2-8de1-d0622fff82a5",
+                "ControlPoint1": "19039582-4f41-4025-b6a5-2dfa903e763f",
+                "EmissionStopped": true,
+                "Looped": false,
+                "Particles": "particles/sword_trail.vpcf",
+                "PlaybackSpeed": 1
+              },
+              {
+                "__type": "SwordTrail",
+                "__enabled": true,
+                "Normal": "875456b8-a361-48c6-876f-417ec5ad2f4e"
+              }
+            ],
+            "Children": [
+              {
+                "Id": "2e9f618d-9081-4cc2-8de1-d0622fff82a5",
+                "Name": "Anchor 1",
+                "Enabled": true,
+                "Position": "5.946345,-0.000001460219,0.000001141311",
+                "Rotation": "0,0,0,1",
+                "Scale": "1,1,1",
+                "Tags": ""
+              },
+              {
+                "Id": "19039582-4f41-4025-b6a5-2dfa903e763f",
+                "Name": "Anchor 2",
+                "Enabled": true,
+                "Position": "41.8521,-0.00001028008,0.000008022357",
+                "Rotation": "0,0,0,1",
+                "Scale": "1,1,1",
+                "Tags": ""
+              },
+              {
+                "Id": "875456b8-a361-48c6-876f-417ec5ad2f4e",
+                "Name": "Normal",
+                "Enabled": true,
+                "Position": "25.89437,-0.000003307687,0.000004017774",
+                "Rotation": "0,0.707107,0,0.7071065",
+                "Scale": "1,1,1",
+                "Tags": ""
               }
             ]
           }

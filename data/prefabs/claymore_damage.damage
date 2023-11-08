@@ -1,0 +1,17 @@
+{
+  "Dice": [
+    {
+      "Count": 2,
+      "Type": "D6"
+    }
+  ],
+  "Factors": [
+    {
+      "Stat": "PhysicalPower",
+      "Factor": 0.75
+    }
+  ],
+  "Flat": 0,
+  "DamageTypes": "Physical",
+  "__references": []
+}

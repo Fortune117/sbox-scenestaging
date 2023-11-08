@@ -87,6 +87,7 @@ public partial class ActorComponent
 		if ( !TryGetComponent<ModelPhysics>( out var modelPhysics, false, true ) )
 			return;
 
+		modelPhysics.GameObject.Tags.Add( "corpse" );
 		modelPhysics.Enabled = true;
 		modelPhysics.SetBonesToRenderer();
 	}
@@ -98,9 +99,13 @@ public partial class ActorComponent
 		
 		if ( TryGetComponent<ModelCollider>( out var modelCollider, false, true ) )	
 			modelCollider.Enabled = true;
-		
+
 		if ( TryGetComponent<ModelPhysics>( out var modelPhysics, false, true ) )
+		{
+			modelPhysics.GameObject.Tags.Remove( "corpse" );
 			modelPhysics.Enabled = false;
+		}
+
 		
 		foreach ( var behaviour in GetComponents<BehaviourComponent>(false) )
 		{

@@ -1,24 +1,42 @@
 using System.Threading.Tasks;
 using DarkDescent.Actor.Damage;
 using DarkDescent.Actor.Marker;
+using DarkDescent.Weapons;
 using Sandbox;
 
 namespace DarkDescent.Actor;
 
 public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListener, IDeathListener
 {
+	private enum SkeletonHoldTypes
+	{
+		None = 0,
+		Longsword = 1,
+		GreatSword = 2
+	}
+	
 	[Property]
-	private GameObject Weapon { get; set; }
+	private CarriedWeaponComponent Weapon { get; set; }
 	
 	[Property]
 	private GameObject HoldR { get; set; }
+	
+	[Property]
+	private SkeletonHoldTypes HoldType { get; set; }
 	
 	private bool isAttacking;
 	private bool hitBoxesActive;
 
 	private AttackEvent AttackEvent;
 	private Vector3 WishVelocity = Vector3.Zero;
-	
+
+	public override void OnStart()
+	{
+		base.OnStart();
+		
+		Body.Set( "eHoldType", (int)HoldType );
+	}
+
 	protected override void OnGenericAnimEvent( SceneModel.GenericEvent genericEvent )
 	{
 		base.OnGenericAnimEvent( genericEvent );
@@ -34,12 +52,14 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 			case BehaviourAnimationEvents.ActivateHitBoxes:
 			{
 				hitBoxesActive = true;
+				Weapon.SwordTrail?.StartTrail();
 				break;
 			}
 			
 			case BehaviourAnimationEvents.DeactivateHitBoxes:
 			{
 				hitBoxesActive = false;
+				Weapon.SwordTrail?.StopTrail();
 				break;
 			}
 		}
@@ -113,27 +133,33 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 
 		var hitEvent = hit.Value;
 		
+		var damage = Weapon.GetDamage( ActorComponent );
+		
 		var knockback = ActorComponent.Stats.KnockBack;
-		var damage = new DamageEventData()
+		
+		var damageEvent = new DamageEventData()
 			.WithOriginator( ActorComponent )
 			.WithTarget( hitEvent.Damageable )
 			.UsingTraceResult( hitEvent.TraceResult )
-			.WithDirection( hitEvent.HitDirection )
+			.WithDirection( Weapon.GetImpactDirection() )
 			.WithKnockBack( knockback )
-			.WithDamage( 5f )
-			.WithType( DamageType.Physical )
+			.WithDamage( damage )
+			.WithType( Weapon.GetDamageType() )
 			.AsCritical( false );
 		
 		if ( hitEvent.WasBlocked )
 		{
-			damage.WasBlocked = true;
-			damage = hitEvent.Blocker.BlockedHit( damage );
+			damageEvent.WasBlocked = true;
+			damageEvent = hitEvent.Blocker.BlockedHit( damageEvent );
 		}
 
-		if ( damage.DamageResult <= 0 )
+		if ( damageEvent.DamageResult <= 0 )
 			return;
 		
-		hitEvent.Damageable?.TakeDamage( damage );
+		if (hitEvent.Damageable.PlayHitSound)
+			Sound.FromWorld( Weapon.ImpactSound.ResourceName, hitEvent.TraceResult.HitPosition );
+		
+		hitEvent.Damageable?.TakeDamage( damageEvent );
 	}
 
 	private void FaceTarget()
@@ -176,8 +202,9 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		
 		if ( Weapon is null )
 			return;
-		
-		Weapon.SetParent( Scene );
+
+		Weapon.WeaponModel.BoneMergeTarget = null;
+		Weapon.GameObject.SetParent( Scene );
 
 		if ( Weapon.TryGetComponent<ModelCollider>( out var modelCollider, false ) )
 			modelCollider.Enabled = true;
@@ -197,7 +224,8 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		if ( Weapon is null )
 			return;
 		
-		Weapon.SetParent( HoldR );
+		Weapon.WeaponModel.BoneMergeTarget = Body;
+		Weapon.GameObject.SetParent( GameObject );
 
 		if ( Weapon.TryGetComponent<ModelCollider>( out var modelCollider, false ) )
 			modelCollider.Enabled = false;
