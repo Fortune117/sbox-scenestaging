@@ -11,4 +11,5 @@ public struct AttackHitEvent
 	public AttackBlockerComponent Blocker { get; set; }
 	
 	public bool WasBlocked { get; set; }
+	public bool HitWorld { get; set; }
 }

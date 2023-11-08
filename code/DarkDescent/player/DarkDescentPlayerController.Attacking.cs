@@ -217,6 +217,13 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 			return;
 
 		var hitEvent = hit.Value;
+		
+		if ( hitEvent.HitWorld ) //impacted the world?
+		{
+			if (hitEvent.TraceResult.Fraction < CarriedItemComponent.BounceFraction)
+				BounceAttack(hitEvent.TraceResult);
+			return;
+		}
 
 		var knockback = ActorComponent.Stats.KnockBack;
 
@@ -236,13 +243,6 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		{
 			damageEvent.WasBlocked = true;
 			damageEvent = hitEvent.Blocker.BlockedHit( damageEvent );
-		}
-		
-		if ( hitEvent.Damageable is null ) //impacted the world?
-		{
-			if (hitEvent.TraceResult.Fraction < CarriedItemComponent.BounceFraction)
-				BounceAttack(hitEvent.TraceResult);
-			return;
 		}
 		
 		DoHitStop();

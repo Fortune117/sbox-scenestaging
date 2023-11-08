@@ -52,7 +52,8 @@ public struct AttackEvent
 			var damageable = hitGameObject.GetComponentInParent<IDamageable>( true, true );
 			if ( damageable is null ) //impacted the world?
 			{
-				continue;
+				attackHitEvent.HitWorld = true;
+				return attackHitEvent;
 			}
 
 			if ( damageable.GameObject == Initiator )
