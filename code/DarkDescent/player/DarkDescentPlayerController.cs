@@ -29,12 +29,6 @@ public partial class DarkDescentPlayerController : BaseComponent
 	
 	[Property]
 	private ActorComponent ActorComponent { get; set; }
-	
-	[Property]
-	private GameObject RightIKTarget { get; set; }
-	
-	[Property]
-	private GameObject LeftIKTarget { get; set; }
 
 	private bool IsCrouching { get; set; }
 	

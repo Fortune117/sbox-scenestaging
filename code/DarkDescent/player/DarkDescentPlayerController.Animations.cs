@@ -35,13 +35,14 @@ public partial class DarkDescentPlayerController
 		Body.Set( "bCrouching", IsCrouching );
 		Body.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		Body.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
-		Body.Set( "vLeftHandIKTarget", LeftIKTarget.Transform.Position ); 
+		
+		Body.Set( "vLeftHandIKTarget", CarriedItemComponent.LeftHandIKTarget.Transform.Position );  
 	}
 
 	protected override void OnPreRender()
 	{
 		base.OnPreRender();
 		
-		Body.Set( "vLeftHandIKTarget", LeftIKTarget.Transform.Position );
+		Body.Set( "vLeftHandIKTarget", CarriedItemComponent.LeftHandIKTarget.Transform.Position );
 	}
 }

@@ -10,6 +10,12 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 {
 	[Property]
 	protected bool FollowBoneMerge { get; set; }
+	
+	[Property]
+	public GameObject RightHandIKTarget { get; set; }
+	
+	[Property]
+	public GameObject LeftHandIKTarget { get; set; }
 
 	protected AnimatedModelComponent AnimatedModelComponent { get; set; }
 	
