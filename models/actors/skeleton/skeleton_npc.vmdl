@@ -108,185 +108,235 @@
 						reverse = false
 					},
 					{
-						_class = "AnimFile"
-						name = "idle_01"
-						activity_name = ""
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						enable_scale = false
-						source_filename = "models/actors/skeleton/skeleton_npc.fbx"
-						start_frame = -1
-						end_frame = -1
-						framerate = -1.0
-						take = 0
-						reverse = false
-					},
-					{
-						_class = "AnimFile"
-						name = "idle_02"
-						activity_name = ""
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						enable_scale = false
-						source_filename = "models/actors/skeleton/skeleton_npc.fbx"
-						start_frame = -1
-						end_frame = -1
-						framerate = -1.0
-						take = 1
-						reverse = false
-					},
-					{
-						_class = "AnimFile"
-						name = "slash_01"
+						_class = "Folder"
+						name = "claymore"
 						children = 
 						[
 							{
-								_class = "ExtractMotion"
-								extract_tx = true
-								extract_ty = true
-								extract_tz = false
-								extract_rz = false
-								linear = false
-								quadratic = false
-								root_bone_name = ""
-								motion_type = "Uniform"
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_GENERIC_EVENT"
-								event_frame = 17
-								event_keys = 
-								{
-									TypeName = "LockRotation"
-									Int = 0
-									Float = 0.0
-									Vector = [ 0.0, 0.0, 0.0 ]
-									StringData = ""
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_GENERIC_EVENT"
-								event_frame = 13
-								event_keys = 
-								{
-									TypeName = "ActivateHitBoxes"
-									Int = 0
-									Float = 0.0
-									Vector = [ 0.0, 0.0, 0.0 ]
-									StringData = ""
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_GENERIC_EVENT"
-								event_frame = 20
-								event_keys = 
-								{
-									TypeName = "DeactivateHitBoxes"
-									Int = 0
-									Float = 0.0
-									Vector = [ 0.0, 0.0, 0.0 ]
-									StringData = ""
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_GENERIC_EVENT"
-								event_frame = 39
-								event_keys = 
-								{
-									TypeName = "FinishAttack"
-									Int = 0
-									Float = 0.0
-									Vector = [ 0.0, 0.0, 0.0 ]
-									StringData = ""
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_GENERIC_EVENT"
-								event_frame = 39
-								event_keys = 
-								{
-									TypeName = "UnlockRotation"
-									Int = 0
-									Float = 0.0
-									Vector = [ 0.0, 0.0, 0.0 ]
-									StringData = ""
-								}
+								_class = "AnimFile"
+								name = "claymore_walk"
+								children = 
+								[
+									{
+										_class = "ExtractMotion"
+										extract_tx = true
+										extract_ty = true
+										extract_tz = false
+										extract_rz = false
+										linear = false
+										quadratic = false
+										root_bone_name = ""
+										motion_type = "Uniform"
+									},
+								]
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_claymore.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 0
+								reverse = false
 							},
 						]
-						activity_name = ""
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						enable_scale = false
-						source_filename = "models/actors/skeleton/skeleton_npc.fbx"
-						start_frame = 0
-						end_frame = -1
-						framerate = -1.0
-						take = 3
-						reverse = false
 					},
 					{
-						_class = "AnimFile"
-						name = "walk_limp"
+						_class = "Folder"
+						name = "longsword"
 						children = 
 						[
 							{
-								_class = "ExtractMotion"
-								extract_tx = true
-								extract_ty = true
-								extract_tz = false
-								extract_rz = false
-								linear = false
-								quadratic = false
-								root_bone_name = ""
-								motion_type = "Uniform"
+								_class = "AnimFile"
+								name = "idle_01"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_npc.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "idle_02"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_npc.fbx"
+								start_frame = -1
+								end_frame = -1
+								framerate = -1.0
+								take = 1
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "slash_01"
+								children = 
+								[
+									{
+										_class = "ExtractMotion"
+										extract_tx = true
+										extract_ty = true
+										extract_tz = false
+										extract_rz = false
+										linear = false
+										quadratic = false
+										root_bone_name = ""
+										motion_type = "Uniform"
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 17
+										event_keys = 
+										{
+											TypeName = "LockRotation"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 13
+										event_keys = 
+										{
+											TypeName = "ActivateHitBoxes"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 20
+										event_keys = 
+										{
+											TypeName = "DeactivateHitBoxes"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 39
+										event_keys = 
+										{
+											TypeName = "FinishAttack"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_GENERIC_EVENT"
+										event_frame = 39
+										event_keys = 
+										{
+											TypeName = "UnlockRotation"
+											Int = 0
+											Float = 0.0
+											Vector = [ 0.0, 0.0, 0.0 ]
+											StringData = ""
+										}
+									},
+								]
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_npc.fbx"
+								start_frame = 0
+								end_frame = -1
+								framerate = -1.0
+								take = 3
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "walk_limp"
+								children = 
+								[
+									{
+										_class = "ExtractMotion"
+										extract_tx = true
+										extract_ty = true
+										extract_tz = false
+										extract_rz = false
+										linear = false
+										quadratic = false
+										root_bone_name = ""
+										motion_type = "Uniform"
+									},
+								]
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								enable_scale = false
+								source_filename = "models/actors/skeleton/skeleton_npc.fbx"
+								start_frame = -1
+								end_frame = 23
+								framerate = -1.0
+								take = 2
+								reverse = false
 							},
 						]
-						activity_name = ""
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						enable_scale = false
-						source_filename = "models/actors/skeleton/skeleton_npc.fbx"
-						start_frame = -1
-						end_frame = 23
-						framerate = -1.0
-						take = 2
-						reverse = false
 					},
 				]
 				default_root_bone_name = ""
