@@ -10,13 +10,13 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent : IDamageable
 {
-	[Property] 
+	[Property, Group("Damage")] 
 	public bool CauseHitBounce { get; set; } = false;
 
-	[Property] 
+	[Property, Group("Damage")] 
 	public bool PlayHitSound { get; set; } = true;
 
-	[Property]
+	[Property, Group("Damage")]
 	public bool ShowDamageNumbers { get; set; } = true;
 	
 	/// <summary>

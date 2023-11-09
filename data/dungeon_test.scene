@@ -244,6 +244,7 @@
                                                   "FieldOfView": 120,
                                                   "Orthographic": false,
                                                   "OrthographicHeight": 1204,
+                                                  "TargetEye": "None",
                                                   "ZFar": 10000,
                                                   "ZNear": 5
                                                 },
@@ -1788,7 +1789,7 @@
       "Name": "skeleton_swordsman",
       "Enabled": true,
       "Position": "-77.7876,238.7975,-0.004989624",
-      "Rotation": "0,0.0000003576279,0,1",
+      "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
       "__Prefab": "data/skeleton_swordsman.object"

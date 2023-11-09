@@ -6,26 +6,23 @@ namespace DarkDescent;
 
 public partial class DarkDescentPlayerController : BaseComponent
 {
-	[Property, Range( 0, 300 )] 
+	[Property, Range( 0, 300 ), Group("Movement")] 
 	public float WalkSpeed { get; set; } = 75f;
 
-	[Property, Range( 0, 300 )] 
+	[Property, Range( 0, 300 ), Group("Movement")] 
 	public float RunSpeed { get; set; } = 150f;
 	
-	[Property] 
+	[Property, Group("Movement")] 
 	public Vector3 Gravity { get; set; } = new Vector3( 0, 0, 800 );
 	
-	[Property] 
-	public float CameraDistance { get; set; } = 200.0f;
+	[Property, Group("Movement")]
+	private CharacterController CharacterController { get; set; }
 	
-	[Property] 
+	[Property, Group("Body")] 
 	private AnimatedModelComponent Body { get; set; }
 	
-	[Property] 
+	[Property, Group("Body")] 
 	private GameObject Eye { get; set; }
-
-	[Property]
-	private CharacterController CharacterController { get; set; }
 	
 	[Property]
 	private ActorComponent ActorComponent { get; set; }
