@@ -64,6 +64,9 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	[Property] 
 	private HurtBoxComponent HurtBox { get; set; }
 	
+	[Property]
+	private ParticleSystem ScrapeParticles { get; set; }
+	
 	public AnimatedModelComponent WeaponModel { get; set; }
 
 	public override void OnStart()
@@ -96,6 +99,21 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	public virtual Vector3 GetImpactDirection()
 	{
 		return HurtBox.DirectionMoment;
+	}
+
+	public void PlayScrapeEffect(PhysicsTraceResult traceResult)
+	{
+		ScrapeParticles.Transform.Position = traceResult.EndPosition;
+		ScrapeParticles.Set( "Normal", traceResult.Normal );
+		ScrapeParticles.EmissionStopped = false;
+		
+		if (ScrapeParticles.SceneObject is null)
+			ScrapeParticles.PlayEffect();
+	}
+
+	public void StopScrapeEffect()
+	{
+		ScrapeParticles.EmissionStopped = true; 
 	}
 }
 

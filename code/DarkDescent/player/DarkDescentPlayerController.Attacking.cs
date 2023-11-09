@@ -207,18 +207,31 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		
 		var hit = attackEvent.CheckForHit();
 
-		if ( hit is null)
+		if ( hit is null )
+		{
+			CarriedItemComponent.StopScrapeEffect();
 			return;
+		}
 
 		var hitEvent = hit.Value;
 		
 		if ( hitEvent.HitWorld ) //impacted the world?
 		{
-			if (hitEvent.TraceResult.Fraction < CarriedItemComponent.BounceFraction)
+			if ( hitEvent.TraceResult.Fraction < CarriedItemComponent.BounceFraction )
+			{
+				CarriedItemComponent.StopScrapeEffect();
 				BounceAttack(hitEvent.TraceResult);
+			}
+			else
+			{
+				CarriedItemComponent.PlayScrapeEffect( hitEvent.TraceResult );
+			}
+			
 			return;
 		}
 
+		Log.Info( hitEvent.TraceResult.Fraction );
+		
 		var knockback = ActorComponent.Stats.KnockBack;
 
 		var damage = CarriedItemComponent.GetDamage( ActorComponent );

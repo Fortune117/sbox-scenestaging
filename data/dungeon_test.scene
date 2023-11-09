@@ -52,7 +52,6 @@
           "ActorComponent": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "BlockerComponent": "08b7baad-09f5-4c23-a7a5-413cf9d9f053",
           "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
-          "CameraDistance": 200,
           "CarriedItemComponent": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
           "CharacterController": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "Eye": "eacd1793-17b7-4e17-b4df-cfd99eea118c",
@@ -1309,6 +1308,7 @@
               "RecoveryTime": 0.5,
               "ReleaseTime": 0.5,
               "RightHandIKTarget": "08d57fcb-b138-4535-8978-c220bcc60290",
+              "ScrapeParticles": "742be8b8-5dff-4691-8245-8e9a98bf39b3",
               "SwingSound": "data/sounds/combat/sword.swing.sound",
               "SwordTrail": "e62545b8-e4e5-41cd-be88-927229e53436",
               "TurnCapX": 275,
@@ -1404,6 +1404,25 @@
                   "Rotation": "0,0.707107,0,0.7071065",
                   "Scale": "1,1,1",
                   "Tags": ""
+                }
+              ]
+            },
+            {
+              "Id": "742be8b8-5dff-4691-8245-8e9a98bf39b3",
+              "Name": "Scrape Particles",
+              "Enabled": true,
+              "Position": "0,0,0",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Components": [
+                {
+                  "__type": "ParticleSystem",
+                  "__enabled": true,
+                  "EmissionStopped": true,
+                  "Looped": false,
+                  "Particles": "particles/weapon_scrape_ground.vpcf",
+                  "PlaybackSpeed": 1
                 }
               ]
             }

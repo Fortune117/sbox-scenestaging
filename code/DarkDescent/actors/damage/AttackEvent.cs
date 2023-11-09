@@ -36,15 +36,16 @@ public struct AttackEvent
 			if ( gameObject is not GameObject hitGameObject )
 				continue;
 
+			attackHitEvent.HitDirection = hurtBox.DirectionMoment;
+			attackHitEvent.TraceResult = tr;
+			
 			if ( hitGameObject.TryGetComponent<AttackBlockerComponent>( out var blockerComponent ) )
 			{
 				Blocked = true;
 
 				attackHitEvent.Damageable = blockerComponent.BlockOwner;
-				attackHitEvent.HitDirection = hurtBox.DirectionMoment;
 				attackHitEvent.Blocker = blockerComponent;
 				attackHitEvent.WasBlocked = true;
-				attackHitEvent.TraceResult = tr;
 				
 				return attackHitEvent;
 			}
@@ -64,9 +65,7 @@ public struct AttackEvent
 
 			HitDamageables.Add( damageable );
 			
-			attackHitEvent.HitDirection = hurtBox.DirectionMoment;
 			attackHitEvent.Damageable = damageable;
-			attackHitEvent.TraceResult = tr;
 
 			return attackHitEvent;
 		}
