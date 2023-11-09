@@ -229,8 +229,6 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 			
 			return;
 		}
-
-		Log.Info( hitEvent.TraceResult.Fraction );
 		
 		var knockback = ActorComponent.Stats.KnockBack;
 
