@@ -193,7 +193,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 17
+										event_frame = 14
 										event_keys = 
 										{
 											TypeName = "LockRotation"
@@ -206,7 +206,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 16
+										event_frame = 14
 										event_keys = 
 										{
 											TypeName = "ActivateHitBoxes"
@@ -219,7 +219,7 @@
 									{
 										_class = "AnimEvent"
 										event_class = "AE_GENERIC_EVENT"
-										event_frame = 23
+										event_frame = 21
 										event_keys = 
 										{
 											TypeName = "DeactivateHitBoxes"
