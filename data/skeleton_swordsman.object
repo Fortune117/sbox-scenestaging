@@ -38,6 +38,7 @@
       {
         "__type": "SkeletonBehaviourComponent",
         "__enabled": true,
+        "AttackRange": 65,
         "Body": "6951e4cb-7eb6-44e6-9dcd-5737b325dfd2",
         "HoldR": "07a13ed0-9516-4bff-bfad-4c0845d23613",
         "HoldType": "Longsword",
@@ -1058,8 +1059,8 @@
         "Id": "700b49f2-31ce-4a86-8d47-b457521ec9bc",
         "Name": "item_weapon_longsword",
         "Enabled": true,
-        "Position": "0.1216278,-12.2886,35.09869",
-        "Rotation": "0.4935335,0.5116254,0.5050943,0.4894322",
+        "Position": "0.1218188,-12.28857,35.09879",
+        "Rotation": "0.4935312,0.5116218,0.5050977,0.4894348",
         "Scale": "1,1,1",
         "Tags": "nohit",
         "Components": [

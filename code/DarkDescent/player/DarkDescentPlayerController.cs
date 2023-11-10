@@ -1,6 +1,7 @@
 using Sandbox;
 using System.Drawing;
 using DarkDescent.Actor;
+using DarkDescent.Weapons;
 
 namespace DarkDescent;
 

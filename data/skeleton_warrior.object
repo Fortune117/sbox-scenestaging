@@ -38,6 +38,7 @@
       {
         "__type": "SkeletonBehaviourComponent",
         "__enabled": true,
+        "AttackRange": 100,
         "Body": "831ea6b2-fa5b-4be9-a485-0250dae7eab9",
         "HoldR": "55feb677-f791-4083-9d11-8ec161b7c62e",
         "HoldType": "GreatSword",
@@ -1058,8 +1059,8 @@
         "Id": "f55005ad-f3af-4ed1-b5c4-093da9259a01",
         "Name": "item_weapon_claymore",
         "Enabled": true,
-        "Position": "0.1216278,-12.2886,35.09869",
-        "Rotation": "0.4935335,0.5116254,0.5050943,0.4894322",
+        "Position": "0.1218188,-12.28857,35.09879",
+        "Rotation": "0.4935312,0.5116218,0.5050977,0.4894348",
         "Scale": "1,1,1",
         "Tags": "nohit",
         "Components": [

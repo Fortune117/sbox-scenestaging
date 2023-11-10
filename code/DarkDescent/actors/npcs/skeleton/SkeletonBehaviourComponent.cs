@@ -23,6 +23,9 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 	
 	[Property]
 	private SkeletonHoldTypes HoldType { get; set; }
+
+	[Property, Range( 0, 300 )] 
+	private float AttackRange { get; set; } = 100f;
 	
 	private bool isAttacking;
 	private bool hitBoxesActive;
@@ -94,7 +97,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 			return;
 		}
 		
-		if (distance < 50)
+		if (distance < AttackRange)
 			AttackTarget();
 		else
 			FollowTarget();
