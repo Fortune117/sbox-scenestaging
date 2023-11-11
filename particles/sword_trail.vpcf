@@ -1999,19 +1999,14 @@
 			_class = "C_OP_InterpolateRadius"
 			m_flEndScale = 0.0
 		},
-	]
-	m_Renderers = 
-	[
 		{
-			_class = "C_OP_RenderRopes"
-			m_flTessScale = 0.0
-			m_nOrientationType = 3
-			m_vecColorScale = 
+			_class = "C_OP_SetVec"
+			m_InputValue = 
 			{
-				m_nType = "PVEC_TYPE_LITERAL_COLOR"
+				m_nType = "PVEC_TYPE_FLOAT_INTERP_GRADIENT"
 				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
 				m_NamedValue = ""
-				m_LiteralColor = [ 255, 235, 150, 255 ]
+				m_LiteralColor = [ 0, 0, 0, 0 ]
 				m_nVectorAttribute = 6
 				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
 				m_nControlPoint = 0
@@ -2158,7 +2153,7 @@
 				}
 				m_FloatInterp = 
 				{
-					m_nType = "PF_TYPE_LITERAL"
+					m_nType = "PF_TYPE_PARTICLE_AGE_NORMALIZED"
 					m_nMapType = "PF_MAP_TYPE_DIRECT"
 					m_NamedValue = ""
 					m_flLiteralValue = 0.0
@@ -2208,9 +2203,27 @@
 				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
 				m_Gradient = 
 				{
-					m_Stops = [  ]
+					m_Stops = 
+					[
+						{
+							m_flPosition = 0.0
+							m_Color = [ 255, 250, 0, 255 ]
+						},
+						{
+							m_flPosition = 1.0
+							m_Color = [ 253, 253, 118, 255 ]
+						},
+					]
 				}
 			}
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderRopes"
+			m_flTessScale = 0.0
+			m_nOrientationType = 3
 			m_flSelfIllumAmount = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
@@ -2361,7 +2374,7 @@
 				m_nType = "PVEC_TYPE_LITERAL_COLOR"
 				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
 				m_NamedValue = ""
-				m_LiteralColor = [ 255, 235, 150, 255 ]
+				m_LiteralColor = [ 255, 255, 82, 255 ]
 				m_nVectorAttribute = 6
 				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
 				m_nControlPoint = 0
@@ -2702,6 +2715,7 @@
 				}
 			}
 			m_hTexture = resource:"textures/effects/sword_trail.vtex"
+			m_bDisableOperator = true
 		},
 	]
 }
