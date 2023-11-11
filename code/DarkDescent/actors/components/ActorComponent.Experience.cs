@@ -21,6 +21,13 @@ public partial class ActorComponent
 	
 	public void AddExperience( float exp )
 	{
-		Experience = (Experience + exp) % ExperienceRequirement;
+		Experience += exp;
+
+		if ( Experience > ExperienceRequirement )
+		{
+			Level += (Experience / ExperienceRequirement).FloorToInt();
+		}
+		
+		Experience %= ExperienceRequirement;
 	}
 }
