@@ -147,6 +147,15 @@ public class Stats
 		}
 	}
 
+	public float StaminaRegenDelay
+	{
+		get
+		{
+			return ActorComponent.GetStat( StatType.StaminaRegenDelay ) +
+			       GameBalanceResource.ActiveBalance.DexterityToStaminaRegenDelayCurve.Evaluate( Dexterity );
+		}
+	}
+	
 	public float StaminaCostMultiplier
 	{
 		get
@@ -156,16 +165,45 @@ public class Stats
 		}
 	}
 
-	public float StaminaRegenDelay
+	#endregion
+
+	#region Concentration
+
+	public float MaxConcentration
 	{
 		get
 		{
-			return ActorComponent.GetStat( StatType.StaminaRegenDelay ) +
-			       GameBalanceResource.ActiveBalance.DexterityToStaminaRegenDelayCurve.Evaluate( Dexterity );
+			return ActorComponent.GetStat( StatType.MaxConcentration );
+		}
+	}
+
+	public float ConcentrationRegen
+	{
+		get
+		{
+			return ActorComponent.GetStat( StatType.ConcentrationRegen );
+		}
+	}
+
+	public float ConcentrationRegenDelay
+	{
+		get
+		{
+			return ActorComponent.GetStat( StatType.ConcentrationRegenDelay );
+		}
+	}
+	
+	public float ConcentrationCostMultiplier
+	{
+		get
+		{
+			return ActorComponent.GetStat( StatType.ConcentrationCostMultiplier );
 		}
 	}
 
 	#endregion
+	
+	
 
 	#region Actions
 
@@ -283,8 +321,7 @@ public class Stats
 	public float OccultResistance => ActorComponent.GetStat( StatType.OccultResistance );
 
 	#endregion
-
-
+	
 	#region Misc
 
 	public float CarryWeight

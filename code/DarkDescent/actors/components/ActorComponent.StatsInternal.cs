@@ -148,8 +148,13 @@ public partial class ActorComponent
 		//Stamina
 		SetBaseStat( StatType.MaxStamina, BaseStats.Stamina.MaxStamina );
 		SetBaseStat( StatType.StaminaRegen, BaseStats.Stamina.StaminaRegen );
-		SetBaseStat( StatType.StaminaCostMultiplier, BaseStats.Stamina.StaminaCostMultiplier );
 		SetBaseStat( StatType.StaminaRegenDelay, BaseStats.Stamina.StaminaRegenDelay );
+		SetBaseStat( StatType.StaminaCostMultiplier, BaseStats.Stamina.StaminaCostMultiplier );
+		
+		SetBaseStat( StatType.MaxConcentration, BaseStats.Concentration.MaxConcentration );
+		SetBaseStat( StatType.ConcentrationRegen, BaseStats.Concentration.ConcentrationRegen );
+		SetBaseStat( StatType.ConcentrationRegenDelay, BaseStats.Concentration.ConcentrationRegenDelay  );
+		SetBaseStat( StatType.ConcentrationCostMultiplier, BaseStats.Concentration.ConcentrationCostMultiplier  );
 		
 		//Actions
 		SetBaseStat( StatType.ActionSpeed, BaseStats.Actions.ActionSpeed );
@@ -236,8 +241,14 @@ public partial class ActorComponent
 		AddStatCallback( StatType.MaxStamina, OnMaxStaminaChanged );
 		
 		InitializeStat( StatType.StaminaRegen, BaseStats.Stamina.StaminaRegen );
-		InitializeStat( StatType.StaminaCostMultiplier, BaseStats.Stamina.StaminaCostMultiplier );
 		InitializeStat( StatType.StaminaRegenDelay, BaseStats.Stamina.StaminaRegenDelay );
+		InitializeStat( StatType.StaminaCostMultiplier, BaseStats.Stamina.StaminaCostMultiplier );
+		
+		//Concentration
+		InitializeStat( StatType.MaxConcentration, BaseStats.Concentration.MaxConcentration );
+		InitializeStat( StatType.ConcentrationRegen, BaseStats.Concentration.ConcentrationRegen );
+		InitializeStat( StatType.ConcentrationRegenDelay, BaseStats.Concentration.ConcentrationRegenDelay  );
+		InitializeStat( StatType.ConcentrationCostMultiplier, BaseStats.Concentration.ConcentrationCostMultiplier  );
 		
 		//Actions
 		InitializeStat( StatType.ActionSpeed, BaseStats.Actions.ActionSpeed );

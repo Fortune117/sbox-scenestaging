@@ -18,8 +18,14 @@ public enum StatType
 	//Stamina
 	MaxStamina,
 	StaminaRegen,
-	StaminaCostMultiplier,
 	StaminaRegenDelay,
+	StaminaCostMultiplier,
+	
+	//Concentration
+	MaxConcentration,
+	ConcentrationRegen,
+	ConcentrationRegenDelay,
+	ConcentrationCostMultiplier,
 	
 	//Actions
 	ActionSpeed,

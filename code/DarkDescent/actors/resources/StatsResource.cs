@@ -10,6 +10,8 @@ public class StatsResource : GameResource
 	public Health Health { get; set; }
 
 	public Stamina Stamina { get; set; }
+
+	public Concentration Concentration { get; set; }
 	
 	public Actions Actions { get; set; }
 	
