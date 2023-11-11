@@ -44,8 +44,8 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDama
     }
 
 
-    private float verticalImpact => 50f;
-    private float horizontalImpact => 60f;
+    private float verticalImpact => 90f;
+    private float horizontalImpact => 120f;
     
     public void OnDamageTaken( DamageEventData damageEvent, bool isLethal )
     {
@@ -53,7 +53,7 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDama
 		    return;
 
 	    var vert = -damageEvent.Direction.Dot( Transform.Rotation.Up );
-		var horizontal = -damageEvent.Direction.Dot( Transform.Rotation.Left );
+		var horizontal = damageEvent.Direction.Dot( Transform.Rotation.Left );
 	    
 	    Add( vert * verticalImpact, horizontal * horizontalImpact, false );
     }
@@ -61,7 +61,7 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDama
     public void OnBlock( DamageEventData damageEvent, bool isParry )
     {
 	    var vert = -damageEvent.Direction.Dot( Transform.Rotation.Up );
-	    var horizontal = -damageEvent.Direction.Dot( Transform.Rotation.Left );
+	    var horizontal = damageEvent.Direction.Dot( Transform.Rotation.Left );
 	    
 	    Add( vert * verticalImpact/2f, horizontal * horizontalImpact/2f, false );
     }

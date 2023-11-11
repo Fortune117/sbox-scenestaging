@@ -173,6 +173,8 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 			}
 			return; 
 		}
+		
+		Weapon.StopScrapeEffect();
 
 		if ( damageEvent.DamageResult <= 0 )
 			return;
