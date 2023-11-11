@@ -38,7 +38,7 @@
       {
         "__type": "SkeletonBehaviourComponent",
         "__enabled": true,
-        "AttackRange": 75,
+        "AttackRange": 50,
         "Body": "831ea6b2-fa5b-4be9-a485-0250dae7eab9",
         "HoldR": "55feb677-f791-4083-9d11-8ec161b7c62e",
         "HoldType": "GreatSword",
