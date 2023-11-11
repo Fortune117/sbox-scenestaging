@@ -1,0 +1,57 @@
+{
+  "RootObject": {
+    "Id": "54e54223-20ac-4a90-9fb1-a0a9376c448a",
+    "Name": "wall_torch",
+    "Enabled": true,
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Components": [
+      {
+        "__type": "ModelComponent",
+        "__enabled": true,
+        "BodyGroups": 18446744073709551615,
+        "MaterialOverride": null,
+        "Model": "models/props/torches/torch_01.vmdl",
+        "ShouldCastShadows": false,
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "ModelCollider",
+        "__enabled": true,
+        "IsTrigger": false,
+        "Model": "models/props/torches/torch_01.vmdl",
+        "Surface": null
+      }
+    ],
+    "Children": [
+      {
+        "Id": "934bd2a0-89fc-46f9-98a4-cf1a53840942",
+        "Name": "Effects",
+        "Enabled": true,
+        "Position": "7.06625,0.0000004211814,24.49139",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Components": [
+          {
+            "__type": "ParticleSystem",
+            "__enabled": true,
+            "EmissionStopped": false,
+            "Looped": false,
+            "Particles": "particles/torch_flame.vpcf",
+            "PlaybackSpeed": 1
+          },
+          {
+            "__type": "PointLightComponent",
+            "__enabled": true,
+            "LightColor": "1,0.21961,0,1",
+            "Radius": 600
+          }
+        ]
+      }
+    ]
+  },
+  "__references": []
+}

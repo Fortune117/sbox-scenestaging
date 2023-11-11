@@ -1,0 +1,57 @@
+{
+  "RootObject": {
+    "Id": "a3b6490f-3756-4db8-8b35-f6aea1a6afc1",
+    "Name": "Brazier",
+    "Enabled": true,
+    "Position": "-127.9433,15.01715,-0.4732308",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Components": [
+      {
+        "__type": "ModelComponent",
+        "__enabled": true,
+        "BodyGroups": 18446744073709551615,
+        "MaterialOverride": null,
+        "Model": "models/props/torches/brazier_01.vmdl",
+        "ShouldCastShadows": false,
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "ModelCollider",
+        "__enabled": true,
+        "IsTrigger": false,
+        "Model": "models/props/torches/brazier_01.vmdl",
+        "Surface": null
+      }
+    ],
+    "Children": [
+      {
+        "Id": "62f65b5e-9984-4e06-8548-e1bc87bfd722",
+        "Name": "Effects",
+        "Enabled": true,
+        "Position": "0,0,20.68275",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Components": [
+          {
+            "__type": "ParticleSystem",
+            "__enabled": true,
+            "EmissionStopped": false,
+            "Looped": true,
+            "Particles": "particles/brazier_flame.vpcf",
+            "PlaybackSpeed": 1
+          },
+          {
+            "__type": "PointLightComponent",
+            "__enabled": true,
+            "LightColor": "1,0.22,0,1",
+            "Radius": 1200
+          }
+        ]
+      }
+    ]
+  },
+  "__references": []
+}
