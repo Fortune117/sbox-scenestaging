@@ -16,9 +16,9 @@ public partial class ActorComponent
 	[Property, Range(0, 30), Group("Stamina")]
 	public float StaminaJumpCost { get; set; }
 	
-	public float Stamina { get; private set; }
-	
 	public bool IsSprinting { get; set; }
+	
+	public float Stamina { get; private set; }
 	
 	private TimeSince TimeSinceLastStaminaCost { get; set; }
 

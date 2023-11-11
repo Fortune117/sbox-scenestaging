@@ -1091,6 +1091,7 @@
             "RecoveryTime": 0.5,
             "ReleaseTime": 0.5,
             "RightHandIKTarget": "de16bbe7-6b7b-434f-8a7c-e3570da21a66",
+            "ScrapeParticles": "742be8b8-5dff-4691-8245-8e9a98bf39b3",
             "SwingSound": "data/sounds/combat/sword.swing.sound",
             "SwordTrail": "ee332e32-046b-4980-a5ed-952b903fe46d",
             "TurnCapX": 275,
@@ -1199,6 +1200,25 @@
                 "Rotation": "0,0.707107,0,0.7071065",
                 "Scale": "1,1,1",
                 "Tags": ""
+              }
+            ]
+          },
+          {
+            "Id": "742be8b8-5dff-4691-8245-8e9a98bf39b3",
+            "Name": "Scrape Particles",
+            "Enabled": true,
+            "Position": "12.36455,-35.06598,0.6669686",
+            "Rotation": "-0.4935313,-0.5116218,-0.5050977,0.4894349",
+            "Scale": "1,1,1",
+            "Tags": "",
+            "Components": [
+              {
+                "__type": "ParticleSystem",
+                "__enabled": true,
+                "EmissionStopped": true,
+                "Looped": false,
+                "Particles": "particles/weapon_scrape_ground.vpcf",
+                "PlaybackSpeed": 1
               }
             ]
           }

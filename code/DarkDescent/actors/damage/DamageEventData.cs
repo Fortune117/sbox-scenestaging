@@ -187,4 +187,25 @@ public struct DamageEventData
 		particle.Set("RingYaw", angles.yaw  );
 		particle.Set("RingRoll", angles.roll  );
 	}
+	
+	public void CreateScrapeEffect()
+	{
+		var surface = Surface;
+		if ( surface is null )
+			return;
+
+		Sound.FromWorld( surface.Sounds.ImpactHard, Position );
+
+		if ( surface.ImpactEffects.Regular is null || surface.ImpactEffects.Regular.Length == 0 )
+			return;
+		
+		var dir = -Direction.Normal;
+		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
+		
+		var particle = QuickParticle.Create( surface.ImpactEffects.Regular.FirstOrDefault(), Position );
+		particle.Set( "Normal", dir );
+		particle.Set("RingPitch", angles.pitch  );
+		particle.Set("RingYaw", angles.yaw  );
+		particle.Set("RingRoll", angles.roll  );
+	}
 }

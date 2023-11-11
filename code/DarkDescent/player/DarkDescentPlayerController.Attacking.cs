@@ -190,6 +190,7 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 	}
 
 
+	private TimeSince lastScrapeEvent;
 	private AttackEvent attackEvent;
 	private void AttackHitUpdate()
 	{
@@ -215,21 +216,6 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 
 		var hitEvent = hit.Value;
 		
-		if ( hitEvent.HitWorld ) //impacted the world?
-		{
-			if ( hitEvent.TraceResult.Fraction < CarriedItemComponent.BounceFraction )
-			{
-				CarriedItemComponent.StopScrapeEffect();
-				BounceAttack(hitEvent.TraceResult);
-			}
-			else
-			{
-				CarriedItemComponent.PlayScrapeEffect( hitEvent.TraceResult );
-			}
-			
-			return;
-		}
-		
 		var knockback = ActorComponent.Stats.KnockBack;
 
 		var damage = CarriedItemComponent.GetDamage( ActorComponent );
@@ -243,7 +229,28 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 			.WithDamage( damage )
 			.WithType( CarriedItemComponent.GetDamageType() )
 			.AsCritical( false );
-
+		
+		if ( hitEvent.HitWorld ) //impacted the world?
+		{
+			if ( hitEvent.TraceResult.Fraction < CarriedItemComponent.BounceFraction )
+			{
+				CarriedItemComponent.StopScrapeEffect();
+				BounceAttack(hitEvent.TraceResult);
+			}
+			else
+			{
+				CarriedItemComponent.PlayScrapeEffect( hitEvent.TraceResult );
+				
+				if ( lastScrapeEvent > 0.02f )
+				{
+					damageEvent.CreateScrapeEffect();
+					lastScrapeEvent = 0; 
+				}
+			}
+			
+			return;
+		}
+		
 		if ( hitEvent.WasBlocked )
 		{
 			damageEvent.WasBlocked = true;

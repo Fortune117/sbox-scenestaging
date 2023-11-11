@@ -1318,7 +1318,7 @@
 				}
 			}
 			m_hTexture = resource:"materials/particles/spark_white.vtex"
-			m_flLengthScale = 3.0
+			m_flLengthScale = 6.0
 		},
 		{
 			_class = "C_OP_RenderTrails"

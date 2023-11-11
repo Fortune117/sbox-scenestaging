@@ -124,6 +124,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		}
 	}
 
+	private TimeSince lastScrapeEvent;
 	private void AttackUpdate()
 	{
 		FaceTarget();
@@ -133,8 +134,11 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 
 		var hit = AttackEvent.CheckForHit();
 
-		if ( hit is null)
+		if ( hit is null )
+		{
+			Weapon.StopScrapeEffect();
 			return;
+		}
 
 		var hitEvent = hit.Value;
 		
@@ -156,6 +160,18 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		{
 			damageEvent.WasBlocked = true;
 			damageEvent = hitEvent.Blocker.BlockedHit( damageEvent );
+		}
+		
+		if ( hitEvent.HitWorld ) //impacted the world?
+		{
+			Weapon.PlayScrapeEffect( hitEvent.TraceResult );
+
+			if ( lastScrapeEvent > 0.02f )
+			{
+				damageEvent.CreateScrapeEffect();
+				lastScrapeEvent = 0; 
+			}
+			return; 
 		}
 
 		if ( damageEvent.DamageResult <= 0 )
