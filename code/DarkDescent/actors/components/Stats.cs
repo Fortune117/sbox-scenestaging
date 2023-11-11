@@ -202,8 +202,6 @@ public class Stats
 	}
 
 	#endregion
-	
-	
 
 	#region Actions
 
@@ -365,6 +363,11 @@ public class Stats
 			StatType.StaminaRegen => StaminaRegen,
 			StatType.StaminaCostMultiplier => StaminaCostMultiplier,
 			StatType.StaminaRegenDelay => StaminaRegenDelay,
+			
+			StatType.MaxConcentration => MaxConcentration,
+			StatType.ConcentrationRegen => ConcentrationRegen,
+			StatType.ConcentrationRegenDelay => ConcentrationRegenDelay,
+			StatType.ConcentrationCostMultiplier => ConcentrationCostMultiplier,
 			
 			StatType.ActionSpeed => ActionSpeed,
 			StatType.SpellCastingSpeed => SpellCastingSpeed,
