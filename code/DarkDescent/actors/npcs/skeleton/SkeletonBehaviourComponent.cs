@@ -65,6 +65,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 			{
 				hitBoxesActive = false;
 				Weapon.SwordTrail?.StopTrail();
+				Weapon.StopScrapeEffect(); 
 				break;
 			}
 		}
