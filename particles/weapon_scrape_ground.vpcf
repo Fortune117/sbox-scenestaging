@@ -119,7 +119,7 @@
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
 				m_NamedValue = ""
-				m_flLiteralValue = 15.0
+				m_flLiteralValue = 25.0
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
@@ -1018,7 +1018,7 @@
 		{
 			_class = "C_OP_RenderTrails"
 			m_flMaxLength = 150.0
-			m_flConstrainRadiusToLengthRatio = 0.75
+			m_flConstrainRadiusToLengthRatio = 0.1
 			m_flRadiusScale = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
@@ -1318,11 +1318,13 @@
 				}
 			}
 			m_hTexture = resource:"materials/particles/spark_white.vtex"
+			m_flLengthScale = 3.0
 		},
 		{
 			_class = "C_OP_RenderTrails"
 			m_flMaxLength = 150.0
-			m_flConstrainRadiusToLengthRatio = 0.75
+			m_flConstrainRadiusToLengthRatio = 0.1
+			m_flLengthScale = 3.0
 			m_flRadiusScale = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
@@ -1623,6 +1625,7 @@
 			}
 			m_bOnlyRenderInEffectsBloomPass = true
 			m_hTexture = resource:"materials/particles/spark_white.vtex"
+			m_bDisableOperator = true
 		},
 	]
 }
