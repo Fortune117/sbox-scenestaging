@@ -5,22 +5,22 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent
 {
-	[Property, Group("Info Panel")] 
+	[Property, ToggleGroup("Info Panel")] 
 	private bool ShowInfoPanel { get; set; } = true;
 
-	[Property, Range( 0, 600 ), Group("Info Panel")] 
+	[Property, Range( 0, 600 ), ToggleGroup("Info Panel")] 
 	private float PanelDrawDistance { get; set; } = 300;
 	
-	[Property, Range( 0, 150 ), Group("Info Panel")] 
+	[Property, Range( 0, 150 ), ToggleGroup("Info Panel")] 
 	private float InfoPanelOffset { get; set; } = 0;
 	
 	/// <summary>
 	/// Will use this as the info panels parent if set, otherwise uses GameObject.
 	/// </summary>
-	[Property, Group("Info Panel")]
+	[Property, ToggleGroup("Info Panel")]
 	private GameObject InfoPanelParent { get; set; }
 
-	[Property, Group("Info Panel")]
+	[Property, ToggleGroup("Info Panel")]
 	private GameObject InfoPanelPrefab { get; set; }
 	
 	private ActorInfoPanel InfoPanel { get; set; }

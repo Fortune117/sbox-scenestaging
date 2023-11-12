@@ -7,62 +7,62 @@ namespace DarkDescent.Weapons;
 
 public class CarriedWeaponComponent : CarriedItemComponent
 {
-	[Property, Group("Combat")]
+	[Property, ToggleGroup("Combat")]
 	public DamageResource DamageResource { get; set; }
 	
-	[Property, Group("Combat")]
+	[Property, ToggleGroup("Combat")]
 	public BlockingResource BlockResource { get; set; }
 	
-	[Property, Range( 0, 5 ), Group("Combat")] 
+	[Property, Range( 0, 5 ), ToggleGroup("Combat")] 
 	public float KnockBackMultiplier { get; set; } = 1f;
 	
 	/// <summary>
 	/// Wind up time of this weapon in seconds.
 	/// </summary>
-	[Property, Range(0, 3), Group("Swing Control")]
+	[Property, Range(0, 3), ToggleGroup("Swing Control")]
 	public float WindupTime { get; set; }
 	
 	/// <summary>
 	/// How long in seconds this weapon stays active.
 	/// </summary>
-	[Property, Range(0, 3), Group("Swing Control")]
+	[Property, Range(0, 3), ToggleGroup("Swing Control")]
 	public float ReleaseTime { get; set; }
 	
 	/// <summary>
 	/// How long in seconds this weapon takes to combo after the release window is finished.
 	/// </summary>
-	[Property, Range(0, 3), Group("Swing Control")]
+	[Property, Range(0, 3), ToggleGroup("Swing Control")]
 	public float ComboTime { get; set; }
 	
 	/// <summary>
 	/// How long in seconds this weapon takes to recover after a swing.
 	/// </summary>
-	[Property, Range(0, 3), Group("Swing Control")]
+	[Property, Range(0, 3), ToggleGroup("Swing Control")]
 	public float RecoveryTime { get; set; }
 
-	[Property, Range( 0, 500 ), Group("Swing Control")] 
+	[Property, Range( 0, 500 ), ToggleGroup("Swing Control")] 
 	public float TurnCapX { get; set; } = 2f;
 	
-	[Property, Range(0, 500), Group("Swing Control")]
+	[Property, Range(0, 500), ToggleGroup("Swing Control")]
 	public float TurnCapY { get; set; } = 2f;
 
 	/// <summary>
 	/// How far the trace has to be before the attack no longer bounces upon hitting a solid surface.
 	/// </summary>
-	[Property, Range( 0, 1 ), Group("Swing Control")]
+	[Property, Range( 0, 1 ), ToggleGroup("Swing Control")]
 	public float BounceFraction { get; set; } = 1f;
 	
-	[Property, Group("Effects")]
+	[Property, ToggleGroup("Effects")]
 	public SoundEvent ImpactSound { get; set; }
 	
-	[Property, Group("Effects")]
+	[Property, ToggleGroup("Effects")]
 	public SoundEvent SwingSound { get; set; }
 	
-	[Property, Group("Effects")]
+	[Property, ToggleGroup("Effects")]
 	public SwordTrail SwordTrail { get; set; }
 	
 	
-	[Property, Group("Effects")]
+	[Property, ToggleGroup("Effects")]
 	private ParticleSystem ScrapeParticles { get; set; }
 	
 	[Property] 

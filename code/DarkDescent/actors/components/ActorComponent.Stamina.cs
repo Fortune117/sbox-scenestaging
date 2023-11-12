@@ -7,13 +7,13 @@ public partial class ActorComponent
 	/// <summary>
 	/// Cost of sprinting in stamina per second.
 	/// </summary>
-	[Property, Range(0, 20), Group("Stamina")]
+	[Property, Range(0, 20), ToggleGroup("Stamina")]
 	public float StaminaSprintCost { get; set; }
 	
 	/// <summary>
 	/// Stamina cost to jump.
 	/// </summary>
-	[Property, Range(0, 30), Group("Stamina")]
+	[Property, Range(0, 30), ToggleGroup("Stamina")]
 	public float StaminaJumpCost { get; set; }
 	
 	public bool IsSprinting { get; set; }

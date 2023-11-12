@@ -9,13 +9,13 @@ namespace DarkDescent.Actor;
 /// </summary>
 public partial class ActorComponent : BaseComponent
 {
-	[Property, Group("Attributes")] 
+	[Property, ToggleGroup("Attributes")] 
 	public Attributes PrimaryAttribute { get; set; } = Attributes.Strength;
 
-	[Property, Group("Attributes")] 
+	[Property, ToggleGroup("Attributes")] 
 	public Attributes SpellCastingAttribute { get; set; } = Attributes.Intelligence;
 	
-	[Property, Group("Attributes")]
+	[Property, ToggleGroup("Attributes")]
 	public StatsResource BaseStats { get; set; }
 	
 	public Stats Stats { get; private set; }

@@ -1,7 +1,7 @@
 {
   "Core": {
-    "Strength": 10,
-    "Dexterity": 10,
+    "Strength": 18,
+    "Dexterity": 12,
     "Constitution": 10,
     "Wisdom": 10,
     "Intelligence": 10,
@@ -18,6 +18,11 @@
     "StaminaCostMultiplier": 1,
     "StaminaRegenDelay": 2
   },
+  "Concentration": {
+    "MaxConcentration": 30,
+    "ConcentrationRegenDelay": 2.5,
+    "ConcentrationCostMultiplier": 1
+  },
   "Actions": {
     "ActionSpeed": 1,
     "SpellCastingSpeed": 1,
@@ -25,7 +30,8 @@
     "JumpHeightMultiplier": 1
   },
   "Combat": {
-    "CriticalMultiplier": 1.5
+    "CriticalMultiplier": 1.5,
+    "KnockBack": 25
   },
   "Resistances": {},
   "Misc": {
