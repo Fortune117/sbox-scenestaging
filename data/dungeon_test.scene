@@ -53,6 +53,7 @@
           "ActorComponent": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "BlockerComponent": "08b7baad-09f5-4c23-a7a5-413cf9d9f053",
           "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
+          "Camera": "e4c460aa-c998-43f5-b4ff-b946848d6aa5",
           "CarriedItemComponent": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
           "CharacterController": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "Eye": "eacd1793-17b7-4e17-b4df-cfd99eea118c",

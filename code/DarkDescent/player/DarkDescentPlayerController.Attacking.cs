@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using DarkDescent.Actor;
 using DarkDescent.Actor.Damage;
 using DarkDescent.Actor.Marker;
+using DarkDescent.Cameras;
 using DarkDescent.UI;
 using DarkDescent.Weapons;
 using Sandbox;
@@ -276,6 +277,11 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 	{
 		TimeSinceLastHit = 0;
 		HitStopSpeedScale = 0.05f;
+
+		if ( !Camera.TryGetComponent<CameraShake>( out var cameraShake ) )
+			return;
+		
+		cameraShake.AddShake( 4f, 2f, -1f, 0.5f );
 	}
 	
 	/// <summary>

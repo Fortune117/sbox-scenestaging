@@ -25,6 +25,9 @@ public partial class DarkDescentPlayerController : BaseComponent
 	[Property, ToggleGroup("Body")] 
 	private GameObject Eye { get; set; }
 	
+	[Property, ToggleGroup("Camera")] 
+	private CameraComponent Camera { get; set; }
+	
 	[Property]
 	private ActorComponent ActorComponent { get; set; }
 
