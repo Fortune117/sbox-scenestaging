@@ -15,7 +15,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 16.0, -96.0 ]
+					m_vecPosition = [ 16.0, -80.0 ]
 					m_nNodeID = 
 					{
 						m_id = 74975768
@@ -84,6 +84,23 @@
 								}
 							}
 						},
+						{
+							key = 
+							{
+								m_id = 1600734027
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 31165609
+								}
+							}
+						},
 					]
 				}
 			},
@@ -96,7 +113,7 @@
 				{
 					_class = "CSpeedScaleAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 768.0, 32.0 ]
+					m_vecPosition = [ 768.0, 0.0 ]
 					m_nNodeID = 
 					{
 						m_id = 75750486
@@ -129,7 +146,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 16.0, -400.0 ]
+					m_vecPosition = [ 16.0, -176.0 ]
 					m_nNodeID = 
 					{
 						m_id = 101244440
@@ -198,6 +215,23 @@
 								}
 							}
 						},
+						{
+							key = 
+							{
+								m_id = 1600734027
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 742512375
+								}
+							}
+						},
 					]
 				}
 			},
@@ -210,7 +244,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 16.0, 400.0 ]
+					m_vecPosition = [ 16.0, 144.0 ]
 					m_nNodeID = 
 					{
 						m_id = 334711994
@@ -279,6 +313,23 @@
 								}
 							}
 						},
+						{
+							key = 
+							{
+								m_id = 1600734027
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 773729018
+								}
+							}
+						},
 					]
 				}
 			},
@@ -291,7 +342,7 @@
 				{
 					_class = "CGroupInputAnimNode"
 					m_sName = "Attack Inputs"
-					m_vecPosition = [ -576.0, -96.0 ]
+					m_vecPosition = [ -464.0, -64.0 ]
 					m_nNodeID = 
 					{
 						m_id = 349432436
@@ -301,7 +352,7 @@
 					m_proxyItems = 
 					[
 						{
-							m_name = "Left Bottom to Top Windup"
+							m_name = "Left Bottom to Top"
 							m_outputID = 
 							{
 								m_id = 742512375
@@ -319,79 +370,7 @@
 							}
 						},
 						{
-							m_name = "Left Bottom To To Release"
-							m_outputID = 
-							{
-								m_id = 1038964740
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Left Bottom to Top Recovery"
-							m_outputID = 
-							{
-								m_id = 1756529818
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Left to Right Windup"
-							m_outputID = 
-							{
-								m_id = 1051500006
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Left to Right Release"
-							m_outputID = 
-							{
-								m_id = 1403935997
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Lef to Right Recovery"
+							m_name = "Lef to Right"
 							m_outputID = 
 							{
 								m_id = 1590898807
@@ -409,43 +388,7 @@
 							}
 						},
 						{
-							m_name = "Left Top to Bottom Windup"
-							m_outputID = 
-							{
-								m_id = 1989506548
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Left Top to Bottom Release"
-							m_outputID = 
-							{
-								m_id = 493622930
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Left Top to Bottom Recovery"
+							m_name = "Left Top to Bottom"
 							m_outputID = 
 							{
 								m_id = 31165609
@@ -463,43 +406,7 @@
 							}
 						},
 						{
-							m_name = "Right Bottom to Top Windup"
-							m_outputID = 
-							{
-								m_id = 586769725
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Right Bottom to Top Release"
-							m_outputID = 
-							{
-								m_id = 1161264651
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Right Bottom to Top Recovery"
+							m_name = "Right Bottom to Top"
 							m_outputID = 
 							{
 								m_id = 904312588
@@ -517,7 +424,7 @@
 							}
 						},
 						{
-							m_name = "Right to Left Windup"
+							m_name = "Right to Left"
 							m_outputID = 
 							{
 								m_id = 683510042
@@ -535,82 +442,10 @@
 							}
 						},
 						{
-							m_name = "Right to Left Release"
-							m_outputID = 
-							{
-								m_id = 62371135
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Right to Left Recovery"
-							m_outputID = 
-							{
-								m_id = 415251506
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Right Top to Bottom Windup"
+							m_name = "Right Top to Bottom"
 							m_outputID = 
 							{
 								m_id = 773729018
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Right Top to Bottom Release"
-							m_outputID = 
-							{
-								m_id = 1322668586
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Right Top to Bottom Recovery"
-							m_outputID = 
-							{
-								m_id = 1258951204
 							}
 							m_inputConnection = 
 							{
@@ -636,7 +471,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 16.0, -256.0 ]
+					m_vecPosition = [ 16.0, -128.0 ]
 					m_nNodeID = 
 					{
 						m_id = 392131159
@@ -705,6 +540,23 @@
 								}
 							}
 						},
+						{
+							key = 
+							{
+								m_id = 1600734027
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 1590898807
+								}
+							}
+						},
 					]
 				}
 			},
@@ -717,7 +569,7 @@
 				{
 					_class = "CGroupOutputAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 1104.0, 0.0 ]
+					m_vecPosition = [ 1072.0, -32.0 ]
 					m_nNodeID = 
 					{
 						m_id = 409195907
@@ -774,7 +626,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 16.0, 64.0 ]
+					m_vecPosition = [ 16.0, 48.0 ]
 					m_nNodeID = 
 					{
 						m_id = 810951467
@@ -830,6 +682,23 @@
 							key = 
 							{
 								m_id = 1517431218
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 904312588
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 1600734027
 							}
 							value = 
 							{
@@ -941,7 +810,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 16.0, 224.0 ]
+					m_vecPosition = [ 16.0, 96.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1562656540
@@ -1007,6 +876,23 @@
 								m_outputID = 
 								{
 									m_id = 415251506
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 1600734027
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 683510042
 								}
 							}
 						},
@@ -1108,7 +994,7 @@
 				{
 					_class = "CSpeedScaleAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 768.0, -16.0 ]
+					m_vecPosition = [ 768.0, -48.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1708779124

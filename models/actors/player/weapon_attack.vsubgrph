@@ -30,7 +30,7 @@
 						}
 						m_outputID = 
 						{
-							m_id = 634764639
+							m_id = 1600734027
 						}
 					}
 					m_param = 
@@ -48,7 +48,7 @@
 				{
 					_class = "CGroupOutputAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ 416.0, 16.0 ]
+					m_vecPosition = [ 400.0, 0.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1246598933
@@ -97,46 +97,10 @@
 					m_proxyItems = 
 					[
 						{
-							m_name = "Wind Up"
+							m_name = "Attack"
 							m_outputID = 
 							{
-								m_id = 634764639
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Release"
-							m_outputID = 
-							{
-								m_id = 867201654
-							}
-							m_inputConnection = 
-							{
-								m_nodeID = 
-								{
-									m_id = 4294967295
-								}
-								m_outputID = 
-								{
-									m_id = 4294967295
-								}
-							}
-						},
-						{
-							m_name = "Recovery"
-							m_outputID = 
-							{
-								m_id = 1517431218
+								m_id = 1600734027
 							}
 							m_inputConnection = 
 							{
@@ -177,7 +141,7 @@
 						}
 						m_outputID = 
 						{
-							m_id = 1517431218
+							m_id = 1600734027
 						}
 					}
 					m_param = 
@@ -213,10 +177,15 @@
 									m_conditions = 
 									[
 										{
-											_class = "CFinishedCondition"
-											m_comparisonOp = 0
-											m_option = "FinishedConditionOption_OnFinished"
-											m_bIsFinished = true
+											_class = "CCycleCondition"
+											m_comparisonOp = 3
+											m_comparisonValue = 0.28
+											m_comparisonValueType = 0
+											m_comparisonControlValue = "ControlValue_MoveHeading"
+											m_comparisonParamID = 
+											{
+												m_id = 4294967295
+											}
 										},
 									]
 									m_blendDuration = 0.0
@@ -225,7 +194,7 @@
 										m_id = 1611515481
 									}
 									m_bReset = true
-									m_resetCycleOption = "Beginning"
+									m_resetCycleOption = "SameCycleAsSource"
 									m_flFixedCycleValue = 0.0
 									m_blendCurve = 
 									{
@@ -273,10 +242,15 @@
 									m_conditions = 
 									[
 										{
-											_class = "CFinishedCondition"
-											m_comparisonOp = 0
-											m_option = "FinishedConditionOption_OnFinished"
-											m_bIsFinished = true
+											_class = "CCycleCondition"
+											m_comparisonOp = 3
+											m_comparisonValue = 0.57
+											m_comparisonValueType = 0
+											m_comparisonControlValue = "ControlValue_MoveHeading"
+											m_comparisonParamID = 
+											{
+												m_id = 4294967295
+											}
 										},
 									]
 									m_blendDuration = 0.0
@@ -285,7 +259,7 @@
 										m_id = 1371037277
 									}
 									m_bReset = true
-									m_resetCycleOption = "Beginning"
+									m_resetCycleOption = "SameCycleAsSource"
 									m_flFixedCycleValue = 0.0
 									m_blendCurve = 
 									{
@@ -381,7 +355,7 @@
 						}
 						m_outputID = 
 						{
-							m_id = 867201654
+							m_id = 1600734027
 						}
 					}
 					m_param = 

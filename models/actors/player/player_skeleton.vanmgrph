@@ -15,7 +15,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2640.0, 1616.0 ]
+					m_vecPosition = [ -2288.0, 1216.0 ]
 					m_nNodeID = 
 					{
 						m_id = 26523261
@@ -42,7 +42,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 615291225
+									m_id = 1111517603
 								}
 								m_outputID = 
 								{
@@ -178,7 +178,24 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 2133720754
+									m_id = 1493157765
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 913112965
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 504386097
 								}
 								m_outputID = 
 								{
@@ -291,13 +308,30 @@
 						{
 							key = 
 							{
+								m_id = 1453857949
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 235863878
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							key = 
+							{
 								m_id = 1590898807
 							}
 							value = 
 							{
 								m_nodeID = 
 								{
-									m_id = 539418109
+									m_id = 910823003
 								}
 								m_outputID = 
 								{
@@ -340,50 +374,6 @@
 							}
 						},
 					]
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 36898078
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3200.0, -80.0 ]
-					m_nNodeID = 
-					{
-						m_id = 36898078
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_bottom_left_to_top_right_recovery"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 42260913
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3200.0, 32.0 ]
-					m_nNodeID = 
-					{
-						m_id = 42260913
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_left_to_right_release"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
 				}
 			},
 			{
@@ -481,35 +471,13 @@
 			{
 				key = 
 				{
-					m_id = 191842175
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3232.0, 816.0 ]
-					m_nNodeID = 
-					{
-						m_id = 191842175
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_top_right_to_bottom_left_release"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 238028607
 				}
 				value = 
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3280.0, 1248.0 ]
+					m_vecPosition = [ -2912.0, 1152.0 ]
 					m_nNodeID = 
 					{
 						m_id = 238028607
@@ -517,7 +485,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_bottom_left_to_top_right_windup"
+					m_sequenceName = "right_hand_sword_swing_bottom_left_to_top_right"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -531,7 +499,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3248.0, 432.0 ]
+					m_vecPosition = [ -3008.0, 448.0 ]
 					m_nNodeID = 
 					{
 						m_id = 246550245
@@ -539,7 +507,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_bottom_right_to_top_left_windup"
+					m_sequenceName = "longsword_swing_bottom_right_to_top_left"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -826,50 +794,6 @@
 			{
 				key = 
 				{
-					m_id = 354685681
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3184.0, 640.0 ]
-					m_nNodeID = 
-					{
-						m_id = 354685681
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_right_to_left_release"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 372734354
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3280.0, 2000.0 ]
-					m_nNodeID = 
-					{
-						m_id = 372734354
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_right_to_left_recovery"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 382514778
 				}
 				value = 
@@ -1042,28 +966,6 @@
 			{
 				key = 
 				{
-					m_id = 402305486
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3248.0, 864.0 ]
-					m_nNodeID = 
-					{
-						m_id = 402305486
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_top_right_to_bottom_left_recovery"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 413254614
 				}
 				value = 
@@ -1138,7 +1040,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2304.0, 2032.0 ]
+					m_vecPosition = [ -2272.0, 1568.0 ]
 					m_nNodeID = 
 					{
 						m_id = 475443142
@@ -1160,7 +1062,7 @@
 				{
 					_class = "CSubGraphAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2560.0, 304.0 ]
+					m_vecPosition = [ -2320.0, 336.0 ]
 					m_nNodeID = 
 					{
 						m_id = 504712804
@@ -1187,7 +1089,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 1634936215
+									m_id = 1661387977
 								}
 								m_outputID = 
 								{
@@ -1323,7 +1225,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 1627359068
+									m_id = 246550245
 								}
 								m_outputID = 
 								{
@@ -1442,7 +1344,7 @@
 							{
 								m_nodeID = 
 								{
-									m_id = 945356652
+									m_id = 991997131
 								}
 								m_outputID = 
 								{
@@ -1490,35 +1392,13 @@
 			{
 				key = 
 				{
-					m_id = 539418109
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3280.0, 1504.0 ]
-					m_nNodeID = 
-					{
-						m_id = 539418109
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_left_to_right_recovery"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 542688379
 				}
 				value = 
 				{
 					_class = "CAddAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1328.0, 1728.0 ]
+					m_vecPosition = [ -1296.0, 1264.0 ]
 					m_nNodeID = 
 					{
 						m_id = 542688379
@@ -1586,7 +1466,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3184.0, -176.0 ]
+					m_vecPosition = [ -3008.0, 208.0 ]
 					m_nNodeID = 
 					{
 						m_id = 589387943
@@ -1594,7 +1474,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_bottom_left_to_top_right_windup"
+					m_sequenceName = "longsword_swing_bottom_left_to_top_right"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -1608,7 +1488,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3312.0, 2080.0 ]
+					m_vecPosition = [ -2912.0, 1472.0 ]
 					m_nNodeID = 
 					{
 						m_id = 600537044
@@ -1616,7 +1496,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_top_right_to_bottom_left_windup"
+					m_sequenceName = "right_hand_sword_swing_top_right_to_bottom_left"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -1630,7 +1510,7 @@
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Blocking"
-					m_vecPosition = [ -1904.0, 1936.0 ]
+					m_vecPosition = [ -1872.0, 1472.0 ]
 					m_nNodeID = 
 					{
 						m_id = 609606057
@@ -2056,28 +1936,6 @@
 			{
 				key = 
 				{
-					m_id = 615291225
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3344.0, 1664.0 ]
-					m_nNodeID = 
-					{
-						m_id = 615291225
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_top_left_to_bottom_right_recovery"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 663872776
 				}
 				value = 
@@ -2122,50 +1980,6 @@
 			{
 				key = 
 				{
-					m_id = 665508797
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3328.0, 2176.0 ]
-					m_nNodeID = 
-					{
-						m_id = 665508797
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_top_right_to_bottom_left_recovery"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 669428696
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3280.0, 1344.0 ]
-					m_nNodeID = 
-					{
-						m_id = 669428696
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_bottom_left_to_top_right_recovery"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 711599840
 				}
 				value = 
@@ -2183,28 +1997,6 @@
 					m_sequenceName = "stand_idle"
 					m_playbackSpeed = 1.0
 					m_bLoop = true
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 799925096
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3264.0, 1296.0 ]
-					m_nNodeID = 
-					{
-						m_id = 799925096
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_bottom_left_to_top_right_release"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
 				}
 			},
 			{
@@ -2291,7 +2083,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3264.0, 1408.0 ]
+					m_vecPosition = [ -2848.0, 1200.0 ]
 					m_nNodeID = 
 					{
 						m_id = 910823003
@@ -2299,7 +2091,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_left_to_right_windup"
+					m_sequenceName = "right_hand_sword_swing_left_to_right"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -2382,35 +2174,13 @@
 			{
 				key = 
 				{
-					m_id = 945356652
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3200.0, 80.0 ]
-					m_nNodeID = 
-					{
-						m_id = 945356652
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_left_to_right_recovery"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 991997131
 				}
 				value = 
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3184.0, -16.0 ]
+					m_vecPosition = [ -2944.0, 256.0 ]
 					m_nNodeID = 
 					{
 						m_id = 991997131
@@ -2418,7 +2188,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_left_to_right_windup"
+					m_sequenceName = "longsword_swing_left_to_right"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -2507,7 +2277,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -1584.0, 1776.0 ]
+					m_vecPosition = [ -1552.0, 1312.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1029888011
@@ -2529,7 +2299,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2320.0, 2080.0 ]
+					m_vecPosition = [ -2288.0, 1616.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1052550302
@@ -2551,7 +2321,7 @@
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "Bounce Add"
-					m_vecPosition = [ -1072.0, 1664.0 ]
+					m_vecPosition = [ -1040.0, 1200.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1065858270
@@ -2701,7 +2471,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3328.0, 1568.0 ]
+					m_vecPosition = [ -2912.0, 1248.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1111517603
@@ -2709,29 +2479,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_top_left_to_bottom_right_windup"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1160212467
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3264.0, 1952.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1160212467
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_right_to_left_release"
+					m_sequenceName = "right_hand_sword_swing_top_left_to_bottom_right"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -2745,7 +2493,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3232.0, 768.0 ]
+					m_vecPosition = [ -3008.0, 544.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1162671518
@@ -2753,51 +2501,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_top_right_to_bottom_left_windup"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1185072855
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3184.0, -128.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1185072855
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_bottom_left_to_top_right_release"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1243407605
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3296.0, 1456.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1243407605
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_left_to_right_release"
+					m_sequenceName = "longsword_swing_top_right_to_bottom_left"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -2827,35 +2531,13 @@
 			{
 				key = 
 				{
-					m_id = 1361256408
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3312.0, 2128.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1361256408
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_top_right_to_bottom_left_release"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 1362581912
 				}
 				value = 
 				{
 					_class = "CStateMachineAnimNode"
 					m_sName = "One Handed Sword"
-					m_vecPosition = [ -1632.0, 1648.0 ]
+					m_vecPosition = [ -1600.0, 1184.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1362581912
@@ -3654,7 +3336,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3184.0, 592.0 ]
+					m_vecPosition = [ -2944.0, 496.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1449037883
@@ -3662,7 +3344,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_right_to_left_windup"
+					m_sequenceName = "longsword_swing_right_to_left"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -3676,7 +3358,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2304.0, 1984.0 ]
+					m_vecPosition = [ -2272.0, 1520.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1471683976
@@ -3698,7 +3380,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3328.0, 1744.0 ]
+					m_vecPosition = [ -2912.0, 1376.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1493157765
@@ -3706,7 +3388,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_bottom_right_to_top_left_windup"
+					m_sequenceName = "right_hand_sword_swing_bottom_right_to_top_left"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -4491,28 +4173,6 @@
 			{
 				key = 
 				{
-					m_id = 1593489505
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3328.0, 1616.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1593489505
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_top_left_to_bottom_right_release"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 1603594022
 				}
 				value = 
@@ -4550,72 +4210,6 @@
 					m_sNote = ""
 					m_tagSpans = [  ]
 					m_sequenceName = "longsword_block_impact"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1626851938
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3328.0, 1792.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1626851938
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_bottom_right_to_top_left_release"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1627359068
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3264.0, 528.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1627359068
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_bottom_right_to_top_left_recovery"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1634936215
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3264.0, 240.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1634936215
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_top_left_to_bottom_right_recovery"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -4697,7 +4291,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3248.0, 144.0 ]
+					m_vecPosition = [ -3008.0, 304.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1661387977
@@ -4705,7 +4299,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_top_left_to_bottom_right_windup"
+					m_sequenceName = "longsword_swing_top_left_to_bottom_right"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -5176,7 +4770,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -3264.0, 1904.0 ]
+					m_vecPosition = [ -2848.0, 1424.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1718844263
@@ -5184,7 +4778,7 @@
 					m_networkMode = "ClientSimulate"
 					m_sNote = ""
 					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_right_to_left_windup"
+					m_sequenceName = "right_hand_sword_swing_right_to_left"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}
@@ -5242,7 +4836,7 @@
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2016.0, 1600.0 ]
+					m_vecPosition = [ -1984.0, 1136.0 ]
 					m_nNodeID = 
 					{
 						m_id = 1927614312
@@ -5253,50 +4847,6 @@
 					m_sequenceName = "right_hand_sword_idle"
 					m_playbackSpeed = 1.0
 					m_bLoop = true
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1958404369
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3248.0, 192.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1958404369
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_top_left_to_bottom_right_release"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 1973505562
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3200.0, 688.0 ]
-					m_nNodeID = 
-					{
-						m_id = 1973505562
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_right_to_left_recovery"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
 				}
 			},
 			{
@@ -5331,35 +4881,13 @@
 			{
 				key = 
 				{
-					m_id = 2099742115
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3248.0, 480.0 ]
-					m_nNodeID = 
-					{
-						m_id = 2099742115
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "longsword_swing_bottom_right_to_top_left_release"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
 					m_id = 2106281945
 				}
 				value = 
 				{
 					_class = "CSequenceAnimNode"
 					m_sName = "Unnamed"
-					m_vecPosition = [ -2304.0, 1936.0 ]
+					m_vecPosition = [ -2272.0, 1472.0 ]
 					m_nNodeID = 
 					{
 						m_id = 2106281945
@@ -5368,28 +4896,6 @@
 					m_sNote = ""
 					m_tagSpans = [  ]
 					m_sequenceName = "longsword_block_start"
-					m_playbackSpeed = 1.0
-					m_bLoop = false
-				}
-			},
-			{
-				key = 
-				{
-					m_id = 2133720754
-				}
-				value = 
-				{
-					_class = "CSequenceAnimNode"
-					m_sName = "Unnamed"
-					m_vecPosition = [ -3344.0, 1840.0 ]
-					m_nNodeID = 
-					{
-						m_id = 2133720754
-					}
-					m_networkMode = "ClientSimulate"
-					m_sNote = ""
-					m_tagSpans = [  ]
-					m_sequenceName = "right_hand_sword_swing_bottom_right_to_top_left_recovery"
 					m_playbackSpeed = 1.0
 					m_bLoop = false
 				}

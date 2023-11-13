@@ -358,586 +358,184 @@
 										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "OHS_L_to_R"
+										_class = "AnimFile"
+										name = "right_hand_sword_swing_left_to_right"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_left_to_right_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 11
-												framerate = -1.0
-												take = 18
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_left_to_right_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 12
-												end_frame = 23
-												framerate = -1.0
-												take = 18
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_left_to_right_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = -1
-												framerate = -1.0
-												take = 18
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = 41
+										framerate = -1.0
+										take = 18
+										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "OHS_R_to_L"
+										_class = "AnimFile"
+										name = "right_hand_sword_swing_right_to_left"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_right_to_left_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 11
-												framerate = -1.0
-												take = 17
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_right_to_left_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 12
-												end_frame = 23
-												framerate = -1.0
-												take = 17
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_right_to_left_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 35
-												framerate = -1.0
-												take = 17
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = 0
+										end_frame = 41
+										framerate = -1.0
+										take = 17
+										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "OHS_TR_to_BL"
+										_class = "AnimFile"
+										name = "right_hand_sword_swing_top_right_to_bottom_left"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_top_right_to_bottom_left_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 11
-												framerate = -1.0
-												take = 20
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_top_right_to_bottom_left_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 12
-												end_frame = 23
-												framerate = -1.0
-												take = 20
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_top_right_to_bottom_left_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 41
-												framerate = -1.0
-												take = 20
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = 41
+										framerate = -1.0
+										take = 20
+										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "OHS_TL_to_BR"
+										_class = "AnimFile"
+										name = "right_hand_sword_swing_top_left_to_bottom_right"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_top_left_to_bottom_right_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 11
-												framerate = -1.0
-												take = 19
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_top_left_to_bottom_right_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 12
-												end_frame = 23
-												framerate = -1.0
-												take = 19
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_top_left_to_bottom_right_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 41
-												framerate = -1.0
-												take = 19
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = 41
+										framerate = -1.0
+										take = 19
+										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "OHS_BL_to_TR"
+										_class = "AnimFile"
+										name = "right_hand_sword_swing_bottom_left_to_top_right"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_bottom_left_to_top_right_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 11
-												framerate = -1.0
-												take = 21
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_bottom_left_to_top_right_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 12
-												end_frame = 24
-												framerate = -1.0
-												take = 21
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_bottom_left_to_top_right_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 41
-												framerate = -1.0
-												take = 21
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = 41
+										framerate = -1.0
+										take = 21
+										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "OHS_BR_to_TL"
+										_class = "AnimFile"
+										name = "right_hand_sword_swing_bottom_right_to_top_left"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_bottom_right_to_top_left_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 11
-												framerate = -1.0
-												take = 22
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_bottom_right_to_top_left_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 11
-												end_frame = 23
-												framerate = -1.0
-												take = 22
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "right_hand_sword_swing_bottom_right_to_top_left_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = false
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 41
-												framerate = -1.0
-												take = 22
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = 41
+										framerate = -1.0
+										take = 22
+										reverse = false
 									},
 								]
 							},
@@ -1006,772 +604,184 @@
 										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "TR_to_BL"
+										_class = "AnimFile"
+										name = "longsword_swing_top_right_to_bottom_left"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "longsword_swing_top_right_to_bottom_left"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												disabled = true
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = -1
-												framerate = -1.0
-												take = 7
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_top_right_to_bottom_left_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 10
-												framerate = -1.0
-												take = 7
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_top_right_to_bottom_left_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 11
-												end_frame = 23
-												framerate = -1.0
-												take = 7
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_top_right_to_bottom_left_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 41
-												framerate = -1.0
-												take = 7
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = true
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = -1
+										framerate = -1.0
+										take = 7
+										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "TL_to_BR"
+										_class = "AnimFile"
+										name = "longsword_swing_top_left_to_bottom_right"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "longsword_swing_top_left_to_bottom_right"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												disabled = true
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = -1
-												framerate = -1.0
-												take = 11
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_top_left_to_bottom_right_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 10
-												framerate = -1.0
-												take = 11
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_top_left_to_bottom_right_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 11
-												end_frame = 23
-												framerate = -1.0
-												take = 11
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_top_left_to_bottom_right_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 41
-												framerate = -1.0
-												take = 11
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = true
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = -1
+										framerate = -1.0
+										take = 11
+										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "BR_to_TL"
+										_class = "AnimFile"
+										name = "longsword_swing_bottom_right_to_top_left"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "longsword_swing_bottom_right_to_top_left"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												disabled = true
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = -1
-												framerate = -1.0
-												take = 10
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_bottom_right_to_top_left_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 10
-												framerate = -1.0
-												take = 10
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_bottom_right_to_top_left_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 11
-												end_frame = 23
-												framerate = -1.0
-												take = 10
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_bottom_right_to_top_left_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 41
-												framerate = -1.0
-												take = 10
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = true
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = -1
+										framerate = -1.0
+										take = 10
+										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "BL_to_TR"
+										_class = "AnimFile"
+										name = "longsword_swing_bottom_left_to_top_right"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "longsword_swing_bottom_left_to_top_right"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												disabled = true
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = -1
-												framerate = -1.0
-												take = 12
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_bottom_left_to_top_right_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 10
-												framerate = -1.0
-												take = 12
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_bottom_left_to_top_right_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 11
-												end_frame = 23
-												framerate = -1.0
-												take = 12
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_bottom_left_to_top_right_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 41
-												framerate = -1.0
-												take = 12
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = true
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = -1
+										framerate = -1.0
+										take = 12
+										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "L_to_R"
+										_class = "AnimFile"
+										name = "longsword_swing_left_to_right"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "longsword_swing_left_to_right"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												disabled = true
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = -1
-												framerate = -1.0
-												take = 8
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_left_to_right_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 10
-												framerate = -1.0
-												take = 8
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_left_to_right_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 11
-												end_frame = 23
-												framerate = -1.0
-												take = 8
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_left_to_right_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 41
-												framerate = -1.0
-												take = 8
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = true
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = -1
+										framerate = -1.0
+										take = 8
+										reverse = false
 									},
 									{
-										_class = "Folder"
-										name = "R_to_L"
+										_class = "AnimFile"
+										name = "longsword_swing_right_to_left"
 										children = 
 										[
 											{
-												_class = "AnimFile"
-												name = "longsword_swing_right_to_left"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												disabled = true
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = -1
-												framerate = -1.0
-												take = 9
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_right_to_left_windup"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = -1
-												end_frame = 10
-												framerate = -1.0
-												take = 9
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_right_to_left_release"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 11
-												end_frame = 23
-												framerate = -1.0
-												take = 9
-												reverse = false
-											},
-											{
-												_class = "AnimFile"
-												name = "longsword_swing_right_to_left_recovery"
-												children = 
-												[
-													{
-														_class = "AnimSubtract"
-														anim_name = "bind_pose"
-														frame = 0
-													},
-												]
-												activity_name = ""
-												activity_weight = 1
-												weight_list_name = ""
-												fade_in_time = 0.2
-												fade_out_time = 0.2
-												looping = false
-												delta = false
-												worldSpace = false
-												hidden = false
-												anim_markup_ordered = false
-												disable_compression = true
-												enable_scale = false
-												source_filename = "models/actors/skeleton/skeleton_player.fbx"
-												start_frame = 24
-												end_frame = 41
-												framerate = -1.0
-												take = 9
-												reverse = false
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
 											},
 										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = true
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = -1
+										framerate = -1.0
+										take = 9
+										reverse = false
 									},
 									{
 										_class = "AnimFile"
