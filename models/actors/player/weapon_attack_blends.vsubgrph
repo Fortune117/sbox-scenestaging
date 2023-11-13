@@ -1,0 +1,1158 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:animgraph2:version{0f7898b8-5471-45c4-9867-cd9c46bcfdb5} -->
+{
+	_class = "CAnimationSubGraph"
+	m_nodeManager = 
+	{
+		_class = "CAnimNodeManager"
+		m_nodes = 
+		[
+			{
+				key = 
+				{
+					m_id = 74975768
+				}
+				value = 
+				{
+					_class = "CSubGraphAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 16.0, -96.0 ]
+					m_nNodeID = 
+					{
+						m_id = 74975768
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputNodeID = 
+					{
+						m_id = 1693480057
+					}
+					m_outputNodeID = 
+					{
+						m_id = 1246598933
+					}
+					m_subGraphFilename = "models\\actors\\player\\weapon_attack.vsubgrph"
+					m_inputConnectionMap = 
+					[
+						{
+							key = 
+							{
+								m_id = 634764639
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 1989506548
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 867201654
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 493622930
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 1517431218
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 31165609
+								}
+							}
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 75750486
+				}
+				value = 
+				{
+					_class = "CSpeedScaleAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 768.0, 32.0 ]
+					m_nNodeID = 
+					{
+						m_id = 75750486
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1595319702
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_param = 
+					{
+						m_id = 333148288
+					}
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 101244440
+				}
+				value = 
+				{
+					_class = "CSubGraphAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 16.0, -400.0 ]
+					m_nNodeID = 
+					{
+						m_id = 101244440
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputNodeID = 
+					{
+						m_id = 1693480057
+					}
+					m_outputNodeID = 
+					{
+						m_id = 1246598933
+					}
+					m_subGraphFilename = "models\\actors\\player\\weapon_attack.vsubgrph"
+					m_inputConnectionMap = 
+					[
+						{
+							key = 
+							{
+								m_id = 634764639
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 742512375
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 867201654
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 1038964740
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 1517431218
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 1756529818
+								}
+							}
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 334711994
+				}
+				value = 
+				{
+					_class = "CSubGraphAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 16.0, 400.0 ]
+					m_nNodeID = 
+					{
+						m_id = 334711994
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputNodeID = 
+					{
+						m_id = 1693480057
+					}
+					m_outputNodeID = 
+					{
+						m_id = 1246598933
+					}
+					m_subGraphFilename = "models\\actors\\player\\weapon_attack.vsubgrph"
+					m_inputConnectionMap = 
+					[
+						{
+							key = 
+							{
+								m_id = 634764639
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 773729018
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 867201654
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 1322668586
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 1517431218
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 1258951204
+								}
+							}
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 349432436
+				}
+				value = 
+				{
+					_class = "CGroupInputAnimNode"
+					m_sName = "Attack Inputs"
+					m_vecPosition = [ -576.0, -96.0 ]
+					m_nNodeID = 
+					{
+						m_id = 349432436
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_proxyItems = 
+					[
+						{
+							m_name = "Left Bottom to Top Windup"
+							m_outputID = 
+							{
+								m_id = 742512375
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Left Bottom To To Release"
+							m_outputID = 
+							{
+								m_id = 1038964740
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Left Bottom to Top Recovery"
+							m_outputID = 
+							{
+								m_id = 1756529818
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Left to Right Windup"
+							m_outputID = 
+							{
+								m_id = 1051500006
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Left to Right Release"
+							m_outputID = 
+							{
+								m_id = 1403935997
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Lef to Right Recovery"
+							m_outputID = 
+							{
+								m_id = 1590898807
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Left Top to Bottom Windup"
+							m_outputID = 
+							{
+								m_id = 1989506548
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Left Top to Bottom Release"
+							m_outputID = 
+							{
+								m_id = 493622930
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Left Top to Bottom Recovery"
+							m_outputID = 
+							{
+								m_id = 31165609
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Right Bottom to Top Windup"
+							m_outputID = 
+							{
+								m_id = 586769725
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Right Bottom to Top Release"
+							m_outputID = 
+							{
+								m_id = 1161264651
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Right Bottom to Top Recovery"
+							m_outputID = 
+							{
+								m_id = 904312588
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Right to Left Windup"
+							m_outputID = 
+							{
+								m_id = 683510042
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Right to Left Release"
+							m_outputID = 
+							{
+								m_id = 62371135
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Right to Left Recovery"
+							m_outputID = 
+							{
+								m_id = 415251506
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Right Top to Bottom Windup"
+							m_outputID = 
+							{
+								m_id = 773729018
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Right Top to Bottom Release"
+							m_outputID = 
+							{
+								m_id = 1322668586
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Right Top to Bottom Recovery"
+							m_outputID = 
+							{
+								m_id = 1258951204
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 4294967295
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 392131159
+				}
+				value = 
+				{
+					_class = "CSubGraphAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 16.0, -256.0 ]
+					m_nNodeID = 
+					{
+						m_id = 392131159
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputNodeID = 
+					{
+						m_id = 1693480057
+					}
+					m_outputNodeID = 
+					{
+						m_id = 1246598933
+					}
+					m_subGraphFilename = "models\\actors\\player\\weapon_attack.vsubgrph"
+					m_inputConnectionMap = 
+					[
+						{
+							key = 
+							{
+								m_id = 634764639
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 1051500006
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 867201654
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 1403935997
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 1517431218
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 1590898807
+								}
+							}
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 409195907
+				}
+				value = 
+				{
+					_class = "CGroupOutputAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 1104.0, 0.0 ]
+					m_nNodeID = 
+					{
+						m_id = 409195907
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_proxyItems = 
+					[
+						{
+							m_name = "Left Attack"
+							m_outputID = 
+							{
+								m_id = 1759407870
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1708779124
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+						{
+							m_name = "Riight Attack"
+							m_outputID = 
+							{
+								m_id = 284709198
+							}
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 75750486
+								}
+								m_outputID = 
+								{
+									m_id = 4294967295
+								}
+							}
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 810951467
+				}
+				value = 
+				{
+					_class = "CSubGraphAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 16.0, 64.0 ]
+					m_nNodeID = 
+					{
+						m_id = 810951467
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputNodeID = 
+					{
+						m_id = 1693480057
+					}
+					m_outputNodeID = 
+					{
+						m_id = 1246598933
+					}
+					m_subGraphFilename = "models\\actors\\player\\weapon_attack.vsubgrph"
+					m_inputConnectionMap = 
+					[
+						{
+							key = 
+							{
+								m_id = 634764639
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 586769725
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 867201654
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 1161264651
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 1517431218
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 904312588
+								}
+							}
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1160704761
+				}
+				value = 
+				{
+					_class = "CBlendAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 368.0, -64.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1160704761
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_children = 
+					[
+						{
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 101244440
+								}
+								m_outputID = 
+								{
+									m_id = 741623255
+								}
+							}
+							m_name = "Bottom to Top"
+							m_blendValue = -1.0
+						},
+						{
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 392131159
+								}
+								m_outputID = 
+								{
+									m_id = 741623255
+								}
+							}
+							m_name = "Horizontal Swing"
+							m_blendValue = 0.0
+						},
+						{
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 74975768
+								}
+								m_outputID = 
+								{
+									m_id = 741623255
+								}
+							}
+							m_name = "Vertical Swing"
+							m_blendValue = 1.0
+						},
+					]
+					m_blendValueSource = "Parameter"
+					m_param = 
+					{
+						m_id = 1537186691
+					}
+					m_blendKeyType = "BlendKey_UserValue"
+					m_bLockBlendOnReset = true
+					m_bSyncCycles = false
+					m_bLoop = false
+					m_bLockWhenWaning = true
+					m_damping = 
+					{
+						_class = "CAnimInputDamping"
+						m_speedFunction = "NoDamping"
+						m_fSpeedScale = 1.0
+						m_fMinSpeed = 10.0
+						m_fMaxTension = 1000.0
+						m_fTension = 100.0
+						m_fDamping = 5.0
+					}
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1562656540
+				}
+				value = 
+				{
+					_class = "CSubGraphAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 16.0, 224.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1562656540
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputNodeID = 
+					{
+						m_id = 1693480057
+					}
+					m_outputNodeID = 
+					{
+						m_id = 1246598933
+					}
+					m_subGraphFilename = "models\\actors\\player\\weapon_attack.vsubgrph"
+					m_inputConnectionMap = 
+					[
+						{
+							key = 
+							{
+								m_id = 634764639
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 683510042
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 867201654
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 62371135
+								}
+							}
+						},
+						{
+							key = 
+							{
+								m_id = 1517431218
+							}
+							value = 
+							{
+								m_nodeID = 
+								{
+									m_id = 349432436
+								}
+								m_outputID = 
+								{
+									m_id = 415251506
+								}
+							}
+						},
+					]
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1595319702
+				}
+				value = 
+				{
+					_class = "CBlendAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 368.0, 16.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1595319702
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_children = 
+					[
+						{
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 810951467
+								}
+								m_outputID = 
+								{
+									m_id = 741623255
+								}
+							}
+							m_name = "Bottom to Top"
+							m_blendValue = -1.0
+						},
+						{
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 1562656540
+								}
+								m_outputID = 
+								{
+									m_id = 741623255
+								}
+							}
+							m_name = "Horizontal Swing"
+							m_blendValue = 0.0
+						},
+						{
+							m_inputConnection = 
+							{
+								m_nodeID = 
+								{
+									m_id = 334711994
+								}
+								m_outputID = 
+								{
+									m_id = 741623255
+								}
+							}
+							m_name = "Vertical Swing"
+							m_blendValue = 1.0
+						},
+					]
+					m_blendValueSource = "Parameter"
+					m_param = 
+					{
+						m_id = 1537186691
+					}
+					m_blendKeyType = "BlendKey_UserValue"
+					m_bLockBlendOnReset = true
+					m_bSyncCycles = false
+					m_bLoop = false
+					m_bLockWhenWaning = true
+					m_damping = 
+					{
+						_class = "CAnimInputDamping"
+						m_speedFunction = "NoDamping"
+						m_fSpeedScale = 1.0
+						m_fMinSpeed = 10.0
+						m_fMaxTension = 1000.0
+						m_fTension = 100.0
+						m_fDamping = 5.0
+					}
+				}
+			},
+			{
+				key = 
+				{
+					m_id = 1708779124
+				}
+				value = 
+				{
+					_class = "CSpeedScaleAnimNode"
+					m_sName = "Unnamed"
+					m_vecPosition = [ 768.0, -16.0 ]
+					m_nNodeID = 
+					{
+						m_id = 1708779124
+					}
+					m_networkMode = "ClientSimulate"
+					m_sNote = ""
+					m_inputConnection = 
+					{
+						m_nodeID = 
+						{
+							m_id = 1160704761
+						}
+						m_outputID = 
+						{
+							m_id = 4294967295
+						}
+					}
+					m_param = 
+					{
+						m_id = 333148288
+					}
+				}
+			},
+		]
+	}
+	m_localParameters = 
+	[
+		{
+			_class = "CFloatAnimParameter"
+			m_name = "fSwingBlend"
+			m_id = 
+			{
+				m_id = 1537186691
+			}
+			m_previewButton = "ANIMPARAM_BUTTON_NONE"
+			m_bNetwork = true
+			m_bUseMostRecentValue = false
+			m_bAutoReset = false
+			m_bPredicted = false
+			m_fDefaultValue = 0.0
+			m_fMinValue = -1.0
+			m_fMaxValue = 1.0
+			m_bInterpolate = false
+		},
+	]
+	m_localTags = [  ]
+}
