@@ -1595,7 +1595,7 @@
       "Components": [
         {
           "__type": "DirectionalLightComponent",
-          "__enabled": true,
+          "__enabled": false,
           "LightColor": "0,0,0,1",
           "Shadows": true,
           "SkyColor": "0.01485,0.01485,0.01485,1"
