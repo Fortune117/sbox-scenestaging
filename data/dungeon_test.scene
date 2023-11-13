@@ -18,7 +18,8 @@
           "__type": "NavMeshGeneratorComponent",
           "__enabled": false
         }
-      ]
+      ],
+      "Children": []
     },
     {
       "Id": "606cc48e-eefe-46ce-a85d-bbbeb9bcf2f6",
@@ -1475,7 +1476,7 @@
         },
         {
           "__type": "TargetComponent",
-          "__enabled": true,
+          "__enabled": false,
           "Factions": "Player"
         }
       ]
