@@ -585,7 +585,7 @@
 		{
 			_class = "C_OP_InterpolateRadius"
 			m_flStartScale = 0.0
-			m_flEndScale = 3.0
+			m_flEndScale = 6.0
 		},
 		{
 			_class = "C_OP_FadeAndKill"

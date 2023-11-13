@@ -2,7 +2,7 @@
   "Dice": [
     {
       "Count": 1,
-      "Type": "D8"
+      "Type": "D10"
     }
   ],
   "Factors": [

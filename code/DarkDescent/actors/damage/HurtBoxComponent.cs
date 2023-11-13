@@ -47,10 +47,12 @@ public class HurtBoxComponent : BaseComponent
 
 		var tr = PerformTrace();
 
+		/*
 		Gizmo.Transform = Scene.Transform.World;
 		Gizmo.Draw.Color = Color.Green;
 
 		Gizmo.Draw.LineCapsule( new Capsule( Transform.World.TransformVector(Center1), Transform.World.TransformVector(Center2), Radius ) );
+		*/
 	}
 
 	public PhysicsTraceResult PerformTrace()

@@ -320,6 +320,240 @@
 					{
 						_class = "Folder"
 						name = "One_Handed"
+						children = 
+						[
+							{
+								_class = "Folder"
+								name = "Sword"
+								children = 
+								[
+									{
+										_class = "AnimFile"
+										name = "right_hand_sword_idle"
+										children = 
+										[
+											{
+												_class = "AnimSubtract"
+												anim_name = "bind_pose"
+												frame = 0
+											},
+										]
+										activity_name = ""
+										activity_weight = 1
+										weight_list_name = ""
+										fade_in_time = 0.2
+										fade_out_time = 0.2
+										looping = false
+										delta = false
+										worldSpace = false
+										hidden = false
+										anim_markup_ordered = false
+										disable_compression = false
+										enable_scale = false
+										source_filename = "models/actors/skeleton/skeleton_player.fbx"
+										start_frame = -1
+										end_frame = -1
+										framerate = -1.0
+										take = 16
+										reverse = false
+									},
+									{
+										_class = "Folder"
+										name = "OHS_L_to_R"
+										children = 
+										[
+											{
+												_class = "AnimFile"
+												name = "right_hand_sword_swing_left_to_right_windup"
+												children = 
+												[
+													{
+														_class = "AnimSubtract"
+														anim_name = "bind_pose"
+														frame = 0
+													},
+												]
+												activity_name = ""
+												activity_weight = 1
+												weight_list_name = ""
+												fade_in_time = 0.2
+												fade_out_time = 0.2
+												looping = false
+												delta = false
+												worldSpace = false
+												hidden = false
+												anim_markup_ordered = false
+												disable_compression = false
+												enable_scale = false
+												source_filename = "models/actors/skeleton/skeleton_player.fbx"
+												start_frame = -1
+												end_frame = 11
+												framerate = -1.0
+												take = 18
+												reverse = false
+											},
+											{
+												_class = "AnimFile"
+												name = "right_hand_sword_swing_left_to_right_release"
+												children = 
+												[
+													{
+														_class = "AnimSubtract"
+														anim_name = "bind_pose"
+														frame = 0
+													},
+												]
+												activity_name = ""
+												activity_weight = 1
+												weight_list_name = ""
+												fade_in_time = 0.2
+												fade_out_time = 0.2
+												looping = false
+												delta = false
+												worldSpace = false
+												hidden = false
+												anim_markup_ordered = false
+												disable_compression = false
+												enable_scale = false
+												source_filename = "models/actors/skeleton/skeleton_player.fbx"
+												start_frame = 12
+												end_frame = 23
+												framerate = -1.0
+												take = 18
+												reverse = false
+											},
+											{
+												_class = "AnimFile"
+												name = "right_hand_sword_swing_left_to_right_recovery"
+												children = 
+												[
+													{
+														_class = "AnimSubtract"
+														anim_name = "bind_pose"
+														frame = 0
+													},
+												]
+												activity_name = ""
+												activity_weight = 1
+												weight_list_name = ""
+												fade_in_time = 0.2
+												fade_out_time = 0.2
+												looping = false
+												delta = false
+												worldSpace = false
+												hidden = false
+												anim_markup_ordered = false
+												disable_compression = false
+												enable_scale = false
+												source_filename = "models/actors/skeleton/skeleton_player.fbx"
+												start_frame = 24
+												end_frame = -1
+												framerate = -1.0
+												take = 18
+												reverse = false
+											},
+										]
+									},
+									{
+										_class = "Folder"
+										name = "OHS_R_to_L"
+										children = 
+										[
+											{
+												_class = "AnimFile"
+												name = "right_hand_sword_swing_right_to_left_windup"
+												children = 
+												[
+													{
+														_class = "AnimSubtract"
+														anim_name = "bind_pose"
+														frame = 0
+													},
+												]
+												activity_name = ""
+												activity_weight = 1
+												weight_list_name = ""
+												fade_in_time = 0.2
+												fade_out_time = 0.2
+												looping = false
+												delta = false
+												worldSpace = false
+												hidden = false
+												anim_markup_ordered = false
+												disable_compression = false
+												enable_scale = false
+												source_filename = "models/actors/skeleton/skeleton_player.fbx"
+												start_frame = -1
+												end_frame = 11
+												framerate = -1.0
+												take = 17
+												reverse = false
+											},
+											{
+												_class = "AnimFile"
+												name = "right_hand_sword_swing_right_to_left_release"
+												children = 
+												[
+													{
+														_class = "AnimSubtract"
+														anim_name = "bind_pose"
+														frame = 0
+													},
+												]
+												activity_name = ""
+												activity_weight = 1
+												weight_list_name = ""
+												fade_in_time = 0.2
+												fade_out_time = 0.2
+												looping = false
+												delta = false
+												worldSpace = false
+												hidden = false
+												anim_markup_ordered = false
+												disable_compression = false
+												enable_scale = false
+												source_filename = "models/actors/skeleton/skeleton_player.fbx"
+												start_frame = 12
+												end_frame = 23
+												framerate = -1.0
+												take = 17
+												reverse = false
+											},
+											{
+												_class = "AnimFile"
+												name = "right_hand_sword_swing_right_to_left_recovery"
+												children = 
+												[
+													{
+														_class = "AnimSubtract"
+														anim_name = "bind_pose"
+														frame = 0
+													},
+												]
+												activity_name = ""
+												activity_weight = 1
+												weight_list_name = ""
+												fade_in_time = 0.2
+												fade_out_time = 0.2
+												looping = false
+												delta = false
+												worldSpace = false
+												hidden = false
+												anim_markup_ordered = false
+												disable_compression = false
+												enable_scale = false
+												source_filename = "models/actors/skeleton/skeleton_player.fbx"
+												start_frame = 24
+												end_frame = 35
+												framerate = -1.0
+												take = 17
+												reverse = false
+											},
+										]
+									},
+								]
+							},
+						]
 					},
 					{
 						_class = "Folder"

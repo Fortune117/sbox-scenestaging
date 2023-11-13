@@ -20,6 +20,9 @@ public class AttackBlockerComponent : BaseComponent
 	public Action<DamageEventData, bool> OnBlock;
 
 	private TimeSince TimeSinceBlockStarted;
+	private float baseParryWindow => 0.25f;
+	private float parryWindowAddition => 0.25f;
+	private float parryWindow;
 	
 	private bool isActive;
 
@@ -45,12 +48,21 @@ public class AttackBlockerComponent : BaseComponent
 		IsActive = status;
 
 		if ( !oldBlock && status )
+		{
 			TimeSinceBlockStarted = 0;
+			parryWindow = baseParryWindow;
+		}
+
 	}
 
 	public DamageEventData BlockedHit(DamageEventData damageEvent)
 	{
-		var isParry = TimeSinceBlockStarted < 0.25f;
+		var isParry = TimeSinceBlockStarted < parryWindow;
+
+		if ( isParry )
+		{
+			parryWindow += parryWindowAddition;
+		}
 		
 		var capsule = CarriedItemComponent.GetHurtBoxCapsule();
 		

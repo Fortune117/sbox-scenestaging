@@ -1,4 +1,5 @@
 ﻿using DarkDescent.UI;
+using DarkDescent.Weapons;
 using Sandbox;
 using Sandbox.UI;
 
@@ -36,12 +37,16 @@ public partial class DarkDescentPlayerController
 		Body.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		Body.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
 		
-		Body.Set( "vLeftHandIKTarget", CarriedItemComponent.LeftHandIKTarget.Transform.Position );  
+		Body.Set( "eHoldType", (int)CarriedItemComponent.HoldType);  
+		Body.Set( "eHandedness", (int)CarriedItemComponent.Handedness);  
 	}
 
 	protected override void OnPreRender()
 	{
 		base.OnPreRender();
+
+		if ( CarriedItemComponent.Handedness != Handedness.TwoHanded )
+			return;
 		
 		Body.Set( "vLeftHandIKTarget", CarriedItemComponent.LeftHandIKTarget.Transform.Position );
 	}

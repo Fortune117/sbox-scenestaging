@@ -52,6 +52,12 @@ public class CarriedWeaponComponent : CarriedItemComponent
 	[Property, Range( 0, 1 ), ToggleGroup("Swing Control")]
 	public float BounceFraction { get; set; } = 1f;
 	
+	[Property]
+	public HoldType HoldType { get; set; }
+	
+	[Property]
+	public Handedness Handedness { get; set; }
+	
 	[Property, ToggleGroup("Effects")]
 	public SoundEvent ImpactSound { get; set; }
 	
@@ -120,6 +126,13 @@ public class CarriedWeaponComponent : CarriedItemComponent
 
 public enum HoldType
 {
-	None,
-	TwoHandedSword,
+	None = 0,
+	Sword = 1,
+}
+
+public enum Handedness
+{
+	None = 0,
+	OneHanded = 1,
+	TwoHanded = 2
 }
