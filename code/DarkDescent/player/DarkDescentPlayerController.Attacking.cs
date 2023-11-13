@@ -195,15 +195,6 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 	private AttackEvent attackEvent;
 	private void AttackHitUpdate()
 	{
-		var tr = CarriedItemComponent.GetWeaponTrace();
-
-		if ( tr.Hit )
-		{
-			Gizmo.Transform = Scene.Transform.World;
-			Gizmo.Draw.Color = Color.Red.WithAlpha( 0.5f );
-			Gizmo.Draw.SolidSphere( tr.EndPosition, 4 );
-		}
-		
 		if ( !hitboxesActive )
 			return;
 		
@@ -268,7 +259,7 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 		
 		if ( hitEvent.Damageable.CauseHitBounce )
 		{
-			BounceAttack(tr);
+			BounceAttack(hitEvent.TraceResult);
 			return;
 		}
 	}
