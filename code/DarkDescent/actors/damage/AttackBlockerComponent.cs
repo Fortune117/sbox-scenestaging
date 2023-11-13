@@ -72,7 +72,7 @@ public class AttackBlockerComponent : BaseComponent
 
 		ParticleSystem.Particles = isParry ? CarriedItemComponent.BlockResource.ParryEffect : CarriedItemComponent.BlockResource.BlockEffect;
 
-		var dir = damageEvent.Direction;
+		var dir = -damageEvent.Direction;
 		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
 		
 		if (!ParticleSystem.Enabled)
