@@ -38,7 +38,7 @@
       {
         "__type": "SkeletonBehaviourComponent",
         "__enabled": true,
-        "AttackRange": 65,
+        "AttackRange": 55,
         "Body": "6951e4cb-7eb6-44e6-9dcd-5737b325dfd2",
         "HoldR": "07a13ed0-9516-4bff-bfad-4c0845d23613",
         "HoldType": "Longsword",
@@ -1084,6 +1084,8 @@
             "ComboTime": 0.7,
             "DamageResource": "data/prefabs/longsword_damage.damage",
             "FollowBoneMerge": true,
+            "Handedness": "None",
+            "HoldType": "None",
             "HurtBox": "700b49f2-31ce-4a86-8d47-b457521ec9bc",
             "ImpactSound": "data/sounds/combat/sword.hit.sound",
             "KnockBackMultiplier": 1,
