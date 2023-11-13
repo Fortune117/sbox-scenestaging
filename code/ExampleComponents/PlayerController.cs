@@ -136,6 +136,6 @@ public class PlayerController : BaseComponent
 		if ( !WishVelocity.IsNearZeroLength ) WishVelocity = WishVelocity.Normal;
 
 		if ( Input.Down( "Run" ) ) WishVelocity *= 320.0f;
-		else WishVelocity *= 150.0f;
+		else WishVelocity *= 70.0f;
 	}
 }
