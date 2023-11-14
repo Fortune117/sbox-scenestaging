@@ -44,7 +44,13 @@ public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
 
 		UpdatePhysicsBody();
 		RebuildImmediately();
+
+		GameObject.Tags.OnTagAdded += OnTagsChanged;
+		GameObject.Tags.OnTagRemoved += OnTagsChanged;
 	}
+
+
+
 
 	void UpdatePhysicsBody()
 	{
@@ -78,6 +84,14 @@ public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
 			_collisionEvents = new CollisionEventSystem( keyframeBody );
 
 			Transform.OnTransformChanged += UpdateKeyframeTransform;
+		}
+	}
+
+	private void OnTagsChanged( string obj )
+	{
+		foreach ( var shape in shapes )
+		{
+			shape.Tags.SetFrom( GameObject.Tags );
 		}
 	}
 
@@ -157,13 +171,7 @@ public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
 			shape.IsTrigger = _isTrigger;
 			shape.SurfaceMaterial = Surface?.ResourceName;
 
-			// this sucks, implement ITagSet
-			shape.ClearTags();
-
-			foreach ( var tag in GameObject.Tags.TryGetAll() )
-			{
-				shape.AddTag( tag );
-			}
+			shape.Tags.SetFrom( GameObject.Tags );
 		}
 	}
 

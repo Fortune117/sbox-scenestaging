@@ -125,6 +125,7 @@ public static class SceneUtility
 
 			foreach ( var o in sw )
 			{
+				o.PostDeserialize();
 				o.UpdateEnabledStatus();
 			}
 
@@ -132,6 +133,8 @@ public static class SceneUtility
 			sw = null;
 		} );
 	}
+
+	internal static bool IsSpawning => spawnList is not null;
 
 	internal static void ActivateGameObject( GameObject o )
 	{
