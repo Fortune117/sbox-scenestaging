@@ -754,9 +754,22 @@
 								m_id = 4294967295
 							}
 						},
+						{
+							m_nodeID = 
+							{
+								m_id = 4294967295
+							}
+							m_outputID = 
+							{
+								m_id = 4294967295
+							}
+						},
 					]
 					m_tags = 
 					[
+						{
+							m_id = 4294967295
+						},
 						{
 							m_id = 4294967295
 						},
@@ -2020,7 +2033,7 @@
 						{
 							m_nodeID = 
 							{
-								m_id = 663872776
+								m_id = 186823835
 							}
 							m_outputID = 
 							{
@@ -2037,9 +2050,22 @@
 								m_id = 4294967295
 							}
 						},
+						{
+							m_nodeID = 
+							{
+								m_id = 663872776
+							}
+							m_outputID = 
+							{
+								m_id = 4294967295
+							}
+						},
 					]
 					m_tags = 
 					[
+						{
+							m_id = 4294967295
+						},
 						{
 							m_id = 4294967295
 						},
@@ -5190,8 +5216,9 @@
 				m_defaultValue = 0
 				m_enumOptions = 
 				[
-					"Two Handed",
+					"None",
 					"One Handed",
+					"Two Handed",
 				]
 			},
 			{

@@ -47,13 +47,18 @@ Crosshair
 		top: 50%;
 		width: 50px;
 		height: 50px;
-		opacity: 1;
+		opacity: 0;
 		transition: all 0s linear;
 
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-image: url("textures/ui/crosshair_icons/crosshair_aim_pip.png");
 		image-rendering: pixelated;
+
+		&.visible
+		{
+			opacity: 1;
+		}
 	}
 	
 	.body

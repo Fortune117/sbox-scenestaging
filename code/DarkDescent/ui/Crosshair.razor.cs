@@ -26,6 +26,11 @@ public partial class Crosshair : Panel
 		Instance.CrosshairInternal?.SetClass("visible", b);
 	}
 
+	public static void SetAimPipVisible( bool b )
+	{
+		Instance.AimPip?.SetClass( "visible", b );
+	}
+
 	public static void SetAimPipVector(Vector2 inputAngle)
 	{
 		if ( Instance?.AimPip is null )
@@ -57,6 +62,14 @@ public partial class Crosshair : Panel
 	{
 		InteractFailureOverlay.SetClass( "visible", !InteractPossible );
 		InteractPossible = true;
+	}
+
+	protected override void OnAfterTreeRender( bool firstTime )
+	{
+		base.OnAfterTreeRender( firstTime );
+
+		if ( firstTime )
+			SetAimPipVisible( false );
 	}
 
 	protected override int BuildHash()

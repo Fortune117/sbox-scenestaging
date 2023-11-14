@@ -36,6 +36,15 @@ public partial class DarkDescentPlayerController
 		Body.Set( "bCrouching", IsCrouching );
 		Body.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		Body.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
+
+		if ( CarriedItemComponent is null )
+		{
+			Body.Set( "eHoldType", (int)HoldType.None);  
+			Body.Set( "eHandedness", (int)Handedness.None);
+			
+			return;
+		}
+			
 		
 		Body.Set( "eHoldType", (int)CarriedItemComponent.HoldType);  
 		Body.Set( "eHandedness", (int)CarriedItemComponent.Handedness);  
@@ -45,6 +54,9 @@ public partial class DarkDescentPlayerController
 	{
 		base.OnPreRender();
 
+		if ( CarriedItemComponent is null )
+			return;
+		
 		if ( CarriedItemComponent.Handedness != Handedness.TwoHanded )
 			return;
 		

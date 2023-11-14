@@ -19,7 +19,7 @@ public partial class DarkDescentPlayerController : BaseComponent
 	[Property, ToggleGroup("Movement")]
 	private CharacterController CharacterController { get; set; }
 	
-	[Property, ToggleGroup("Body")] 
+	[Property, ToggleGroup("Body2")] 
 	private AnimatedModelComponent Body { get; set; }
 	
 	[Property, ToggleGroup("Body")] 
@@ -113,6 +113,9 @@ public partial class DarkDescentPlayerController : BaseComponent
 		}
 		
 		UpdateAnimations();
+
+		if ( CarriedItemComponent is null )
+			return;
 		
 		AttackUpdate();
 		
