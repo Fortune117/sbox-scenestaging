@@ -136,6 +136,7 @@
               "__enabled": true,
               "IsTrigger": false,
               "Model": "models/actors/player/player_skeleton.vmdl",
+              "Static": false,
               "Surface": "data/surfaces/darkdescent_flesh.surface"
             }
           ],
@@ -241,7 +242,7 @@
                                                   "__type": "CameraComponent",
                                                   "__enabled": true,
                                                   "BackgroundColor": "0,0,0,1",
-                                                  "ClearFlags": "Color, Depth, Stencil",
+                                                  "ClearFlags": "All",
                                                   "FieldOfView": 120,
                                                   "Orthographic": false,
                                                   "OrthographicHeight": 1204,
@@ -945,6 +946,7 @@
                                   "__enabled": false,
                                   "IsTrigger": false,
                                   "Scale": "24.49998,13.60001,16.40002",
+                                  "Static": false,
                                   "Surface": null
                                 },
                                 {
@@ -1446,8 +1448,7 @@
         {
           "__type": "PhysicsComponent",
           "__enabled": true,
-          "Gravity": true,
-          "Static": false
+          "Gravity": true
         },
         {
           "__type": "ModelComponent",
@@ -1463,6 +1464,7 @@
           "__enabled": true,
           "IsTrigger": false,
           "Model": "models/props/storage/crate_01.vmdl",
+          "Static": false,
           "Surface": "data/surfaces/darkdescent_wood.surface"
         },
         {
@@ -1493,8 +1495,7 @@
         {
           "__type": "PhysicsComponent",
           "__enabled": true,
-          "Gravity": true,
-          "Static": false
+          "Gravity": true
         },
         {
           "__type": "ModelComponent",
@@ -1510,6 +1511,7 @@
           "__enabled": true,
           "IsTrigger": false,
           "Model": "models/props/tools/anvil_01.vmdl",
+          "Static": false,
           "Surface": null
         },
         {
@@ -1630,8 +1632,7 @@
         {
           "__type": "PhysicsComponent",
           "__enabled": true,
-          "Gravity": false,
-          "Static": false
+          "Gravity": false
         },
         {
           "__type": "FlameSkullBehaviourComponent",
@@ -1706,6 +1707,7 @@
               "__enabled": true,
               "IsTrigger": false,
               "Radius": 4.3,
+              "Static": false,
               "Surface": null
             }
           ]
@@ -1724,6 +1726,7 @@
               "__enabled": true,
               "IsTrigger": true,
               "Radius": 300,
+              "Static": false,
               "Surface": null
             },
             {
@@ -1785,5 +1788,14 @@
       "__Prefab": "data/wall_torch.object"
     }
   ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "TimeScale": 1,
+    "ThreadedAnimation": true,
+    "UseFixedUpdate": true
+  },
+  "Title": "dungeon_test",
+  "Description": "",
   "__references": []
 }
