@@ -116,6 +116,15 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 		if ( CarriedItemComponent is null )
 			return;
+
+		if (!isAttacking)
+			CheckForThrow();
+
+		if ( isThrowing )
+		{
+			ThrowUpdate();
+			return;
+		}
 		
 		AttackUpdate();
 		
