@@ -38,7 +38,7 @@ public partial class DarkDescentPlayerController
 		{
 			timeSinceThrowReleased += Time.Delta * ActorComponent.Stats.ActionSpeed;
 
-			if ( timeSinceThrowReleased > 0.2f )
+			if ( timeSinceThrowReleased > 0.17f )
 			{
 				isThrowing = false;
 				ThrowItem();
@@ -48,23 +48,11 @@ public partial class DarkDescentPlayerController
 
 	private void ThrowItem()
 	{
-		var weapon = CarriedItemComponent.GameObject;
+		if ( !CarriedItemComponent.CanThrow )
+			return;
 		
-		CarriedItemComponent.GameObject.SetParent( Scene );
+		CarriedItemComponent.Throw( ActorComponent, Eye.Transform.Rotation.Forward );
 
 		CarriedItemComponent = null;
-
-		if ( weapon.TryGetComponent<AnimatedModelComponent>( out var animatedModel, false ) )
-			animatedModel.BoneMergeTarget = null;
-		
-		if ( weapon.TryGetComponent<ModelCollider>( out var modelCollider, false ) )
-			modelCollider.Enabled = true;
-
-		if ( weapon.TryGetComponent<PhysicsComponent>( out var physicsComponent, false ) )
-		{
-			physicsComponent.Enabled = true;
-
-			physicsComponent.Velocity = Eye.Transform.Rotation.Forward * 1000f;
-		}
 	}
 }

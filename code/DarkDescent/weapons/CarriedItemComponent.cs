@@ -19,6 +19,10 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 
 	protected AnimatedModelComponent AnimatedModelComponent { get; set; }
 	
+	protected ThrowableComponent ThrowableComponent { get; set; }
+
+	public bool CanThrow => ThrowableComponent is not null;
+	
 	public override void OnEnabled()
 	{
 		base.OnEnabled();
@@ -28,6 +32,7 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 
 	public override void OnStart()
 	{
+		ThrowableComponent = GetComponent<ThrowableComponent>(false);
 		AnimatedModelComponent = GetComponent<AnimatedModelComponent>();
 	}
 
@@ -56,9 +61,9 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 		base.OnPreRender();
 	}
 
-	public virtual void OnThrow( ActorComponent thrower )
+	public void Throw(ActorComponent thrower, Vector3 direction)
 	{
-		
+		ThrowableComponent.Enabled = true;
+		ThrowableComponent.Throw( thrower, direction );
 	}
-	
 }

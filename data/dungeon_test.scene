@@ -3,7 +3,7 @@
     {
       "Id": "0d9865d8-7476-4c6a-8347-91de5c0ab4d6",
       "Name": "Map",
-      "Enabled": true,
+      "Enabled": false,
       "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
@@ -18,8 +18,7 @@
           "__type": "NavMeshGeneratorComponent",
           "__enabled": false
         }
-      ],
-      "Children": []
+      ]
     },
     {
       "Id": "606cc48e-eefe-46ce-a85d-bbbeb9bcf2f6",
@@ -241,7 +240,7 @@
                                                 {
                                                   "__type": "CameraComponent",
                                                   "__enabled": true,
-                                                  "BackgroundColor": "0,0,0,1",
+                                                  "BackgroundColor": "0.08624,0.17306,0.34158,1",
                                                   "ClearFlags": "All",
                                                   "FieldOfView": 120,
                                                   "Orthographic": false,
@@ -1341,6 +1340,11 @@
               "Model": "models/weapons/longsword/short_sword.vmdl",
               "Static": false,
               "Surface": null
+            },
+            {
+              "__type": "ThrowableWeaponComponent",
+              "__enabled": false,
+              "GravityMultiplier": 0.5
             }
           ],
           "Children": [
@@ -1610,10 +1614,38 @@
       "Components": [
         {
           "__type": "DirectionalLightComponent",
-          "__enabled": false,
-          "LightColor": "0,0,0,1",
+          "__enabled": true,
+          "LightColor": "1,1,1,1",
           "Shadows": true,
-          "SkyColor": "0.01485,0.01485,0.01485,1"
+          "SkyColor": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "30a3c137-3e58-451b-8dfe-63aa3d54efd5",
+      "Name": "Surface",
+      "Enabled": true,
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "20,20,20",
+      "Tags": "",
+      "Components": [
+        {
+          "__type": "ModelComponent",
+          "__enabled": true,
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "dev/helper/testgrid.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "ShouldCastShadows": true,
+          "Tint": "0.17327,0.17327,0.17327,1"
+        },
+        {
+          "__type": "ColliderBoxComponent",
+          "__enabled": true,
+          "IsTrigger": false,
+          "Scale": "100,100,0.01",
+          "Static": false,
+          "Surface": null
         }
       ]
     },
