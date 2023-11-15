@@ -50,13 +50,12 @@ public partial class DarkDescentPlayerController
 			interactable.Interact( this, tr );
 			Crosshair.Instance?.CrosshairInternal?.SetClass( "interact", false );
 		}
-
 	}
 
 	private PhysicsTraceResult GetInteractionTrace()
 	{
 		var tr = Physics.Trace.Ray( AimRay, InteractRange )
-			.WithoutTags( "trigger" )
+			.WithoutTags( "trigger", "player" )
 			.Radius( 3 )
 			.Run();
 

@@ -45,10 +45,10 @@ public class ThrowableWeaponComponent : ThrowableComponent
 			return;
 		
 		WeaponComponent.PhysicsComponent.Enabled = false;
-		WeaponComponent.ModelCollider.IsTrigger = true;
+		//WeaponComponent.ModelCollider.IsTrigger = true;
 		
 		GameObject.SetParent( damageable.GameObject );
-		GameObject.Transform.Position = collision.Contact.Point;
+		//GameObject.Transform.Position = collision.Contact.Point;
 
 		var dir = collision.Other.Shape.Body.FindClosestPoint(collision.Contact.Point) -
 		          GameObject.Transform.Position;
