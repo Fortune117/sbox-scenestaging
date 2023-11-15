@@ -1,9 +1,11 @@
-﻿using DarkDescent.Actor.Damage;
+﻿using DarkDescent.Actor;
+using DarkDescent.Actor.Damage;
+using DarkDescent.GameLog;
 using Sandbox;
 
 namespace DarkDescent.Components;
 
-public partial class InteractableObjectComponent : BaseComponent, IDamageable
+public partial class PhysicsInteractableComponent : BaseComponent, IDamageable
 {
 	[Property]
 	public bool CanPickUp { get; set; }
@@ -55,5 +57,4 @@ public partial class InteractableObjectComponent : BaseComponent, IDamageable
 		body.ApplyForceAt( body.FindClosestPoint( damageEventData.Position ),
 			damageEventData.Direction * frac * body.Mass * 150000 );
 	}
-
 }

@@ -8,6 +8,8 @@ public class ThrowableComponent : BaseComponent, BaseComponent.ICollisionListene
 	protected AnimatedModelComponent AnimatedModelComponent { get; set; }
 	protected ModelCollider ModelCollider { get; set; }
 	protected PhysicsComponent PhysicsComponent { get; set; }
+
+	protected ActorComponent Thrower { get; set; }
 	
 	public override void OnAwake()
 	{
@@ -19,6 +21,8 @@ public class ThrowableComponent : BaseComponent, BaseComponent.ICollisionListene
 
 	public virtual void Throw(ActorComponent thrower, Vector3 direction)
 	{
+		Thrower = thrower;
+		
 		GameObject.SetParent( Scene );
 		
 		AnimatedModelComponent.BoneMergeTarget = null;

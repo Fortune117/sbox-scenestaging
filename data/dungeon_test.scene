@@ -57,6 +57,8 @@
           "CharacterController": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "Eye": "eacd1793-17b7-4e17-b4df-cfd99eea118c",
           "Gravity": "0,0,800",
+          "HoldRange": 50,
+          "InteractRange": 65,
           "RunSpeed": 170,
           "WalkSpeed": 110
         },
@@ -75,17 +77,6 @@
           "SpellCastingAttribute": "Intelligence",
           "StaminaJumpCost": 0,
           "StaminaSprintCost": 0
-        },
-        {
-          "__type": "PhysicsPickupComponent",
-          "__enabled": true,
-          "HoldRange": 45,
-          "PickupRange": 55,
-          "StaminaDrainBase": 1,
-          "StaminaDrainPerMissingStrength": 1,
-          "StaminaThrowCost": 5,
-          "ThrowForceBase": 300,
-          "ThrowForcePerStrength": 10
         },
         {
           "__type": "CharacterController",
@@ -1485,18 +1476,23 @@
           "Surface": "data/surfaces/darkdescent_wood.surface"
         },
         {
-          "__type": "InteractableObjectComponent",
+          "__type": "TargetComponent",
+          "__enabled": false,
+          "Factions": "Player"
+        },
+        {
+          "__type": "PhysicsInteractableComponent",
           "__enabled": true,
           "CanPickUp": true,
           "CauseHitBounce": true,
           "PlayHitSound": false,
+          "StaminaDrainBase": 1,
+          "StaminaDrainPerMissingStrength": 1,
+          "StaminaThrowCost": 5,
           "StrengthLeeway": 5,
-          "StrengthThreshold": 10
-        },
-        {
-          "__type": "TargetComponent",
-          "__enabled": false,
-          "Factions": "Player"
+          "StrengthThreshold": 10,
+          "ThrowForceBase": 300,
+          "ThrowForcePerStrength": 10
         }
       ]
     },
@@ -1532,13 +1528,18 @@
           "Surface": null
         },
         {
-          "__type": "InteractableObjectComponent",
+          "__type": "PhysicsInteractableComponent",
           "__enabled": true,
           "CanPickUp": true,
           "CauseHitBounce": true,
           "PlayHitSound": false,
+          "StaminaDrainBase": 1,
+          "StaminaDrainPerMissingStrength": 1,
+          "StaminaThrowCost": 5,
           "StrengthLeeway": 15,
-          "StrengthThreshold": 60
+          "StrengthThreshold": 60,
+          "ThrowForceBase": 0,
+          "ThrowForcePerStrength": 0
         }
       ]
     },
@@ -1786,7 +1787,7 @@
       "Id": "b77c162d-1786-468c-b829-254a42be94fa",
       "Name": "skeleton_swordsman",
       "Enabled": true,
-      "Position": "-77.7876,238.7975,-0.004989624",
+      "Position": "-611.9617,473.7017,-0.005044663",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",
@@ -1796,7 +1797,7 @@
       "Id": "ceae4a78-915e-41f2-8582-532b512190d8",
       "Name": "skeleton_warrior",
       "Enabled": true,
-      "Position": "-343.2536,252.6136,-0.00002045951",
+      "Position": "-574.1664,263.796,-0.00003422299",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "",

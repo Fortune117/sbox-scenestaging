@@ -64,14 +64,6 @@ public partial class Crosshair : Panel
 		InteractPossible = true;
 	}
 
-	protected override void OnAfterTreeRender( bool firstTime )
-	{
-		base.OnAfterTreeRender( firstTime );
-
-		if ( firstTime )
-			SetAimPipVisible( false );
-	}
-
 	protected override int BuildHash()
 	{
 		return HashCode.Combine( Action );

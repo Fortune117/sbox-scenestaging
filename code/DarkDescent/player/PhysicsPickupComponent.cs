@@ -32,7 +32,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 	[Property, Range(0, 300)]
 	private float ThrowForceBase { get; set; }
 	
-	private InteractableObjectComponent InteractableObject { get; set; }
+	private PhysicsInteractableComponent PhysicsInteractable { get; set; }
 	
 	private PhysicsBody HeldBody { get; set; }
 	private Vector3 HeldPos { get; set; }
@@ -44,14 +44,14 @@ public partial class PhysicsPickupComponent : BaseComponent
 	{
 		get
 		{
-			if ( InteractableObject is null )
+			if ( PhysicsInteractable is null )
 				return 0;
 
-			return GameObject.GetComponent<ActorComponent>().Stats.Strength - InteractableObject.StrengthThreshold;
+			return GameObject.GetComponent<ActorComponent>().Stats.Strength - PhysicsInteractable.StrengthThreshold;
 		}
 	}
 
-	private bool CanCarryTarget( InteractableObjectComponent targetComponent )
+	private bool CanCarryTarget( PhysicsInteractableComponent targetComponent )
 	{
 		return GameObject.GetComponent<ActorComponent>().Stats.Strength > targetComponent.StrengthThreshold - targetComponent.StrengthLeeway;
 	}
@@ -112,7 +112,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		if ( tr.Body?.GameObject is not GameObject gameObject )
 			return false;
 		
-		if ( !gameObject.TryGetComponent<InteractableObjectComponent>(out var pickupTarget ))
+		if ( !gameObject.TryGetComponent<PhysicsInteractableComponent>(out var pickupTarget ))
 			return false;
 		
 		var passedStrengthTest = GameObject.GetComponent<ActorComponent>().Stats.Strength >
@@ -151,7 +151,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 
 		if ( EffectiveStrength < 0 )
 		{
-			var fraction = MathF.Abs( EffectiveStrength ) / InteractableObject.StrengthLeeway;
+			var fraction = MathF.Abs( EffectiveStrength ) / PhysicsInteractable.StrengthLeeway;
 			
 			smoothTime = fraction.Remap( 0, 1, 0.05f, 1.5f );
 		}
@@ -166,12 +166,12 @@ public partial class PhysicsPickupComponent : BaseComponent
 
 		if ( HoldPos.Distance( HeldBody.Position ) > 60f )
 		{
-			GameLogSystem.PlayerLoseGrip(InteractableObject.GameObject);
+			GameLogSystem.PlayerLoseGrip(PhysicsInteractable.GameObject);
 			PickupEnd();
 		}
 	}
 
-	private void PickupStart( InteractableObjectComponent target, PhysicsBody body, Vector3 grabPos, Rotation grabRot )
+	private void PickupStart( PhysicsInteractableComponent target, PhysicsBody body, Vector3 grabPos, Rotation grabRot )
 	{
 		PickupEnd();
 
@@ -185,7 +185,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		HeldBody.Sleeping = false;
 		HeldBody.AutoSleep = false;
 
-		InteractableObject = target;
+		PhysicsInteractable = target;
 		//PickupTarget.Entity.Tags.Add( "grabbed" );
 
 		HoldingItem = true;
@@ -210,15 +210,15 @@ public partial class PhysicsPickupComponent : BaseComponent
 		HeldBody = null;
 		HeldRot = Rotation.Identity;
 
-		if ( InteractableObject is not null && InteractableObject.GameObject is not null )
+		if ( PhysicsInteractable is not null && PhysicsInteractable.GameObject is not null )
 		{
 			//PickupTarget.GameObject.Tags.Remove( "grabbed" );
 			
 			if (useLog)
-				GameLogSystem.PlayerDropObject( InteractableObject );
+				GameLogSystem.PlayerDropObject( PhysicsInteractable );
 		}
 
-		InteractableObject = null;
+		PhysicsInteractable = null;
 		HoldingItem = false;
 	}
 
@@ -235,7 +235,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		HoldPos = startPos - HeldPos * HeldBody.Rotation + dir * holdDistance;
 		HoldRot = rot * HeldRot;
 
-		if ( InteractableObject is null )
+		if ( PhysicsInteractable is null )
 		{
 			PickupEnd();
 			return;
@@ -247,7 +247,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		
 		if ( !GameObject.GetComponent<ActorComponent>().CanAffordStaminaCost( staminaCost ) )
 		{
-			GameLogSystem.PlayerStrengthFailPickup(InteractableObject.GameObject);
+			GameLogSystem.PlayerStrengthFailPickup(PhysicsInteractable.GameObject);
 			PickupEnd();
 		}
 		else
@@ -255,15 +255,15 @@ public partial class PhysicsPickupComponent : BaseComponent
 			GameObject.GetComponent<ActorComponent>().PayStamina( staminaCost );
 		}
 		
-		if ( !CanCarryTarget( InteractableObject ) )
+		if ( !CanCarryTarget( PhysicsInteractable ) )
 		{
-			GameLogSystem.PlayerStrengthFailPickup(InteractableObject.GameObject);
+			GameLogSystem.PlayerStrengthFailPickup(PhysicsInteractable.GameObject);
 			PickupEnd();
 		}
 		
 		if ( attachPos.Distance( player.AimRay.Position ) > PickupRange )
 		{
-			GameLogSystem.PlayerLoseGrip(InteractableObject.GameObject);
+			GameLogSystem.PlayerLoseGrip(PhysicsInteractable.GameObject);
 			PickupEnd();
 		}
 	}
@@ -294,7 +294,7 @@ public partial class PhysicsPickupComponent : BaseComponent
 		}
 
 		Sound.FromWorld( "interact.throw", player.AimRay.Position );
-		GameLogSystem.PlayerThrowObject( InteractableObject );
+		GameLogSystem.PlayerThrowObject( PhysicsInteractable );
 		
 		PickupEnd(false, false);
 	}

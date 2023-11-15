@@ -29,13 +29,13 @@
         "__enabled": true,
         "IsTrigger": false,
         "Model": "models/actors/target_dummy/target_dummy.vmdl",
+        "Static": false,
         "Surface": "data/surfaces/hay.surface"
       },
       {
         "__type": "PhysicsComponent",
         "__enabled": true,
-        "Gravity": true,
-        "Static": false
+        "Gravity": true
       },
       {
         "__type": "AutoStandComponent",
@@ -56,20 +56,6 @@
         "__enabled": true,
         "BreakVerb": "Destroyed",
         "ObjectName": "Target Dummy"
-      },
-      {
-        "__type": "InteractableObjectComponent",
-        "__enabled": true,
-        "CanPickUp": true,
-        "CauseHitBounce": false,
-        "PlayHitSound": false,
-        "StrengthLeeway": 5,
-        "StrengthThreshold": 10
-      },
-      {
-        "__type": "TargetComponent",
-        "__enabled": true,
-        "Factions": "Player"
       }
     ]
   },

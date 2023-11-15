@@ -1,6 +1,7 @@
 using Sandbox;
 using System.Drawing;
 using DarkDescent.Actor;
+using DarkDescent.UI;
 using DarkDescent.Weapons;
 
 namespace DarkDescent;
@@ -16,6 +17,9 @@ public partial class DarkDescentPlayerController : BaseComponent
 	[Property, ToggleGroup("Movement")] 
 	public Vector3 Gravity { get; set; } = new Vector3( 0, 0, 800 );
 	
+	[Property]
+	public ActorComponent ActorComponent { get; set; }
+	
 	[Property, ToggleGroup("Movement")]
 	private CharacterController CharacterController { get; set; }
 	
@@ -28,9 +32,6 @@ public partial class DarkDescentPlayerController : BaseComponent
 	[Property, ToggleGroup("Camera")] 
 	private CameraComponent Camera { get; set; }
 	
-	[Property]
-	private ActorComponent ActorComponent { get; set; }
-
 	private bool IsCrouching { get; set; }
 	
 	private Vector3 WishVelocity { get; set; }
@@ -40,7 +41,7 @@ public partial class DarkDescentPlayerController : BaseComponent
 	public Rotation AimRotation => Eye.Transform.Rotation;
 
 	public Ray AimRay => new Ray( Eye.Transform.Position, Eye.Transform.Rotation.Forward );
-	
+
 	public override void OnStart()
 	{
 		HookupAnimEvents();
@@ -114,6 +115,13 @@ public partial class DarkDescentPlayerController : BaseComponent
 		
 		UpdateAnimations();
 
+		Crosshair.SetAimPipVisible( CarriedItemComponent is not null );
+
+		InteractableUpdate();
+
+		if ( ActiveInteractable is not null || TimeSinceInteraction < 0.5f )
+			return;
+		
 		if ( CarriedItemComponent is null )
 			return;
 
