@@ -405,7 +405,7 @@
 										{
 											_class = "CCycleCondition"
 											m_comparisonOp = 3
-											m_comparisonValue = 0.25
+											m_comparisonValue = 0.29
 											m_comparisonValueType = 0
 											m_comparisonControlValue = "ControlValue_MoveHeading"
 											m_comparisonParamID = 

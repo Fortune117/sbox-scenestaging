@@ -56,4 +56,9 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 		base.OnPreRender();
 	}
 
+	public virtual void OnThrow( ActorComponent thrower )
+	{
+		
+	}
+	
 }

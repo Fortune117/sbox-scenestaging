@@ -38,7 +38,7 @@ public partial class DarkDescentPlayerController
 		{
 			timeSinceThrowReleased += Time.Delta * ActorComponent.Stats.ActionSpeed;
 
-			if ( timeSinceThrowReleased > 0.25f )
+			if ( timeSinceThrowReleased > 0.2f )
 			{
 				isThrowing = false;
 				ThrowItem();
@@ -61,6 +61,10 @@ public partial class DarkDescentPlayerController
 			modelCollider.Enabled = true;
 
 		if ( weapon.TryGetComponent<PhysicsComponent>( out var physicsComponent, false ) )
+		{
 			physicsComponent.Enabled = true;
+
+			physicsComponent.Velocity = Eye.Transform.Rotation.Forward * 1000f;
+		}
 	}
 }
