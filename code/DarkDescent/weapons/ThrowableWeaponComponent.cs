@@ -22,27 +22,31 @@ public class ThrowableWeaponComponent : ThrowableComponent
 	{
 		base.Throw( thrower, direction );
 
-		PhysicsComponent.AngularVelocity = -direction.Cross( Vector3.Up ) * 20f;
-		PhysicsComponent.Gravity = false;
+		CarriedItemComponent.PhysicsComponent.AngularVelocity = -direction.Cross( Vector3.Up ) * 20f;
+		CarriedItemComponent.PhysicsComponent.Gravity = false;
+		WeaponComponent.Interactable = false;
 	}
 
 	public override void Update()
 	{
 		base.Update();
 
-		if ( PhysicsComponent.GetBody() is null )
+		if ( CarriedItemComponent.PhysicsComponent.GetBody() is null )
 			return;
 		
-		PhysicsComponent.Velocity -= Vector3.Down * Scene.PhysicsWorld.Gravity * GravityMultiplier * Time.Delta;
+		CarriedItemComponent.PhysicsComponent.Velocity -= Vector3.Down * Scene.PhysicsWorld.Gravity * GravityMultiplier * Time.Delta;
 	}
 
 	protected override void OnThrowImpact( Collision collision )
 	{
+		WeaponComponent.Interactable = true;
+		
 		if ( !collision.Other.GameObject.TryGetComponent<IDamageable>( out var damageable, true, true ) )
 			return;
 		
-		PhysicsComponent.Enabled = false;
-		ModelCollider.Enabled = false;
+		WeaponComponent.PhysicsComponent.Enabled = false;
+		WeaponComponent.ModelCollider.IsTrigger = true;
+		
 		GameObject.SetParent( damageable.GameObject );
 		GameObject.Transform.Position = collision.Contact.Point;
 

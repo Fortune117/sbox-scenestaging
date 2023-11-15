@@ -228,7 +228,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 			return;
 
 		Weapon.SwordTrail?.StopTrail();
-		Weapon.WeaponModel.BoneMergeTarget = null;
+		Weapon.AnimatedModelComponent.BoneMergeTarget = null;
 		Weapon.GameObject.SetParent( Scene );
 
 		if ( Weapon.TryGetComponent<ModelCollider>( out var modelCollider, false ) )
@@ -249,7 +249,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		if ( Weapon is null )
 			return;
 		
-		Weapon.WeaponModel.BoneMergeTarget = Body;
+		Weapon.AnimatedModelComponent.BoneMergeTarget = Body;
 		Weapon.GameObject.SetParent( GameObject );
 
 		if ( Weapon.TryGetComponent<ModelCollider>( out var modelCollider, false ) )

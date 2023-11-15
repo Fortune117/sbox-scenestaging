@@ -6,7 +6,7 @@ using Sandbox;
 
 namespace DarkDescent.Weapons;
 
-public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
+public partial class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 {
 	[Property]
 	protected bool FollowBoneMerge { get; set; }
@@ -16,31 +16,22 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 	
 	[Property]
 	public GameObject LeftHandIKTarget { get; set; }
-
-	protected AnimatedModelComponent AnimatedModelComponent { get; set; }
 	
-	protected ThrowableComponent ThrowableComponent { get; set; }
+	public ModelCollider ModelCollider { get; set; }
+	public PhysicsComponent PhysicsComponent { get; set; }
+	public AnimatedModelComponent AnimatedModelComponent { get; set; }
+	public ThrowableComponent ThrowableComponent { get; set; }
 
 	public bool CanThrow => ThrowableComponent is not null;
-	
-	public override void OnEnabled()
-	{
-		base.OnEnabled();
 
-		AnimatedModelComponent = GetComponent<AnimatedModelComponent>();
-	}
-
-	public override void OnStart()
+	public override void OnAwake()
 	{
 		ThrowableComponent = GetComponent<ThrowableComponent>(false);
-		AnimatedModelComponent = GetComponent<AnimatedModelComponent>();
+		AnimatedModelComponent = GetComponent<AnimatedModelComponent>(false);
+		ModelCollider = GetComponent<ModelCollider>(false);
+		PhysicsComponent = GetComponent<PhysicsComponent>(false);
 	}
-
-	public override void OnDisabled()
-	{
-		base.OnDisabled();
-	}
-
+	
 	public override void Update()
 	{
 		base.Update();
@@ -65,5 +56,11 @@ public class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 	{
 		ThrowableComponent.Enabled = true;
 		ThrowableComponent.Throw( thrower, direction );
+	}
+
+	public virtual void OnEquipped()
+	{
+		ModelCollider.Enabled = false;
+		PhysicsComponent.Enabled = false;
 	}
 }

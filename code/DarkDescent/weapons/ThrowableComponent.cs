@@ -5,18 +5,12 @@ namespace DarkDescent.Weapons;
 public class ThrowableComponent : BaseComponent, BaseComponent.ICollisionListener
 {
 	protected CarriedItemComponent CarriedItemComponent { get; set; }
-	protected AnimatedModelComponent AnimatedModelComponent { get; set; }
-	protected ModelCollider ModelCollider { get; set; }
-	protected PhysicsComponent PhysicsComponent { get; set; }
-
+	
 	protected ActorComponent Thrower { get; set; }
 	
 	public override void OnAwake()
 	{
 		CarriedItemComponent = GetComponent<CarriedItemComponent>(false);
-		AnimatedModelComponent = GetComponent<AnimatedModelComponent>(false);
-		ModelCollider = GetComponent<ModelCollider>(false);
-		PhysicsComponent = GetComponent<PhysicsComponent>(false);
 	}
 
 	public virtual void Throw(ActorComponent thrower, Vector3 direction)
@@ -25,12 +19,12 @@ public class ThrowableComponent : BaseComponent, BaseComponent.ICollisionListene
 		
 		GameObject.SetParent( Scene );
 		
-		AnimatedModelComponent.BoneMergeTarget = null;
+		CarriedItemComponent.AnimatedModelComponent.BoneMergeTarget = null;
 		
-		ModelCollider.Enabled = true;
+		CarriedItemComponent.ModelCollider.Enabled = true;
 		
-		PhysicsComponent.Enabled = true;
-		PhysicsComponent.Velocity = direction * 1000f;
+		CarriedItemComponent.PhysicsComponent.Enabled = true;
+		CarriedItemComponent.PhysicsComponent.Velocity = direction * 1000f;
 	}
 
 	public virtual void OnThrow( ActorComponent thrower )
@@ -43,7 +37,7 @@ public class ThrowableComponent : BaseComponent, BaseComponent.ICollisionListene
 	public virtual void OnCollisionStart( Collision collision )
 	{
 		Enabled = false;
-		PhysicsComponent.Gravity = true;
+		CarriedItemComponent.PhysicsComponent.Gravity = true;
 		
 		OnThrowImpact(collision);
 	}
