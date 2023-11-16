@@ -87,13 +87,13 @@
             "__enabled": true,
             "IsTrigger": false,
             "Model": "models/actors/skeleton/skeleton_npc.vmdl",
+            "Static": false,
             "Surface": "data/surfaces/hay.surface"
           },
           {
             "__type": "PhysicsComponent",
             "__enabled": false,
-            "Gravity": true,
-            "Static": false
+            "Gravity": true
           },
           {
             "__type": "ModelPhysics",
@@ -1113,13 +1113,13 @@
             "__enabled": false,
             "IsTrigger": false,
             "Model": "models/weapons/longsword/longsword.vmdl",
+            "Static": false,
             "Surface": null
           },
           {
             "__type": "PhysicsComponent",
             "__enabled": false,
-            "Gravity": true,
-            "Static": false
+            "Gravity": true
           }
         ],
         "Children": [

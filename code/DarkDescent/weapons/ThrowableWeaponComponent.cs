@@ -40,8 +40,9 @@ public class ThrowableWeaponComponent : ThrowableComponent
 	protected override void OnThrowImpact( Collision collision )
 	{
 		WeaponComponent.Interactable = true;
-		
-		if ( !collision.Other.GameObject.TryGetComponent<IDamageable>( out var damageable, true, true ) )
+
+		var damageable = collision.Other.GameObject.GetComponentInParent<IDamageable>( true, true );
+		if ( damageable is null )
 			return;
 		
 		WeaponComponent.PhysicsComponent.Enabled = false;

@@ -87,13 +87,13 @@
             "__enabled": true,
             "IsTrigger": false,
             "Model": "models/actors/skeleton/skeleton_npc.vmdl",
+            "Static": false,
             "Surface": "data/surfaces/hay.surface"
           },
           {
             "__type": "PhysicsComponent",
             "__enabled": false,
-            "Gravity": true,
-            "Static": false
+            "Gravity": true
           },
           {
             "__type": "ModelPhysics",
@@ -1084,6 +1084,8 @@
             "ComboTime": 0.7,
             "DamageResource": "data/prefabs/claymore_damage.damage",
             "FollowBoneMerge": true,
+            "Handedness": "None",
+            "HoldType": "None",
             "HurtBox": "f55005ad-f3af-4ed1-b5c4-093da9259a01",
             "ImpactSound": "data/sounds/combat/sword.hit.sound",
             "KnockBackMultiplier": 3,
@@ -1111,13 +1113,13 @@
             "__enabled": false,
             "IsTrigger": false,
             "Model": "models/weapons/longsword/claymore.vmdl",
+            "Static": false,
             "Surface": null
           },
           {
             "__type": "PhysicsComponent",
             "__enabled": false,
-            "Gravity": true,
-            "Static": false
+            "Gravity": true
           }
         ],
         "Children": [
