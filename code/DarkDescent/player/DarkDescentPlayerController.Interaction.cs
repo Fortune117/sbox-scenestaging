@@ -6,8 +6,6 @@ namespace DarkDescent;
 
 public partial class DarkDescentPlayerController
 {
-	private bool IsInteracting { get; set; }
-	
 	public IInteractable ActiveInteractable { get; set; }
 	
 	[Property, Range(0, 100)]

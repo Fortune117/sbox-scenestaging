@@ -52,12 +52,6 @@ public partial class CarriedWeaponComponent : CarriedItemComponent
 	[Property, Range( 0, 1 ), ToggleGroup("Swing Control")]
 	public float BounceFraction { get; set; } = 1f;
 	
-	[Property]
-	public HoldType HoldType { get; set; }
-	
-	[Property]
-	public Handedness Handedness { get; set; }
-	
 	[Property, ToggleGroup("Effects")]
 	public SoundEvent ImpactSound { get; set; }
 	
@@ -117,6 +111,16 @@ public partial class CarriedWeaponComponent : CarriedItemComponent
 	public override void Interact( DarkDescentPlayerController playerController, PhysicsTraceResult tr )
 	{
 		playerController.EquipItem( this );
+	}
+
+	public void StartAttackTrail()
+	{
+		SwordTrail?.StartTrail();
+	}
+
+	public void StopAttackTrail()
+	{
+		SwordTrail?.StopTrail();
 	}
 }
 

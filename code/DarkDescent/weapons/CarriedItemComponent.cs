@@ -8,14 +8,19 @@ namespace DarkDescent.Weapons;
 
 public partial class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 {
-	[Property]
-	protected bool FollowBoneMerge { get; set; }
+	public DarkDescentPlayerController PlayerController { get; set; }
 	
 	[Property]
 	public GameObject RightHandIKTarget { get; set; }
 	
 	[Property]
 	public GameObject LeftHandIKTarget { get; set; }
+	
+	[Property]
+	public HoldType HoldType { get; set; }
+	
+	[Property]
+	public Handedness Handedness { get; set; }
 	
 	public ModelCollider ModelCollider { get; set; }
 	public PhysicsComponent PhysicsComponent { get; set; }
@@ -25,6 +30,9 @@ public partial class CarriedItemComponent : BaseComponent, BaseComponent.Execute
 	public bool CanThrow => ThrowableComponent is not null;
 
 	public virtual bool HasPriority { get; set; } = false;
+	
+	[Property]
+	protected bool FollowBoneMerge { get; set; }
 
 	public override void OnAwake()
 	{

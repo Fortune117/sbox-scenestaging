@@ -9,8 +9,6 @@ namespace DarkDescent.Weapons;
 public partial class CarriedWeaponComponent
 {
 	private const int inputVectorBufferSize = 5;
-
-	public DarkDescentPlayerController PlayerController { get; set; }
 	
 	private bool isDoingCombo;
 	private bool isAttacking;
@@ -331,7 +329,7 @@ public partial class CarriedWeaponComponent
 		
 		hitboxesActive = true;
 
-		SwordTrail.StartTrail();
+		StartAttackTrail();
 
 		var sound = Sound.FromWorld( SwingSound.ResourceName, PlayerController.AimRay.Position );
 		sound.SetPitch( PlayerController.ActorComponent.Stats.ActionSpeed.Remap( 0, 2, 0.5f, 1.5f ) );
@@ -341,7 +339,7 @@ public partial class CarriedWeaponComponent
 	{
 		hitboxesActive = false;
 		
-		SwordTrail.StopTrail();
+		StopAttackTrail();
 	}
 	
 	private void InterruptAttack()

@@ -8,6 +8,8 @@ public class ThrowableComponent : BaseComponent, BaseComponent.ICollisionListene
 	
 	protected ActorComponent Thrower { get; set; }
 	
+	protected bool IsBeingThrown { get; set; }
+	
 	public override void OnAwake()
 	{
 		CarriedItemComponent = GetComponent<CarriedItemComponent>(false);
@@ -16,6 +18,7 @@ public class ThrowableComponent : BaseComponent, BaseComponent.ICollisionListene
 	public virtual void Throw(ActorComponent thrower, Vector3 direction)
 	{
 		Thrower = thrower;
+		IsBeingThrown = true;
 		
 		GameObject.SetParent( Scene );
 		
@@ -38,6 +41,7 @@ public class ThrowableComponent : BaseComponent, BaseComponent.ICollisionListene
 	{
 		Enabled = false;
 		CarriedItemComponent.PhysicsComponent.Gravity = true;
+		IsBeingThrown = false;
 		
 		OnThrowImpact(collision);
 	}
