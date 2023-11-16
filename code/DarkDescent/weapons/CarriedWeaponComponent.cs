@@ -5,7 +5,7 @@ using Sandbox;
 
 namespace DarkDescent.Weapons;
 
-public class CarriedWeaponComponent : CarriedItemComponent
+public partial class CarriedWeaponComponent : CarriedItemComponent
 {
 	[Property, ToggleGroup("Combat")]
 	public DamageResource DamageResource { get; set; }
@@ -116,9 +116,8 @@ public class CarriedWeaponComponent : CarriedItemComponent
 
 	public override void Interact( DarkDescentPlayerController playerController, PhysicsTraceResult tr )
 	{
-		playerController.EquipWeapon( this );
+		playerController.EquipItem( this );
 	}
-	
 }
 
 public enum HoldType

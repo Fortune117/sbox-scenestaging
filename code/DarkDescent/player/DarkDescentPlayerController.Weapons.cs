@@ -4,10 +4,11 @@ namespace DarkDescent;
 
 public partial class DarkDescentPlayerController
 {
-	public void EquipWeapon( CarriedWeaponComponent carriedWeaponComponent )
+	public void EquipItem( CarriedWeaponComponent carriedWeaponComponent )
 	{
 		CarriedItemComponent = carriedWeaponComponent;
-		
+
+		carriedWeaponComponent.PlayerController = this;
 		carriedWeaponComponent.GameObject.SetParent( GameObject );
 		carriedWeaponComponent.AnimatedModelComponent.BoneMergeTarget = Body;
 		carriedWeaponComponent.OnEquipped();

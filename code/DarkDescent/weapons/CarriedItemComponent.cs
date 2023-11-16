@@ -24,20 +24,14 @@ public partial class CarriedItemComponent : BaseComponent, BaseComponent.Execute
 
 	public bool CanThrow => ThrowableComponent is not null;
 
+	public virtual bool HasPriority { get; set; } = false;
+
 	public override void OnAwake()
 	{
 		ThrowableComponent = GetComponent<ThrowableComponent>(false);
 		AnimatedModelComponent = GetComponent<AnimatedModelComponent>(false);
 		ModelCollider = GetComponent<ModelCollider>(false);
 		PhysicsComponent = GetComponent<PhysicsComponent>(false);
-	}
-	
-	public override void Update()
-	{
-		base.Update();
-		
-		if ( !FollowBoneMerge || AnimatedModelComponent?.SceneObject is null )
-			return;
 	}
 
 	protected override void OnPreRender()
@@ -62,5 +56,12 @@ public partial class CarriedItemComponent : BaseComponent, BaseComponent.Execute
 	{
 		ModelCollider.Enabled = false;
 		PhysicsComponent.Enabled = false;
+	}
+
+	public virtual void UpdateForPlayer() { }
+
+	public virtual Vector2 UpdateInputForPlayer( Vector2 input )
+	{
+		return input;
 	}
 }

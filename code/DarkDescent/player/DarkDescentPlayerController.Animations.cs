@@ -7,13 +7,6 @@ namespace DarkDescent;
 
 public partial class DarkDescentPlayerController 
 {
-	private const int inputVectorBufferSize = 5;
-	
-	private void HookupAnimEvents()
-	{
-		Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
-	}
-	
 	private void UpdateAnimations()
 	{
 		var animHelper = new CitizenSceneAnimationHelper( Body.SceneObject );

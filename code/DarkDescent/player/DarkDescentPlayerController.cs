@@ -23,14 +23,12 @@ public partial class DarkDescentPlayerController : BaseComponent
 	[Property, ToggleGroup("Movement")]
 	private CharacterController CharacterController { get; set; }
 	
-	[Property, ToggleGroup("Body2")] 
-	private AnimatedModelComponent Body { get; set; }
+	[Property, ToggleGroup("Body2")] public AnimatedModelComponent Body { get; set; }
 	
 	[Property, ToggleGroup("Body")] 
 	private GameObject Eye { get; set; }
 	
-	[Property, ToggleGroup("Camera")] 
-	private CameraComponent Camera { get; set; }
+	[Property, ToggleGroup("Camera")] public CameraComponent Camera { get; set; }
 	
 	private bool IsCrouching { get; set; }
 	
@@ -44,9 +42,9 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 	public override void OnStart()
 	{
-		HookupAnimEvents();
-
 		BlockerComponent.OnBlock += OnBlock;
+		
+		EquipItem( CarriedItemComponent );
 	}
 
 	public override void Update()
@@ -55,10 +53,9 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 		var input = Input.MouseDelta * 0.1f;
 
-		if ( isAttacking )
+		if ( CarriedItemComponent is not null )
 		{
-			input = new Vector2( input.x.Clamp( -CarriedItemComponent.TurnCapX * Time.Delta, CarriedItemComponent.TurnCapX * Time.Delta ),
-				input.y.Clamp( -CarriedItemComponent.TurnCapY * Time.Delta, CarriedItemComponent.TurnCapY * Time.Delta ) );
+			input = CarriedItemComponent.UpdateInputForPlayer( input );
 		}
 		
 		internalEyeAngles.pitch += input.y;
@@ -68,10 +65,7 @@ public partial class DarkDescentPlayerController : BaseComponent
 		internalEyeAngles = internalEyeAngles.Normal;
 
 		// rotate body to look angles
-		if ( Body is not null )
-		{
-			Body.Transform.Rotation = new Angles( 0, internalEyeAngles.yaw, 0 ).ToRotation();
-		}
+		Body.Transform.Rotation = new Angles( 0, internalEyeAngles.yaw, 0 ).ToRotation();
 
 		// read inputs
 		BuildWishVelocity();
@@ -125,19 +119,16 @@ public partial class DarkDescentPlayerController : BaseComponent
 		if ( CarriedItemComponent is null )
 			return;
 
-		if (!isAttacking)
-			CheckForThrow();
+		/*if (!CarriedItemComponent.HasPriority)
+			CheckForThrow();*/
 
-		if ( isThrowing )
+		/*if ( isThrowing )
 		{
 			ThrowUpdate();
 			return;
-		}
+		}*/
 		
-		AttackUpdate();
-		
-		if (isAttacking)
-			AttackHitUpdate();
+		CarriedItemComponent.UpdateForPlayer();
 	}
 	
 	public void BuildWishVelocity()

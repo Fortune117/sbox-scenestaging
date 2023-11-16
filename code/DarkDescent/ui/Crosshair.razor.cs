@@ -28,7 +28,7 @@ public partial class Crosshair : Panel
 
 	public static void SetAimPipVisible( bool b )
 	{
-		Instance.AimPip?.SetClass( "visible", b );
+		Instance?.AimPip?.SetClass( "visible", b );
 	}
 
 	public static void SetAimPipVector(Vector2 inputAngle)
