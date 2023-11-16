@@ -119,14 +119,14 @@ public partial class DarkDescentPlayerController : BaseComponent
 		if ( CarriedItemComponent is null )
 			return;
 
-		/*if (!CarriedItemComponent.HasPriority)
-			CheckForThrow();*/
+		if (!CarriedItemComponent.HasPriority)
+			CheckForThrow();
 
-		/*if ( isThrowing )
+		if ( isThrowing )
 		{
 			ThrowUpdate();
 			return;
-		}*/
+		}
 		
 		CarriedItemComponent.UpdateForPlayer();
 	}

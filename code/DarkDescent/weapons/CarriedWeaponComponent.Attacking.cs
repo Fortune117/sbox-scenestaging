@@ -30,7 +30,9 @@ public partial class CarriedWeaponComponent
 	private float HitStopSpeedScale = 1f;
 	private TimeSince TimeSinceLastHit;
 	private TimeSince TimeSinceAttackStopped;
-	
+
+	public override bool HasPriority => isAttacking;
+
 	public override void UpdateForPlayer()
 	{
 		AttackUpdate();
