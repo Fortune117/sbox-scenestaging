@@ -23,7 +23,8 @@ public partial class DarkDescentPlayerController : BaseComponent
 	[Property, ToggleGroup("Movement")]
 	private CharacterController CharacterController { get; set; }
 	
-	[Property, ToggleGroup("Body2")] public AnimatedModelComponent Body { get; set; }
+	[Property, ToggleGroup("Body2")] 
+	public AnimatedModelComponent Body { get; set; }
 	
 	[Property, ToggleGroup("Body")] 
 	private GameObject Eye { get; set; }
@@ -34,11 +35,11 @@ public partial class DarkDescentPlayerController : BaseComponent
 	
 	private Vector3 WishVelocity { get; set; }
 	
-	private Angles internalEyeAngles;
-
 	public Rotation AimRotation => Eye.Transform.Rotation;
 
 	public Ray AimRay => new Ray( Eye.Transform.Position, Eye.Transform.Rotation.Forward );
+	
+	private Angles internalEyeAngles;
 
 	public override void OnStart()
 	{

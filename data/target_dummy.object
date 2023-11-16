@@ -30,7 +30,7 @@
         "IsTrigger": false,
         "Model": "models/actors/target_dummy/target_dummy.vmdl",
         "Static": false,
-        "Surface": "data/surfaces/hay.surface"
+        "Surface": null
       },
       {
         "__type": "PhysicsComponent",
