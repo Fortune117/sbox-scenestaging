@@ -45,16 +45,16 @@ public class ThrowableWeaponComponent : ThrowableComponent
 		if ( damageable is null )
 			return;
 		
-		WeaponComponent.PhysicsComponent.Enabled = false;
+		//WeaponComponent.PhysicsComponent.Enabled = false;
 		//WeaponComponent.ModelCollider.IsTrigger = true;
 		
-		GameObject.SetParent( damageable.GameObject );
+		//GameObject.SetParent( damageable.GameObject );
 		//GameObject.Transform.Position = collision.Contact.Point;
 
 		var dir = collision.Other.Shape.Body.FindClosestPoint(collision.Contact.Point) -
 		          GameObject.Transform.Position;
 
-		GameObject.Transform.Rotation = Rotation.LookAt(dir.Normal);
+		//GameObject.Transform.Rotation = Rotation.LookAt(dir.Normal);
 
 		ApplyThrownDamage( damageable, collision );
 	}
