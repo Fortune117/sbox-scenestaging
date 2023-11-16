@@ -324,8 +324,8 @@ public partial class CarriedWeaponComponent
 	private void ActivateAttack()
 	{
 		attackEvent = new AttackEvent()
-			.WithInitiator( GameObject )
-			.WithHurtBox( GetComponent<HurtBoxComponent>( true, true ) );
+			.WithInitiator( PlayerController.GameObject )
+			.WithHurtBox( HurtBox );
 		
 		hitboxesActive = true;
 
