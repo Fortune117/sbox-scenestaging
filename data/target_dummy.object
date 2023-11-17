@@ -56,6 +56,20 @@
         "__enabled": true,
         "BreakVerb": "Destroyed",
         "ObjectName": "Target Dummy"
+      },
+      {
+        "__type": "PhysicsInteractableComponent",
+        "__enabled": true,
+        "CanPickUp": true,
+        "CauseHitBounce": false,
+        "PlayHitSound": false,
+        "StaminaDrainBase": 1,
+        "StaminaDrainPerMissingStrength": 1,
+        "StaminaThrowCost": 5,
+        "StrengthLeeway": 5,
+        "StrengthThreshold": 10,
+        "ThrowForceBase": 300,
+        "ThrowForcePerStrength": 10
       }
     ]
   },
