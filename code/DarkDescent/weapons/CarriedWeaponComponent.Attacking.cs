@@ -201,7 +201,6 @@ public partial class CarriedWeaponComponent
 		{
 			if ( hitEvent.TraceResult.Fraction < BounceFraction )
 			{
-				StopScrapeEffect();
 				BounceAttack(hitEvent.TraceResult);
 			}
 			else
@@ -340,6 +339,7 @@ public partial class CarriedWeaponComponent
 		hitboxesActive = false;
 		
 		StopAttackTrail();
+		StopScrapeEffect();
 	}
 	
 	private void InterruptAttack()
