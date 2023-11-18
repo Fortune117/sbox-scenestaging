@@ -908,24 +908,6 @@
                               ]
                             },
                             {
-                              "Id": "45528f20-9f2e-49c6-b19d-93bfe775cef2",
-                              "Name": "Elbow_Target_L",
-                              "Enabled": true,
-                              "Position": "3.301714,23.48071,-9.448789",
-                              "Rotation": "0.6997913,0.7143472,-0.000002354383,-0.00000210123",
-                              "Scale": "1,1,1",
-                              "Tags": ""
-                            },
-                            {
-                              "Id": "0e8c4501-0516-4446-bfe4-4a1785f36dce",
-                              "Name": "Elbow_Target_R",
-                              "Enabled": true,
-                              "Position": "3.301709,23.48073,9.448806",
-                              "Rotation": "0.6997912,0.7143474,0.000002384186,0.000002503033",
-                              "Scale": "1,1,1",
-                              "Tags": ""
-                            },
-                            {
                               "Id": "08b7baad-09f5-4c23-a7a5-413cf9d9f053",
                               "Name": "Block Hitbox",
                               "Enabled": true,
