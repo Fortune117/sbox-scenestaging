@@ -1,0 +1,87 @@
+{
+  "SchemaVersion": 1,
+  "Name": null,
+  "Description": null,
+  "Root": {
+    "Guid": "26f1b244-a6e1-424d-8e0b-d05355e3c4d8",
+    "Class": "model_entity",
+    "Entities": [],
+    "Components": [
+      {
+        "Guid": "09b4fa54-e9d0-476b-ac80-2abf517579bb",
+        "Class": "ModelPhysicsComponent",
+        "Keys": {
+          "_name": {
+            "JsonValue": "New ModelPhysicsComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      },
+      {
+        "Guid": "3cfe18d4-4f7a-40d4-968c-584df1378eb8",
+        "Class": "PickupTargetComponent",
+        "Keys": {
+          "StrengthThreshold": {
+            "Type": "Single",
+            "Value": "60",
+            "JsonValue": 60
+          },
+          "StrengthLeeway": {
+            "Type": "Single",
+            "Value": "15",
+            "JsonValue": 15
+          },
+          "_name": {
+            "JsonValue": "New PickupTargetComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      },
+      {
+        "Guid": "b42bfd97-c79e-477e-8e6c-05531a67c9c7",
+        "Class": "ObjectClassifierComponent",
+        "Keys": {
+          "BreakVerb": {
+            "Type": "String",
+            "Value": "\u0022verb.destroyed\u0022",
+            "JsonValue": "verb.destroyed"
+          },
+          "ObjectName": {
+            "Type": "String",
+            "Value": "\u0022object.anvil.name\u0022",
+            "JsonValue": "object.anvil.name"
+          },
+          "_name": {
+            "JsonValue": "New ObjectClassifierComponent"
+          },
+          "_tags": {}
+        }
+      }
+    ],
+    "Keys": {
+      "Model": {
+        "Type": "Model",
+        "Value": "\u0022models/props/tools/anvil_01.vmdl\u0022"
+      },
+      "_name": {
+        "JsonValue": "Root Entity"
+      },
+      "_localposition": {
+        "JsonValue": "0,0,0"
+      },
+      "_localrotation": {
+        "JsonValue": "0,0,0"
+      },
+      "_scale": {
+        "JsonValue": 1
+      },
+      "_tags": {
+        "JsonValue": ""
+      }
+    }
+  }
+}
