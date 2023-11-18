@@ -53,12 +53,15 @@
           "BlockerComponent": "08b7baad-09f5-4c23-a7a5-413cf9d9f053",
           "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
           "Camera": "e4c460aa-c998-43f5-b4ff-b946848d6aa5",
-          "CarriedItemComponent": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
           "CharacterController": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
           "Eye": "eacd1793-17b7-4e17-b4df-cfd99eea118c",
           "Gravity": "0,0,800",
+          "HoldLeft": "66949286-7537-4639-aea5-9d029b211013",
           "HoldRange": 50,
+          "HoldRight": "3f419570-9b7d-4630-ab29-1b6d97a13d23",
           "InteractRange": 65,
+          "LeftHandItem": "a8e2909d-1753-4b73-8168-09cd91070fcf",
+          "RightHandItem": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
           "RunSpeed": 170,
           "WalkSpeed": 110
         },
@@ -1270,8 +1273,8 @@
           "Id": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
           "Name": "item_weapon_short_sword",
           "Enabled": true,
-          "Position": "0.1216278,-12.2886,35.09869",
-          "Rotation": "0.4935335,0.5116254,0.5050943,0.4894322",
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
           "Scale": "1,1,1",
           "Tags": "",
           "Components": [
@@ -1279,7 +1282,6 @@
               "__type": "AnimatedModelComponent",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
-              "BoneMergeTarget": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
               "CreateBoneObjects": false,
               "MaterialGroup": null,
               "MaterialOverride": null,
@@ -1294,8 +1296,8 @@
               "BounceFraction": 0.4,
               "ComboTime": 0.7,
               "DamageResource": "data/prefabs/short_sword_damage.damage",
-              "FollowBoneMerge": true,
-              "Handedness": "OneHanded",
+              "FollowBoneMerge": false,
+              "Handedness": "Right",
               "HoldType": "Sword",
               "HurtBox": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
               "ImpactSound": "data/sounds/combat/sword.hit.sound",
@@ -1423,6 +1425,181 @@
             },
             {
               "Id": "742be8b8-5dff-4691-8245-8e9a98bf39b3",
+              "Name": "Scrape Particles",
+              "Enabled": true,
+              "Position": "0,0,0",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Components": [
+                {
+                  "__type": "ParticleSystem",
+                  "__enabled": true,
+                  "EmissionStopped": true,
+                  "Looped": false,
+                  "Particles": "particles/weapon_scrape_ground.vpcf",
+                  "PlaybackSpeed": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "a8e2909d-1753-4b73-8168-09cd91070fcf",
+          "Name": "item_weapon_short_sword (1)",
+          "Enabled": true,
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Components": [
+            {
+              "__type": "AnimatedModelComponent",
+              "__enabled": true,
+              "BodyGroups": 18446744073709551615,
+              "CreateBoneObjects": false,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/weapons/longsword/short_sword.vmdl",
+              "ShouldCastShadows": true,
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "CarriedWeaponComponent",
+              "__enabled": true,
+              "BlockResource": "data/prefabs/longsword_block.block",
+              "BounceFraction": 0.4,
+              "ComboTime": 0.7,
+              "DamageResource": "data/prefabs/short_sword_damage.damage",
+              "FollowBoneMerge": false,
+              "Handedness": "Left",
+              "HoldType": "Sword",
+              "HurtBox": "a8e2909d-1753-4b73-8168-09cd91070fcf",
+              "ImpactSound": "data/sounds/combat/sword.hit.sound",
+              "KnockBackMultiplier": 0.5,
+              "LeftHandIKTarget": "d56763fb-5701-461e-88b8-4a5d6aecd9e8",
+              "RecoveryTime": 0.4,
+              "ReleaseTime": 0.45,
+              "RightHandIKTarget": "25331cb2-ea59-4d97-8aea-7d9a853b0234",
+              "ScrapeParticles": "b5db2dd9-1bac-4f18-b4c0-a28ac5cf9451",
+              "SwingSound": "data/sounds/combat/sword.swing.sound",
+              "SwordTrail": "c26568bd-334b-4e94-9a9f-97aa78098f5b",
+              "TurnCapX": 300,
+              "TurnCapY": 300,
+              "WindupTime": 0.4
+            },
+            {
+              "__type": "HurtBoxComponent",
+              "__enabled": true,
+              "Center1": "5,0,0",
+              "Center2": "36.79996,0,0",
+              "HitDirection": "22b3f114-5376-41dc-8130-15e0bf72faca",
+              "Radius": 2
+            },
+            {
+              "__type": "PhysicsComponent",
+              "__enabled": false,
+              "Gravity": true
+            },
+            {
+              "__type": "ModelCollider",
+              "__enabled": false,
+              "IsTrigger": false,
+              "Model": "models/weapons/longsword/short_sword.vmdl",
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "ThrowableWeaponComponent",
+              "__enabled": false,
+              "GravityMultiplier": 0.5
+            }
+          ],
+          "Children": [
+            {
+              "Id": "22b3f114-5376-41dc-8130-15e0bf72faca",
+              "Name": "Hit Direction",
+              "Enabled": true,
+              "Position": "24.06384,-0.00000135116,-0.0000008033323",
+              "Rotation": "-0.00000000868437,0.000000006031744,-0.707107,0.7071065",
+              "Scale": "1,1,1",
+              "Tags": ""
+            },
+            {
+              "Id": "25331cb2-ea59-4d97-8aea-7d9a853b0234",
+              "Name": "Hand_R IK Target",
+              "Enabled": true,
+              "Position": "2.423419,-0.0000005951199,0.0000004652058",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": ""
+            },
+            {
+              "Id": "d56763fb-5701-461e-88b8-4a5d6aecd9e8",
+              "Name": "Hand_L IK Target",
+              "Enabled": true,
+              "Position": "-0.6034711,1.803831,-0.6885564",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": ""
+            },
+            {
+              "Id": "c26568bd-334b-4e94-9a9f-97aa78098f5b",
+              "Name": "Sword Trail",
+              "Enabled": true,
+              "Position": "0,0,0",
+              "Rotation": "0,0,0,1",
+              "Scale": "1,1,1",
+              "Tags": "",
+              "Components": [
+                {
+                  "__type": "ParticleSystem",
+                  "__enabled": true,
+                  "ControlPoint0": "e7a4bdfb-5416-4bbc-837f-718ea77ba36c",
+                  "ControlPoint1": "73b261c5-0260-4517-b1b7-d10557d6dd31",
+                  "EmissionStopped": true,
+                  "Looped": false,
+                  "Particles": "particles/sword_trail.vpcf",
+                  "PlaybackSpeed": 1
+                },
+                {
+                  "__type": "SwordTrail",
+                  "__enabled": true,
+                  "Normal": "7645cea6-e4eb-4379-bb24-a35c1427c2ba"
+                }
+              ],
+              "Children": [
+                {
+                  "Id": "e7a4bdfb-5416-4bbc-837f-718ea77ba36c",
+                  "Name": "Anchor 1",
+                  "Enabled": true,
+                  "Position": "5.946345,-0.000001460219,0.000001141311",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": ""
+                },
+                {
+                  "Id": "73b261c5-0260-4517-b1b7-d10557d6dd31",
+                  "Name": "Anchor 2",
+                  "Enabled": true,
+                  "Position": "26.07554,-0.00001020775,0.000008517597",
+                  "Rotation": "0,0,0,1",
+                  "Scale": "1,1,1",
+                  "Tags": ""
+                },
+                {
+                  "Id": "7645cea6-e4eb-4379-bb24-a35c1427c2ba",
+                  "Name": "Normal",
+                  "Enabled": true,
+                  "Position": "25.89437,-0.000003307687,0.000004017774",
+                  "Rotation": "0,0.707107,0,0.7071065",
+                  "Scale": "1,1,1",
+                  "Tags": ""
+                }
+              ]
+            },
+            {
+              "Id": "b5db2dd9-1bac-4f18-b4c0-a28ac5cf9451",
               "Name": "Scrape Particles",
               "Enabled": true,
               "Position": "0,0,0",

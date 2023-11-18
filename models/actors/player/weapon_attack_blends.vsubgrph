@@ -370,7 +370,7 @@
 							}
 						},
 						{
-							m_name = "Lef to Right"
+							m_name = "Left to Right"
 							m_outputID = 
 							{
 								m_id = 1590898807

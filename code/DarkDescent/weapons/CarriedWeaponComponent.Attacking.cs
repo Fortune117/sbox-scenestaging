@@ -130,7 +130,7 @@ public partial class CarriedWeaponComponent
 		{
 			Crosshair.SetAimPipVector( average );
 
-			isBlocking = Input.Down( "Attack2" );
+			//isBlocking = Input.Down( "Attack2" );
 		}
 		else
 		{
@@ -144,14 +144,16 @@ public partial class CarriedWeaponComponent
 		var canCombo = TimeUntilCanCombo <= 0;
 		var comboInvalid = TimeUntilComboInvalid <= 0;
 		
-		if ( !attackStopped && !canAttack && canCombo && !comboInvalid && Input.Down( "Attack1" ) )
+		var attackInput = Handedness != Handedness.Left ? Input.Down( "Attack1" ) : Input.Down( "Attack2" ); 
+		
+		if ( !attackStopped && !canAttack && canCombo && !comboInvalid && attackInput )
 		{
 			BeginAttack( average, true );
 
 			return;
 		}
-
-		if ( !Input.Down( "Attack1" ) && !bufferedAttack  )
+		
+		if ( !attackInput && !bufferedAttack  )
 			return;
 
 		if ( !canAttack )
@@ -291,7 +293,10 @@ public partial class CarriedWeaponComponent
 			PlayerController.Body.Set( "fSwingBlend", -inputVector.y );
 			PlayerController.Body.Set( "eAttackSide",  attackSide );
 			
-			PlayerController.Body.Set( "bCombo", true );
+			if (Handedness != Handedness.Left)
+				PlayerController.Body.Set( "bComboRight", true );
+			else
+				PlayerController.Body.Set( "bComboLeft", true );
 			
 			//make sure hitboxes are turned off when we start our combo
 			DeactivateAttack();
@@ -305,7 +310,10 @@ public partial class CarriedWeaponComponent
 			PlayerController.Body.Set( "fSwingBlend", -inputVector.y );
 			PlayerController.Body.Set( "eAttackSide",  attackSide );
 			
-			PlayerController.Body.Set( "bAttack", true );
+			if (Handedness != Handedness.Left)
+				PlayerController.Body.Set( "bAttackRight", true );
+			else
+				PlayerController.Body.Set( "bAttackLeft", true );
 		}
 		
 		HitStopSpeedScale = 1;

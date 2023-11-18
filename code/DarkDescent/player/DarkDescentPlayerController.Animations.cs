@@ -30,29 +30,28 @@ public partial class DarkDescentPlayerController
 		Body.Set( "fMoveSpeed", CharacterController.Velocity.Length / 150f );
 		Body.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
 
-		if ( CarriedItemComponent is null )
+		if ( RightHandItem is null )
 		{
-			Body.Set( "eHoldType", (int)HoldType.None);  
+			Body.Set( "eHoldTypeRight", (int)HoldType.None);  
 			Body.Set( "eHandedness", (int)Handedness.None);
 			
 			return;
 		}
-			
 		
-		Body.Set( "eHoldType", (int)CarriedItemComponent.HoldType);  
-		Body.Set( "eHandedness", (int)CarriedItemComponent.Handedness);  
+		Body.Set( "eHoldTypeRight", (int)RightHandItem.HoldType);  
+		Body.Set( "eHandedness", (int)RightHandItem.Handedness);  
 	}
 
 	protected override void OnPreRender()
 	{
 		base.OnPreRender();
 
-		if ( CarriedItemComponent is null )
+		if ( RightHandItem is null )
 			return;
 		
-		if ( CarriedItemComponent.Handedness != Handedness.TwoHanded )
+		if ( RightHandItem.Handedness != Handedness.Both )
 			return;
 		
-		Body.Set( "vLeftHandIKTarget", CarriedItemComponent.LeftHandIKTarget.Transform.Position );
+		Body.Set( "vLeftHandIKTarget", RightHandItem.LeftHandIKTarget.Transform.Position );
 	}
 }

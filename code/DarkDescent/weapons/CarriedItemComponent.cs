@@ -73,3 +73,17 @@ public partial class CarriedItemComponent : BaseComponent, BaseComponent.Execute
 		return input;
 	}
 }
+
+public enum HoldType
+{
+	None = 0,
+	Sword = 1,
+}
+
+public enum Handedness
+{
+	None = 0,
+	Right = 1,
+	Left = 2,
+	Both
+}

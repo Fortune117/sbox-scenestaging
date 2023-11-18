@@ -110,7 +110,7 @@ public partial class CarriedWeaponComponent : CarriedItemComponent
 
 	public override void Interact( DarkDescentPlayerController playerController, PhysicsTraceResult tr )
 	{
-		playerController.EquipItem( this );
+		playerController.EquipItem( this ); 
 	}
 
 	public void StartAttackTrail()
@@ -122,17 +122,4 @@ public partial class CarriedWeaponComponent : CarriedItemComponent
 	{
 		SwordTrail?.StopTrail();
 	}
-}
-
-public enum HoldType
-{
-	None = 0,
-	Sword = 1,
-}
-
-public enum Handedness
-{
-	None = 0,
-	OneHanded = 1,
-	TwoHanded = 2
 }

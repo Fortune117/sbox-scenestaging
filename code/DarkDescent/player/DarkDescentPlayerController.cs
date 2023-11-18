@@ -45,7 +45,8 @@ public partial class DarkDescentPlayerController : BaseComponent
 	{
 		BlockerComponent.OnBlock += OnBlock;
 		
-		EquipItem( CarriedItemComponent );
+		EquipItem( RightHandItem );
+		EquipItem( LeftHandItem );
 	}
 
 	public override void Update()
@@ -54,9 +55,9 @@ public partial class DarkDescentPlayerController : BaseComponent
 
 		var input = Input.MouseDelta * 0.1f;
 
-		if ( CarriedItemComponent is not null )
+		if ( RightHandItem is not null )
 		{
-			input = CarriedItemComponent.UpdateInputForPlayer( input );
+			input = RightHandItem.UpdateInputForPlayer( input );
 		}
 		
 		internalEyeAngles.pitch += input.y;
@@ -110,17 +111,17 @@ public partial class DarkDescentPlayerController : BaseComponent
 		
 		UpdateAnimations();
 
-		Crosshair.SetAimPipVisible( CarriedItemComponent is not null );
+		Crosshair.SetAimPipVisible( RightHandItem is not null );
 
 		InteractableUpdate();
 
 		if ( ActiveInteractable is not null || TimeSinceInteraction < 0.5f )
 			return;
 		
-		if ( CarriedItemComponent is null )
+		if ( RightHandItem is null )
 			return;
 
-		if (!CarriedItemComponent.HasPriority)
+		if (!RightHandItem.HasPriority)
 			CheckForThrow();
 
 		if ( isThrowing )
@@ -129,7 +130,8 @@ public partial class DarkDescentPlayerController : BaseComponent
 			return;
 		}
 		
-		CarriedItemComponent.UpdateForPlayer();
+		RightHandItem?.UpdateForPlayer();
+		LeftHandItem?.UpdateForPlayer();
 	}
 	
 	public void BuildWishVelocity()

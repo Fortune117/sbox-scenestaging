@@ -51,11 +51,11 @@ public partial class DarkDescentPlayerController
 
 	private void ThrowItem()
 	{
-		if ( !CarriedItemComponent.CanThrow )
+		if ( !RightHandItem.CanThrow )
 			return;
 		
-		CarriedItemComponent.Throw( ActorComponent, Eye.Transform.Rotation.Forward );
+		RightHandItem.Throw( ActorComponent, Eye.Transform.Rotation.Forward );
 
-		CarriedItemComponent = null;
+		RightHandItem = null;
 	}
 }
