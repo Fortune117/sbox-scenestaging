@@ -1,0 +1,27 @@
+﻿@import "NumberPanels.scss";
+
+.experience-number
+{
+  .main-number
+  {
+    color: $experience-color;
+    font-size: 50px;
+    text-stroke: 16px black;
+    text-align: right;
+    flex-grow: 1;
+  }
+
+  .xp-label
+  {
+    color: $experience-subtext-color;
+    align-items: center;
+    text-align: left;
+    flex-grow: 1;
+
+    font-family: $font-world-text;
+    font-size: 38px;
+    text-stroke: 13px black;
+    
+    bottom: -15px;
+  }
+}

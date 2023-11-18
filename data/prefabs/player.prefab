@@ -1,0 +1,289 @@
+{
+  "SchemaVersion": 1,
+  "Name": null,
+  "Description": null,
+  "Root": {
+    "Guid": "127a8148-a72f-41b7-a178-ead49fd7c787",
+    "Class": "Player",
+    "Entities": [],
+    "Components": [
+      {
+        "Guid": "ef70dfe3-a664-474c-a3f8-16acb48c85f7",
+        "Class": "WalkController",
+        "Keys": {
+          "MovementResource": {
+            "Type": "MovementResource",
+            "Value": "\u0022data/prefabs/default_player.moveinfo\u0022",
+            "JsonValue": "data/prefabs/default_player.moveinfo"
+          },
+          "_name": {
+            "JsonValue": "New WalkController"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      },
+      {
+        "Guid": "8d22c878-4b26-4ef5-8810-2d9add9b593d",
+        "Class": "FirstPersonCamera",
+        "Keys": {
+          "ViewBobRunningMultiplier": {
+            "Type": "Single",
+            "Value": "1.2",
+            "JsonValue": 1.2
+          },
+          "ViewBobFrequency": {
+            "Type": "Single",
+            "Value": "8",
+            "JsonValue": 8
+          },
+          "ViewBobMagnitude": {
+            "Type": "Single",
+            "Value": "1",
+            "JsonValue": 1
+          },
+          "ViewBobSpeedThreshold": {
+            "Type": "Single",
+            "Value": "150",
+            "JsonValue": 150
+          },
+          "MovementResource": {
+            "Type": "MovementResource",
+            "Value": "\u0022data/prefabs/default_player.moveinfo\u0022",
+            "JsonValue": "data/prefabs/default_player.moveinfo"
+          },
+          "_name": {
+            "JsonValue": "New FirstPersonCamera"
+          },
+          "_tags": {
+            "JsonValue": []
+          },
+          "IsActiveCamera": {
+            "Type": "Boolean",
+            "Value": "true",
+            "JsonValue": true
+          }
+        }
+      },
+      {
+        "Guid": "8d83f8e7-d8c6-452c-8947-bceac7a5896f",
+        "Class": "ThirdPersonCamera",
+        "Keys": {
+          "_name": {
+            "JsonValue": "New ThirdPersonCamera"
+          },
+          "_tags": {
+            "JsonValue": []
+          },
+          "IsActiveCamera": {
+            "Type": "Boolean",
+            "Value": "false",
+            "JsonValue": false
+          }
+        }
+      },
+      {
+        "Guid": "9fff900b-a676-4e74-b1ec-672766146338",
+        "Class": "ActorComponent",
+        "Keys": {
+          "BaseStats": {
+            "Type": "StatsResource",
+            "Value": "\u0022data/prefabs/player.stats\u0022",
+            "JsonValue": "data/prefabs/player.stats"
+          },
+          "_name": {
+            "JsonValue": "New ActorComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          },
+          "StaminaSprintCost": {
+            "Type": "Single",
+            "Value": "5",
+            "JsonValue": 5
+          },
+          "StaminaJumpCost": {
+            "Type": "Single",
+            "Value": "5",
+            "JsonValue": 5
+          },
+          "ShowInfoPanel": {
+            "Type": "Boolean",
+            "Value": "false",
+            "JsonValue": false
+          }
+        }
+      },
+      {
+        "Guid": "38f0e739-4d36-41b6-8d08-bce279e7c5dd",
+        "Class": "ActiveItemsComponent",
+        "Keys": {
+          "RightHandPrefab": {
+            "Type": "Prefab",
+            "Value": "\u0022data/prefabs/test_weapon.prefab\u0022",
+            "JsonValue": "data/prefabs/test_weapon.prefab"
+          },
+          "_name": {
+            "JsonValue": "New ActiveItemsComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      },
+      {
+        "Guid": "a59b3e0e-cbd4-4d1f-81c1-d029d12ec947",
+        "Class": "PlayerLightComponent",
+        "Keys": {
+          "InnerConeAngle": {
+            "Type": "Single",
+            "Value": "120",
+            "JsonValue": 120
+          },
+          "OuterConeAngle": {
+            "Type": "Single",
+            "Value": "120",
+            "JsonValue": 120
+          },
+          "FogStrength": {
+            "Type": "Single",
+            "Value": "1",
+            "JsonValue": 1
+          },
+          "Color": {
+            "Type": "Color",
+            "Value": "\u00220.94277,0.94277,0.94277,1\u0022",
+            "JsonValue": "0.94277,0.94277,0.94277,1"
+          },
+          "LinerAttenuation": {
+            "Type": "Single",
+            "Value": "0.01",
+            "JsonValue": 0.01
+          },
+          "Brightness": {
+            "Type": "Single",
+            "Value": "0",
+            "JsonValue": 0
+          },
+          "Range": {
+            "Type": "Single",
+            "Value": "1024",
+            "JsonValue": 1024
+          },
+          "QuadraticAttenuation": {
+            "Type": "Single",
+            "Value": "0",
+            "JsonValue": 0
+          },
+          "_name": {
+            "JsonValue": "New PlayerLightComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          }
+        }
+      },
+      {
+        "Guid": "cf4c419a-ec82-4db2-8eb3-2de2762cc84f",
+        "Class": "PhysicsPickupComponent",
+        "Keys": {
+          "PickupSpeed": {
+            "Type": "Single",
+            "Value": "15",
+            "JsonValue": 15
+          },
+          "PickupRange": {
+            "Type": "Single",
+            "Value": "125",
+            "JsonValue": 125
+          },
+          "HoldRange": {
+            "Type": "Single",
+            "Value": "50",
+            "JsonValue": 50
+          },
+          "_name": {
+            "JsonValue": "New PhysicsPickupComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          },
+          "ThrowForcePerStrength": {
+            "Type": "Single",
+            "Value": "20",
+            "JsonValue": 20
+          },
+          "ThrowForceBase": {
+            "Type": "Single",
+            "Value": "300",
+            "JsonValue": 300
+          },
+          "StaminaDrainPerMissingStrength": {
+            "Type": "Single",
+            "Value": "1",
+            "JsonValue": 1
+          },
+          "StaminaDrainBase": {
+            "Type": "Single",
+            "Value": "1",
+            "JsonValue": 1
+          },
+          "StaminaThrowCost": {
+            "Type": "Single",
+            "Value": "10",
+            "JsonValue": 10
+          }
+        }
+      },
+      {
+        "Guid": "3a183475-1c0f-4df1-b1ff-051efcdcce20",
+        "Class": "ObjectClassifierComponent",
+        "Keys": {
+          "BreakVerb": {
+            "Type": "String",
+            "Value": "\u0022verb.killed\u0022",
+            "JsonValue": "verb.killed"
+          },
+          "Title": {
+            "Type": "String",
+            "Value": "\u0022Player\u0022",
+            "JsonValue": "Player"
+          },
+          "_name": {
+            "JsonValue": "New ObjectClassifierComponent"
+          },
+          "_tags": {
+            "JsonValue": []
+          },
+          "ObjectName": {
+            "Type": "String",
+            "Value": "\u0022Player\u0022",
+            "JsonValue": "Player"
+          }
+        }
+      }
+    ],
+    "Keys": {
+      "Model": {
+        "Type": "Model",
+        "Value": "\u0022models/actors/player/player_skeleton.vmdl\u0022"
+      },
+      "_name": {
+        "JsonValue": "Player"
+      },
+      "_localposition": {
+        "JsonValue": "0,0,0"
+      },
+      "_localrotation": {
+        "JsonValue": "0,0,0"
+      },
+      "_scale": {
+        "JsonValue": 1
+      },
+      "_tags": {
+        "JsonValue": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+﻿@using System
+@using DarkDescent.Actor.Damage
+@using Sandbox
+@using Sandbox.UI
+
+@namespace DarkDescent.Actor.UI
+@attribute [StyleSheet]
+@inherits WorldNumberPanel
+
+<root class="world-number-panel experience-number">
+	<label class="main-number">@($"+{Experience:#0.}")</label>
+	@if (Experience.AlmostEqual( 69, 0.5f ))
+	{
+		<div class="xp-label">nice</div>
+	}
+	else
+	{
+		<div class="xp-label">XP</div>
+	}
+</root>
+
+@code 
+{
+	private float Experience { get; set; }
+	private DamageEventData DamageEventData { get; set; }
+
+	private ExperienceNumberPanel(float experience, DamageEventData damageEventData)
+	{
+		Experience = experience;
+		DamageEventData = damageEventData;
+
+		Position = damageEventData.Position;
+
+		CalculateVelocity();
+	}
+
+	protected sealed override void CalculateVelocity()
+	{
+		/*var pos = DamageEventData.Target != null ? DamageEventData.Target.WorldSpaceBounds.Center : Position;
+		pos = pos.RotateAround( DamageEventData.Position, Rotation.FromPitch( Game.Random.Float( -90, 90 ) ));
+		
+		var dir = (DamageEventData.Position - pos).Normal;
+		
+		Velocity = dir * Game.Random.Float( 250, 350 );*/
+	}
+	
+		
+	
+	public static void CreateExperienceNumber(float experience, DamageEventData damageEventData)
+	{
+		var experienceNumber = new ExperienceNumberPanel( experience, damageEventData );
+	}
+}
