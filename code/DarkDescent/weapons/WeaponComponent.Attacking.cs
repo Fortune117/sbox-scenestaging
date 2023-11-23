@@ -4,9 +4,9 @@ using DarkDescent.Cameras;
 using DarkDescent.UI;
 using Sandbox;
 
-namespace DarkDescent.Weapons;
+namespace DarkDescent.Items;
 
-public partial class CarriedWeaponComponent
+public partial class WeaponComponent
 {
 	private const int inputVectorBufferSize = 5;
 	
@@ -195,6 +195,7 @@ public partial class CarriedWeaponComponent
 			.UsingTraceResult( hitEvent.TraceResult )
 			.WithDirection( GetImpactDirection() )
 			.WithKnockBack( knockback )
+			.WithInflictor( this )
 			.WithDamage( damage )
 			.WithType( GetDamageType() )
 			.AsCritical( false );

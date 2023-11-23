@@ -1,4 +1,4 @@
-using DarkDescent.Weapons;
+using DarkDescent.Items;
 using Sandbox;
 
 namespace DarkDescent.Actor.Damage;
@@ -15,7 +15,7 @@ public class AttackBlockerComponent : BaseComponent
 	private ParticleSystem ParticleSystem { get; set; }
 	
 	[Property]
-	private CarriedWeaponComponent CarriedItemComponent { get; set; }
+	private WeaponComponent ItemComponent { get; set; }
 	
 	public Action<DamageEventData, bool> OnBlock;
 
@@ -64,13 +64,13 @@ public class AttackBlockerComponent : BaseComponent
 			parryWindow += parryWindowAddition;
 		}
 		
-		var capsule = CarriedItemComponent.GetHurtBoxCapsule();
+		var capsule = ItemComponent.GetHurtBoxCapsule();
 		
 		var line = new Line(capsule.CenterA, capsule.CenterB);
 
 		ParticleSystem.Transform.Position = line.ClosestPoint( damageEvent.Position );
 
-		ParticleSystem.Particles = isParry ? CarriedItemComponent.BlockResource.ParryEffect : CarriedItemComponent.BlockResource.BlockEffect;
+		ParticleSystem.Particles = isParry ? ItemComponent.BlockResource.ParryEffect : ItemComponent.BlockResource.BlockEffect;
 
 		var dir = -damageEvent.Direction;
 		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
@@ -85,7 +85,7 @@ public class AttackBlockerComponent : BaseComponent
 		ParticleSystem.Set("RingYaw", angles.yaw  );
 		ParticleSystem.Set("RingRoll", angles.roll  );
 
-		Sound.FromWorld( isParry ? CarriedItemComponent.BlockResource.ParrySound.ResourceName : CarriedItemComponent.BlockResource.BlockSound.ResourceName, ParticleSystem.Transform.Position );
+		Sound.FromWorld( isParry ? ItemComponent.BlockResource.ParrySound.ResourceName : ItemComponent.BlockResource.BlockSound.ResourceName, ParticleSystem.Transform.Position );
 
 		if ( isParry )
 		{
@@ -117,64 +117,64 @@ public class AttackBlockerComponent : BaseComponent
 		
         if (damageEventData.HasDamageType(DamageType.Physical))
         {
-	        mult = 1 - CarriedItemComponent.BlockResource.PhysicalNegation;
+	        mult = 1 - ItemComponent.BlockResource.PhysicalNegation;
         }
 
-        var wardingMult = 1 - CarriedItemComponent.BlockResource.MagicalNegation;
+        var wardingMult = 1 - ItemComponent.BlockResource.MagicalNegation;
         if (damageEventData.HasDamageType(DamageType.Magical) && wardingMult < mult)
         {
 	        mult = wardingMult;
         }
 
-        var fireMult = 1 - CarriedItemComponent.BlockResource.FireNegation;
+        var fireMult = 1 - ItemComponent.BlockResource.FireNegation;
         if (damageEventData.HasDamageType(DamageType.Fire) && fireMult < mult)
         {
 	        mult = fireMult;
         }
 
-        var frostMult = 1 - CarriedItemComponent.BlockResource.FrostNegation;
+        var frostMult = 1 - ItemComponent.BlockResource.FrostNegation;
         if (damageEventData.HasDamageType(DamageType.Frost) && frostMult < mult)
         {
 	        mult = frostMult;
         }
 
-        var electricMult = 1 - CarriedItemComponent.BlockResource.ElectricNegation;
+        var electricMult = 1 - ItemComponent.BlockResource.ElectricNegation;
         if (damageEventData.HasDamageType(DamageType.Electric) && electricMult < mult)
         {
 	        mult = electricMult;
         }
 
-        var poisonMult = 1 - CarriedItemComponent.BlockResource.PoisonNegation;
+        var poisonMult = 1 - ItemComponent.BlockResource.PoisonNegation;
         if (damageEventData.HasDamageType(DamageType.Poison) && poisonMult < mult)
         {
 	        mult = poisonMult;
         }
 
-        var necroticMult = 1 - CarriedItemComponent.BlockResource.NecroticNegation;
+        var necroticMult = 1 - ItemComponent.BlockResource.NecroticNegation;
         if (damageEventData.HasDamageType(DamageType.Necrotic) && necroticMult < mult)
         {
 	        mult = necroticMult;
         }
 
-        var arcaneMult = 1 - CarriedItemComponent.BlockResource.ArcaneNegation;
+        var arcaneMult = 1 - ItemComponent.BlockResource.ArcaneNegation;
         if (damageEventData.HasDamageType(DamageType.Arcane) && arcaneMult < mult)
         {
 	        mult = arcaneMult;
         }
 
-        var divineMult = 1 - CarriedItemComponent.BlockResource.DivineNegation;
+        var divineMult = 1 - ItemComponent.BlockResource.DivineNegation;
         if (damageEventData.HasDamageType(DamageType.Divine) && divineMult < mult)
         {
 	        mult = divineMult;
         }
 
-        var occultMult = 1 - CarriedItemComponent.BlockResource.OccultNegation;
+        var occultMult = 1 - ItemComponent.BlockResource.OccultNegation;
         if (damageEventData.HasDamageType(DamageType.Occult) && occultMult < mult)
         {
 	        mult = occultMult;
         }
 
-        var knockBackMult = 1 - CarriedItemComponent.BlockResource.KnockBackNegation;
+        var knockBackMult = 1 - ItemComponent.BlockResource.KnockBackNegation;
 
         damageEventData.DamageResult *= mult;
         damageEventData.KnockBackResult *= knockBackMult;

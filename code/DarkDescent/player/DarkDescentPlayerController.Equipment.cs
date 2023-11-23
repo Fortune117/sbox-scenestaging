@@ -1,4 +1,4 @@
-using DarkDescent.Weapons;
+using DarkDescent.Items;
 using Sandbox;
 
 namespace DarkDescent;
@@ -6,10 +6,10 @@ namespace DarkDescent;
 public partial class DarkDescentPlayerController
 {
 	[Property]
-	private CarriedItemComponent RightHandItem { get; set; }
+	private ItemComponent RightHandItem { get; set; }
 	
 	[Property]
-	private CarriedItemComponent LeftHandItem { get; set; }
+	private ItemComponent LeftHandItem { get; set; }
 	
 	[Property]
 	private GameObject HoldRight { get; set; }
@@ -17,21 +17,21 @@ public partial class DarkDescentPlayerController
 	[Property]
 	private GameObject HoldLeft { get; set; }
 	
-	public void EquipItem( CarriedItemComponent carriedItemComponent )
+	public void EquipItem( ItemComponent itemComponent )
 	{
-		if ( carriedItemComponent.Handedness is not Handedness.Left )
+		if ( itemComponent.Handedness is not Handedness.Left )
 		{
-			RightHandItem = carriedItemComponent;
-			carriedItemComponent.GameObject.SetParent( HoldRight, false );
+			RightHandItem = itemComponent;
+			itemComponent.GameObject.SetParent( HoldRight, false );
 		}
 		else
 		{
-			LeftHandItem = carriedItemComponent;
-			carriedItemComponent.GameObject.SetParent( HoldLeft, false );
+			LeftHandItem = itemComponent;
+			itemComponent.GameObject.SetParent( HoldLeft, false );
 		}
 
-		carriedItemComponent.PlayerController = this;
+		itemComponent.PlayerController = this;
 		//carriedItemComponent.AnimatedModelComponent.BoneMergeTarget = Body;
-		carriedItemComponent.OnEquipped();
+		itemComponent.OnEquipped();
 	}
 }

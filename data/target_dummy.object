@@ -73,6 +73,23 @@
         "ShouldCastShadows": true,
         "Tint": "1,1,1,1"
       }
+    ],
+    "Children": [
+      {
+        "Id": "e69fa107-dcb7-463e-b2dc-76ced8fc03d4",
+        "Name": "Status Effect Manager",
+        "Enabled": true,
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Components": [
+          {
+            "__type": "StatusEffectManagerComponent",
+            "__enabled": true
+          }
+        ]
+      }
     ]
   },
   "__references": []

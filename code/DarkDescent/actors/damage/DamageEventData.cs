@@ -69,6 +69,11 @@ public struct DamageEventData
 	/// Who this damage event was originated by.
 	/// </summary>
 	public ActorComponent Originator { get; set; }
+	
+	/// <summary>
+	/// What dealt this damage. Usually something like a weapon or spell.
+	/// </summary>
+	public IDamageInflictor Inflictor { get; set; }
 
 	/// <summary>
 	/// Target
@@ -151,6 +156,12 @@ public struct DamageEventData
 	public DamageEventData WithOriginator( ActorComponent originator )
 	{
 		Originator = originator;
+		return this;
+	}
+
+	public DamageEventData WithInflictor( IDamageInflictor inflictor )
+	{
+		Inflictor = inflictor;
 		return this;
 	}
 

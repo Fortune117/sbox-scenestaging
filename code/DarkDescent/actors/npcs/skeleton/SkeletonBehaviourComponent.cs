@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using DarkDescent.Actor.Damage;
 using DarkDescent.Actor.Marker;
-using DarkDescent.Weapons;
+using DarkDescent.Items;
 using Sandbox;
 
 namespace DarkDescent.Actor;
@@ -16,7 +16,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 	}
 	
 	[Property]
-	private CarriedWeaponComponent Weapon { get; set; }
+	private WeaponComponent Weapon { get; set; }
 	
 	[Property]
 	private GameObject HoldR { get; set; }

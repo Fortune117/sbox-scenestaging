@@ -2,7 +2,7 @@ using Sandbox;
 using System.Drawing;
 using DarkDescent.Actor;
 using DarkDescent.UI;
-using DarkDescent.Weapons;
+using DarkDescent.Items;
 
 namespace DarkDescent;
 

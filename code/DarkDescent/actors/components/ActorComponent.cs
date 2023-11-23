@@ -1,4 +1,5 @@
 ﻿using DarkDescent.Actor.StatSystem;
+using DarkDescent.Actor.StatusEffects;
 using Sandbox;
 
 namespace DarkDescent.Actor;
@@ -18,9 +19,17 @@ public partial class ActorComponent : BaseComponent
 	[Property, ToggleGroup("Attributes")]
 	public StatsResource BaseStats { get; set; }
 	
-	[Property] public AnimatedModelComponent Body { get; set; }
+	[Property] 
+	public AnimatedModelComponent Body { get; set; }
+	
+	public StatusEffectManagerComponent StatusEffectsManager { get; set; }
 	
 	public Stats Stats { get; private set; }
+
+	public override void OnAwake()
+	{
+		StatusEffectsManager = GetComponent<StatusEffectManagerComponent>( false, true );
+	}
 
 	public override void OnEnabled()
 	{

@@ -1,6 +1,6 @@
 using DarkDescent.Actor.Damage;
 using DarkDescent.Actor.Marker;
-using DarkDescent.Weapons;
+using DarkDescent.Items;
 using Sandbox;
 
 namespace DarkDescent;
