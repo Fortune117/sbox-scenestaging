@@ -18,9 +18,6 @@ public class BehaviourComponent : BaseComponent
 		public const string FinishAttack = "FinishAttack";
 	}
 	
-	[Property]
-	protected AnimatedModelComponent Body { get; set; }
-	
 	protected CharacterController CharacterController { get; set; }
 	
 	protected TargetingComponent TargetingComponent { get; set; }
@@ -46,10 +43,10 @@ public class BehaviourComponent : BaseComponent
 	
 	protected virtual void HookupAnimEvents()
 	{
-		if ( Body is null )
+		if ( ActorComponent.Body is null )
 			return;
 		
-		Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
+		ActorComponent.Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
 	}
 
 	protected virtual void OnGenericAnimEvent( SceneModel.GenericEvent genericEvent )

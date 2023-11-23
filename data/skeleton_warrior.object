@@ -12,6 +12,7 @@
         "__type": "ActorComponent",
         "__enabled": true,
         "BaseStats": "data/prefabs/skeleton.stats",
+        "Body": "831ea6b2-fa5b-4be9-a485-0250dae7eab9",
         "CauseHitBounce": false,
         "InfoPanelOffset": 75,
         "InfoPanelPrefab": "data/actor_info_panel.object",
@@ -39,7 +40,6 @@
         "__type": "SkeletonBehaviourComponent",
         "__enabled": true,
         "AttackRange": 50,
-        "Body": "831ea6b2-fa5b-4be9-a485-0250dae7eab9",
         "HoldR": "55feb677-f791-4083-9d11-8ec161b7c62e",
         "HoldType": "GreatSword",
         "Weapon": "f55005ad-f3af-4ed1-b5c4-093da9259a01"

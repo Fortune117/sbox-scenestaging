@@ -40,6 +40,11 @@ public class StatusEffectComponent : BaseComponent
 	/// </summary>
 	[Property, Range( 1, 60 ), ToggleGroup("Status")]
 	public float TickRate { get; set; } = 1;
+	
+	/// <summary>
+	/// Who applied this status effect.
+	/// </summary>
+	public ActorComponent Originator { get; set; }
 
 	protected StatusEffectManagerComponent ManagerComponent { get; private set; }
 	

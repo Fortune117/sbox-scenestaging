@@ -18,6 +18,8 @@ public partial class ActorComponent : BaseComponent
 	[Property, ToggleGroup("Attributes")]
 	public StatsResource BaseStats { get; set; }
 	
+	[Property] public AnimatedModelComponent Body { get; set; }
+	
 	public Stats Stats { get; private set; }
 
 	public override void OnEnabled()

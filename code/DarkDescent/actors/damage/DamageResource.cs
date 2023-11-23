@@ -14,17 +14,28 @@ public class DamageResource : GameResource
 	
 	public float Flat { get; set; }
 	public DamageType DamageTypes { get; set; }
+	public DamageFlags DamageFlags { get; set; }
 
 	public float Calculate( Stats stats )
 	{
-		return Dice.Sum( x => x.Roll() ) + Factors.Sum( x => x.Calculate( stats )) + Flat;
+		var total = 0f;
+		if ( Dice is not null )
+			total += Dice.Sum( x => x.Roll() );
+
+		if ( Factors is not null )
+			total += Factors.Sum( x => x.Calculate( stats ) );
+
+		total += Flat;
+		
+		return total;
 	}
 
-	public DamageEventData GenerateDamageEvent()
+	public DamageEventData GenerateDamageEvent(Stats stats)
 	{
 		var damageEvent = new DamageEventData()
+			.WithDamage( Calculate( stats ) )
 			.WithType( DamageTypes )
-			.WithFlags( DamageFlags.NoFlinch );
+			.WithFlag( DamageFlags);
 
 		return damageEvent;
 	}

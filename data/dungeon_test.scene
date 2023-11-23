@@ -69,6 +69,7 @@
           "__type": "ActorComponent",
           "__enabled": true,
           "BaseStats": "data/prefabs/player.stats",
+          "Body": "7382cc3d-b1d2-4174-8433-25f8c66a9682",
           "CauseHitBounce": false,
           "InfoPanelOffset": 0,
           "InfoPanelPrefab": "data/actor_info_panel.object",
@@ -239,6 +240,8 @@
                                                   "FieldOfView": 120,
                                                   "Orthographic": false,
                                                   "OrthographicHeight": 1204,
+                                                  "RenderExcludeTags": "",
+                                                  "RenderTags": "",
                                                   "TargetEye": "None",
                                                   "ZFar": 10000,
                                                   "ZNear": 5
@@ -1612,9 +1615,7 @@
           "Components": [
             {
               "__type": "StatusEffectManagerComponent",
-              "__enabled": true,
-              "ActorComponent": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
-              "StatusEffectPrefab": "data/test_effect.object"
+              "__enabled": true
             }
           ]
         }
@@ -1859,7 +1860,6 @@
         {
           "__type": "FlameSkullBehaviourComponent",
           "__enabled": true,
-          "Body": "3e345fa7-35d8-4777-8396-836858d43c6f",
           "FlameParticles": "75f3cdb2-d2b7-476b-812e-0930544bce71",
           "HoverDistance": 133.87,
           "RigidBody": "3e345fa7-35d8-4777-8396-836858d43c6f"

@@ -5,7 +5,6 @@ namespace DarkDescent.Actor.StatusEffects;
 
 public class StatusEffectManagerComponent : BaseComponent
 {
-	[Property]
 	public ActorComponent ActorComponent { get; private set; }
 	
 	[Property]
@@ -17,17 +16,20 @@ public class StatusEffectManagerComponent : BaseComponent
 	{
 		base.OnAwake();
 
+		ActorComponent = GetComponentInParent<ActorComponent>( false, true );
+		
 		if ( StatusEffectPrefab is not null )
-			AddStatusEffect( StatusEffectPrefab );
+			AddStatusEffect( StatusEffectPrefab, ActorComponent );
 	}
 
-	public void AddStatusEffect(GameObject statusEffectPrefab)
+	public void AddStatusEffect(GameObject statusEffectPrefab, ActorComponent originator)
 	{
 		var obj = SceneUtility.Instantiate( statusEffectPrefab, Transform.Position, Transform.Rotation );
 		obj.SetParent( GameObject );
 		
 		var statusEffect = obj.GetComponent<StatusEffectComponent>();
-		
+
+		statusEffect.Originator = originator;
 		statusEffect.Apply( this );
 	}
 

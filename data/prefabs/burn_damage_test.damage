@@ -1,0 +1,13 @@
+{
+  "Dice": [
+    {
+      "Count": 1,
+      "Type": "D4"
+    }
+  ],
+  "Factors": [],
+  "Flat": 0,
+  "DamageTypes": "Fire",
+  "DamageFlags": "DamageOverTime, NoFlinch",
+  "__references": []
+}

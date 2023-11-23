@@ -5,21 +5,26 @@ namespace DarkDescent.Actor.StatusEffects;
 
 public class DamageOverTimeEffect : StatusEffectComponent
 {
+	/// <summary>
+	/// Damage that will be dealt per second. Accounts for tick rate, etc.
+	/// </summary>
 	[Property, ToggleGroup("Damage")]
 	public DamageResource DamageResource { get; set; }
 	
 	protected override void Tick( float delta )
 	{
-		var damageEvent = new DamageEventData()
-			.WithOriginator( ManagerComponent.ActorComponent )
+		var body = ManagerComponent.ActorComponent.Body;
+		
+		var damageEvent = DamageResource.GenerateDamageEvent(Originator.Stats)
+			.WithOriginator( Originator )
 			.WithTarget( ManagerComponent.ActorComponent )
-			.WithPosition( ManagerComponent.ActorComponent.Transform.Position )
+			.WithPosition( body.Bounds.Center )
 			.WithDirection( Vector3.Zero )
 			.WithKnockBack( 0 )
-			.WithDamage( 2 * TimeSinceLastTick )
-			.WithType( DamageType.Fire )
-			.WithFlags( DamageFlags.NoFlinch )
 			.AsCritical( false );
+
+		damageEvent.DamageOriginal *= TimeSinceLastTick;
+		damageEvent.DamageResult *= TimeSinceLastTick;
 		
 		ManagerComponent.ActorComponent.TakeDamage( damageEvent );
 	}
