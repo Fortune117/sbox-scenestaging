@@ -19,6 +19,15 @@ public class DamageResource : GameResource
 	{
 		return Dice.Sum( x => x.Roll() ) + Factors.Sum( x => x.Calculate( stats )) + Flat;
 	}
+
+	public DamageEventData GenerateDamageEvent()
+	{
+		var damageEvent = new DamageEventData()
+			.WithType( DamageTypes )
+			.WithFlags( DamageFlags.NoFlinch );
+
+		return damageEvent;
+	}
 }
 
 public struct DamageFactors

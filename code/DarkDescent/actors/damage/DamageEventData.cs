@@ -154,6 +154,16 @@ public struct DamageEventData
 		return this;
 	}
 
+	public DamageEventData WithFlags( params DamageFlags[] flags)
+	{
+		foreach ( var flag in flags )
+		{
+			DamageFlags |= flag;
+		}
+
+		return this;
+	}
+
 	public bool HasFlag( DamageFlags flags )
 	{
 		return DamageFlags.HasFlag( flags );

@@ -1,0 +1,25 @@
+{
+  "RootObject": {
+    "Id": "dfac74a0-03f2-48e0-bf22-6dd4da42e9b8",
+    "Name": "test_effect",
+    "Enabled": true,
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Components": [
+      {
+        "__type": "DamageOverTimeEffect",
+        "__enabled": true,
+        "CanStack": true,
+        "EffectID": "dot_test",
+        "IsUnique": false,
+        "MaxDuration": 5,
+        "MaxStacks": 3,
+        "StacksResetDuration": false,
+        "TickRate": 1
+      }
+    ]
+  },
+  "__references": []
+}

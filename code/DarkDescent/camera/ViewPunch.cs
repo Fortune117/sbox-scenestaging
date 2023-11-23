@@ -49,7 +49,7 @@ public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDama
     
     public void OnDamageTaken( DamageEventData damageEvent, bool isLethal )
     {
-	    if ( isLethal || damageEvent.WasBlocked )
+	    if ( isLethal || damageEvent.WasBlocked || damageEvent.HasFlag( DamageFlags.NoFlinch ))
 		    return;
 
 	    var vert = -damageEvent.Direction.Dot( Transform.Rotation.Up );

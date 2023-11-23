@@ -47,6 +47,8 @@ public partial class DarkDescentPlayerController : BaseComponent
 		
 		EquipItem( RightHandItem );
 		EquipItem( LeftHandItem );
+		
+		Body.SceneObject.SetBodyGroup( "name", 0 );
 	}
 
 	public override void Update()

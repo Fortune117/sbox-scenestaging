@@ -1600,6 +1600,23 @@
               ]
             }
           ]
+        },
+        {
+          "Id": "48db467c-369d-47b8-b8bf-e0038f6dd74e",
+          "Name": "Status Effect Manager",
+          "Enabled": true,
+          "Position": "0,0,0",
+          "Rotation": "0,0,0,1",
+          "Scale": "1,1,1",
+          "Tags": "",
+          "Components": [
+            {
+              "__type": "StatusEffectManagerComponent",
+              "__enabled": true,
+              "ActorComponent": "3e6b5d88-8683-4dbc-832a-9598263ddf6d",
+              "StatusEffectPrefab": "data/test_effect.object"
+            }
+          ]
         }
       ]
     },
