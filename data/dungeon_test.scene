@@ -1423,7 +1423,7 @@
             },
             {
               "Id": "ad2aadb9-e31a-4cd2-abc6-1733e2cc06f0",
-              "Name": "Enchant Test",
+              "Name": "Modifiers",
               "Enabled": true,
               "Position": "0,0,0",
               "Rotation": "0,0,0,1",
@@ -1431,8 +1431,9 @@
               "Tags": "",
               "Components": [
                 {
-                  "__type": "EnchantTest",
-                  "__enabled": true
+                  "__type": "ApplyStatusOnDamageDealtModifier",
+                  "__enabled": true,
+                  "TargetStatusEffectPrefab": "data/test_effect.object"
                 }
               ]
             }

@@ -1,6 +1,6 @@
 {
   "RootObject": {
-    "Id": "a8f6bfa1-7b6f-4601-bf3a-e18db641901a",
+    "Id": "947bc3db-2eef-4efc-8f73-79ecc54c5306",
     "Name": "test_effect",
     "Enabled": true,
     "Position": "0,0,0",
@@ -17,7 +17,7 @@
         "IsUnique": false,
         "MaxDuration": 5,
         "MaxStacks": 3,
-        "StacksResetDuration": false,
+        "StacksResetDuration": true,
         "TickRate": 1
       }
     ]

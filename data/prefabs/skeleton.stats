@@ -2,7 +2,7 @@
   "Core": {
     "Strength": 10,
     "Dexterity": 10,
-    "Constitution": 10,
+    "Constitution": 100,
     "Wisdom": 10,
     "Intelligence": 10,
     "Charisma": 10
@@ -17,6 +17,7 @@
     "StaminaCostMultiplier": 1,
     "StaminaRegenDelay": 1.5
   },
+  "Concentration": {},
   "Actions": {
     "ActionSpeed": 1,
     "SpellCastingSpeed": 1,

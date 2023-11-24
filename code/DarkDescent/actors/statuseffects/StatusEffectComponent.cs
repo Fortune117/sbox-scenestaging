@@ -30,10 +30,10 @@ public class StatusEffectComponent : BaseComponent
 	/// Determines if the duration should be reset when new stacks are applied.
 	/// </summary>
 	[Property, ToggleGroup("Status")] 
-	public bool StacksResetDuration { get; set; }
-	
-	[Property, Range(0, 60), ToggleGroup("Status")]
-	public float MaxDuration { get; set; }
+	public bool StacksResetDuration { get; set; } = true;
+
+	[Property, Range( 0, 60 ), ToggleGroup( "Status" )]
+	public float MaxDuration { get; set; } = 5f;
 
 	/// <summary>
 	/// How many times per second this status effect ticks.
@@ -53,6 +53,8 @@ public class StatusEffectComponent : BaseComponent
 	protected float TimeUntilDurationExpires { get; set; }
 	protected float TimeSinceApplied { get; set; }
 	protected float TimeSinceLastTick { get; set; }
+
+	public bool CanAddStack => Stacks < MaxStacks;
 
 	public void Apply( StatusEffectManagerComponent managerComponent )
 	{
@@ -79,6 +81,16 @@ public class StatusEffectComponent : BaseComponent
 		{
 			ManagerComponent.RemoveStatusEffect( this );
 		}
+	}
+
+	public void AddStacks(int count)
+	{
+		Stacks += count;
+	}
+
+	public void ResetDuration()
+	{
+		TimeUntilDurationExpires = MaxDuration;
 	}
 
 	protected virtual void Tick( float delta ) {}

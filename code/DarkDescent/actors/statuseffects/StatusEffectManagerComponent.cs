@@ -20,12 +20,53 @@ public class StatusEffectManagerComponent : BaseComponent
 	public void AddStatusEffect(GameObject statusEffectPrefab, ActorComponent originator)
 	{
 		var obj = SceneUtility.Instantiate( statusEffectPrefab, Transform.Position, Transform.Rotation );
-		obj.SetParent( GameObject );
 		
 		var statusEffect = obj.GetComponent<StatusEffectComponent>();
 
+		if ( statusEffect is null )
+		{
+			Log.Error( $"Tried to add status effect with no status effect component: {obj.PrefabInstanceSource}" );
+			obj.DestroyImmediate();
+			return;
+		}
+
+		if ( !ValidateAddingStatus( statusEffect, originator ) )
+		{
+			obj.DestroyImmediate();
+			return;
+		}
+
+		obj.SetParent( GameObject );
 		statusEffect.Originator = originator;
 		statusEffect.Apply( this );
+		
+		StatusEffects.Add( statusEffect );
+	}
+
+	private bool ValidateAddingStatus(StatusEffectComponent statusEffectComponent, ActorComponent originator)
+	{
+		var existingStatus = StatusEffects.Find( x => x.EffectID.Equals(statusEffectComponent.EffectID) );
+		if ( existingStatus is not null )
+		{
+			if ( existingStatus.CanStack )
+			{
+				if (existingStatus.CanAddStack )
+					existingStatus.AddStacks( 1 );
+
+				if ( existingStatus.StacksResetDuration )
+					existingStatus.ResetDuration();
+
+				return false;
+			}
+
+			//we replace our status effect with the new one
+			if ( existingStatus.IsUnique )
+			{
+				RemoveStatusEffect( existingStatus );
+			}
+		}
+
+		return true;
 	}
 
 	public void RemoveStatusEffect( StatusEffectComponent statusEffectComponent )

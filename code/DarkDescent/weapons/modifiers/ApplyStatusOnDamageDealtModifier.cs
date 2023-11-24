@@ -5,7 +5,7 @@ using Sandbox;
 
 namespace DarkDescent.Items;
 
-public class EnchantTest : BaseComponent, IDamageDealtListener
+public class ApplyStatusOnDamageDealtModifier : BaseComponent, IDamageDealtListener
 {
 	private IDamageInflictor Inflictor { get; set; }
 	
@@ -23,6 +23,8 @@ public class EnchantTest : BaseComponent, IDamageDealtListener
 	public void OnDamageDealt( DamageEventData damageEventData, bool isLethal )
 	{
 		ApplyTargetEffects( damageEventData, isLethal );
+		
+		ApplySelfEffects( damageEventData, isLethal );
 	}
 
 	private void ApplyTargetEffects(DamageEventData damageEventData, bool isLethal)

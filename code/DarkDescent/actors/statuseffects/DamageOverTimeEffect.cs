@@ -23,8 +23,8 @@ public class DamageOverTimeEffect : StatusEffectComponent
 			.WithKnockBack( 0 )
 			.AsCritical( false );
 
-		damageEvent.DamageOriginal *= TimeSinceLastTick;
-		damageEvent.DamageResult *= TimeSinceLastTick;
+		damageEvent.DamageOriginal *= TimeSinceLastTick * Stacks;
+		damageEvent.DamageResult *= TimeSinceLastTick * Stacks;
 		
 		ManagerComponent.ActorComponent.TakeDamage( damageEvent );
 	}
