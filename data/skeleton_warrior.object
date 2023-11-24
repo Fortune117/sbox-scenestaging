@@ -1104,7 +1104,7 @@
             "BounceFraction": 1,
             "ComboTime": 0,
             "DamageResource": "data/prefabs/claymore_damage.damage",
-            "FollowBoneMerge": false,
+            "FollowBoneMerge": true,
             "Handedness": "Both",
             "HoldType": "Sword",
             "HurtBox": "f55005ad-f3af-4ed1-b5c4-093da9259a01",

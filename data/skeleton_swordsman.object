@@ -1083,7 +1083,7 @@
             "BounceFraction": 1,
             "ComboTime": 0.5,
             "DamageResource": "data/prefabs/longsword_damage.damage",
-            "FollowBoneMerge": false,
+            "FollowBoneMerge": true,
             "Handedness": "Right",
             "HoldType": "Sword",
             "HurtBox": "700b49f2-31ce-4a86-8d47-b457521ec9bc",
