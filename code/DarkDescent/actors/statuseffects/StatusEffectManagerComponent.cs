@@ -30,7 +30,7 @@ public class StatusEffectManagerComponent : BaseComponent
 			return;
 		}
 
-		if ( !ValidateAddingStatus( statusEffect, originator ) )
+		if ( TryApplyingStatus( statusEffect, originator ) )
 		{
 			obj.DestroyImmediate();
 			return;
@@ -43,7 +43,7 @@ public class StatusEffectManagerComponent : BaseComponent
 		StatusEffects.Add( statusEffect );
 	}
 
-	private bool ValidateAddingStatus(StatusEffectComponent statusEffectComponent, ActorComponent originator)
+	private bool TryApplyingStatus(StatusEffectComponent statusEffectComponent, ActorComponent originator)
 	{
 		var existingStatus = StatusEffects.Find( x => x.EffectID.Equals(statusEffectComponent.EffectID) );
 		if ( existingStatus is not null )
@@ -56,7 +56,7 @@ public class StatusEffectManagerComponent : BaseComponent
 				if ( existingStatus.StacksResetDuration )
 					existingStatus.ResetDuration();
 
-				return false;
+				return true;
 			}
 
 			//we replace our status effect with the new one
@@ -66,7 +66,7 @@ public class StatusEffectManagerComponent : BaseComponent
 			}
 		}
 
-		return true;
+		return false;
 	}
 
 	public void RemoveStatusEffect( StatusEffectComponent statusEffectComponent )
