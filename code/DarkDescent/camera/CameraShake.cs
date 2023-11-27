@@ -46,7 +46,7 @@ public class CameraShake : BaseComponent, CameraComponent.ISceneCameraSetup, IDa
     
 	public void OnDamageTaken( DamageEventData damageEvent, bool isLethal )
 	{
-		if ( isLethal || damageEvent.WasBlocked )
+		if ( isLethal || damageEvent.WasBlocked || damageEvent.HasFlag( DamageFlags.NoFlinch ))
 			return;
 	    
 		AddShake( 4f, 2f, -1f, 0.5f );

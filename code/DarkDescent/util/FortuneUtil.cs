@@ -25,11 +25,6 @@ public static class FortuneUtil
     {
         return list[Game.Random.Int(list.Count - 1)];
     }
-
-    public static bool WasHeadshot(this ModelEntity entity, DamageInfo info)
-    {
-        return info.Hitbox.HasTag("head");
-    }
     
     public static void SetPosition(this Panel panel, Vector2 position)
     {
@@ -37,21 +32,6 @@ public static class FortuneUtil
         panel.Style.Top = position.y;
     }
     
-    public static List<Player> GetLivingPlayers()
-    {
-        var players = new List<Player>();
-        foreach (var client in Game.Clients)
-        {
-            if (client.Pawn is not Player player)
-                continue;
-            
-            if (player.LifeState == LifeState.Alive && player.IsValid())
-                players.Add(player);
-        }
-
-        return players;
-    }
-
     public static float RangedFloat( this Random random, RangedFloat rangedFloat )
     {
 	    return random.Float( rangedFloat.x, rangedFloat.y );

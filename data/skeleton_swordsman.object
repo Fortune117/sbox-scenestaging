@@ -12,6 +12,7 @@
         "__type": "ActorComponent",
         "__enabled": true,
         "BaseStats": "data/prefabs/skeleton.stats",
+        "Body": "6951e4cb-7eb6-44e6-9dcd-5737b325dfd2",
         "CauseHitBounce": false,
         "InfoPanelOffset": 75,
         "InfoPanelPrefab": "data/actor_info_panel.object",
@@ -39,7 +40,6 @@
         "__type": "SkeletonBehaviourComponent",
         "__enabled": true,
         "AttackRange": 55,
-        "Body": "6951e4cb-7eb6-44e6-9dcd-5737b325dfd2",
         "HoldR": "07a13ed0-9516-4bff-bfad-4c0845d23613",
         "HoldType": "Longsword",
         "Weapon": "700b49f2-31ce-4a86-8d47-b457521ec9bc"
@@ -1077,27 +1077,27 @@
             "Tint": "1,1,1,1"
           },
           {
-            "__type": "CarriedWeaponComponent",
+            "__type": "WeaponComponent",
             "__enabled": true,
             "BlockResource": "data/prefabs/longsword_block.block",
-            "BounceFraction": 0.6,
-            "ComboTime": 0.7,
+            "BounceFraction": 1,
+            "ComboTime": 0.5,
             "DamageResource": "data/prefabs/longsword_damage.damage",
             "FollowBoneMerge": true,
-            "Handedness": "None",
-            "HoldType": "None",
+            "Handedness": "Right",
+            "HoldType": "Sword",
             "HurtBox": "700b49f2-31ce-4a86-8d47-b457521ec9bc",
             "ImpactSound": "data/sounds/combat/sword.hit.sound",
             "KnockBackMultiplier": 1,
             "LeftHandIKTarget": "317c19e4-ddcf-42be-92e5-bd40d6d47102",
-            "RecoveryTime": 0.5,
+            "RecoveryTime": 0,
             "ReleaseTime": 0.5,
             "RightHandIKTarget": "de16bbe7-6b7b-434f-8a7c-e3570da21a66",
             "ScrapeParticles": "742be8b8-5dff-4691-8245-8e9a98bf39b3",
             "SwingSound": "data/sounds/combat/sword.swing.sound",
             "SwordTrail": "ee332e32-046b-4980-a5ed-952b903fe46d",
-            "TurnCapX": 275,
-            "TurnCapY": 275,
+            "TurnCapX": 2,
+            "TurnCapY": 2,
             "WindupTime": 0.5
           },
           {
@@ -1223,6 +1223,21 @@
                 "PlaybackSpeed": 1
               }
             ]
+          }
+        ]
+      },
+      {
+        "Id": "388d19ff-aac5-4548-825f-f6299da41a9c",
+        "Name": "Status Effect Manager",
+        "Enabled": true,
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Components": [
+          {
+            "__type": "StatusEffectManagerComponent",
+            "__enabled": true
           }
         ]
       }

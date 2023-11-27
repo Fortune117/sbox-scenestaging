@@ -12,6 +12,7 @@
         "__type": "ActorComponent",
         "__enabled": true,
         "BaseStats": "data/prefabs/skeleton.stats",
+        "Body": "831ea6b2-fa5b-4be9-a485-0250dae7eab9",
         "CauseHitBounce": false,
         "InfoPanelOffset": 75,
         "InfoPanelPrefab": "data/actor_info_panel.object",
@@ -39,7 +40,6 @@
         "__type": "SkeletonBehaviourComponent",
         "__enabled": true,
         "AttackRange": 50,
-        "Body": "831ea6b2-fa5b-4be9-a485-0250dae7eab9",
         "HoldR": "55feb677-f791-4083-9d11-8ec161b7c62e",
         "HoldType": "GreatSword",
         "Weapon": "f55005ad-f3af-4ed1-b5c4-093da9259a01"
@@ -1077,30 +1077,6 @@
             "Tint": "1,1,1,1"
           },
           {
-            "__type": "CarriedWeaponComponent",
-            "__enabled": true,
-            "BlockResource": "data/prefabs/longsword_block.block",
-            "BounceFraction": 0.6,
-            "ComboTime": 0.7,
-            "DamageResource": "data/prefabs/claymore_damage.damage",
-            "FollowBoneMerge": true,
-            "Handedness": "None",
-            "HoldType": "None",
-            "HurtBox": "f55005ad-f3af-4ed1-b5c4-093da9259a01",
-            "ImpactSound": "data/sounds/combat/sword.hit.sound",
-            "KnockBackMultiplier": 3,
-            "LeftHandIKTarget": "284dc103-5178-424b-9baf-c75e62ea01b3",
-            "RecoveryTime": 0.5,
-            "ReleaseTime": 0.5,
-            "RightHandIKTarget": "d5f4a5e4-77d9-459a-a630-9d6cac72b652",
-            "ScrapeParticles": "742be8b8-5dff-4691-8245-8e9a98bf39b3",
-            "SwingSound": "data/sounds/combat/sword.swing.sound",
-            "SwordTrail": "d3f24ef4-9565-4db3-99fe-33f84eaa588f",
-            "TurnCapX": 275,
-            "TurnCapY": 275,
-            "WindupTime": 0.5
-          },
-          {
             "__type": "HurtBoxComponent",
             "__enabled": true,
             "Center1": "5,0,0",
@@ -1120,6 +1096,30 @@
             "__type": "PhysicsComponent",
             "__enabled": false,
             "Gravity": true
+          },
+          {
+            "__type": "WeaponComponent",
+            "__enabled": true,
+            "BlockResource": "data/prefabs/longsword_block.block",
+            "BounceFraction": 1,
+            "ComboTime": 0,
+            "DamageResource": "data/prefabs/claymore_damage.damage",
+            "FollowBoneMerge": true,
+            "Handedness": "Both",
+            "HoldType": "Sword",
+            "HurtBox": "f55005ad-f3af-4ed1-b5c4-093da9259a01",
+            "ImpactSound": "data/sounds/combat/sword.hit.sound",
+            "KnockBackMultiplier": 1,
+            "LeftHandIKTarget": "284dc103-5178-424b-9baf-c75e62ea01b3",
+            "RecoveryTime": 0,
+            "ReleaseTime": 0,
+            "RightHandIKTarget": "d5f4a5e4-77d9-459a-a630-9d6cac72b652",
+            "ScrapeParticles": "742be8b8-5dff-4691-8245-8e9a98bf39b3",
+            "SwingSound": "data/sounds/combat/sword.swing.sound",
+            "SwordTrail": "d3f24ef4-9565-4db3-99fe-33f84eaa588f",
+            "TurnCapX": 2,
+            "TurnCapY": 2,
+            "WindupTime": 0
           }
         ],
         "Children": [
@@ -1223,6 +1223,21 @@
                 "PlaybackSpeed": 1
               }
             ]
+          }
+        ]
+      },
+      {
+        "Id": "062dd56e-349a-422c-a781-62315591e771",
+        "Name": "Status Effect Managers",
+        "Enabled": true,
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Components": [
+          {
+            "__type": "StatusEffectManagerComponent",
+            "__enabled": true
           }
         ]
       }

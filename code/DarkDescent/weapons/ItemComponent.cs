@@ -4,9 +4,9 @@ using DarkDescent.Actor;
 using DarkDescent.Actor.Damage;
 using Sandbox;
 
-namespace DarkDescent.Weapons;
+namespace DarkDescent.Items;
 
-public partial class CarriedItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
+public partial class ItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
 {
 	public DarkDescentPlayerController PlayerController { get; set; }
 	

@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using DarkDescent.Actor.Damage;
 using DarkDescent.Actor.Marker;
-using DarkDescent.Weapons;
+using DarkDescent.Items;
 using Sandbox;
 
 namespace DarkDescent.Actor;
@@ -16,7 +16,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 	}
 	
 	[Property]
-	private CarriedWeaponComponent Weapon { get; set; }
+	private WeaponComponent Weapon { get; set; }
 	
 	[Property]
 	private GameObject HoldR { get; set; }
@@ -37,7 +37,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 	{
 		base.OnStart();
 		
-		Body.Set( "eHoldType", (int)HoldType );
+		ActorComponent.Body.Set( "eHoldType", (int)HoldType );
 	}
 
 	protected override void OnGenericAnimEvent( SceneModel.GenericEvent genericEvent )
@@ -81,12 +81,12 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 
 		WishVelocity = Vector3.Zero;
 
-		Body.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
-		Body.Set( "fMoveSpeed", ActorComponent.Stats.MoveSpeedMultiplier );
+		ActorComponent.Body.Set( "fActionSpeed", ActorComponent.Stats.ActionSpeed );
+		ActorComponent.Body.Set( "fMoveSpeed", ActorComponent.Stats.MoveSpeedMultiplier );
 		
 		if ( Target is null )
 		{
-			Body.Set( "bMoving", false );
+			ActorComponent.Body.Set( "bMoving", false );
 			return;
 		}
 		
@@ -194,7 +194,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		var dir = Target.Transform.Position - Transform.Position;
 		dir = dir.WithZ( 0 ).Normal;
 		
-		Body.Transform.Rotation = Rotation.Lerp(Body.Transform.Rotation, Rotation.LookAt( dir), Time.Delta * 8f);
+		ActorComponent.Body.Transform.Rotation = Rotation.Lerp(ActorComponent.Body.Transform.Rotation, Rotation.LookAt( dir), Time.Delta * 8f);
 	}
 	
 	private void FollowTarget()
@@ -205,13 +205,13 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		WishVelocity = dir * 50f * ActorComponent.Stats.MoveSpeedMultiplier;
 		FaceTarget();
 		
-		Body.Set( "bMoving", true );
+		ActorComponent.Body.Set( "bMoving", true );
 	}
 
 	private void AttackTarget()
 	{
-		Body.Set( "bMoving", false );
-		Body.Set( "bAttack", true );
+		ActorComponent.Body.Set( "bMoving", false );
+		ActorComponent.Body.Set( "bAttack", true );
 
 		isAttacking = true;
 
@@ -249,7 +249,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		if ( Weapon is null )
 			return;
 		
-		Weapon.AnimatedModelComponent.BoneMergeTarget = Body;
+		Weapon.AnimatedModelComponent.BoneMergeTarget = ActorComponent.Body;
 		Weapon.GameObject.SetParent( GameObject );
 
 		if ( Weapon.TryGetComponent<ModelCollider>( out var modelCollider, false ) )

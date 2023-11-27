@@ -1,9 +1,9 @@
 using DarkDescent.Components;
 using Sandbox;
 
-namespace DarkDescent.Weapons;
+namespace DarkDescent.Items;
 
-public partial class CarriedItemComponent : IInteractable
+public partial class ItemComponent : IInteractable
 {
 	public bool Interactable { get; set; }
 	

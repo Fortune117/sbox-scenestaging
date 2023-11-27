@@ -13,7 +13,7 @@
         "__enabled": true,
         "BaseStats": "data/prefabs/target_dummy.stats",
         "CauseHitBounce": false,
-        "InfoPanelOffset": 0,
+        "InfoPanelOffset": 75,
         "InfoPanelPrefab": "data/actor_info_panel.object",
         "PanelDrawDistance": 300,
         "PlayHitSound": true,
@@ -43,15 +43,6 @@
         "SettleSpeed": 150
       },
       {
-        "__type": "ModelComponent",
-        "__enabled": true,
-        "BodyGroups": 18446744073709551615,
-        "MaterialOverride": null,
-        "Model": "models/actors/target_dummy/target_dummy.vmdl",
-        "ShouldCastShadows": true,
-        "Tint": "1,1,1,1"
-      },
-      {
         "__type": "ObjectClassifierComponent",
         "__enabled": true,
         "BreakVerb": "Destroyed",
@@ -70,6 +61,34 @@
         "StrengthThreshold": 10,
         "ThrowForceBase": 300,
         "ThrowForcePerStrength": 10
+      },
+      {
+        "__type": "AnimatedModelComponent",
+        "__enabled": true,
+        "BodyGroups": 18446744073709551615,
+        "CreateBoneObjects": false,
+        "MaterialGroup": null,
+        "MaterialOverride": null,
+        "Model": "models/actors/target_dummy/target_dummy.vmdl",
+        "ShouldCastShadows": true,
+        "Tint": "1,1,1,1"
+      }
+    ],
+    "Children": [
+      {
+        "Id": "e69fa107-dcb7-463e-b2dc-76ced8fc03d4",
+        "Name": "Status Effect Manager",
+        "Enabled": true,
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "1,1,1",
+        "Tags": "",
+        "Components": [
+          {
+            "__type": "StatusEffectManagerComponent",
+            "__enabled": true
+          }
+        ]
       }
     ]
   },

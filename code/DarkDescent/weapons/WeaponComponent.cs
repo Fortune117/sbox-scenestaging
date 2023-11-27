@@ -3,9 +3,9 @@ using DarkDescent.Actor.Damage;
 using DarkDescent.Components;
 using Sandbox;
 
-namespace DarkDescent.Weapons;
+namespace DarkDescent.Items;
 
-public partial class CarriedWeaponComponent : CarriedItemComponent
+public partial class WeaponComponent : ItemComponent, IDamageInflictor
 {
 	[Property, ToggleGroup("Combat")]
 	public DamageResource DamageResource { get; set; }

@@ -1,0 +1,26 @@
+{
+  "RootObject": {
+    "Id": "947bc3db-2eef-4efc-8f73-79ecc54c5306",
+    "Name": "test_effect",
+    "Enabled": true,
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Components": [
+      {
+        "__type": "DamageOverTimeEffect",
+        "__enabled": true,
+        "CanStack": true,
+        "DamageResource": "data/prefabs/burn_damage_test.damage",
+        "EffectID": "dot_test",
+        "IsUnique": false,
+        "MaxDuration": 5,
+        "MaxStacks": 3,
+        "StacksResetDuration": true,
+        "TickRate": 1
+      }
+    ]
+  },
+  "__references": []
+}

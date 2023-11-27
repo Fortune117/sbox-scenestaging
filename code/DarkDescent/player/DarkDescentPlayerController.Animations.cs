@@ -1,5 +1,5 @@
 ﻿using DarkDescent.UI;
-using DarkDescent.Weapons;
+using DarkDescent.Items;
 using Sandbox;
 using Sandbox.UI;
 

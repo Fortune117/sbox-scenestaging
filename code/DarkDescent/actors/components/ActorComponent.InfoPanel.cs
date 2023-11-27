@@ -50,13 +50,7 @@ public partial class ActorComponent
 		if ( InfoPanel is null )
 			return;
 		
-		var modelComponent = GetComponent<ModelComponent>( false, true );
-
 		var height = InfoPanelOffset;
-		if ( modelComponent is not null )
-		{
-			height += (modelComponent.Bounds.Maxs.z - Transform.Position.z) * 1.15f;
-		}
 		
 		var angles = Rotation.LookAt( -Camera.Rotation.Forward ).Angles();
 		InfoPanel.Transform.Rotation = angles.WithPitch( 0 ).ToRotation();

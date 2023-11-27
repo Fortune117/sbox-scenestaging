@@ -2,11 +2,11 @@ using DarkDescent.Actor;
 using DarkDescent.Actor.Damage;
 using Sandbox;
 
-namespace DarkDescent.Weapons;
+namespace DarkDescent.Items;
 
 public class ThrowableWeaponComponent : ThrowableComponent
 {
-	private CarriedWeaponComponent WeaponComponent { get; set; }
+	private WeaponComponent WeaponComponent { get; set; }
 	
 	[Property, Range(0, 1)]
 	private float GravityMultiplier { get; set; } = 0.5f;
@@ -15,15 +15,15 @@ public class ThrowableWeaponComponent : ThrowableComponent
 	{
 		base.OnAwake();
 
-		WeaponComponent = GetComponent<CarriedWeaponComponent>();
+		WeaponComponent = GetComponent<WeaponComponent>();
 	}
 
 	public override void Throw( ActorComponent thrower, Vector3 direction )
 	{
 		base.Throw( thrower, direction );
 
-		CarriedItemComponent.PhysicsComponent.AngularVelocity = -direction.Cross( Vector3.Up ) * 20f;
-		CarriedItemComponent.PhysicsComponent.Gravity = false;
+		ItemComponent.PhysicsComponent.AngularVelocity = -direction.Cross( Vector3.Up ) * 20f;
+		ItemComponent.PhysicsComponent.Gravity = false;
 		WeaponComponent.Interactable = false;
 	}
 
@@ -31,10 +31,10 @@ public class ThrowableWeaponComponent : ThrowableComponent
 	{
 		base.Update();
 
-		if ( CarriedItemComponent.PhysicsComponent.GetBody() is null )
+		if ( ItemComponent.PhysicsComponent.GetBody() is null )
 			return;
 		
-		CarriedItemComponent.PhysicsComponent.Velocity -= Vector3.Down * Scene.PhysicsWorld.Gravity * GravityMultiplier * Time.Delta;
+		ItemComponent.PhysicsComponent.Velocity -= Vector3.Down * Scene.PhysicsWorld.Gravity * GravityMultiplier * Time.Delta;
 	}
 
 	protected override void OnThrowImpact( Collision collision )
