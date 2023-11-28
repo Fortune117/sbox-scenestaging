@@ -26,7 +26,7 @@
 	
 	private string CurrentString =>  $"{Current.CeilToInt()}";
 	private string MiddleString =>  "/";
-	private string MaxString => $"{Maximum:#0.}";
+	private string MaxString => $"{Maximum.CeilToInt()}";
 
 	public ResourceBar()
 	{

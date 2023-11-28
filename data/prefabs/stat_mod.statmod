@@ -1,8 +1,7 @@
 {
   "StatModifier": {
-    "StatType": "MaxHealth",
-    "Type": "AdditiveMultiply",
-    "Value": 1
+    "StatType": "Constitution",
+    "Value": 3
   },
   "__references": []
 }
