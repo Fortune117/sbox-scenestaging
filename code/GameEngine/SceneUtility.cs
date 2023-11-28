@@ -155,7 +155,7 @@ public static class SceneUtility
 
 		if ( spawnList is null )
 		{
-			o.UpdateEnabledStatus();
+			o.UpdateEnabledStatus()?.Invoke();
 			return;
 		}
 
