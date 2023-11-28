@@ -242,7 +242,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 
 	private async void Revive()
 	{
-		await Task.Delay( TimeSpan.FromSeconds( 2f ) );
+		await Task.Delay( TimeSpan.FromSeconds( 2f ).Milliseconds );
 		
 		ActorComponent.Revive();
 		
