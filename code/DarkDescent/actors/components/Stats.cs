@@ -94,8 +94,9 @@ public class Stats
 	{
 		get
 		{
-			return ActorComponent.GetStat( StatType.MaxHealth ) +
-			       GameBalanceResource.ActiveBalance.ConstitutionToMaxHealthCurve.Evaluate( Constitution );
+			var health =  ActorComponent.GetStat( StatType.MaxHealth ) +
+			               GameBalanceResource.ActiveBalance.ConstitutionToMaxHealthCurve.Evaluate( Constitution );
+			return MathF.Max( health, 1 ); //can't go below 1 max health.
 		}
 	}
 
