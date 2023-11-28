@@ -61,6 +61,11 @@ public partial class DarkDescentPlayerController : BaseComponent
 		{
 			input = RightHandItem.UpdateInputForPlayer( input );
 		}
+
+		if ( LeftHandItem is not null )
+		{
+			input = LeftHandItem.UpdateInputForPlayer( input );
+		}
 		
 		internalEyeAngles.pitch += input.y;
 		internalEyeAngles.yaw -= input.x;
