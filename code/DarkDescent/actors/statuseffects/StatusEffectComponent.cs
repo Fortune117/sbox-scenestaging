@@ -2,7 +2,7 @@ using Sandbox;
 
 namespace DarkDescent.Actor.StatusEffects;
 
-public class StatusEffectComponent : BaseComponent
+public abstract class StatusEffectComponent : BaseComponent
 {
 	/// <summary>
 	/// The internal 'name' for the effect. Effects that share IDs are used for stacking and exclusivity.
@@ -85,7 +85,10 @@ public class StatusEffectComponent : BaseComponent
 
 	public void AddStacks(int count)
 	{
+		var old = Stacks;
 		Stacks += count;
+		
+		OnStacksChanged( old );
 	}
 
 	public void ResetDuration()
@@ -96,6 +99,8 @@ public class StatusEffectComponent : BaseComponent
 	protected virtual void Tick( float delta ) {}
 
 	protected virtual void OnApplied() {}
+
+	public virtual void OnStacksChanged( int oldStacks ) { }
 
 	public virtual void OnRemoved() {}
 }

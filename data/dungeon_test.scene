@@ -1196,7 +1196,7 @@
                 {
                   "__type": "ApplyStatusOnDamageDealtModifier",
                   "__enabled": true,
-                  "TargetStatusEffectPrefab": "data/test_effect.object"
+                  "SelfStatusEffectPrefab": "data/con_buff_effect.object"
                 }
               ]
             }

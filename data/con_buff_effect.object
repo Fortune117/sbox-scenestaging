@@ -1,0 +1,26 @@
+{
+  "RootObject": {
+    "Id": "22276609-0003-4e09-842d-2bde0413eaae",
+    "Name": "Con Buff",
+    "Position": "0,0,0",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "StatModifierEffect",
+        "__enabled": true,
+        "CanStack": true,
+        "EffectID": "stat_mod_test",
+        "IsUnique": true,
+        "MaxDuration": 5,
+        "MaxStacks": 3,
+        "StacksResetDuration": true,
+        "StatModifierResource": "data/prefabs/stat_mod.statmod",
+        "TickRate": 1
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

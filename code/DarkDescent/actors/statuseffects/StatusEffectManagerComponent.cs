@@ -30,7 +30,7 @@ public class StatusEffectManagerComponent : BaseComponent
 			return;
 		}
 
-		if ( TryApplyingStatus( statusEffect, originator ) )
+		if ( TryUpdatingExistingStatus( statusEffect, originator ) )
 		{
 			obj.DestroyImmediate();
 			return;
@@ -43,7 +43,7 @@ public class StatusEffectManagerComponent : BaseComponent
 		StatusEffects.Add( statusEffect );
 	}
 
-	private bool TryApplyingStatus(StatusEffectComponent statusEffectComponent, ActorComponent originator)
+	private bool TryUpdatingExistingStatus(StatusEffectComponent statusEffectComponent, ActorComponent originator)
 	{
 		var existingStatus = StatusEffects.Find( x => x.EffectID.Equals(statusEffectComponent.EffectID) );
 		if ( existingStatus is not null )
