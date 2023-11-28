@@ -55,9 +55,10 @@ public class Stats
 
 	public float GetMaxHealthForConScore( float con )
 	{
-		return ActorComponent.GetStat( StatType.MaxHealth ) +
-				                 GameBalanceResource.ActiveBalance.ConstitutionToMaxHealthCurve.Evaluate( con );
-	}
+		var health =  ActorComponent.GetStat( StatType.MaxHealth ) +
+		              GameBalanceResource.ActiveBalance.ConstitutionToMaxHealthCurve.Evaluate( con );
+		return MathF.Max( health, 1 ); //can't go below 1 max health.s
+	} 
 	
 	public float GetMaxHealthForMaxHealthBonus( float bonus )
 	{
