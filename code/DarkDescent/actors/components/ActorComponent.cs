@@ -20,18 +20,18 @@ public partial class ActorComponent : BaseComponent
 	public StatsResource BaseStats { get; set; }
 	
 	[Property] 
-	public AnimatedModelComponent Body { get; set; }
+	public SkinnedModelRenderer Body { get; set; }
 	
 	public StatusEffectManagerComponent StatusEffectsManager { get; set; }
 	
 	public Stats Stats { get; private set; }
 
-	public override void OnAwake()
+	protected override void OnAwake()
 	{
-		StatusEffectsManager = GetComponent<StatusEffectManagerComponent>( false, true );
+		StatusEffectsManager = Components.Get<StatusEffectManagerComponent>( FindMode.EverythingInSelfAndDescendants );
 	}
 
-	public override void OnEnabled()
+	protected override void OnEnabled()
 	{
 		base.OnEnabled();
 
@@ -51,7 +51,7 @@ public partial class ActorComponent : BaseComponent
 	}
 	
 
-	public override void OnDisabled()
+	protected override void OnDisabled()
 	{
 		base.OnDisabled();
 		
@@ -64,14 +64,14 @@ public partial class ActorComponent : BaseComponent
 		Blackboard.UnRegister( this );
 	}
 
-	public override void OnDestroy()
+	protected override void OnDestroy()
 	{
 		DestroyInfoPanel();
 		
 		Blackboard.UnRegister( this );
 	}
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		UpdateStats();
 		UpdateStamina();

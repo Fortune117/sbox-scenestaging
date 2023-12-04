@@ -39,7 +39,7 @@ public struct AttackEvent
 			attackHitEvent.HitDirection = hurtBox.DirectionMoment;
 			attackHitEvent.TraceResult = tr;
 			
-			if ( hitGameObject.TryGetComponent<AttackBlockerComponent>( out var blockerComponent ) )
+			if ( hitGameObject.Components.TryGet<AttackBlockerComponent>( out var blockerComponent ) )
 			{
 				Blocked = true;
 
@@ -50,7 +50,7 @@ public struct AttackEvent
 				return attackHitEvent;
 			}
 			
-			var damageable = hitGameObject.GetComponentInParent<IDamageable>( true, true );
+			var damageable = hitGameObject.Components.GetInAncestorsOrSelf<IDamageable>();
 			if ( damageable is null ) //impacted the world?
 			{
 				attackHitEvent.HitWorld = true;

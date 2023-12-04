@@ -24,7 +24,7 @@ public partial class DarkDescentPlayerController : BaseComponent
 	private CharacterController CharacterController { get; set; }
 	
 	[Property, ToggleGroup("Body2")] 
-	public AnimatedModelComponent Body { get; set; }
+	public SkinnedModelRenderer Body { get; set; }
 	
 	[Property, ToggleGroup("Body")] 
 	private GameObject Eye { get; set; }
@@ -41,17 +41,15 @@ public partial class DarkDescentPlayerController : BaseComponent
 	
 	private Angles internalEyeAngles;
 
-	public override void OnStart()
+	protected override void OnStart()
 	{
 		BlockerComponent.OnBlock += OnBlock;
 		
 		EquipItem( RightHandItem );
 		EquipItem( LeftHandItem );
-		
-		Body.SceneObject.SetBodyGroup( "name", 0 );
 	}
 
-	public override void Update()
+	public void Update()
 	{
 		// Eye input
 

@@ -65,7 +65,7 @@ public abstract class StatusEffectComponent : BaseComponent
 		OnApplied();
 	}
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		TimeSinceLastTick += Time.Delta;
 		

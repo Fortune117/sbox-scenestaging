@@ -69,22 +69,22 @@ public partial class ActorComponent
 
 	private void OnDeath(DamageEventData damageEventData)
 	{
-		foreach ( var deathListener in GetComponents<IDeathListener>() )
+		foreach ( var deathListener in Components.GetAll<IDeathListener>() )
 		{
 			deathListener.OnDeath( damageEventData );
 		}
 
-		foreach ( var behaviour in GetComponents<BehaviourComponent>() )
+		foreach ( var behaviour in Components.GetAll<BehaviourComponent>() )
 		{
 			behaviour.Enabled = false;
 		}
 		
-		if ( !TryGetComponent<ModelCollider>( out var modelCollider, false, true ) )
+		if ( !Components.TryGet<ModelCollider>( out var modelCollider, FindMode.EnabledInSelfAndDescendants ) )
 			return;
 
 		modelCollider.Enabled = false;
 		
-		if ( !TryGetComponent<ModelPhysics>( out var modelPhysics, false, true ) )
+		if ( !Components.TryGet<ModelPhysics>( out var modelPhysics, FindMode.EnabledInSelfAndDescendants ) )
 			return;
 
 		modelPhysics.GameObject.Tags.Add( "corpse" );
@@ -97,17 +97,17 @@ public partial class ActorComponent
 		Health = Stats.MaxHealth;
 		Alive = true;
 		
-		if ( TryGetComponent<ModelCollider>( out var modelCollider, false, true ) )	
+		if ( Components.TryGet<ModelCollider>( out var modelCollider, FindMode.EverythingInSelfAndDescendants ) )	
 			modelCollider.Enabled = true;
 
-		if ( TryGetComponent<ModelPhysics>( out var modelPhysics, false, true ) )
+		if ( Components.TryGet<ModelPhysics>( out var modelPhysics, FindMode.EverythingInSelfAndDescendants ) )
 		{
 			modelPhysics.GameObject.Tags.Remove( "corpse" );
 			modelPhysics.Enabled = false;
 		}
 
 		
-		foreach ( var behaviour in GetComponents<BehaviourComponent>(false) )
+		foreach ( var behaviour in Components.GetAll<BehaviourComponent>(FindMode.EverythingInSelfAndDescendants) )
 		{
 			behaviour.Enabled = true;
 		}

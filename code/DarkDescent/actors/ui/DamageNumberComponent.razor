@@ -18,7 +18,7 @@
 	{
 		var gameObject = SceneUtility.SpawnPrefabFromPath("data/damage_number.object", damageEventData.Position, Rotation.Identity);
 
-		if (gameObject.TryGetComponent<DamageNumberComponent>(out var damageNumberComponent))
+		if (gameObject.Components.TryGet<DamageNumberComponent>(out var damageNumberComponent))
 		{
 			damageNumberComponent.DamageEventData = damageEventData;
 

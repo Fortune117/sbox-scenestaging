@@ -10,18 +10,18 @@ public class StatusEffectManagerComponent : BaseComponent
 	
 	private readonly List<StatusEffectComponent> StatusEffects = new();
 
-	public override void OnAwake()
+	protected override void OnAwake()
 	{
 		base.OnAwake();
 
-		ActorComponent = GetComponentInParent<ActorComponent>( false, true );
+		ActorComponent = Components.GetInAncestorsOrSelf<ActorComponent>( true );
 	}
 
 	public void AddStatusEffect(GameObject statusEffectPrefab, ActorComponent originator)
 	{
 		var obj = SceneUtility.Instantiate( statusEffectPrefab, Transform.Position, Transform.Rotation );
 		
-		var statusEffect = obj.GetComponent<StatusEffectComponent>();
+		var statusEffect = obj.Components.Get<StatusEffectComponent>();
 
 		if ( statusEffect is null )
 		{

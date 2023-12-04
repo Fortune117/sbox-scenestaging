@@ -25,7 +25,7 @@ public class ViewBob : BaseComponent, CameraComponent.ISceneCameraSetup
 	
 	protected virtual float GetHeadBobFraction()
 	{
-		if ( GameObject.TryGetComponent<CharacterController>( out var controller ) )
+		if ( GameObject.Components.TryGet<CharacterController>( out var controller ) )
 			return 1f;
 		
 		return (controller.Velocity.Length / ViewBobSpeedThreshold).Clamp(0, 1);
@@ -33,10 +33,10 @@ public class ViewBob : BaseComponent, CameraComponent.ISceneCameraSetup
 	
 	public Vector3 GetViewBobOffset()
 	{
-		if ( GameObject.TryGetComponent<CharacterController>( out var controller ) )
+		if ( GameObject.Components.TryGet<CharacterController>( out var controller ) )
 			return Vector3.Zero;
 
-		if ( !GameObject.TryGetComponent<DarkDescentPlayerController>( out var playerController ) )
+		if ( !GameObject.Components.TryGet<DarkDescentPlayerController>( out var playerController ) )
 			return Vector3.Zero;
 		
 		if (!viewbob_enabled || !controller.IsOnGround)

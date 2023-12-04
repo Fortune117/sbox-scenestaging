@@ -8,7 +8,7 @@ public class NavMeshGeneratorComponent : BaseComponent
 	private NavigationMesh mesh;
 	private TimeSince TimeSinceStart;
 
-	public override void DrawGizmos()
+	protected override void DrawGizmos()
 	{
 		base.DrawGizmos();
 		
@@ -16,11 +16,11 @@ public class NavMeshGeneratorComponent : BaseComponent
 			Gizmo.Draw.LineNavigationMesh( mesh );
 	}
 
-	public override void OnStart()
+	protected override void OnStart()
 	{
 	}
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		if (TimeSinceStart > 2 && mesh is null)
 			GenerateMesh();

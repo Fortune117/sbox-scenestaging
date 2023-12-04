@@ -11,7 +11,7 @@ public partial class WorldNumberComponent
 	
 	private TimeSince TimeSinceCreated = 0;
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		var angles = Rotation.LookAt( -Camera.Main.Rotation.Forward ).Angles();
 		Transform.Rotation = angles.WithPitch( 0 ).ToRotation();

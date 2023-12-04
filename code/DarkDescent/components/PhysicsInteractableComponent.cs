@@ -32,7 +32,7 @@ public partial class PhysicsInteractableComponent : BaseComponent, IDamageable
 	{
 		damageEventData.CreateDamageEffects();
 		
-		var physics = GetComponent<PhysicsComponent>( true, true );
+		var physics = Components.GetInDescendantsOrSelf<PhysicsComponent>();
 		if ( physics is not null && physics.GetBody() is not null )
 		{
 			ApplyKnockBack( physics.GetBody(), damageEventData );

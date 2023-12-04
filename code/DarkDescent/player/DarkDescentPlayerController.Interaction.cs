@@ -65,7 +65,7 @@ public partial class DarkDescentPlayerController
 		if ( tr.Body?.GameObject is not GameObject gameObject )
 			return null;
 		
-		if ( gameObject.TryGetComponent<IInteractable>(out var interactable ))
+		if ( gameObject.Components.TryGet<IInteractable>(out var interactable))
 			return interactable;
 
 		return null;

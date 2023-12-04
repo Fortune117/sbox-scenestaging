@@ -246,7 +246,7 @@ public partial class WeaponComponent
 		TimeSinceLastHit = 0;
 		HitStopSpeedScale = 0.05f;
 
-		if ( !PlayerController.Camera.TryGetComponent<CameraShake>( out var cameraShake ) )
+		if ( !PlayerController.Camera.Components.TryGet<CameraShake>( out var cameraShake ) )
 			return;
 		
 		cameraShake.AddShake( 4f, 2f, -1f, 0.5f );

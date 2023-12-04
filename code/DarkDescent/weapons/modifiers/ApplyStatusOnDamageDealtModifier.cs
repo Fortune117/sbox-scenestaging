@@ -15,9 +15,9 @@ public class ApplyStatusOnDamageDealtModifier : BaseComponent, IDamageDealtListe
 	[Property]
 	private GameObject SelfStatusEffectPrefab { get; set; }
 	
-	public override void OnAwake()
+	protected override void OnAwake()
 	{
-		Inflictor = GetComponentInParent<IDamageInflictor>( false, true );
+		Inflictor = Components.GetInParentOrSelf<IDamageInflictor>( true );
 	}
 
 	public void OnDamageDealt( DamageEventData damageEventData, bool isLethal )
@@ -35,7 +35,7 @@ public class ApplyStatusOnDamageDealtModifier : BaseComponent, IDamageDealtListe
 		if ( damageEventData.Inflictor != Inflictor )
 			return;
 
-		if ( !damageEventData.Target.GameObject.TryGetComponent<ActorComponent>( out var actorComponent ) )
+		if ( !damageEventData.Target.GameObject.Components.TryGet<ActorComponent>( out var actorComponent ) )
 			return;
 		
 		actorComponent.StatusEffectsManager.AddStatusEffect( TargetStatusEffectPrefab, damageEventData.Originator );

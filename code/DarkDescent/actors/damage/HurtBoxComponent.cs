@@ -27,7 +27,7 @@ public class HurtBoxComponent : BaseComponent
 	[Property]
 	private float Radius { get; set; }
 
-	public override void DrawGizmos()
+	protected override void DrawGizmos()
 	{
 		if ( !Scene.IsEditor )
 			return;
@@ -38,9 +38,9 @@ public class HurtBoxComponent : BaseComponent
 		Gizmo.Draw.LineCapsule( new Capsule( Transform.World.TransformVector(Center1), Transform.World.TransformVector(Center2), Radius ) );
 	}
 	
-	public override void Update()
+	protected override void OnUpdate()
 	{
-		base.Update();
+		base.OnUpdate();
 
 		if ( Scene.IsEditor )
 			return;

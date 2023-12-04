@@ -28,7 +28,7 @@ public class TargetingComponent : BaseComponent
 	private TargetComponent TargetComponent { get; set; }
 	private ActorComponent ActorComponent { get; set; }
 
-	public override void DrawGizmos()
+	protected override void DrawGizmos()
 	{
 		base.DrawGizmos();
 		
@@ -43,10 +43,10 @@ public class TargetingComponent : BaseComponent
 		Gizmo.Draw.LineSphere( Transform.Position, DetectionRange );
 	}
 
-	public override void OnStart()
+	protected override void OnStart()
 	{
-		ActorComponent = GetComponent<ActorComponent>();
-		TargetComponent = GetComponent<TargetComponent>();
+		ActorComponent = Components.Get<ActorComponent>();
+		TargetComponent = Components.Get<TargetComponent>();
 
 		if ( ActorComponent is null )
 		{

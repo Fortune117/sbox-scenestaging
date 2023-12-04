@@ -11,11 +11,11 @@ public class ThrowableWeaponComponent : ThrowableComponent
 	[Property, Range(0, 1)]
 	private float GravityMultiplier { get; set; } = 0.5f;
 
-	public override void OnAwake()
+	protected override void OnAwake()
 	{
 		base.OnAwake();
 
-		WeaponComponent = GetComponent<WeaponComponent>();
+		WeaponComponent = Components.Get<WeaponComponent>();
 	}
 
 	public override void Throw( ActorComponent thrower, Vector3 direction )
@@ -27,9 +27,9 @@ public class ThrowableWeaponComponent : ThrowableComponent
 		WeaponComponent.Interactable = false;
 	}
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
-		base.Update();
+		base.OnUpdate();
 
 		if ( ItemComponent.PhysicsComponent.GetBody() is null )
 			return;
@@ -41,7 +41,7 @@ public class ThrowableWeaponComponent : ThrowableComponent
 	{
 		WeaponComponent.Interactable = true;
 
-		var damageable = collision.Other.GameObject.GetComponentInParent<IDamageable>( true, true );
+		var damageable = collision.Other.GameObject.Components.GetInParentOrSelf<IDamageable>();
 		if ( damageable is null )
 			return;
 		

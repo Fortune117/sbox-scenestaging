@@ -25,7 +25,7 @@
 {
 	[Property] public GameObject Actor { get; set; }
 	
-	public ActorComponent LocalActor => Actor.GetComponent<ActorComponent>();
+	public ActorComponent LocalActor => Actor.Components.Get<ActorComponent>();
 	
 	//not amazed by this prospect.
 	//full rebuild of the HUD every time a stat changes is :s

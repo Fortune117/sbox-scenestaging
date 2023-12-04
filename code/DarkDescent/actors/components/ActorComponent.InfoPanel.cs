@@ -32,7 +32,7 @@ public partial class ActorComponent
 		
 		var obj = SceneUtility.Instantiate( InfoPanelPrefab, Transform.Position, Transform.Rotation );
 		obj.SetParent( InfoPanelParent ?? Scene );
-		InfoPanel = obj.GetComponent<ActorInfoPanel>();
+		InfoPanel = obj.Components.Get<ActorInfoPanel>();
 		InfoPanel.Actor = this;
 	}
 

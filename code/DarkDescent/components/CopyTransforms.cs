@@ -4,7 +4,7 @@ public sealed class CopyTransforms : BaseComponent
 {
 	[Property] private GameObject Child { get; set; }
 	
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		Transform.Position = Child.Transform.Position;
 		Transform.Rotation = Child.Transform.Rotation;

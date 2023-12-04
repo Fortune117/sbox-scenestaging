@@ -11,9 +11,9 @@ public class AutoStandComponent : BaseComponent
 	private TimeSince TimeSinceBeenOnGround { get; set; }
 
 
-	public override void FixedUpdate()
+	protected override void OnFixedUpdate()
 	{
-		if ( !GameObject.TryGetComponent<PhysicsComponent>( out var physicsComponent ) )
+		if ( !GameObject.Components.TryGet<PhysicsComponent>( out var physicsComponent ) )
 			return;
 		
 		if ( !IsOnGround() )

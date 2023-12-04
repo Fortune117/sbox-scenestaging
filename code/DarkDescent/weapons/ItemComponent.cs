@@ -24,7 +24,7 @@ public partial class ItemComponent : BaseComponent, BaseComponent.ExecuteInEdito
 	
 	public ModelCollider ModelCollider { get; set; }
 	public PhysicsComponent PhysicsComponent { get; set; }
-	public AnimatedModelComponent AnimatedModelComponent { get; set; }
+	public SkinnedModelRenderer AnimatedModelComponent { get; set; }
 	public ThrowableComponent ThrowableComponent { get; set; }
 
 	public bool CanThrow => ThrowableComponent is not null;
@@ -34,12 +34,12 @@ public partial class ItemComponent : BaseComponent, BaseComponent.ExecuteInEdito
 	[Property]
 	protected bool FollowBoneMerge { get; set; }
 
-	public override void OnAwake()
+	protected override void OnAwake()
 	{
-		ThrowableComponent = GetComponent<ThrowableComponent>(false);
-		AnimatedModelComponent = GetComponent<AnimatedModelComponent>(false);
-		ModelCollider = GetComponent<ModelCollider>(false);
-		PhysicsComponent = GetComponent<PhysicsComponent>(false);
+		ThrowableComponent = Components.Get<ThrowableComponent>(true);
+		AnimatedModelComponent = Components.Get<SkinnedModelRenderer>(true);
+		ModelCollider = Components.Get<ModelCollider>(true);
+		PhysicsComponent = Components.Get<PhysicsComponent>(true);
 	}
 
 	protected override void OnPreRender()
@@ -47,7 +47,7 @@ public partial class ItemComponent : BaseComponent, BaseComponent.ExecuteInEdito
 		if ( !FollowBoneMerge || AnimatedModelComponent?.SceneObject is null )
 			return;
 		
-		var transform = AnimatedModelComponent.SceneObject.GetBoneWorldTransform( 0 );
+		var transform = AnimatedModelComponent.SceneModel.GetBoneWorldTransform( 0 );
 		GameObject.Transform.Position = transform.Position;
 		GameObject.Transform.Rotation = transform.Rotation;
 		

@@ -9,7 +9,7 @@ public partial class DarkDescentPlayerController
 {
 	private void UpdateAnimations()
 	{
-		var animHelper = new CitizenSceneAnimationHelper( Body.SceneObject );
+		var animHelper = new CitizenSceneAnimationHelper( Body.SceneModel );
 		
 		animHelper.IsClimbing = false;
 		animHelper.IsGrounded = CharacterController.IsOnGround;

@@ -27,17 +27,17 @@ public class TargetComponent : BaseComponent
 	[Property]
 	public GameObject WeakPoint { get; set; }
 
-	public override void OnEnabled()
+	protected override void OnEnabled()
 	{
 		Blackboard.Register( this );
 	}
 
-	public override void OnDisabled()
+	protected override void OnDisabled()
 	{
 		Blackboard.UnRegister( this );
 	}
 
-	public override void OnDestroy()
+	protected override void OnDestroy()
 	{
 		Blackboard.UnRegister( this );
 	}

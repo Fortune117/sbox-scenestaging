@@ -48,9 +48,9 @@ public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenList
 		//FlameParticles.Enabled = true;
 	}
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
-		base.Update();
+		base.OnUpdate();
 		
 		if (KnockedOut && TimeUntilWakeUp)
 			WakeUp();
@@ -68,9 +68,9 @@ public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenList
 		Transform.Rotation = Rotation.Lerp( Transform.Rotation, Rotation.FromYaw( Transform.Rotation.Yaw() ), Time.Delta * 60f );
 	}
 
-	public override void FixedUpdate()
+	protected override void OnFixedUpdate()
 	{
-		base.FixedUpdate();
+		base.OnFixedUpdate();
 		
 		if ( KnockedOut )
 			return;

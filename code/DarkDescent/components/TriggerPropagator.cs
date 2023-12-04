@@ -7,7 +7,7 @@ public class TriggerPropagator : BaseComponent, BaseComponent.ITriggerListener
 		if ( GameObject.Parent == Scene )
 			return;
 		
-		foreach ( var trigger in GameObject.Parent.GetComponents<ITriggerListener>() )
+		foreach ( var trigger in Components.GetAll<ITriggerListener>( FindMode.InAncestors ) )
 		{
 			trigger.OnTriggerEnter( other );
 		}
@@ -18,7 +18,7 @@ public class TriggerPropagator : BaseComponent, BaseComponent.ITriggerListener
 		if ( GameObject.Parent == Scene )
 			return;
 		
-		foreach ( var trigger in GameObject.Parent.GetComponents<ITriggerListener>() )
+		foreach ( var trigger in Components.GetAll<ITriggerListener>( FindMode.InAncestors ) )
 		{
 			trigger.OnTriggerExit( other );
 		}

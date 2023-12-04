@@ -27,11 +27,11 @@ public class BehaviourComponent : BaseComponent
 	
 	protected bool RotationLocked { get; set; }
 
-	public override void OnStart()
+	protected override void OnStart()
 	{
-		TargetingComponent = GetComponent<TargetingComponent>();
-		ActorComponent = GetComponent<ActorComponent>();
-		CharacterController = GetComponent<CharacterController>();
+		TargetingComponent = Components.Get<TargetingComponent>();
+		ActorComponent = Components.Get<ActorComponent>();
+		CharacterController = Components.Get<CharacterController>();
 
 		if ( ActorComponent is null )
 		{
@@ -46,7 +46,7 @@ public class BehaviourComponent : BaseComponent
 		if ( ActorComponent.Body is null )
 			return;
 		
-		ActorComponent.Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
+		//ActorComponent.Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
 	}
 
 	protected virtual void OnGenericAnimEvent( SceneModel.GenericEvent genericEvent )

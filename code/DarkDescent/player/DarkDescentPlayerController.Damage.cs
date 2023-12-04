@@ -14,7 +14,7 @@ public partial class DarkDescentPlayerController : IDamageTakenListener
 	{
 		Body.Set( "bBlockImpact", true );
 		
-		foreach ( var blockListener in GetComponents<IBlockListener>(true, true) )
+		foreach ( var blockListener in Components.GetAll<IBlockListener>( FindMode.EverythingInSelfAndDescendants ) )
 		{
 			blockListener.OnBlock( damageEvent, isParry );	
 		}

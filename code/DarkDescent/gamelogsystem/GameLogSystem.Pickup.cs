@@ -15,7 +15,7 @@ public static partial class GameLogSystem
 
 		var name = target.GameObject.Name;
 
-		var classifier = target.GetComponent<ObjectClassifierComponent>();
+		var classifier = target.Components.Get<ObjectClassifierComponent>();
 		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
@@ -32,7 +32,7 @@ public static partial class GameLogSystem
 
 		var name = target.GameObject.Name;
 
-		var classifier = target.GetComponent<ObjectClassifierComponent>();
+		var classifier = target.Components.Get<ObjectClassifierComponent>();
 		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
@@ -49,7 +49,7 @@ public static partial class GameLogSystem
 
 		var name = target.GameObject.Name;
 
-		var classifier = target.GetComponent<ObjectClassifierComponent>();
+		var classifier = target.Components.Get<ObjectClassifierComponent>();
 		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
@@ -66,7 +66,7 @@ public static partial class GameLogSystem
 
 		var name = target.GameObject.Name;
 
-		var classifier = target.GetComponent<ObjectClassifierComponent>();
+		var classifier = target.Components.Get<ObjectClassifierComponent>();
 		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
@@ -80,7 +80,7 @@ public static partial class GameLogSystem
 
 	public static void PlayerStrengthFailPickup( GameObject gameObject )
 	{
-		var target = gameObject.GetComponent<PhysicsInteractableComponent>();
+		var target = gameObject.Components.Get<PhysicsInteractableComponent>();
 		if ( target is null )
 			return;
 		
@@ -88,7 +88,7 @@ public static partial class GameLogSystem
 
 		var name = target.GameObject.Name;
 
-		var classifier = gameObject.GetComponent<ObjectClassifierComponent>();
+		var classifier = gameObject.Components.Get<ObjectClassifierComponent>();
 		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;
@@ -102,7 +102,7 @@ public static partial class GameLogSystem
 
 	public static void PlayerLoseGrip( GameObject gameObject )
 	{
-		var target = gameObject.GetComponent<PhysicsInteractableComponent>();
+		var target = gameObject.Components.Get<PhysicsInteractableComponent>();
 		if ( target is null )
 			return;
 		
@@ -110,7 +110,7 @@ public static partial class GameLogSystem
 
 		var name = target.GameObject.Name;
 
-		var classifier = gameObject.GetComponent<ObjectClassifierComponent>();
+		var classifier = gameObject.Components.Get<ObjectClassifierComponent>();
 		if ( classifier is not null)
 		{
 			name = classifier.DisplayName;

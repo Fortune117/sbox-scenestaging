@@ -35,7 +35,7 @@
 			if (Actor is null || Actor is null)
 				return "";
 			
-			if (Actor.TryGetComponent<ObjectClassifierComponent>(out var classifier))
+			if (Actor.Components.TryGet<ObjectClassifierComponent>(out var classifier))
 			{
 				return classifier.DisplayName;
 			}

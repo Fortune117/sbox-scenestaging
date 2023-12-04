@@ -9,22 +9,22 @@ public class SwordTrail : BaseComponent, BaseComponent.ExecuteInEditor
 	
 	public ParticleSystem ParticleSystem { get; set; }
 	
-	public override void OnEnabled()
+	protected override void OnEnabled()
 	{
-		ParticleSystem = GetComponent<ParticleSystem>();
+		ParticleSystem = Components.Get<ParticleSystem>();
 	}
 
-	public override void OnDisabled()
+	protected override void OnDisabled()
 	{
 		ParticleSystem = null;
 	}
 
-	public override void OnStart()
+	protected override void OnStart()
 	{
-		ParticleSystem = GetComponent<ParticleSystem>();
+		ParticleSystem = Components.Get<ParticleSystem>();
 	}
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		if ( Normal is null )
 			return;

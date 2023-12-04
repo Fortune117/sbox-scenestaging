@@ -27,8 +27,8 @@ public partial class ActorComponent : IDamageable
 	{
 		//apply our resistances as we take damage
 		ApplyResistances( ref damageEventData );
-		
-		var physics = GetComponent<PhysicsComponent>( true, true );
+
+		var physics = Components.GetInDescendantsOrSelf<PhysicsComponent>( true );
 		if ( physics is not null && physics.GetBody() is not null )
 		{
 			ApplyKnockBack( physics.GetBody(), damageEventData );
@@ -43,12 +43,12 @@ public partial class ActorComponent : IDamageable
 
 		GameLogSystem.DamageEventReceived( damageEventData );
 
-		foreach ( var damageListener in GetComponents<IDamageTakenListener>(true, true) )
+		foreach ( var damageListener in Components.GetAll<IDamageTakenListener>( FindMode.EverythingInSelfAndDescendants) )
 		{
 			damageListener.OnDamageTaken( damageEventData, Health <= 0 );	
 		}
 		
-		foreach ( var damageDealtListener in damageEventData.Originator.GetComponents<IDamageDealtListener>(true, true) )
+		foreach ( var damageDealtListener in damageEventData.Originator.Components.GetAll<IDamageDealtListener>(FindMode.EverythingInSelfAndDescendants) )
 		{
 			damageDealtListener.OnDamageDealt( damageEventData, Health <= 0 );	
 		}
@@ -68,7 +68,7 @@ public partial class ActorComponent : IDamageable
 		
 		OnDeath(damageEventData);
 		
-		var modelPhysics = GetComponent<ModelPhysics>( true, true );
+		var modelPhysics = Components.GetInDescendantsOrSelf<ModelPhysics>( true );
 		if ( modelPhysics is not null && modelPhysics.PhysicsGroup is not null )
 		{			
 			PhysicsBody closestBody = null;

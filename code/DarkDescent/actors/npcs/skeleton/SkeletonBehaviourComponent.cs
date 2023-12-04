@@ -33,7 +33,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 	private AttackEvent AttackEvent;
 	private Vector3 WishVelocity = Vector3.Zero;
 
-	public override void OnStart()
+	protected override void OnStart()
 	{
 		base.OnStart();
 		
@@ -71,9 +71,9 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		}
 	}
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
-		base.Update();
+		base.OnUpdate();
 		
 		TargetingComponent.UpdateTargetFromDistance();
 
@@ -217,7 +217,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 
 		AttackEvent = new AttackEvent()
 			.WithInitiator( GameObject )
-			.WithHurtBox( GetComponent<HurtBoxComponent>( true, true ) );
+			.WithHurtBox( Components.GetInDescendantsOrSelf<HurtBoxComponent>(true ) );
 	}
 
 	public void OnDeath( DamageEventData damageEventData )
@@ -231,10 +231,10 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		Weapon.AnimatedModelComponent.BoneMergeTarget = null;
 		Weapon.GameObject.SetParent( Scene );
 
-		if ( Weapon.TryGetComponent<ModelCollider>( out var modelCollider, false ) )
+		if ( Weapon.Components.TryGet<ModelCollider>( out var modelCollider, FindMode.EverythingInSelf ) )
 			modelCollider.Enabled = true;
 
-		if ( Weapon.TryGetComponent<PhysicsComponent>( out var physicsComponent, false ) )
+		if ( Weapon.Components.TryGet<PhysicsComponent>( out var physicsComponent, FindMode.EverythingInSelf ) )
 			physicsComponent.Enabled = true;
 
 		Revive();
@@ -252,10 +252,10 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 		Weapon.AnimatedModelComponent.BoneMergeTarget = ActorComponent.Body;
 		Weapon.GameObject.SetParent( GameObject );
 
-		if ( Weapon.TryGetComponent<ModelCollider>( out var modelCollider, false ) )
+		if ( Weapon.Components.TryGet<ModelCollider>( out var modelCollider, FindMode.EverythingInSelf ) )
 			modelCollider.Enabled = false;
 
-		if ( Weapon.TryGetComponent<PhysicsComponent>( out var physicsComponent, false ) )
+		if ( Weapon.Components.TryGet<PhysicsComponent>( out var physicsComponent, FindMode.EverythingInSelf ) )
 			physicsComponent.Enabled = false;
 
 		Weapon.Transform.LocalPosition = 0;

@@ -41,7 +41,7 @@ public class StaminaVignette : BaseComponent, BaseComponent.ExecuteInEditor
 	}
 
 	private float cutOff => 0.4f;
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		var strength = 1 - GetLocalPlayerStaminaFraction();
 
@@ -57,15 +57,15 @@ public class StaminaVignette : BaseComponent, BaseComponent.ExecuteInEditor
 		Intensity = vignetteIntensity;
 	}
 
-	public override void OnEnabled()
+	protected override void OnEnabled()
 	{
 		renderHook?.Dispose();
 
-		var cc = GetComponent<CameraComponent>( false, false );
+		var cc = Components.Get<CameraComponent>( true  );
 		renderHook = cc.AddHookBeforeOverlay( "StaminaVignette", 900, RenderEffect );
 	}
 
-	public override void OnDisabled()
+	protected override void OnDisabled()
 	{
 		renderHook?.Dispose();
 		renderHook = null;

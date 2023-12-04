@@ -10,9 +10,9 @@ public class ThrowableComponent : BaseComponent, BaseComponent.ICollisionListene
 	
 	protected bool IsBeingThrown { get; set; }
 	
-	public override void OnAwake()
+	protected override void OnAwake()
 	{
-		ItemComponent = GetComponent<ItemComponent>(false);
+		ItemComponent = Components.Get<ItemComponent>(true);
 	}
 
 	public virtual void Throw(ActorComponent thrower, Vector3 direction)
