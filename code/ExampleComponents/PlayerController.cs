@@ -18,6 +18,21 @@ public class PlayerController : BaseComponent, INetworkSerializable
 	public Ray AimRay => new Ray( EyePosition, EyeAngles.Forward );
 	public bool IsRunning;
 
+	protected override void OnEnabled()
+	{
+		base.OnEnabled();
+
+		if ( IsProxy )
+			return;
+
+		var cam = Scene.GetAllComponents<CameraComponent>().FirstOrDefault();
+		if ( cam is not null )
+		{
+			EyeAngles = cam.Transform.Rotation.Angles();
+			EyeAngles.roll = 0;
+		}
+	}
+
 	protected override void OnUpdate()
 	{
 		// Eye input
