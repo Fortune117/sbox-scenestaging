@@ -13,8 +13,6 @@ public partial class ActorComponent
 	public bool CanStartRun => StaminaFraction > 0.1f;
 	public bool CanRun => StaminaFraction > 0f;
 	
-
-
 	public void PayStamina( float amount )
 	{
 		Stamina -= amount * Stats.StaminaCostMultiplier;

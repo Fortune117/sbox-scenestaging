@@ -74,7 +74,6 @@ public partial class ActorComponent : BaseComponent
 	protected override void OnUpdate()
 	{
 		UpdateStats();
-		UpdateStamina();
 		UpdateInfoPanel();
 	}
 }
