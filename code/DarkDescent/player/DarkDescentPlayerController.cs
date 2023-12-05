@@ -23,13 +23,14 @@ public partial class DarkDescentPlayerController : BaseComponent
 	[Property, ToggleGroup("Movement")]
 	private CharacterController CharacterController { get; set; }
 	
-	[Property, ToggleGroup("Body2")] 
+	[Property, ToggleGroup("Body2")]
 	public SkinnedModelRenderer Body { get; set; }
 	
-	[Property, ToggleGroup("Body")] 
+	[Property, ToggleGroup("Body2")] 
 	private GameObject Eye { get; set; }
 	
-	[Property, ToggleGroup("Camera")] public CameraComponent Camera { get; set; }
+	[Property, ToggleGroup("Camera2")] 
+	public CameraComponent Camera { get; set; }
 	
 	private bool IsCrouching { get; set; }
 	
@@ -49,7 +50,7 @@ public partial class DarkDescentPlayerController : BaseComponent
 		EquipItem( LeftHandItem );
 	}
 
-	public void Update()
+	protected override void OnUpdate()
 	{
 		// Eye input
 

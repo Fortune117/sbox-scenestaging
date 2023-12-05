@@ -86,10 +86,6 @@
           "Factions": "Player",
           "PrimaryTargetPoint": "de07ba66-bc87-4b8e-a7cb-feaf70f186c9",
           "WeakPoint": "ad164680-6461-42ac-b714-634160425305"
-        },
-        {
-          "__type": "SoundListenerComponent",
-          "__enabled": true
         }
       ],
       "Children": [
@@ -101,11 +97,10 @@
           "Enabled": true,
           "Components": [
             {
-              "__type": "AnimatedModelComponent",
+              "__type": "SkinnedModelRenderer",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateBoneObjects": true,
-              "MaterialGroup": null,
               "MaterialOverride": null,
               "Model": "models/actors/player/player_skeleton.vmdl",
               "ShouldCastShadows": true,
@@ -126,12 +121,14 @@
               "Name": "Root",
               "Position": "0.03295898,0,0",
               "Rotation": "0.7071065,0.00000000000000000000000116981,-0.00000000000000001082444,0.707107",
+              "Tags": "player",
               "Enabled": true,
               "Children": [
                 {
                   "Id": "de07ba66-bc87-4b8e-a7cb-feaf70f186c9",
                   "Name": "Pelvis",
                   "Position": "-0.0000000000000006120843,39.98439,-0.000009068291",
+                  "Tags": "player",
                   "Enabled": true,
                   "Children": [
                     {
@@ -139,6 +136,7 @@
                       "Name": "SpineMid",
                       "Position": "-0.00000000000002812041,0.6595994,0.0000003538367",
                       "Rotation": "0.0000005912477,0.0000005066395,0.7572079,0.653174",
+                      "Tags": "player",
                       "Enabled": true,
                       "Children": [
                         {
@@ -146,6 +144,7 @@
                           "Name": "SpineHigh",
                           "Position": "6.826528,-0.000005543232,-0.00002853699",
                           "Rotation": "-0.0000007301569,0.00000002980232,-0.08382455,0.9964806",
+                          "Tags": "player",
                           "Enabled": true,
                           "Children": [
                             {
@@ -153,6 +152,7 @@
                               "Name": "Neck1",
                               "Position": "13.01609,-0.0000004172325,-0.00002346481",
                               "Rotation": "-0.00000102818,-0.0000001341105,-0.0744779,0.9972228",
+                              "Tags": "player",
                               "Enabled": true,
                               "Children": [
                                 {
@@ -160,6 +160,7 @@
                                   "Name": "Neck2",
                                   "Position": "3.181979,0.00001120567,-0.00003027931",
                                   "Rotation": "0.000001102686,0.00000005960464,0.1277235,0.99181",
+                                  "Tags": "player",
                                   "Enabled": true,
                                   "Children": [
                                     {
@@ -167,6 +168,7 @@
                                       "Name": "Skull",
                                       "Position": "3.848376,-0.00000154972,-0.00005978285",
                                       "Rotation": "-0.0000002600841,0.0000002384186,-0.7370067,0.6758855",
+                                      "Tags": "player",
                                       "Enabled": true,
                                       "Children": [
                                         {
@@ -174,12 +176,14 @@
                                           "Name": "Camera",
                                           "Position": "1.753082,0.01621189,-0.0000300342",
                                           "Rotation": "-0.7071064,-0.0000001369769,-0.0000003280406,0.7071072",
+                                          "Tags": "player",
                                           "Enabled": true,
                                           "Children": [
                                             {
                                               "Id": "e4c460aa-c998-43f5-b4ff-b946848d6aa5",
                                               "Name": "Camera",
                                               "Position": "0,0,0",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Components": [
                                                 {
@@ -282,6 +286,7 @@
                                           "Name": "Jaw",
                                           "Position": "1.164367,-1.184639,-0.00003162156",
                                           "Rotation": "0.0000002059308,0.0000001341105,-0.4300609,0.9027998",
+                                          "Tags": "player",
                                           "Enabled": true
                                         }
                                       ]
@@ -295,6 +300,7 @@
                               "Name": "Shoulder_L",
                               "Position": "10.14661,0.3017108,-1.910883",
                               "Rotation": "0.5028922,0.5215595,-0.4862278,0.4885262",
+                              "Tags": "player",
                               "Enabled": true,
                               "Children": [
                                 {
@@ -302,6 +308,7 @@
                                   "Name": "UpperArm_L",
                                   "Position": "4.290573,0.000004082918,-0.00002449466",
                                   "Rotation": "0.05973253,-0.001608986,-0.5817367,0.8111792",
+                                  "Tags": "player",
                                   "Enabled": true,
                                   "Children": [
                                     {
@@ -309,6 +316,7 @@
                                       "Name": "LowerArm_L",
                                       "Position": "10.78382,-0.00000333786,-0.00002366304",
                                       "Rotation": "-0.03510812,-0.1510356,-0.003669426,0.9878979",
+                                      "Tags": "player",
                                       "Enabled": true,
                                       "Children": [
                                         {
@@ -316,6 +324,7 @@
                                           "Name": "Wrist_L",
                                           "Position": "10.6577,0.000003337859,-0.00004100798",
                                           "Rotation": "0.05283174,0.05273777,-0.1699057,0.9826288",
+                                          "Tags": "player",
                                           "Enabled": true,
                                           "Children": [
                                             {
@@ -323,6 +332,7 @@
                                               "Name": "Middle1_L",
                                               "Position": "1.128628,0.1436276,0.02579366",
                                               "Rotation": "-0.05342095,0.01075319,0.005675124,0.998498",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Children": [
                                                 {
@@ -330,6 +340,7 @@
                                                   "Name": "Middle2_L",
                                                   "Position": "2.485763,0.000009123236,-0.00004202127",
                                                   "Rotation": "-0.0255247,-0.02126915,-0.1301446,0.9909382",
+                                                  "Tags": "player",
                                                   "Enabled": true,
                                                   "Children": [
                                                     {
@@ -337,6 +348,7 @@
                                                       "Name": "Middle3_L",
                                                       "Position": "1.559954,-0.00001442432,-0.00004976987",
                                                       "Rotation": "-0.001703039,0.005045272,-0.1437562,0.9895989",
+                                                      "Tags": "player",
                                                       "Enabled": true,
                                                       "Children": [
                                                         {
@@ -344,6 +356,7 @@
                                                           "Name": "Middle4_L",
                                                           "Position": "1.240614,-0.00003749131,-0.00004713981",
                                                           "Rotation": "-0.02019966,0.007769592,-0.03516494,0.9991471",
+                                                          "Tags": "player",
                                                           "Enabled": true
                                                         }
                                                       ]
@@ -357,6 +370,7 @@
                                               "Name": "Index1_L",
                                               "Position": "1.081416,0.1792552,0.752782",
                                               "Rotation": "-0.05484636,-0.03506103,0.01253778,0.9978002",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Children": [
                                                 {
@@ -364,6 +378,7 @@
                                                   "Name": "Index2_L",
                                                   "Position": "2.408092,-0.0000008642671,-0.00003108381",
                                                   "Rotation": "0.02976905,-0.0306672,-0.1187592,0.9920028",
+                                                  "Tags": "player",
                                                   "Enabled": true,
                                                   "Children": [
                                                     {
@@ -371,6 +386,7 @@
                                                       "Name": "Index3_L",
                                                       "Position": "1.389376,-0.00002995133,-0.00004684924",
                                                       "Rotation": "0.04571093,0.003294347,-0.2572916,0.9652465",
+                                                      "Tags": "player",
                                                       "Enabled": true,
                                                       "Children": [
                                                         {
@@ -378,6 +394,7 @@
                                                           "Name": "Index4_L",
                                                           "Position": "0.9750578,-0.00004822016,-0.00006049871",
                                                           "Rotation": "-0.05698089,0.009851217,-0.09167241,0.9941088",
+                                                          "Tags": "player",
                                                           "Enabled": true
                                                         }
                                                       ]
@@ -391,6 +408,7 @@
                                               "Name": "Ring1_L",
                                               "Position": "0.9421405,0.06015759,-0.5609828",
                                               "Rotation": "-0.05191899,0.02260727,0.03917097,0.9976266",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Children": [
                                                 {
@@ -398,6 +416,7 @@
                                                   "Name": "Ring2_L",
                                                   "Position": "2.330536,0.0000122264,-0.00004906206",
                                                   "Rotation": "0.00557689,-0.001777607,-0.09675378,0.9952912",
+                                                  "Tags": "player",
                                                   "Enabled": true,
                                                   "Children": [
                                                     {
@@ -405,6 +424,7 @@
                                                       "Name": "Ring3_L",
                                                       "Position": "1.595782,-0.0000167787,-0.00005872545",
                                                       "Rotation": "-0.02476904,-0.02935619,-0.1457828,0.9885708",
+                                                      "Tags": "player",
                                                       "Enabled": true,
                                                       "Children": [
                                                         {
@@ -412,6 +432,7 @@
                                                           "Name": "Ring4_L",
                                                           "Position": "1.259349,-0.00001388788,-0.00004211067",
                                                           "Rotation": "0.03530433,-0.006608415,-0.05287381,0.9979551",
+                                                          "Tags": "player",
                                                           "Enabled": true
                                                         }
                                                       ]
@@ -425,6 +446,7 @@
                                               "Name": "Thumb1_L",
                                               "Position": "0.6673878,0.1281658,1.18871",
                                               "Rotation": "0.6261855,-0.199159,-0.01913157,0.7535657",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Children": [
                                                 {
@@ -432,6 +454,7 @@
                                                   "Name": "Thumb2_L",
                                                   "Position": "1.904111,-0.000008225439,-0.0000617504",
                                                   "Rotation": "-0.000721246,-0.003286883,-0.1294048,0.9915862",
+                                                  "Tags": "player",
                                                   "Enabled": true,
                                                   "Children": [
                                                     {
@@ -439,6 +462,7 @@
                                                       "Name": "Thumb3_L",
                                                       "Position": "1.292161,-0.00001844764,-0.0000604689",
                                                       "Rotation": "0.006842822,-0.0713701,-0.1515075,0.9858525",
+                                                      "Tags": "player",
                                                       "Enabled": true
                                                     }
                                                   ]
@@ -450,6 +474,7 @@
                                               "Name": "Little1_L",
                                               "Position": "0.7287202,0.05223019,-1.017884",
                                               "Rotation": "-0.050697,0.1220434,0.03412748,0.9906415",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Children": [
                                                 {
@@ -457,6 +482,7 @@
                                                   "Name": "Little2_L",
                                                   "Position": "2.097746,-0.000004716217,-0.00005319714",
                                                   "Rotation": "0.008738674,-0.06553449,-0.1020457,0.9925803",
+                                                  "Tags": "player",
                                                   "Enabled": true,
                                                   "Children": [
                                                     {
@@ -464,6 +490,7 @@
                                                       "Name": "Little3_L",
                                                       "Position": "1.232702,-0.00002555549,-0.00005738622",
                                                       "Rotation": "-0.03165443,-0.0353891,-0.1853459,0.9815255",
+                                                      "Tags": "player",
                                                       "Enabled": true,
                                                       "Children": [
                                                         {
@@ -471,6 +498,7 @@
                                                           "Name": "Little4_L",
                                                           "Position": "0.8075215,-0.00002229214,-0.00006685778",
                                                           "Rotation": "0.06840398,-0.006872129,-0.179399,0.9813713",
+                                                          "Tags": "player",
                                                           "Enabled": true
                                                         }
                                                       ]
@@ -484,6 +512,7 @@
                                               "Name": "Hold_L",
                                               "Position": "2.200373,-0.1894501,-0.2310825",
                                               "Rotation": "-0.716895,0.6931025,0.000001728535,-0.07530266",
+                                              "Tags": "player",
                                               "Enabled": true
                                             }
                                           ]
@@ -496,6 +525,7 @@
                                   "Id": "f9b1f590-3457-4119-a1f6-54d11cc04aac",
                                   "Name": "ShoulderBlade_L",
                                   "Position": "0.07745203,0.2208362,-0.9881468",
+                                  "Tags": "player",
                                   "Enabled": true
                                 },
                                 {
@@ -503,6 +533,7 @@
                                   "Name": "Arm_FIK_L",
                                   "Position": "4.290572,0.00001171231,-0.00002449473",
                                   "Rotation": "0.02008,-0.01976356,0.1919775,0.9809948",
+                                  "Tags": "player",
                                   "Enabled": true,
                                   "Children": [
                                     {
@@ -510,6 +541,7 @@
                                       "Name": "Hand_Ik_L",
                                       "Position": "-1.376416,-21.00266,2.498352",
                                       "Rotation": "-0.02644709,-0.08815651,-0.8271294,0.554424",
+                                      "Tags": "player",
                                       "Enabled": true,
                                       "Children": [
                                         {
@@ -517,6 +549,7 @@
                                           "Name": "Elbow_Target_L",
                                           "Position": "-16.07891,-5.706018,-22.6634",
                                           "Rotation": "-0.5041882,0.5419527,0.5041883,0.4448322",
+                                          "Tags": "player",
                                           "Enabled": true
                                         }
                                       ]
@@ -530,6 +563,7 @@
                               "Name": "Shoulder_R",
                               "Position": "10.1466,0.3017117,1.910863",
                               "Rotation": "0.5028971,0.5215549,0.4862327,-0.4885211",
+                              "Tags": "player",
                               "Enabled": true,
                               "Children": [
                                 {
@@ -537,6 +571,7 @@
                                   "Name": "UpperArm_R",
                                   "Position": "4.290568,0.00005170702,-0.00005186965",
                                   "Rotation": "-0.05973214,0.001609433,-0.5817363,0.8111796",
+                                  "Tags": "player",
                                   "Enabled": true,
                                   "Children": [
                                     {
@@ -544,6 +579,7 @@
                                       "Name": "LowerArm_R",
                                       "Position": "10.78382,0.00003004073,-0.0000566244",
                                       "Rotation": "-0.03510878,-0.1510361,0.00366924,-0.9878976",
+                                      "Tags": "player",
                                       "Enabled": true,
                                       "Children": [
                                         {
@@ -551,6 +587,7 @@
                                           "Name": "Wrist_R",
                                           "Position": "10.65769,0.00002408027,-0.00005865096",
                                           "Rotation": "0.05010745,-0.07019848,-0.163467,0.9827716",
+                                          "Tags": "player",
                                           "Enabled": true,
                                           "Children": [
                                             {
@@ -558,6 +595,7 @@
                                               "Name": "Middle1_R",
                                               "Position": "1.128628,0.1351566,-0.05515689",
                                               "Rotation": "-0.05117936,-0.01010148,0.006767157,0.9986154",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Children": [
                                                 {
@@ -565,6 +603,7 @@
                                                   "Name": "Middle2_R",
                                                   "Position": "2.48578,0.00002586096,-0.00004433094",
                                                   "Rotation": "0.02559415,0.02026024,-0.1004205,0.9944096",
+                                                  "Tags": "player",
                                                   "Enabled": true,
                                                   "Children": [
                                                     {
@@ -572,6 +611,7 @@
                                                       "Name": "Middle3_R",
                                                       "Position": "1.505709,0.00001597404,-0.00004845857",
                                                       "Rotation": "0.0005512834,-0.01484722,-0.1785545,0.9838179",
+                                                      "Tags": "player",
                                                       "Enabled": true,
                                                       "Children": [
                                                         {
@@ -579,6 +619,7 @@
                                                           "Name": "Middle4_R",
                                                           "Position": "1.373957,0.00002342462,-0.00005573034",
                                                           "Rotation": "-0.01901974,0.04935469,-0.01173474,-0.9985313",
+                                                          "Tags": "player",
                                                           "Enabled": true
                                                         }
                                                       ]
@@ -592,6 +633,7 @@
                                               "Name": "Index1_R",
                                               "Position": "1.081427,0.01893369,-0.7736771",
                                               "Rotation": "-0.05241211,0.04253262,-0.00470902,0.9977083",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Children": [
                                                 {
@@ -599,6 +641,7 @@
                                                   "Name": "Index2_R",
                                                   "Position": "2.510694,0.00002884864,-0.00007662175",
                                                   "Rotation": "-0.01576187,0.04541004,-0.1670257,0.9847801",
+                                                  "Tags": "player",
                                                   "Enabled": true,
                                                   "Children": [
                                                     {
@@ -606,6 +649,7 @@
                                                       "Name": "Index3_R",
                                                       "Position": "1.630339,0.00003111362,-0.00007864831",
                                                       "Rotation": "-0.03116953,0.02389128,-0.1587693,0.9865344",
+                                                      "Tags": "player",
                                                       "Enabled": true,
                                                       "Children": [
                                                         {
@@ -613,6 +657,7 @@
                                                           "Name": "Index4_R",
                                                           "Position": "0.9897175,0.000009238718,-0.00008967517",
                                                           "Rotation": "0.06180893,0.0373519,-0.1793485,0.9811312",
+                                                          "Tags": "player",
                                                           "Enabled": true
                                                         }
                                                       ]
@@ -626,6 +671,7 @@
                                               "Name": "Ring1_R",
                                               "Position": "0.9421406,0.175432,0.5361436",
                                               "Rotation": "-0.05258162,-0.01839165,0.04131832,0.997592",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Children": [
                                                 {
@@ -633,6 +679,7 @@
                                                   "Name": "Ring2_R",
                                                   "Position": "2.330563,0.00004226714,-0.00004994123",
                                                   "Rotation": "-0.002505846,0.02597414,-0.1175295,0.9927264",
+                                                  "Tags": "player",
                                                   "Enabled": true,
                                                   "Children": [
                                                     {
@@ -640,6 +687,7 @@
                                                       "Name": "Ring3_R",
                                                       "Position": "1.669308,0.00003191828,-0.00005844235",
                                                       "Rotation": "0.02431649,-0.03707928,-0.06305702,0.9970244",
+                                                      "Tags": "player",
                                                       "Enabled": true,
                                                       "Children": [
                                                         {
@@ -647,6 +695,7 @@
                                                           "Name": "Ring4_R",
                                                           "Position": "1.232413,0.00003847479,-0.00007102824",
                                                           "Rotation": "0.04223786,0.02053107,0.1377707,-0.9893501",
+                                                          "Tags": "player",
                                                           "Enabled": true
                                                         }
                                                       ]
@@ -660,6 +709,7 @@
                                               "Name": "Thumb1_R",
                                               "Position": "0.6673927,-0.121621,-1.189483",
                                               "Rotation": "-0.7014811,0.1960709,-0.03983203,0.6840277",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Children": [
                                                 {
@@ -667,6 +717,7 @@
                                                   "Name": "Thumb2_R",
                                                   "Position": "1.904109,0.00004208087,-0.00005930661",
                                                   "Rotation": "0.0007217824,0.003286794,-0.1294049,0.9915861",
+                                                  "Tags": "player",
                                                   "Enabled": true,
                                                   "Children": [
                                                     {
@@ -674,6 +725,7 @@
                                                       "Name": "Thumb3_R",
                                                       "Position": "1.292152,0.00003804266,-0.0001085699",
                                                       "Rotation": "-0.004207999,0.03482734,-0.06570791,0.997222",
+                                                      "Tags": "player",
                                                       "Enabled": true
                                                     }
                                                   ]
@@ -685,6 +737,7 @@
                                               "Name": "Little1_R",
                                               "Position": "0.728745,0.2626335,0.9847391",
                                               "Rotation": "0.0530683,0.1178104,-0.04669001,-0.9905174",
+                                              "Tags": "player",
                                               "Enabled": true,
                                               "Children": [
                                                 {
@@ -692,6 +745,7 @@
                                                   "Name": "Little2_R",
                                                   "Position": "2.097733,0.00004275143,-0.00005537271",
                                                   "Rotation": "0.002554175,-0.1227007,0.1159206,-0.9856471",
+                                                  "Tags": "player",
                                                   "Enabled": true,
                                                   "Children": [
                                                     {
@@ -699,6 +753,7 @@
                                                       "Name": "Little3_R",
                                                       "Position": "1.236769,0.00003796816,-0.00006290524",
                                                       "Rotation": "0.03278619,-0.03979238,-0.07958493,0.9954938",
+                                                      "Tags": "player",
                                                       "Enabled": true,
                                                       "Children": [
                                                         {
@@ -706,6 +761,7 @@
                                                           "Name": "Little4_R",
                                                           "Position": "0.8534102,0.00003024935,-0.00007479916",
                                                           "Rotation": "-0.05456699,0.02065993,-0.2102809,0.9758984",
+                                                          "Tags": "player",
                                                           "Enabled": true
                                                         }
                                                       ]
@@ -719,6 +775,7 @@
                                               "Name": "Hold_R",
                                               "Position": "2.200376,-0.1372621,0.2653179",
                                               "Rotation": "-0.720839,0.68931,-0.07240665,0.00000008009374",
+                                              "Tags": "player",
                                               "Enabled": true
                                             }
                                           ]
@@ -732,6 +789,7 @@
                                   "Name": "ShoulderBlade_R",
                                   "Position": "0.07744704,0.2208663,0.9880598",
                                   "Rotation": "0.000001102686,0.00000007450581,-0.00000002980232,1",
+                                  "Tags": "player",
                                   "Enabled": true
                                 },
                                 {
@@ -739,6 +797,7 @@
                                   "Name": "Arm_FIK_R",
                                   "Position": "4.290567,0.00005933641,-0.00005186943",
                                   "Rotation": "0.0200793,-0.01976329,-0.1919779,-0.9809948",
+                                  "Tags": "player",
                                   "Enabled": true,
                                   "Children": [
                                     {
@@ -746,6 +805,7 @@
                                       "Name": "Hand_Ik_R",
                                       "Position": "-1.376398,-21.00263,-2.498408",
                                       "Rotation": "0.07947841,0.008453202,-0.8317714,0.5493343",
+                                      "Tags": "player",
                                       "Enabled": true,
                                       "Children": [
                                         {
@@ -753,6 +813,7 @@
                                           "Name": "Elbow_Target_R",
                                           "Position": "-16.07892,-1.27561,23.33578",
                                           "Rotation": "-0.459217,0.4911222,-0.5538209,-0.4911223",
+                                          "Tags": "player",
                                           "Enabled": true
                                         }
                                       ]
@@ -765,7 +826,7 @@
                               "Id": "08b7baad-09f5-4c23-a7a5-413cf9d9f053",
                               "Name": "Block Hitbox",
                               "Position": "12.06134,-16.41174,0.00000009013847",
-                              "Tags": "block",
+                              "Tags": "block,player",
                               "Enabled": true,
                               "Components": [
                                 {
@@ -789,6 +850,7 @@
                                   "Id": "6151ce8d-464a-4032-a9de-0eb8f37f3f31",
                                   "Name": "Block Particle",
                                   "Position": "0.6856445,-9.267468,-0.000001304642",
+                                  "Tags": "block,player",
                                   "Enabled": true,
                                   "Components": [
                                     {
@@ -812,6 +874,7 @@
                       "Name": "legsocket_L",
                       "Position": "0.5007479,-3.001072,-1.339693",
                       "Rotation": "-0.09743088,0.7107129,-0.05724409,0.694347",
+                      "Tags": "player",
                       "Enabled": true,
                       "Children": [
                         {
@@ -819,6 +882,7 @@
                           "Name": "UpperLeg_L",
                           "Position": "4.145827,0.00001937152,-0.00001497567",
                           "Rotation": "0.5233448,-0.454803,0.4681147,-0.5478439",
+                          "Tags": "player",
                           "Enabled": true,
                           "Children": [
                             {
@@ -826,6 +890,7 @@
                               "Name": "LowerLeg_L",
                               "Position": "14.19122,-0.00002586842,-0.00003635884",
                               "Rotation": "0.001921356,-0.017802,-0.06275195,-0.9978684",
+                              "Tags": "player",
                               "Enabled": true,
                               "Children": [
                                 {
@@ -833,6 +898,7 @@
                                   "Name": "Foot1_L",
                                   "Position": "20.04837,-0.00004887582,-0.00005078316",
                                   "Rotation": "0.7837256,-0.6188664,0.04608157,-0.02559546",
+                                  "Tags": "player",
                                   "Enabled": true,
                                   "Children": [
                                     {
@@ -840,6 +906,7 @@
                                       "Name": "Toe1_L",
                                       "Position": "5.612225,-0.1994125,0.7606752",
                                       "Rotation": "-0.002092958,0.01107267,0.1248564,0.9921108",
+                                      "Tags": "player",
                                       "Enabled": true
                                     },
                                     {
@@ -847,6 +914,7 @@
                                       "Name": "Toe2_L",
                                       "Position": "5.94468,0.04053856,-0.0800239",
                                       "Rotation": "-0.002092674,0.01107261,0.1248564,0.9921108",
+                                      "Tags": "player",
                                       "Enabled": true
                                     },
                                     {
@@ -854,6 +922,7 @@
                                       "Name": "Toe3_L",
                                       "Position": "5.627094,-0.04702963,-0.7584904",
                                       "Rotation": "-0.002079521,0.01108278,0.1235778,0.9922708",
+                                      "Tags": "player",
                                       "Enabled": true
                                     },
                                     {
@@ -861,6 +930,7 @@
                                       "Name": "Toe4_L",
                                       "Position": "5.453584,-0.1039907,-1.50907",
                                       "Rotation": "-0.002058921,0.0110949,0.1216596,0.9925078",
+                                      "Tags": "player",
                                       "Enabled": true
                                     },
                                     {
@@ -868,6 +938,7 @@
                                       "Name": "Toe5_L",
                                       "Position": "5.051667,-0.2007038,-1.864722",
                                       "Rotation": "-0.002602258,0.01365497,0.1123318,0.9935735",
+                                      "Tags": "player",
                                       "Enabled": true
                                     }
                                   ]
@@ -883,6 +954,7 @@
                       "Name": "legsocket_R",
                       "Position": "0.5007476,-3.001085,1.339659",
                       "Rotation": "0.09743145,-0.7107131,-0.05724412,0.6943466",
+                      "Tags": "player",
                       "Enabled": true,
                       "Children": [
                         {
@@ -890,6 +962,7 @@
                           "Name": "UpperLeg_R",
                           "Position": "4.145829,0.000002205372,-0.000001378358",
                           "Rotation": "-0.5286274,0.440416,0.4839323,-0.5407369",
+                          "Tags": "player",
                           "Enabled": true,
                           "Children": [
                             {
@@ -897,6 +970,7 @@
                               "Name": "LowerLeg_R",
                               "Position": "13.60593,0.000005245209,-0.00003439188",
                               "Rotation": "0.002685547,-0.01659581,0.1061903,0.9942037",
+                              "Tags": "player",
                               "Enabled": true,
                               "Children": [
                                 {
@@ -904,6 +978,7 @@
                                   "Name": "Foot1_R",
                                   "Position": "20.76594,-0.00001049042,-0.00001716614",
                                   "Rotation": "0.7641973,-0.6427921,-0.04953736,0.0191555",
+                                  "Tags": "player",
                                   "Enabled": true,
                                   "Children": [
                                     {
@@ -911,6 +986,7 @@
                                       "Name": "Toe1_R",
                                       "Position": "5.612219,-0.1994037,-0.7606725",
                                       "Rotation": "0.001988589,-0.01109188,0.1155617,0.9932365",
+                                      "Tags": "player",
                                       "Enabled": true
                                     },
                                     {
@@ -918,6 +994,7 @@
                                       "Name": "Toe2_R",
                                       "Position": "5.94468,0.04054965,0.08002697",
                                       "Rotation": "0.001988691,-0.01109196,0.1155617,0.9932364",
+                                      "Tags": "player",
                                       "Enabled": true
                                     },
                                     {
@@ -925,6 +1002,7 @@
                                       "Name": "Toe3_R",
                                       "Position": "5.627102,-0.0470139,0.7584628",
                                       "Rotation": "0.001984783,-0.0110923,0.1152118,0.9932771",
+                                      "Tags": "player",
                                       "Enabled": true
                                     },
                                     {
@@ -932,6 +1010,7 @@
                                       "Name": "Toe4_R",
                                       "Position": "5.453588,-0.103975,1.509073",
                                       "Rotation": "0.001978104,-0.01109264,0.1146871,0.9933378",
+                                      "Tags": "player",
                                       "Enabled": true
                                     },
                                     {
@@ -939,6 +1018,7 @@
                                       "Name": "Toe5_R",
                                       "Position": "5.051665,-0.2006893,1.864694",
                                       "Rotation": "0.00252577,-0.01364731,0.1069966,0.9941626",
+                                      "Tags": "player",
                                       "Enabled": true
                                     }
                                   ]
@@ -956,6 +1036,7 @@
                   "Name": "Foot_ik_Controller_L",
                   "Position": "4.39235,0.5336483,-2.301026",
                   "Rotation": "-0.0003474057,0.0112635,-0.03079764,0.9994622",
+                  "Tags": "player",
                   "Enabled": true,
                   "Children": [
                     {
@@ -963,6 +1044,7 @@
                       "Name": "ToePivot_L",
                       "Position": "0.006708274,-0.02300463,-0.0134648",
                       "Rotation": "0.6849497,0.7285032,0.00821048,0.00771907",
+                      "Tags": "player",
                       "Enabled": true,
                       "Children": [
                         {
@@ -970,6 +1052,7 @@
                           "Name": "F_ik_L",
                           "Position": "1.551147,-4.862812,-0.00687115",
                           "Rotation": "-0.5886621,-0.8083792,-0.0000006258488,-0.0000002682209",
+                          "Tags": "player",
                           "Enabled": true,
                           "Children": [
                             {
@@ -977,6 +1060,7 @@
                               "Name": "Knee_ik_L",
                               "Position": "33.06992,30.07532,-1.099735",
                               "Rotation": "0.0000001650112,0.0000001490116,0.155364,0.9878573",
+                              "Tags": "player",
                               "Enabled": true
                             }
                           ]
@@ -990,6 +1074,7 @@
                   "Name": "Foot_ik_Controller_R",
                   "Position": "4.39235,0.5336493,2.301026",
                   "Rotation": "0.0003472269,-0.01126337,-0.0307977,0.9994622",
+                  "Tags": "player",
                   "Enabled": true,
                   "Children": [
                     {
@@ -997,6 +1082,7 @@
                       "Name": "ToePivot_R",
                       "Position": "0.006708186,-0.02300322,0.01346476",
                       "Rotation": "-0.6849496,-0.7285031,0.008210212,0.00771904",
+                      "Tags": "player",
                       "Enabled": true,
                       "Children": [
                         {
@@ -1004,6 +1090,7 @@
                           "Name": "F_ik_R",
                           "Position": "1.55115,-5.257084,0.006837963",
                           "Rotation": "0.5962057,0.8028318,-0.0000005066395,-0.0000004172325",
+                          "Tags": "player",
                           "Enabled": true,
                           "Children": [
                             {
@@ -1011,6 +1098,7 @@
                               "Name": "Knee_ik_R",
                               "Position": "34.00475,29.56474,0.4627985",
                               "Rotation": "-0.000000627007,-0.00000002980232,0.1461076,0.9892688",
+                              "Tags": "player",
                               "Enabled": true
                             }
                           ]
@@ -1051,11 +1139,10 @@
           "Enabled": true,
           "Components": [
             {
-              "__type": "AnimatedModelComponent",
+              "__type": "SkinnedModelRenderer",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateBoneObjects": false,
-              "MaterialGroup": null,
               "MaterialOverride": null,
               "Model": "models/weapons/longsword/short_sword.vmdl",
               "ShouldCastShadows": true,
@@ -1209,11 +1296,10 @@
           "Enabled": true,
           "Components": [
             {
-              "__type": "AnimatedModelComponent",
+              "__type": "SkinnedModelRenderer",
               "__enabled": true,
               "BodyGroups": 18446744073709551615,
               "CreateBoneObjects": false,
-              "MaterialGroup": null,
               "MaterialOverride": null,
               "Model": "models/weapons/longsword/short_sword.vmdl",
               "ShouldCastShadows": true,
@@ -1373,7 +1459,7 @@
           "Gravity": true
         },
         {
-          "__type": "ModelComponent",
+          "__type": "ModelRenderer",
           "__enabled": true,
           "BodyGroups": 18446744073709551615,
           "MaterialOverride": null,
@@ -1422,7 +1508,7 @@
           "Gravity": true
         },
         {
-          "__type": "ModelComponent",
+          "__type": "ModelRenderer",
           "__enabled": true,
           "BodyGroups": 18446744073709551615,
           "MaterialOverride": null,
@@ -1524,7 +1610,7 @@
       "Enabled": true,
       "Components": [
         {
-          "__type": "ModelComponent",
+          "__type": "ModelRenderer",
           "__enabled": true,
           "BodyGroups": 18446744073709551615,
           "MaterialOverride": "dev/helper/testgrid.vmat",
@@ -1591,11 +1677,10 @@
           "EnemyFactions": "Player"
         },
         {
-          "__type": "AnimatedModelComponent",
+          "__type": "SkinnedModelRenderer",
           "__enabled": true,
           "BodyGroups": 18446744073709551615,
           "CreateBoneObjects": false,
-          "MaterialGroup": null,
           "MaterialOverride": null,
           "Model": "models/actors/skeleton/flame_skull.vmdl",
           "ShouldCastShadows": false,
@@ -1607,6 +1692,7 @@
           "Id": "75f3cdb2-d2b7-476b-812e-0930544bce71",
           "Name": "Effects",
           "Position": "0,0,4.460058",
+          "Tags": "actor,trigger",
           "Enabled": true,
           "Components": [
             {
@@ -1629,7 +1715,7 @@
           "Id": "d5f528b6-88dc-49a2-85d0-e3363b5f2315",
           "Name": "Collider",
           "Position": "0,0,4.502568",
-          "Tags": "actor",
+          "Tags": "actor,trigger",
           "Enabled": true,
           "Components": [
             {
@@ -1646,7 +1732,7 @@
           "Id": "c226f918-cad9-427d-aeea-3b4e6d118d48",
           "Name": "Detection Trigger",
           "Position": "0,0,2.983597",
-          "Tags": "trigger",
+          "Tags": "actor,trigger",
           "Components": [
             {
               "__type": "ColliderSphereComponent",

@@ -4,20 +4,6 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent
 {
-	/// <summary>
-	/// Cost of sprinting in stamina per second.
-	/// </summary>
-	[Property, Range(0, 20), ToggleGroup("Stamina")]
-	public float StaminaSprintCost { get; set; }
-	
-	/// <summary>
-	/// Stamina cost to jump.
-	/// </summary>
-	[Property, Range(0, 30), ToggleGroup("Stamina")]
-	public float StaminaJumpCost { get; set; }
-	
-	public bool IsSprinting { get; set; }
-	
 	public float Stamina { get; private set; }
 	
 	private TimeSince TimeSinceLastStaminaCost { get; set; }
@@ -27,13 +13,7 @@ public partial class ActorComponent
 	public bool CanStartRun => StaminaFraction > 0.1f;
 	public bool CanRun => StaminaFraction > 0f;
 	
-	private void UpdateStamina()
-	{
-		if ( IsSprinting )
-		{
-			PayStamina(StaminaSprintCost * Time.Delta );
-		}
-	}
+
 
 	public void PayStamina( float amount )
 	{
@@ -53,24 +33,9 @@ public partial class ActorComponent
 		return GetStaminaCost( amount ) < Stamina;
 	}
 
-	private float GetStaminaCost( float amount )
+	public float GetStaminaCost( float amount )
 	{
 		return amount * Stats.StaminaCostMultiplier;
-	}
-
-	public void OnJump()
-	{
-		PayStamina( StaminaJumpCost );
-	}
-
-	public bool CanAffordJump()
-	{
-		return Stamina >= GetStaminaCost( StaminaJumpCost );
-	}
-	
-	public void OnJumpQueued()
-	{
-		
 	}
 	
 	private void OnMaxStaminaChanged( float oldMaxStaminaBonus, float newMaxStaminaBonus )
