@@ -51,6 +51,8 @@
           "LeftHandItem": "1b83d378-7e31-4128-a48e-14a1cf18d533",
           "RightHandItem": "3c5efd1b-d47a-40f5-b99a-b6187596528d",
           "RunSpeed": 170,
+          "StaminaJumpCost": 0,
+          "StaminaSprintCost": 0,
           "WalkSpeed": 110
         },
         {
@@ -66,9 +68,7 @@
           "PrimaryAttribute": "Strength",
           "ShowDamageNumbers": false,
           "ShowInfoPanel": false,
-          "SpellCastingAttribute": "Intelligence",
-          "StaminaJumpCost": 0,
-          "StaminaSprintCost": 0
+          "SpellCastingAttribute": "Intelligence"
         },
         {
           "__type": "CharacterController",
@@ -1647,9 +1647,7 @@
           "PrimaryAttribute": "Strength",
           "ShowDamageNumbers": true,
           "ShowInfoPanel": true,
-          "SpellCastingAttribute": "Intelligence",
-          "StaminaJumpCost": 0,
-          "StaminaSprintCost": 0
+          "SpellCastingAttribute": "Intelligence"
         },
         {
           "__type": "PhysicsComponent",

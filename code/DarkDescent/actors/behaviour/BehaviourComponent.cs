@@ -46,7 +46,7 @@ public class BehaviourComponent : BaseComponent
 		if ( ActorComponent.Body is null )
 			return;
 		
-		//ActorComponent.Body.SceneObject.OnGenericEvent += OnGenericAnimEvent;
+		ActorComponent.Body.SceneModel.OnGenericEvent += OnGenericAnimEvent;
 	}
 
 	protected virtual void OnGenericAnimEvent( SceneModel.GenericEvent genericEvent )
