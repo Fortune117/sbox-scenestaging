@@ -107,12 +107,9 @@
               "Tint": "1,1,1,1"
             },
             {
-              "__type": "ModelCollider",
+              "__type": "ModelHitboxes",
               "__enabled": true,
-              "IsTrigger": false,
-              "Model": "models/actors/player/player_skeleton.vmdl",
-              "Static": false,
-              "Surface": "data/surfaces/darkdescent_flesh.surface"
+              "Renderer": "7382cc3d-b1d2-4174-8433-25f8c66a9682"
             }
           ],
           "Children": [

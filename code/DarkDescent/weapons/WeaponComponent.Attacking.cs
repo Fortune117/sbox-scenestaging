@@ -255,7 +255,7 @@ public partial class WeaponComponent
 	/// <summary>
 	/// Our attack was stopped short, cancel the attack and play a lil bounce animation.
 	/// </summary>
-	private void BounceAttack(PhysicsTraceResult traceResult)
+	private void BounceAttack(SceneTraceResult traceResult)
 	{
 		isAttacking = false;
 		attackStopped = true;

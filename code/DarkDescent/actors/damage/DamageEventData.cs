@@ -180,7 +180,7 @@ public struct DamageEventData
 		return DamageFlags.HasFlag( flags );
 	}
 
-	public DamageEventData UsingTraceResult( PhysicsTraceResult traceResult )
+	public DamageEventData UsingTraceResult( SceneTraceResult traceResult )
 	{
 		Position = traceResult.HitPosition;
 		Direction = -traceResult.Normal;

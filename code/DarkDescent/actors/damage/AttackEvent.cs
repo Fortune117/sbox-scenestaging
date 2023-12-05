@@ -28,10 +28,11 @@ public struct AttackEvent
 		foreach ( var hurtBox in HurtBoxes )
 		{
 			var tr = hurtBox.PerformTrace();
-		
+			
 			if ( !tr.Hit )
 				continue;
 			
+			Log.Info( tr.Hitbox );
 			var gameObject = tr.Body.GameObject;
 			if ( gameObject is not GameObject hitGameObject )
 				continue;

@@ -83,7 +83,7 @@ public partial class WeaponComponent : ItemComponent, IDamageInflictor
 		return HurtBox.Capsule;
 	}
 	
-	public virtual PhysicsTraceResult GetWeaponTrace()
+	public virtual SceneTraceResult GetWeaponTrace()
 	{
 		return HurtBox.PerformTrace();
 	}
@@ -93,7 +93,7 @@ public partial class WeaponComponent : ItemComponent, IDamageInflictor
 		return HurtBox.DirectionMoment;
 	}
 
-	public void PlayScrapeEffect(PhysicsTraceResult traceResult)
+	public void PlayScrapeEffect(SceneTraceResult traceResult)
 	{
 		ScrapeParticles.Transform.Position = traceResult.EndPosition;
 		ScrapeParticles.Set( "Normal", traceResult.Normal );

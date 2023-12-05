@@ -6,7 +6,7 @@ public struct AttackHitEvent
 {
 	public IDamageable Damageable { get; set; }
 	public Vector3 HitDirection { get; set; }
-	public PhysicsTraceResult TraceResult { get; set; }
+	public SceneTraceResult TraceResult { get; set; }
 	
 	public AttackBlockerComponent Blocker { get; set; }
 	
