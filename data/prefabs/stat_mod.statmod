@@ -1,7 +1,7 @@
 {
   "StatModifier": {
-    "StatType": "Constitution",
-    "Value": 3
+    "Type": "AdditiveMultiply",
+    "Value": 0.05
   },
   "__references": []
 }
