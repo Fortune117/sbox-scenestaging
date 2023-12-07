@@ -6,7 +6,7 @@ namespace DarkDescent.PostProcessing;
 [Title( "Dark Descent Downscaler" )]
 [Category( "Post Processing" )]
 [Icon( "apps" )]
-public class PixelatePostProcess : BaseComponent, BaseComponent.ExecuteInEditor
+public class PixelatePostProcess : Component, Component.ExecuteInEditor
 {
 	[Property] 
 	private float Resolution { get; set; } = 850;

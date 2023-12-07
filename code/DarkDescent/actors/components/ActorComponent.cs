@@ -8,7 +8,7 @@ namespace DarkDescent.Actor;
 /// An Actor is anything in the game that the various NPCs and their systems should interact with.
 /// i.e. all npcs are Actors, the player is an Actor, etc
 /// </summary>
-public partial class ActorComponent : BaseComponent
+public partial class ActorComponent : Component
 {
 	[Property, ToggleGroup("Attributes")] 
 	public Attributes PrimaryAttribute { get; set; } = Attributes.Strength;

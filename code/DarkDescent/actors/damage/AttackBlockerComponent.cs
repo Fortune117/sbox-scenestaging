@@ -3,7 +3,7 @@ using Sandbox;
 
 namespace DarkDescent.Actor.Damage;
 
-public class AttackBlockerComponent : BaseComponent
+public class AttackBlockerComponent : Component
 {
 	[Property]
 	public ActorComponent BlockOwner { get; set; }
@@ -85,7 +85,7 @@ public class AttackBlockerComponent : BaseComponent
 		ParticleSystem.Set("RingYaw", angles.yaw  );
 		ParticleSystem.Set("RingRoll", angles.roll  );
 
-		Sound.FromWorld( isParry ? ItemComponent.BlockResource.ParrySound.ResourceName : ItemComponent.BlockResource.BlockSound.ResourceName, ParticleSystem.Transform.Position );
+		Sound.Play( isParry ? ItemComponent.BlockResource.ParrySound.ResourceName : ItemComponent.BlockResource.BlockSound.ResourceName, ParticleSystem.Transform.Position );
 
 		if ( isParry )
 		{

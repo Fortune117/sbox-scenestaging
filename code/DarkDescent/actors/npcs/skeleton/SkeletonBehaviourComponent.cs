@@ -56,8 +56,8 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 			{
 				hitBoxesActive = true;
 				Weapon.SwordTrail?.StartTrail();
-				var sound = Sound.FromWorld( Weapon.SwingSound.ResourceName, Weapon.Transform.Position );
-				sound.SetPitch( ActorComponent.Stats.ActionSpeed.Remap( 0, 2, 0.5f, 1.5f ) );
+				var sound = Sound.Play( Weapon.SwingSound.ResourceName, Weapon.Transform.Position );
+				sound.Pitch = ActorComponent.Stats.ActionSpeed.Remap( 0, 2, 0.5f, 1.5f );
 				break;
 			}
 			
@@ -181,7 +181,7 @@ public class SkeletonBehaviourComponent : BehaviourComponent, IDamageTakenListen
 			return;
 		
 		if (hitEvent.Damageable.PlayHitSound)
-			Sound.FromWorld( Weapon.ImpactSound.ResourceName, hitEvent.TraceResult.HitPosition );
+			Sound.Play( Weapon.ImpactSound.ResourceName, hitEvent.TraceResult.HitPosition );
 		
 		hitEvent.Damageable?.TakeDamage( damageEvent );
 	}

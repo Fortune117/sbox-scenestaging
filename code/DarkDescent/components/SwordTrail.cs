@@ -2,7 +2,7 @@ using Sandbox;
 
 namespace DarkDescent.Components;
 
-public class SwordTrail : BaseComponent, BaseComponent.ExecuteInEditor
+public class SwordTrail : Component, Component.ExecuteInEditor
 {
 	[Property]
 	private GameObject Normal { get; set; }

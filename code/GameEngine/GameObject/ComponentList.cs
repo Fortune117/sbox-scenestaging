@@ -298,17 +298,17 @@ public class ComponentList
 		_list.RemoveAll( x => x is null );
 	}
 
-	internal void OnDestroyedInternal( Component baseComponent )
+	internal void OnDestroyedInternal( Component Component )
 	{
-		_list.Remove( baseComponent );
+		_list.Remove( Component );
 	}
 
 	/// <summary>
 	/// Move the position of the component in the list by delta (-1 means up one, 1 means down one)
 	/// </summary>
-	public void Move( Component baseComponent, int delta )
+	public void Move( Component Component, int delta )
 	{
-		var i = _list.IndexOf( baseComponent );
+		var i = _list.IndexOf( Component );
 		if ( i < 0 ) return;
 
         i += delta;
@@ -317,8 +317,8 @@ public class ComponentList
 		if ( i >= _list.Count ) i = _list.Count - 1;
 
 		// Move the element
-		_list.RemoveAt( _list.IndexOf( baseComponent ) );
-		_list.Insert( i, baseComponent );
+		_list.RemoveAt( _list.IndexOf( Component ) );
+		_list.Insert( i, Component );
 	}
 
 	//

@@ -5,7 +5,7 @@ using Sandbox;
 
 namespace DarkDescent.Components;
 
-public partial class PhysicsInteractableComponent : BaseComponent, IDamageable
+public partial class PhysicsInteractableComponent : Component, IDamageable
 {
 	[Property]
 	public bool CanPickUp { get; set; }

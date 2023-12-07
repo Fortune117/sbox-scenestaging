@@ -8,7 +8,7 @@ namespace DarkDescent.Cameras;
 [Title( "Camera Shake" )]
 [Category( "Camera" )]
 [Icon( "earthquake" )]
-public class CameraShake : BaseComponent, CameraComponent.ISceneCameraSetup, IDamageTakenListener, IBlockListener
+public class CameraShake : Component, CameraComponent.ISceneCameraSetup, IDamageTakenListener, IBlockListener
 {
 	private readonly List<Shake> cameraShakes = new();
 	

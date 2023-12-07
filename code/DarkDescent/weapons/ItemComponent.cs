@@ -6,7 +6,7 @@ using Sandbox;
 
 namespace DarkDescent.Items;
 
-public partial class ItemComponent : BaseComponent, BaseComponent.ExecuteInEditor
+public partial class ItemComponent : Component, Component.ExecuteInEditor
 {
 	public DarkDescentPlayerController PlayerController { get; set; }
 	
@@ -62,7 +62,8 @@ public partial class ItemComponent : BaseComponent, BaseComponent.ExecuteInEdito
 
 	public virtual void OnEquipped()
 	{
-		ModelCollider.Enabled = false;
+		if (ModelCollider is not null)
+			ModelCollider.Enabled = false;
 		PhysicsComponent.Enabled = false;
 	}
 

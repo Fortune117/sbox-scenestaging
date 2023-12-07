@@ -9,7 +9,7 @@ namespace DarkDescent.Cameras;
 [Title( "View Punch" )]
 [Category( "Camera" )]
 [Icon( "cameraswitch" )]
-public class ViewPunch : BaseComponent, CameraComponent.ISceneCameraSetup, IDamageTakenListener, IBlockListener
+public class ViewPunch : Component, CameraComponent.ISceneCameraSetup, IDamageTakenListener, IBlockListener
 {
     private Rotation targetRotation = Rotation.Identity;
     private Rotation currentRotation = Rotation.Identity;

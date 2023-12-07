@@ -3,7 +3,7 @@ using Sandbox;
 
 namespace DarkDescent.Actor.StatusEffects;
 
-public class StatusEffectManagerComponent : BaseComponent
+public class StatusEffectManagerComponent : Component
 {
 	public ActorComponent ActorComponent { get; private set; }
 	

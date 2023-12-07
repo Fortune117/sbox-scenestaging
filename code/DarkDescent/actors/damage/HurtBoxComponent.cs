@@ -2,7 +2,7 @@ using Sandbox;
 
 namespace DarkDescent.Actor.Damage;
 
-public class HurtBoxComponent : BaseComponent
+public class HurtBoxComponent : Component
 {
 	public Vector3 DirectionMoment
 	{

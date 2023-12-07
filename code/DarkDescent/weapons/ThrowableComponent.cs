@@ -2,7 +2,7 @@ using DarkDescent.Actor;
 
 namespace DarkDescent.Items;
 
-public class ThrowableComponent : BaseComponent, BaseComponent.ICollisionListener
+public class ThrowableComponent : Component, Component.ICollisionListener
 {
 	protected ItemComponent ItemComponent { get; set; }
 	

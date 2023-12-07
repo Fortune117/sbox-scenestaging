@@ -7,7 +7,7 @@ namespace DarkDescent.Components;
 /// For instance, when talking about an object in the event log, this can give us the much needed context for it.
 /// </summary>
 [Prefab]
-public partial class ObjectClassifierComponent : BaseComponent
+public partial class ObjectClassifierComponent : Component
 {
 	/// <summary>
 	/// The name of this object. Will be used in the event log.

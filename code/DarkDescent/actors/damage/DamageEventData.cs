@@ -194,7 +194,7 @@ public struct DamageEventData
 		if ( surface is null )
 			return;
 
-		Sound.FromWorld( surface.Sounds.ImpactHard, Position );
+		Sound.Play( surface.Sounds.ImpactHard, Position );
 
 		if ( surface.ImpactEffects.Regular is null || surface.ImpactEffects.Regular.Length == 0 )
 			return;
@@ -215,7 +215,7 @@ public struct DamageEventData
 		if ( surface is null )
 			return;
 
-		Sound.FromWorld( surface.Sounds.ImpactHard, Position );
+		Sound.Play( surface.Sounds.ImpactHard, Position );
 
 		if ( surface.ImpactEffects.Regular is null || surface.ImpactEffects.Regular.Length == 0 )
 			return;

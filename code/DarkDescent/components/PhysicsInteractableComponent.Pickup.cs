@@ -203,7 +203,7 @@ public partial class PhysicsInteractableComponent : IInteractable
 			HeldBody.ApplyAngularImpulse( Vector3.Random * (HeldBody.Mass * force) );
 		}
 
-		Sound.FromWorld( "interact.throw", Carrier.AimRay.Position );
+		Sound.Play( "interact.throw", Carrier.AimRay.Position );
 		GameLogSystem.PlayerThrowObject( this );
 		
 		PickupEnd(false, false);

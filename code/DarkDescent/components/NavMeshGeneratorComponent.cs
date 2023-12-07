@@ -3,7 +3,7 @@ using Sandbox;
 
 namespace DarkDescent;
 
-public class NavMeshGeneratorComponent : BaseComponent
+public class NavMeshGeneratorComponent : Component
 {
 	private NavigationMesh mesh;
 	private TimeSince TimeSinceStart;

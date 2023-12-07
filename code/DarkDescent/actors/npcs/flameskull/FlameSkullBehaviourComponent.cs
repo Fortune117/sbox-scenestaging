@@ -4,7 +4,7 @@ using Sandbox;
 
 namespace DarkDescent.Actor;
 
-public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenListener, BaseComponent.ITriggerListener
+public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenListener, Component.ITriggerListener
 {
 	[Property]
 	private PhysicsComponent RigidBody { get; set; }

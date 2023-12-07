@@ -5,7 +5,7 @@ namespace DarkDescent.PostProcessing;
 [Title( "Retro Post Process" )]
 [Category( "Post Processing" )]
 [Icon( "apps" )]
-public class RetroPostProcessing : BaseComponent, BaseComponent.ExecuteInEditor
+public class RetroPostProcessing : Component, Component.ExecuteInEditor
 {
 	private static Material effectMaterial = Material.Load( "materials/postprocessing/dark_descent_retro_pp.vmat" );
 	

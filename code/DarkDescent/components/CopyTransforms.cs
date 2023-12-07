@@ -1,6 +1,6 @@
 using Sandbox;
 
-public sealed class CopyTransforms : BaseComponent
+public sealed class CopyTransforms : Component
 {
 	[Property] private GameObject Child { get; set; }
 	

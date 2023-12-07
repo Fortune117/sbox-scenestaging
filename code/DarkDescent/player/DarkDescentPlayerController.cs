@@ -6,7 +6,7 @@ using DarkDescent.Items;
 
 namespace DarkDescent;
 
-public partial class DarkDescentPlayerController : BaseComponent
+public partial class DarkDescentPlayerController : Component
 {
 	[Property, Range( 0, 300 ), ToggleGroup("Movement")] 
 	public float WalkSpeed { get; set; } = 75f;

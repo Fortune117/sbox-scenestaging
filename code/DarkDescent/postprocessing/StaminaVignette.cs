@@ -3,7 +3,7 @@ using Sandbox.Effects;
 
 namespace DarkDescent.PostProcessing;
 
-public class StaminaVignette : BaseComponent, BaseComponent.ExecuteInEditor
+public class StaminaVignette : Component, Component.ExecuteInEditor
 {
 	/// <summary>
 	/// The color of the vignette or the "border"

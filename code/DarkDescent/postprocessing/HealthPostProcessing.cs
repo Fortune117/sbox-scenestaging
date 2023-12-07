@@ -4,7 +4,7 @@ using Sandbox;
 
 namespace DarkDescent.PostProcessing;
 
-public class HealthPostProcessing : BaseComponent, BaseComponent.ExecuteInEditor, IDamageTakenListener
+public class HealthPostProcessing : Component, Component.ExecuteInEditor, IDamageTakenListener
 {
 	/// <summary>
 	/// The color of the vignette or the "border"

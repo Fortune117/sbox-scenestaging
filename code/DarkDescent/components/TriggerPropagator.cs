@@ -1,6 +1,6 @@
 namespace DarkDescent.Components;
 
-public class TriggerPropagator : BaseComponent, BaseComponent.ITriggerListener
+public class TriggerPropagator : Component, Component.ITriggerListener
 {
 	public void OnTriggerEnter( Collider other )
 	{

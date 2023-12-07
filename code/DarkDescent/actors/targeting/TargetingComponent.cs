@@ -3,7 +3,7 @@ using Sandbox;
 
 namespace DarkDescent.Actor;
 
-public class TargetingComponent : BaseComponent
+public class TargetingComponent : Component
 {
 	/// <summary>
 	/// The factions this targeting component targets.

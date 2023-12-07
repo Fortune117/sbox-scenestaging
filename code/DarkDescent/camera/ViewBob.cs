@@ -6,7 +6,7 @@ namespace DarkDescent.Cameras;
 [Title( "View Bob" )]
 [Category( "Camera" )]
 [Icon( "trending_up" )]
-public class ViewBob : BaseComponent, CameraComponent.ISceneCameraSetup
+public class ViewBob : Component, CameraComponent.ISceneCameraSetup
 {
 	[ConVar.Client]
 	public bool viewbob_enabled { get; set; } = true;

@@ -5,7 +5,7 @@ using Sandbox;
 
 namespace DarkDescent.Items;
 
-public class ApplyStatusOnDamageDealtModifier : BaseComponent, IDamageDealtListener
+public class ApplyStatusOnDamageDealtModifier : Component, IDamageDealtListener
 {
 	private IDamageInflictor Inflictor { get; set; }
 	

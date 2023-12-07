@@ -6,7 +6,7 @@ namespace DarkDescent.Actor;
 /// Anything with this component can be 'targeted' by actors with a targeting component.
 /// Essentially designates an object as existing for actor npcs to interact with.
 /// </summary>
-public class TargetComponent : BaseComponent
+public class TargetComponent : Component
 {
 	/// <summary>
 	/// The factions this target is a part of.

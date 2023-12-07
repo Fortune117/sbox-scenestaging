@@ -7,7 +7,7 @@ namespace DarkDescent.Actor;
 /// <summary>
 /// Controls how our lil actor should think, act and feel about life in general.
 /// </summary>
-public class BehaviourComponent : BaseComponent
+public class BehaviourComponent : Component
 {
 	protected static class BehaviourAnimationEvents
 	{

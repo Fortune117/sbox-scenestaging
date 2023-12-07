@@ -232,7 +232,7 @@ public partial class WeaponComponent
 			hitEvent.Damageable.TakeDamage( damageEvent );
 
 		if (hitEvent.Damageable.PlayHitSound)
-			Sound.FromWorld( ImpactSound.ResourceName, hitEvent.TraceResult.HitPosition );
+			Sound.Play( ImpactSound.ResourceName, hitEvent.TraceResult.HitPosition );
 		
 		if ( hitEvent.Damageable.CauseHitBounce )
 		{
@@ -339,8 +339,8 @@ public partial class WeaponComponent
 
 		StartAttackTrail();
 
-		var sound = Sound.FromWorld( SwingSound.ResourceName, PlayerController.AimRay.Position );
-		sound.SetPitch( PlayerController.ActorComponent.Stats.ActionSpeed.Remap( 0, 2, 0.5f, 1.5f ) );
+		var sound = Sound.Play( SwingSound.ResourceName, PlayerController.AimRay.Position );
+		sound.Pitch = PlayerController.ActorComponent.Stats.ActionSpeed.Remap( 0, 2, 0.5f, 1.5f );
 	}
 
 	private void DeactivateAttack()

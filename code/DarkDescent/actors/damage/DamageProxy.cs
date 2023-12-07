@@ -2,7 +2,7 @@ using Sandbox;
 
 namespace DarkDescent.Actor.Damage;
 
-public class DamageProxy : BaseComponent, IDamageable
+public class DamageProxy : Component, IDamageable
 {
 	[Property]
 	public ActorComponent DamageableProxy { get; set; }

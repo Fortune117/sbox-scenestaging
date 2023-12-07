@@ -54,7 +54,7 @@ public static class Helpers
 			var componentType = TypeLibrary.GetType<global::Component>( (string)jso["__type"] );
 			if ( componentType is null )
 			{
-				Log.Warning( $"TypeLibrary couldn't find BaseComponent type {jso["__type"]}" );
+				Log.Warning( $"TypeLibrary couldn't find Component type {jso["__type"]}" );
 				return;
 			}
 

@@ -3,7 +3,7 @@ using Sandbox;
 
 namespace DarkDescent.Actor;
 
-public class AutoStandComponent : BaseComponent
+public class AutoStandComponent : Component
 {
 	[Property, Range(0, 150)]
 	private float SettleSpeed { get; set; }
