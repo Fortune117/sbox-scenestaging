@@ -84,18 +84,12 @@ public sealed partial class SkinnedModelRenderer
 		return SceneModel.GetBoneWorldTransform( bone.Index );
 	}
 
-	public void SetBoneTransform( in BoneCollection.Bone bone, in Transform tx, in bool worldPosition )
+	internal void SetBoneTransform( in BoneCollection.Bone bone, Transform transform )
 	{
 		if ( !SceneModel.IsValid() ) return;
 		ArgumentNullException.ThrowIfNull( bone, nameof( bone ) );
 
-		SceneModel.SetBoneWorldTransform( bone.Index, tx );
-	}
-
-	internal void SetPhysicsBone( int v, Transform transform, float lerp )
-	{
-		if ( !SceneModel.IsValid() ) return;
-		SceneModel.SetBoneOverride( v, transform, lerp );
+		SceneModel.SetBoneOverride( bone.Index, transform );
 	}
 
 	internal void ClearPhysicsBones()
@@ -141,6 +135,6 @@ public class ModelBoneTransformProxy : TransformProxy
 
 	public override void SetWorldTransform( Transform value )
 	{
-		model.SetBoneTransform( bone, value, true );
+		model.SetBoneTransform( bone, value );
 	}
 }

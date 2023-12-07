@@ -5,7 +5,7 @@ using System.Linq;
 [Title( "Model Physics" )]
 [Category( "Physics" )]
 [Icon( "check_box_outline_blank", "red", "white" )]
-public class ModelPhysics : BaseComponent
+public class ModelPhysics : Component
 {
 	[Property] public Model Model { get; set; }
 
@@ -59,6 +59,11 @@ public class ModelPhysics : BaseComponent
 			return;
 
 		PhysicsGroup = Scene.PhysicsWorld.SetupPhysicsFromModel( Model, Transform.World, PhysicsMotionType.Dynamic );
+		
+		foreach ( var body in PhysicsGroup.Bodies )
+		{
+			body.GameObject = GameObject;
+		}
 	}
 
 	protected override void OnDisabled()
@@ -77,12 +82,19 @@ public class ModelPhysics : BaseComponent
 		if ( PhysicsGroup is null ) return;
 		if ( Renderer is null ) return;
 
-		foreach( var body in PhysicsGroup.Bodies )
+		foreach ( var body in PhysicsGroup.Bodies )
 		{
 			var bone = Renderer.Model.Bones.AllBones.FirstOrDefault( x => x.Name == body.GroupName );
 			if ( bone is null ) continue;
 
-			Renderer.SetPhysicsBone( bone.Index, body.Transform, Time.Delta * Scene.FixedUpdateFrequency );
+			var tx = body.GetLerpedTransform( Time.Now );
+
+			Renderer.SetBoneTransform( bone, tx );
+
+			if ( bone.Index == 0 )
+			{
+				Renderer.GameObject.Transform.Position = tx.Position;
+			}
 		}
 	}
 

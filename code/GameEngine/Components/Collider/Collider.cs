@@ -3,11 +3,13 @@ using Sandbox.Diagnostics;
 using System;
 using System.Collections.Generic;
 
-public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
+public abstract class Collider : Component, Component.ExecuteInEditor
 {
 	List<PhysicsShape> shapes = new();
 
 	protected PhysicsBody keyframeBody;
+	public PhysicsBody KeyframeBody => keyframeBody;
+
 	CollisionEventSystem _collisionEvents;
 
 	public IReadOnlyCollection<PhysicsShape> Shapes => shapes;

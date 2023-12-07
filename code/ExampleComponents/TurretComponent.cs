@@ -4,7 +4,7 @@ using Sandbox.Services;
 using System;
 using System.Threading;
 
-public sealed class TurretComponent : BaseComponent
+public sealed class TurretComponent : Component
 {
 	[Property] GameObject Gun { get; set; }
 	[Property] GameObject Bullet { get; set; }
@@ -77,7 +77,7 @@ public sealed class TurretComponent : BaseComponent
 			Stats.Increment( "balls_fired", 1 );
 
 			// Testing sound
-			Sound.FromWorld( "rust_smg.shoot", Transform.Position );
+			Sound.Play( "rust_smg.shoot", Transform.Position );
 			timeSincePrimary = 0;
 		}
 

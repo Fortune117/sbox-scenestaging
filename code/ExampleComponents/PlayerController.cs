@@ -2,7 +2,7 @@ using Sandbox;
 using System.Drawing;
 using System.Runtime;
 
-public class PlayerController : BaseComponent, INetworkSerializable
+public class PlayerController : Component, INetworkSerializable
 {
 	[Property] public Vector3 Gravity { get; set; } = new Vector3( 0, 0, 800 );
 
@@ -11,6 +11,7 @@ public class PlayerController : BaseComponent, INetworkSerializable
 	[Property] public GameObject Body { get; set; }
 	[Property] public GameObject Eye { get; set; }
 	[Property] public CitizenAnimation AnimationHelper { get; set; }
+	[Property] public bool FirstPerson { get; set; }
 
 	public Angles EyeAngles;
 	public Vector3 EyePosition => Eye.Transform.Position;
@@ -45,8 +46,19 @@ public class PlayerController : BaseComponent, INetworkSerializable
 			var cam = Scene.GetAllComponents<CameraComponent>().FirstOrDefault();
 
 			var lookDir = EyeAngles.ToRotation();
-			cam.Transform.Position = Transform.Position + lookDir.Backward * 300 + Vector3.Up * 75.0f;
-			cam.Transform.Rotation = lookDir;
+
+			if ( FirstPerson )
+			{
+				cam.Transform.Position = Eye.Transform.Position;
+				cam.Transform.Rotation = lookDir;
+			}
+			else
+			{
+				cam.Transform.Position = Transform.Position + lookDir.Backward * 300 + Vector3.Up * 75.0f;
+				cam.Transform.Rotation = lookDir;
+			}
+
+
 
 			IsRunning = Input.Down( "Run" );
 		}

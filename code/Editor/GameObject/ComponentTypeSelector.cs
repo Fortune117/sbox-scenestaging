@@ -72,6 +72,8 @@ internal partial class ComponentTypeSelector : PopupWidget
 		}
 
 		AnimateSelection( true, Panels[CurrentPanelId - 1], selection );
+
+		selection.Focus();
 	}
 
 	/// <summary>
@@ -86,6 +88,8 @@ internal partial class ComponentTypeSelector : PopupWidget
 		CurrentPanelId--;
 
 		AnimateSelection( false, currentIdx, Panels[CurrentPanelId] );
+
+		Panels[CurrentPanelId].Focus();
 	}
 
 	/// <summary>
@@ -206,7 +210,7 @@ internal partial class ComponentTypeSelector : PopupWidget
 	async Task CreateNewComponent( TypeDescription desc, string componentName )
 	{
 		var template = TypeLibrary.Create<ComponentTemplate>( desc.Name );
-		var codePath = LocalProject.CurrentGame.GetCodePath();
+		var codePath = Project.CurrentGame.GetCodePath();
 		var fd = new FileDialog( Parent );
 		fd.Title = "Create new component..";
 		fd.Directory = codePath;
@@ -236,7 +240,7 @@ internal partial class ComponentTypeSelector : PopupWidget
 		// we just wrote a file, lets wait until its compiled and loaded
 		await EditorUtility.Projects.WaitForCompiles();
 
-		var componentType = EditorTypeLibrary.GetType<BaseComponent>( componentName );
+		var componentType = EditorTypeLibrary.GetType<Component>( componentName );
 		if ( componentType is null )
 		{
 			Log.Warning( $"Couldn't find target component type {componentName}" );
@@ -244,7 +248,7 @@ internal partial class ComponentTypeSelector : PopupWidget
 			componentType = EditorTypeLibrary.GetType( componentName );
 			Log.Warning( $"Couldn't find target component type {componentType}" );
 
-			foreach ( var t in EditorTypeLibrary.GetTypes<BaseComponent>() )
+			foreach ( var t in EditorTypeLibrary.GetTypes<Component>() )
 			{
 				Log.Info( $"{t}" );
 			}
@@ -265,6 +269,7 @@ internal partial class ComponentTypeSelector : PopupWidget
 			if ( selection.ItemList.FirstOrDefault() != null )
 			{
 				selection.Focus();
+				selection.PostKeyEvent( KeyCode.Down );
 				e.Accepted = true;
 			}
 		}
@@ -281,7 +286,7 @@ internal partial class ComponentTypeSelector : PopupWidget
 		selection.ItemList.Add( selection.CategoryHeader );
 
 		// entity components
-		var types = EditorTypeLibrary.GetTypes<BaseComponent>().Where( x => !x.IsAbstract );
+		var types = EditorTypeLibrary.GetTypes<Component>().Where( x => !x.IsAbstract );
 
 		if ( !string.IsNullOrWhiteSpace( searchString ) )
 		{
@@ -361,6 +366,7 @@ internal partial class ComponentTypeSelector : PopupWidget
 
 			Scroller = new ScrollArea( this );
 			Scroller.Layout = Layout.Column();
+			Scroller.FocusMode = FocusMode.None;
 			Layout.Add( Scroller, 1 );
 
 			Scroller.Canvas = new Widget( Scroller );
@@ -375,6 +381,11 @@ internal partial class ComponentTypeSelector : PopupWidget
 				selection.CurrentItem = selection.ItemList[++selection.CurrentItemId];
 				selection.Update();
 
+				if ( selection.CurrentItem != null )
+				{
+					Scroller.MakeVisible( selection.CurrentItem );
+				}
+
 				return true;
 			}
 			else if ( delta == -1 )
@@ -383,6 +394,11 @@ internal partial class ComponentTypeSelector : PopupWidget
 				{
 					selection.CurrentItem = selection.ItemList[--selection.CurrentItemId];
 					selection.Update();
+
+					if ( selection.CurrentItem != null )
+					{
+						Scroller.MakeVisible( selection.CurrentItem );
+					}
 
 					return true;
 				}
@@ -413,16 +429,18 @@ internal partial class ComponentTypeSelector : PopupWidget
 		protected override void OnKeyRelease( KeyEvent e )
 		{
 			// Move down
-			if ( e.Key == KeyCode.Down && SelectMoveRow( 1 ) )
+			if ( e.Key == KeyCode.Down )
 			{
 				e.Accepted = true;
+				SelectMoveRow( 1 );
 				return;
 			}
 
 			// Move up 
-			if ( e.Key == KeyCode.Up && SelectMoveRow( -1 ) )
+			if ( e.Key == KeyCode.Up )
 			{
 				e.Accepted = true;
+				SelectMoveRow( -1 );
 				return;
 			}
 
