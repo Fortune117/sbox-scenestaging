@@ -31,8 +31,10 @@ public class ThrowableWeaponComponent : ThrowableComponent
 	{
 		base.OnUpdate();
 
-		if ( ItemComponent.PhysicsComponent.GetBody() is null )
-			return;
+		return;
+		
+		/*if ( ItemComponent.PhysicsComponent.GetBody() is null )
+			return;*/
 		
 		ItemComponent.PhysicsComponent.Velocity -= Vector3.Down * Scene.PhysicsWorld.Gravity * GravityMultiplier * Time.Delta;
 	}

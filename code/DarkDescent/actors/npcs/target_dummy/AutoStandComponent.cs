@@ -13,7 +13,7 @@ public class AutoStandComponent : Component
 
 	protected override void OnFixedUpdate()
 	{
-		if ( !GameObject.Components.TryGet<PhysicsComponent>( out var physicsComponent ) )
+		if ( !GameObject.Components.TryGet<Collider>( out var physicsComponent ) )
 			return;
 		
 		if ( !IsOnGround() )
@@ -24,8 +24,8 @@ public class AutoStandComponent : Component
 
 		if ( TimeSinceBeenOnGround < 0.1f )
 			return;
-		
-		var body = physicsComponent.GetBody();
+
+		var body = physicsComponent.KeyframeBody;
 		
 		body.AngularDamping = 15f;
 ;
@@ -41,7 +41,7 @@ public class AutoStandComponent : Component
 
 	private bool IsOnGround()
 	{
-		var tr = Physics.Trace.Ray( Transform.Position, Transform.Position + Vector3.Down * 23f )
+		var tr = Scene.Trace.Ray( Transform.Position, Transform.Position + Vector3.Down * 23f )
 			.WithoutTags( "dummy" )
 			.Run();
 		

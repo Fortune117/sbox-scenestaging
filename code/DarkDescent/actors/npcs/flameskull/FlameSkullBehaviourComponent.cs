@@ -35,7 +35,7 @@ public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenList
 		TimeUntilWakeUp = 1.5f;
 
 		RigidBody.Gravity = true;
-		FlameParticles.SceneObject.EmissionStopped = true;
+		//FlameParticles.SceneObject.EmissionStopped = true;
 		//FlameParticles.Enabled = false;
 	}
 
@@ -44,7 +44,7 @@ public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenList
 		KnockedOut = false;
 
 		RigidBody.Gravity = false;
-		FlameParticles.SceneObject.EmissionStopped = false;
+		//FlameParticles.SceneObject.EmissionStopped = false;
 		//FlameParticles.Enabled = true;
 	}
 
@@ -58,7 +58,7 @@ public class FlameSkullBehaviourComponent : BehaviourComponent, IDamageTakenList
 		if ( KnockedOut )
 			return;
 
-		var tr = Physics.Trace.Ray( Transform.Position, Transform.Position + Vector3.Down * HoverDistance )
+		var tr = Scene.Trace.Ray( Transform.Position, Transform.Position + Vector3.Down * HoverDistance )
 			.WithoutTags( "actor", "trigger", "player" )
 			.Run();
 

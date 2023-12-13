@@ -50,9 +50,9 @@ public partial class DarkDescentPlayerController
 		}
 	}
 
-	private PhysicsTraceResult GetInteractionTrace()
+	private SceneTraceResult GetInteractionTrace()
 	{
-		var tr = Physics.Trace.Ray( AimRay, InteractRange )
+		var tr = Scene.Trace.Ray( AimRay, InteractRange )
 			.WithoutTags( "trigger", "player" )
 			.Radius( 3 )
 			.Run();
@@ -60,7 +60,7 @@ public partial class DarkDescentPlayerController
 		return tr;
 	}
 
-	private IInteractable FindInteractable(PhysicsTraceResult tr)
+	private IInteractable FindInteractable(SceneTraceResult tr)
 	{
 		if ( tr.Body?.GameObject is not GameObject gameObject )
 			return null;

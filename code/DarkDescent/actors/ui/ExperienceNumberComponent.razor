@@ -26,7 +26,7 @@
 	
 	public static GameObject Create( float experience, DamageEventData damageEventData )
 	{
-		var gameObject = SceneUtility.SpawnPrefabFromPath("data/experience_number.object", damageEventData.Position, Rotation.Identity);
+		var gameObject = SceneUtility.Instantiate(SceneUtility.GetPrefabScene(ResourceLibrary.Get<PrefabFile>("data/experience_number.object")), damageEventData.Position, Rotation.Identity);
 
 		if (gameObject.Components.TryGet<ExperienceNumberComponent>(out var experienceNumberComponent))
 		{

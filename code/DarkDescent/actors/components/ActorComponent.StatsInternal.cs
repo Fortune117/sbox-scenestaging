@@ -6,8 +6,6 @@ namespace DarkDescent.Actor;
 
 public partial class ActorComponent
 {
-	[ConVar.Replicated] public static bool dd_debug_stats { get; set; } = false; 
-	
 	/// <summary>
 	/// We only want to network the computed stats of the actor, that way we dont have to do anything
 	/// fancy or complicated on the client, and the stats only have to be calculated once.
@@ -313,89 +311,6 @@ public partial class ActorComponent
 	}
 	
 	private void UpdateStats()
-	{
-		if ( dd_debug_stats )
-		{
-			var offset = 5;
-			
-			DebugOverlay.ScreenText( "------------CORE------------", offset++ );
-			
-			offset++;
-			
-			DebugOverlay.ScreenText( $"Strength: {Stats.Strength}", offset++ );
-			DebugOverlay.ScreenText( $"Dexterity: {Stats.Dexterity}", offset++ );
-			DebugOverlay.ScreenText( $"Constitution: {Stats.Constitution}", offset++ );
-			DebugOverlay.ScreenText( $"Wisdom: {Stats.Wisdom}", offset++ );
-			DebugOverlay.ScreenText( $"Intelligence: {Stats.Intelligence}", offset++ );
-			DebugOverlay.ScreenText( $"Charisma: {Stats.Charisma}", offset++ );
-			
-			offset++;
-			
-			
-			DebugOverlay.ScreenText( $"Max Health: {Stats.MaxHealth}", offset++ );
-			DebugOverlay.ScreenText( $"Health Regen: {Stats.HealthRegen:#0.0}", offset++ );
-			DebugOverlay.ScreenText( $"Health Regen Delay: {Stats.HealthRegenDelay:#0.0}", offset++ );
-			DebugOverlay.ScreenText( $"Heal Multiplier: {Stats.HealMultiplier:#0.0}", offset++ );
-
-			offset++;
-			
-			DebugOverlay.ScreenText( $"Max Stamina: {Stats.MaxStamina}", offset++ );
-			DebugOverlay.ScreenText( $"Stamina Regen: {Stats.StaminaRegen:#0.0}", offset++ );
-			DebugOverlay.ScreenText( $"Stamina Regen Delay: {Stats.StaminaRegenDelay:#0.0}", offset++ );
-			DebugOverlay.ScreenText( $"Stamina Cost Multiplier: {Stats.StaminaCostMultiplier:#0.0}", offset++ );
-
-			offset++;
-			
-			DebugOverlay.ScreenText( $"Action Speed: {Stats.ActionSpeed:#0.00}", offset++ );
-			DebugOverlay.ScreenText( $"Spell Casting Speed: {Stats.SpellCastingSpeed:#0.00}", offset++ );
-			DebugOverlay.ScreenText( $"Move Speed Multiplier: {Stats.MoveSpeedMultiplier:#0.00}", offset++ );
-			DebugOverlay.ScreenText( $"Jump Height Multiplier: {Stats.JumpHeightMultiplier:#0.00}", offset++ );
-			
-			offset++;
-			
-			DebugOverlay.ScreenText( "------------COMBAT------------", offset++ );
-			
-			offset++;
-			
-			DebugOverlay.ScreenText( $"Physical Power: {Stats.PhysicalPower:#0.0}", offset++ );
-			DebugOverlay.ScreenText( $"Spell Power: {Stats.SpellPower:#0.0}", offset++ );
-			DebugOverlay.ScreenText( $"Critical Multiplier: {Stats.CriticalMultiplier:#0.0}", offset++ );
-			DebugOverlay.ScreenText( $"Knock Back: {Stats.KnockBack:#0.0}", offset++ );
-			
-			offset++;
-			
-			DebugOverlay.ScreenText( "------------DEFENSE------------", offset++ );
-			
-			offset++;
-			
-			DebugOverlay.ScreenText( $"Armor: {Stats.Armor}", offset++ );
-			DebugOverlay.ScreenText( $"Warding: {Stats.Warding}", offset++ );
-			DebugOverlay.ScreenText( $"Critical Negation: {Stats.Warding}", offset++ );
-			DebugOverlay.ScreenText( $"Knock Back Resistance: {Stats.KnockBackResistance:#0.0}", offset++ );
-			
-			offset++;
-			
-			DebugOverlay.ScreenText( $"Fire Resistance: {Stats.FireResistance}", offset++ );
-			DebugOverlay.ScreenText( $"Frost Resistance: {Stats.FrostResistance}", offset++ );
-			DebugOverlay.ScreenText( $"Electric Resistance: {Stats.ElectricResistance}", offset++ );
-			DebugOverlay.ScreenText( $"Poison Resistance: {Stats.PoisonResistance}", offset++ );
-			DebugOverlay.ScreenText( $"Necrotic Resistance: {Stats.NecroticResistance}", offset++ );
-			
-			offset++;
-			
-			DebugOverlay.ScreenText( $"Arcane Resistance: {Stats.ArcaneResistance}", offset++ );
-			DebugOverlay.ScreenText( $"Divine Resistance: {Stats.DivineResistance}", offset++ );
-			DebugOverlay.ScreenText( $"Occult Resistance: {Stats.OccultResistance}", offset++ );
-			
-			offset++;
-			
-			DebugOverlay.ScreenText( $"Carry Weight: {Stats.CarryWeight:#0.0}", offset++ );
-		}
-
-		TickStats();
-	}
-
-	private void TickStats()
 	{
 		if (TimeSinceTookDamage > Stats.HealthRegenDelay && Stats.HealthRegen > 0)
 			Heal( Stats.HealthRegen * Time.Delta );

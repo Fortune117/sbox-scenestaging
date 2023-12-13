@@ -74,7 +74,7 @@ public partial class PhysicsInteractableComponent : IInteractable
 		OnPrePhysicsStep();
 	}
 
-	void IInteractable.Interact( DarkDescentPlayerController playerController, PhysicsTraceResult tr )
+	void IInteractable.Interact( DarkDescentPlayerController playerController, SceneTraceResult tr )
 	{
 		var passedStrengthTest = CanCarry( playerController.ActorComponent );
 				
@@ -230,7 +230,7 @@ public partial class PhysicsInteractableComponent : IInteractable
 		HeldBody.Velocity = velocity;
 
 		var angularVelocity = HeldBody.AngularVelocity;
-		GameObject.Transform.Rotation.SmoothDamp( HeldBody.Rotation, HoldRot, ref angularVelocity, smoothTime, Time.Delta );
+		GameObject.Transform.Rotation = Rotation.SmoothDamp( HeldBody.Rotation, HoldRot, ref angularVelocity, smoothTime, Time.Delta );
 		HeldBody.AngularVelocity = angularVelocity;
 
 		if ( HoldPos.Distance( HeldBody.Position ) > 60f )

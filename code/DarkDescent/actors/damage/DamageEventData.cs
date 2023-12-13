@@ -202,11 +202,11 @@ public struct DamageEventData
 		var dir = -Direction.Normal;
 		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
 		
-		var particle = QuickParticle.Create( surface.ImpactEffects.Regular.FirstOrDefault(), Position );
+		/*var particle = QuickParticle.Create( surface.ImpactEffects.Regular.FirstOrDefault(), Position );
 		particle.Set( "Normal", dir );
 		particle.Set("RingPitch", angles.pitch  );
 		particle.Set("RingYaw", angles.yaw  );
-		particle.Set("RingRoll", angles.roll  );
+		particle.Set("RingRoll", angles.roll  );*/
 	}
 	
 	public void CreateScrapeEffect()
@@ -223,10 +223,10 @@ public struct DamageEventData
 		var dir = -Direction.Normal;
 		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
 		
-		var particle = QuickParticle.Create( surface.ImpactEffects.Regular.FirstOrDefault(), Position );
+		/*var particle = QuickParticle.Create( surface.ImpactEffects.Regular.FirstOrDefault(), Position );
 		particle.Set( "Normal", dir );
 		particle.Set("RingPitch", angles.pitch  );
 		particle.Set("RingYaw", angles.yaw  );
-		particle.Set("RingRoll", angles.roll  );
+		particle.Set("RingRoll", angles.roll  );*/
 	}
 }

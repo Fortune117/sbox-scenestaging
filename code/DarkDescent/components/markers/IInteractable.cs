@@ -21,6 +21,6 @@ public interface IInteractable
 
 	public bool CanInteract(DarkDescentPlayerController playerController);
 	
-	public void Interact(DarkDescentPlayerController playerController, PhysicsTraceResult tr );
+	public void Interact(DarkDescentPlayerController playerController, SceneTraceResult tr );
 }
 

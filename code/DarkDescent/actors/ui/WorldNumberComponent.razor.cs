@@ -16,7 +16,7 @@ public partial class WorldNumberComponent
 		var angles = Rotation.LookAt( -Camera.Main.Rotation.Forward ).Angles();
 		Transform.Rotation = angles.WithPitch( 0 ).ToRotation();
 
-		var tr = Physics.Trace.Ray( Transform.Position, Transform.Position + Velocity * Time.Delta * 50f )
+		var tr = Scene.Trace.Ray( Transform.Position, Transform.Position + Velocity * Time.Delta * 50f )
 			.Radius( 2f )
 			.Run();
 

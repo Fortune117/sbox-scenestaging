@@ -89,7 +89,7 @@ public partial class ActorComponent
 
 		modelPhysics.GameObject.Tags.Add( "corpse" );
 		modelPhysics.Enabled = true;
-		modelPhysics.SetBonesToRenderer();
+		//modelPhysics.SetBonesToRenderer();
 	}
 
 	public void Revive()

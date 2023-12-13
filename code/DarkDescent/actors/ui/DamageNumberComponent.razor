@@ -16,7 +16,7 @@
 
 	public static GameObject Create( DamageEventData damageEventData )
 	{
-		var gameObject = SceneUtility.SpawnPrefabFromPath("data/damage_number.object", damageEventData.Position, Rotation.Identity);
+		var gameObject = SceneUtility.Instantiate(SceneUtility.GetPrefabScene(ResourceLibrary.Get<PrefabFile>("data/damage_number.prefab")), damageEventData.Position, Rotation.Identity);
 
 		if (gameObject.Components.TryGet<DamageNumberComponent>(out var damageNumberComponent))
 		{

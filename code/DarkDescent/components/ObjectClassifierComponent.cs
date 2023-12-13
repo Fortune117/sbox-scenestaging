@@ -6,7 +6,6 @@ namespace DarkDescent.Components;
 /// The point of this component is to 'classify' things about an object in a way that is human readable.
 /// For instance, when talking about an object in the event log, this can give us the much needed context for it.
 /// </summary>
-[Prefab]
 public partial class ObjectClassifierComponent : Component
 {
 	/// <summary>

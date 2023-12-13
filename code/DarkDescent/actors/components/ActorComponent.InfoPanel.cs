@@ -55,7 +55,7 @@ public partial class ActorComponent
 		var angles = Rotation.LookAt( -Camera.Rotation.Forward ).Angles();
 		InfoPanel.Transform.Rotation = angles.WithPitch( 0 ).ToRotation();
 		
-		var tr = Physics.Trace.Ray( Transform.Position + Vector3.Up * 30f, Transform.Position + Vector3.Up * height )
+		var tr = Scene.Trace.Ray( Transform.Position + Vector3.Up * 30f, Transform.Position + Vector3.Up * height )
 			.WithTag( "solid" )
 			.Radius( 3f )
 			.Run();

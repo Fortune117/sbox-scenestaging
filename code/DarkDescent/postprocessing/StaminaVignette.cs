@@ -1,6 +1,4 @@
-﻿using Sandbox;
-using Sandbox.Effects;
-
+﻿
 namespace DarkDescent.PostProcessing;
 
 public class StaminaVignette : Component, Component.ExecuteInEditor

@@ -95,20 +95,20 @@ public partial class WeaponComponent : ItemComponent, IDamageInflictor
 
 	public void PlayScrapeEffect(SceneTraceResult traceResult)
 	{
-		ScrapeParticles.Transform.Position = traceResult.EndPosition;
+		/*ScrapeParticles.Transform.Position = traceResult.EndPosition;
 		ScrapeParticles.Set( "Normal", traceResult.Normal );
 		ScrapeParticles.EmissionStopped = false;
 		
 		if (ScrapeParticles.SceneObject is null)
-			ScrapeParticles.PlayEffect();
+			ScrapeParticles.PlayEffect();*/
 	}
 
 	public void StopScrapeEffect()
 	{
-		ScrapeParticles.EmissionStopped = true; 
+		//ScrapeParticles.EmissionStopped = true; 
 	}
 
-	public override void Interact( DarkDescentPlayerController playerController, PhysicsTraceResult tr )
+	public override void Interact( DarkDescentPlayerController playerController, SceneTraceResult tr )
 	{
 		playerController.EquipItem( this ); 
 	}

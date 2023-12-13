@@ -12,7 +12,7 @@ public class AttackBlockerComponent : Component
 	private ColliderBoxComponent Collider { get; set; }
 	
 	[Property]
-	private ParticleSystem ParticleSystem { get; set; }
+	private LegacyParticleSystem ParticleSystem { get; set; }
 	
 	[Property]
 	private WeaponComponent ItemComponent { get; set; }
@@ -75,7 +75,7 @@ public class AttackBlockerComponent : Component
 		var dir = -damageEvent.Direction;
 		var angles = (Rotation.LookAt( dir ) * Rotation.FromPitch( 90 )).Angles();
 		
-		if (!ParticleSystem.Enabled)
+		/*if (!ParticleSystem.Enabled)
 			ParticleSystem.Enabled = true;
 		else 
 			ParticleSystem.PlayEffect();
@@ -83,7 +83,7 @@ public class AttackBlockerComponent : Component
 		ParticleSystem.Set( "Normal", dir );
 		ParticleSystem.Set("RingPitch", angles.pitch  );
 		ParticleSystem.Set("RingYaw", angles.yaw  );
-		ParticleSystem.Set("RingRoll", angles.roll  );
+		ParticleSystem.Set("RingRoll", angles.roll  );*/
 
 		Sound.Play( isParry ? ItemComponent.BlockResource.ParrySound.ResourceName : ItemComponent.BlockResource.BlockSound.ResourceName, ParticleSystem.Transform.Position );
 

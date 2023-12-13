@@ -7,11 +7,11 @@ public class SwordTrail : Component, Component.ExecuteInEditor
 	[Property]
 	private GameObject Normal { get; set; }
 	
-	public ParticleSystem ParticleSystem { get; set; }
+	public LegacyParticleSystem ParticleSystem { get; set; }
 	
 	protected override void OnEnabled()
 	{
-		ParticleSystem = Components.Get<ParticleSystem>();
+		ParticleSystem = Components.Get<LegacyParticleSystem>();
 	}
 
 	protected override void OnDisabled()
@@ -21,7 +21,7 @@ public class SwordTrail : Component, Component.ExecuteInEditor
 
 	protected override void OnStart()
 	{
-		ParticleSystem = Components.Get<ParticleSystem>();
+		ParticleSystem = Components.Get<LegacyParticleSystem>();
 	}
 
 	protected override void OnUpdate()
@@ -29,17 +29,17 @@ public class SwordTrail : Component, Component.ExecuteInEditor
 		if ( Normal is null )
 			return;
 		
-		ParticleSystem.Set( "Normal", Normal.Transform.Rotation.Forward );
+		//ParticleSystem.Set( "Normal", Normal.Transform.Rotation.Forward );
 	}
 
 	public void StartTrail()
 	{
-		ParticleSystem.EmissionStopped = false;
-		ParticleSystem.PlayEffect();
+		//ParticleSystem.EmissionStopped = false;
+		//ParticleSystem.PlayEffect();
 	}
 
 	public void StopTrail()
 	{
-		ParticleSystem.EmissionStopped = true;
+		//ParticleSystem.EmissionStopped = true;s
 	}
 }

@@ -28,10 +28,10 @@ public partial class ActorComponent : IDamageable
 		//apply our resistances as we take damage
 		ApplyResistances( ref damageEventData );
 
-		var physics = Components.GetInDescendantsOrSelf<PhysicsComponent>( true );
-		if ( physics is not null && physics.GetBody() is not null )
+		var physics = Components.GetInDescendantsOrSelf<Collider>( true );
+		if ( physics is not null && physics.KeyframeBody is not null )
 		{
-			ApplyKnockBack( physics.GetBody(), damageEventData );
+			ApplyKnockBack( physics.KeyframeBody, damageEventData );
 		}
 		
 		damageEventData.CreateDamageEffects();
@@ -68,7 +68,7 @@ public partial class ActorComponent : IDamageable
 		
 		OnDeath(damageEventData);
 		
-		var modelPhysics = Components.GetInDescendantsOrSelf<ModelPhysics>( true );
+		/*var modelPhysics = Components.GetInDescendantsOrSelf<ModelPhysics>( true );
 		if ( modelPhysics is not null && modelPhysics.PhysicsGroup is not null )
 		{			
 			PhysicsBody closestBody = null;
@@ -85,7 +85,7 @@ public partial class ActorComponent : IDamageable
 			
 			if (closestBody is not null)
 				ApplyKnockBack( closestBody, damageEventData, 1f ); 
-		}
+		}*/
 	}
 
 	private void ApplyKnockBack(PhysicsBody body, DamageEventData damageEventData, float multiplier = 1f)

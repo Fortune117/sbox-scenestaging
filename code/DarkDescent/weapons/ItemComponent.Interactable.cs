@@ -16,7 +16,7 @@ public partial class ItemComponent : IInteractable
 		return Interactable;
 	}
 
-	public virtual void Interact( DarkDescentPlayerController playerController, PhysicsTraceResult tr )
+	public virtual void Interact( DarkDescentPlayerController playerController, SceneTraceResult tr )
 	{
 		
 	}

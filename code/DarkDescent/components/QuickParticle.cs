@@ -2,7 +2,7 @@ using Sandbox;
 
 namespace DarkDescent.Components;
 
-public class QuickParticle : ParticleSystem
+public class QuickParticle : LegacyParticleSystem
 {
 	public static QuickParticle Create(string effect, Vector3 position)
 	{
